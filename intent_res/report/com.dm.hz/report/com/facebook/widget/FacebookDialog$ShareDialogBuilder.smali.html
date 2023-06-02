@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> FacebookDialog$ShareDialogBuilder.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+.super Lcom/facebook/widget/FacebookDialog$Builder;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/widget/FacebookDialog;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x9
+name = "ShareDialogBuilder"
+.end annotation
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/FacebookDialog$Builder",
+"<",
+"Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;",
+">;"
+}
+.end annotation
+
+.field private f:Ljava/lang/String;
+.field private g:Ljava/lang/String;
+.field private h:Ljava/lang/String;
+.field private i:Ljava/lang/String;
+.field private j:Ljava/lang/String;
+.field private k:Ljava/lang/String;
+.field private l:Ljava/util/ArrayList;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/ArrayList",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field private m:Ljava/lang/String;
+.field private n:Z
+
+
+.method public constructor <init>(Landroid/app/Activity;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/FacebookDialog$Builder;-><init>(Landroid/app/Activity;)V</span>
+.end method
+
+.method  a(Landroid/os/Bundle;)Landroid/content/Intent;
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "com.facebook.platform.extra.APPLICATION_ID"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.APPLICATION_NAME"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->e:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.TITLE"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->f:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.SUBTITLE"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->g:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.DESCRIPTION"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->h:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.LINK"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->i:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.IMAGE"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->j:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.PLACE"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->k:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.TITLE"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->f:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.REF"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->m:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.DATA_FAILURES_FATAL"</span>
+<span class="">	iget-boolean v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->n:Z</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->l:Ljava/util/ArrayList;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->a(Ljava/util/Collection;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "com.facebook.platform.extra.FRIENDS"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->l:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a:Landroid/app/Activity;</span>
+<span class="">	const v1, 0x1332b3a</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/facebook/widget/FacebookDialog;->a(Landroid/content/Context;Ljava/lang/Integer;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a:Landroid/app/Activity;</span>
+<span class="">	const-string v2, "com.facebook.platform.action.request.FEED_DIALOG"</span>
+<span class="">	invoke-static {v1, v2, v0, p1}, Lcom/facebook/internal/NativeProtocol;->a(Landroid/content/Context;Ljava/lang/String;ILandroid/os/Bundle;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public bridge synthetic a(I)Lcom/facebook/widget/FacebookDialog$Builder;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/facebook/widget/FacebookDialog$Builder;->a(I)Lcom/facebook/widget/FacebookDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public bridge synthetic a(Landroid/support/v4/app/Fragment;)Lcom/facebook/widget/FacebookDialog$Builder;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/facebook/widget/FacebookDialog$Builder;->a(Landroid/support/v4/app/Fragment;)Lcom/facebook/widget/FacebookDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public bridge synthetic a(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$Builder;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/facebook/widget/FacebookDialog$Builder;->a(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/util/List;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->l:Ljava/util/ArrayList;</span>
+.end method
+
+.method public a(Z)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->n:Z</span>
+.end method
+
+.method public bridge synthetic a()Lcom/facebook/widget/FacebookDialog;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0}, Lcom/facebook/widget/FacebookDialog$Builder;->a()Lcom/facebook/widget/FacebookDialog;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public b(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->f:Ljava/lang/String;</span>
+.end method
+
+.method public bridge synthetic b()Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0}, Lcom/facebook/widget/FacebookDialog$Builder;->b()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public c(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->g:Ljava/lang/String;</span>
+.end method
+
+.method  c()Z
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->a:Landroid/app/Activity;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	new-array v1, v1, [Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	sget-object v3, Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;->a:Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;</span>
+<span class="">	aput-object v3, v1, v2</span>
+<span class="">	invoke-static {v0, v1}, Lcom/facebook/widget/FacebookDialog;->a(Landroid/content/Context;[Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public d(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->h:Ljava/lang/String;</span>
+.end method
+
+.method public e(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->i:Ljava/lang/String;</span>
+.end method
+
+.method public f(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->j:Ljava/lang/String;</span>
+.end method
+
+.method public g(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->k:Ljava/lang/String;</span>
+.end method
+
+.method public h(Ljava/lang/String;)Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;->m:Ljava/lang/String;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

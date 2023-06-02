@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.a.b</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/a/b/b;
+.super Ljava/lang/Object;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/a/b/b$a;,
+Lcom/tencent/a/b/b$b;
+}
+.end annotation
+
+.field private static b:Lcom/tencent/a/b/b;
+.field public a:Ljava/lang/String;
+.field private c:D
+.field private d:D
+.field private e:D
+.field private f:D
+.field private g:D
+.field private h:D
+.field private i:Lcom/tencent/a/b/b$a;
+.field private j:Lcom/tencent/a/b/b$b;
+.field private k:Z
+
+
+.method public constructor <init>()V
+<span class="">	.locals 2</span>
+
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/b;->c:D</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/b;->d:D</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/b;->e:D</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/b;->f:D</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/b;->g:D</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/b;->h:D</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/b;->j:Lcom/tencent/a/b/b$b;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/a/b/b;->k:Z</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/b;->a:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/a/b/b;)Lcom/tencent/a/b/b$a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+.end method
+
+.method public static a()Lcom/tencent/a/b/b;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/a/b/b;->b:Lcom/tencent/a/b/b;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/tencent/a/b/b;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/a/b/b;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/tencent/a/b/b;->b:Lcom/tencent/a/b/b;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/b;->b:Lcom/tencent/a/b/b;</span>
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/String;[B)Lcom/tencent/a/b/n;
+<span class="">	.locals 7</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/tencent/a/b/o;,</span>
+<span class="">	Lcom/tencent/a/b/r;,</span>
+<span class="">	Ljava/lang/Exception;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {}, Lcom/tencent/a/b/l;->b()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	new-instance v0, Lcom/tencent/a/b/o;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/a/b/o;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static/range {v0 .. v6}, Lcom/tencent/a/b/q;->a(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;[BZZ)Lcom/tencent/a/b/n;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/a/b/b;[BLjava/lang/String;)V
+<span class="">	.locals 9</span>
+
+<span class="">	const-wide v7, 0x4076800000000000L    # 360.0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuffer;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Ljava/lang/String;</span>
+<span class="">	invoke-direct {v1, p1, p2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Lorg/json/JSONObject;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "location"</span>
+<span class="">	invoke-virtual {v1, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "latitude"</span>
+<span class="">	invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getDouble(Ljava/lang/String;)D</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	const-string v3, "longitude"</span>
+<span class="">	invoke-virtual {v0, v3}, Lorg/json/JSONObject;->getDouble(Ljava/lang/String;)D</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	iget-wide v5, p0, Lcom/tencent/a/b/b;->e:D</span>
+<span class="">	sub-double v5, v1, v5</span>
+<span class="">	iput-wide v5, p0, Lcom/tencent/a/b/b;->g:D</span>
+<span class="">	iget-wide v5, p0, Lcom/tencent/a/b/b;->f:D</span>
+<span class="">	sub-double v5, v3, v5</span>
+<span class="">	iput-wide v5, p0, Lcom/tencent/a/b/b;->h:D</span>
+<span class="">	iget-wide v5, p0, Lcom/tencent/a/b/b;->e:D</span>
+<span class="">	iput-wide v5, p0, Lcom/tencent/a/b/b;->c:D</span>
+<span class="">	iget-wide v5, p0, Lcom/tencent/a/b/b;->f:D</span>
+<span class="">	iput-wide v5, p0, Lcom/tencent/a/b/b;->d:D</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	invoke-interface {v0, v1, v2, v3, v4}, Lcom/tencent/a/b/b$a;->a(DD)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	invoke-interface {v1, v7, v8, v7, v8}, Lcom/tencent/a/b/b$a;->a(DD)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	invoke-interface {v0, v7, v8, v7, v8}, Lcom/tencent/a/b/b$a;->a(DD)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/a/b/b;Z)Z
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/tencent/a/b/b;->k:Z</span>
+.end method
+
+.method public static a(Ljava/lang/String;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public final a(DDLcom/tencent/a/b/b$a;)V
+<span class="">	.locals 9</span>
+
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	iput-object p5, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	iget-wide v0, p0, Lcom/tencent/a/b/b;->g:D</span>
+<span class="">	cmpl-double v0, v0, v2</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-wide v0, p0, Lcom/tencent/a/b/b;->h:D</span>
+<span class="">	cmpl-double v0, v0, v2</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/16 v0, 0xa</span>
+<span class="">	new-array v8, v0, [F</span>
+<span class="">	iget-wide v4, p0, Lcom/tencent/a/b/b;->c:D</span>
+<span class="">	iget-wide v6, p0, Lcom/tencent/a/b/b;->d:D</span>
+<span class="">	move-wide v0, p1</span>
+<span class="">	move-wide v2, p3</span>
+<span class="">	invoke-static/range {v0 .. v8}, Landroid/location/Location;->distanceBetween(DDDD[F)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	aget v0, v8, v0</span>
+<span class="">	const v1, 0x44bb8000    # 1500.0f</span>
+<span class="">	cmpg-float v0, v0, v1</span>
+<span class="">	if-gez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/b;->i:Lcom/tencent/a/b/b$a;</span>
+<span class="">	iget-wide v1, p0, Lcom/tencent/a/b/b;->g:D</span>
+<span class="">	add-double/2addr v1, p1</span>
+<span class="">	iget-wide v3, p0, Lcom/tencent/a/b/b;->h:D</span>
+<span class="">	add-double/2addr v3, p3</span>
+<span class="">	invoke-interface {v0, v1, v2, v3, v4}, Lcom/tencent/a/b/b$a;->a(DD)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/tencent/a/b/b;->k:Z</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "{\"source\":101,\"access_token\":\"160e7bd42dec9428721034e0146fc6dd\",\"location\":{\"latitude\":"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ",\"longitude\":"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p3, p4}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "}\t}"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/b;->a:Ljava/lang/String;</span>
+<span class="">	iput-wide p1, p0, Lcom/tencent/a/b/b;->e:D</span>
+<span class="">	iput-wide p3, p0, Lcom/tencent/a/b/b;->f:D</span>
+<span class="">	new-instance v0, Lcom/tencent/a/b/b$b;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/tencent/a/b/b$b;-><init>(Lcom/tencent/a/b/b;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/b;->j:Lcom/tencent/a/b/b$b;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/b;->j:Lcom/tencent/a/b/b$b;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/a/b/b$b;->start()V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

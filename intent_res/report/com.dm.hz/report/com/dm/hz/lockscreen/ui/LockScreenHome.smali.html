@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.lockscreen.ui</a></li>
+        <li><i class="ico ico-class"></i> LockScreenHome.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/lockscreen/ui/LockScreenHome;
+.super Landroid/app/Activity;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;
+}
+.end annotation
+
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Landroid/app/Activity;-><init>()V</span>
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	new-instance v0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;</span>
+<span class="">	invoke-direct {v0, p0, p0}, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;-><init>(Lcom/dm/hz/lockscreen/ui/LockScreenHome;Landroid/content/Context;)V</span>
+<span class="">	new-instance v1, Landroid/content/Intent;</span>
+<span class="">	const-class v2, Lcom/dm/hz/lockscreen/LockScreenService;</span>
+<span class="">	invoke-direct {v1, p0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/dm/hz/lockscreen/ui/LockScreenHome;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->b()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->a()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onKeyDown(ILandroid/view/KeyEvent;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	packed-switch p1, :pswitch_data_0</span>
+<span class="">	invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x4</span>
+<span class="">	:pswitch_0</span>
+<span class="">	.end packed-switch</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

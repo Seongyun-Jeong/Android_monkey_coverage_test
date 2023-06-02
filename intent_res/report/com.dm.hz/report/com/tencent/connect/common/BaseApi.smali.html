@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.connect.common</a></li>
+        <li><i class="ico ico-class"></i> BaseApi.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/tencent/connect/common/BaseApi;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/connect/common/BaseApi$TempRequestListener;,
+Lcom/tencent/connect/common/BaseApi$ApiTask;
+}
+.end annotation
+
+.field protected static final ACTION_CHECK_TOKEN:Ljava/lang/String; = "action_check_token"
+.field protected static final ACTIVITY_AGENT:Ljava/lang/String; = "com.tencent.open.agent.AgentActivity"
+.field protected static final ACTIVITY_ENCRY_TOKEN:Ljava/lang/String; = "com.tencent.open.agent.EncryTokenActivity"
+.field protected static final DEFAULT_PF:Ljava/lang/String; = "openmobile_android"
+.field private static final KEY_REQUEST_CODE:Ljava/lang/String; = "key_request_code"
+.field private static final MSG_COMPLETE:I = 0x0
+.field protected static final PARAM_ENCRY_EOKEN:Ljava/lang/String; = "encry_token"
+.field protected static final PLATFORM:Ljava/lang/String; = "desktop_m_qq"
+.field protected static final PREFERENCE_PF:Ljava/lang/String; = "pfStore"
+.field protected static final VERSION:Ljava/lang/String; = "android"
+.field public static businessId:Ljava/lang/String;
+.field public static installChannel:Ljava/lang/String;
+.field public static isOEM:Z
+.field public static registerChannel:Ljava/lang/String;
+.field protected static sRequestCode:I
+.field protected mActivityIntent:Landroid/content/Intent;
+.field protected mContext:Landroid/content/Context;
+.field protected mQQAuth:Lcom/tencent/connect/auth/QQAuth;
+.field protected mTaskList:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/tencent/connect/common/BaseApi$ApiTask;",
+">;"
+}
+.end annotation
+.end field
+.field protected mToken:Lcom/tencent/connect/auth/QQToken;
+.field protected mUiListener:Lcom/tencent/tauth/IUiListener;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/16 v0, 0x3e8</span>
+<span class="">	sput v0, Lcom/tencent/connect/common/BaseApi;->sRequestCode:I</span>
+<span class="">	sput-object v1, Lcom/tencent/connect/common/BaseApi;->registerChannel:Ljava/lang/String;</span>
+<span class="">	sput-object v1, Lcom/tencent/connect/common/BaseApi;->installChannel:Ljava/lang/String;</span>
+<span class="">	sput-object v1, Lcom/tencent/connect/common/BaseApi;->businessId:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-boolean v0, Lcom/tencent/connect/common/BaseApi;->isOEM:Z</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/tencent/connect/auth/QQAuth;Lcom/tencent/connect/auth/QQToken;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mTaskList:Ljava/util/List;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mActivityIntent:Landroid/content/Intent;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mUiListener:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	iput-object p1, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	iput-object p2, p0, Lcom/tencent/connect/common/BaseApi;->mQQAuth:Lcom/tencent/connect/auth/QQAuth;</span>
+<span class="">	iput-object p3, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mTaskList:Ljava/util/List;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/tencent/connect/auth/QQToken;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1, v0, p2}, Lcom/tencent/connect/common/BaseApi;-><init>(Landroid/content/Context;Lcom/tencent/connect/auth/QQAuth;Lcom/tencent/connect/auth/QQToken;)V</span>
+.end method
+
+.method private getAssitIntent()Landroid/content/Intent;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	const-class v2, Lcom/tencent/connect/common/AssistActivity;</span>
+<span class="">	invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V</span>
+.end method
+
+.method protected composeActivityParams()Landroid/os/Bundle;
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v0, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v1, "appid"</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/connect/auth/QQToken;->getAppId()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/connect/auth/QQToken;->isSessionValid()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const-string v1, "keystr"</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/connect/auth/QQToken;->getAccessToken()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "keytype"</span>
+<span class="">	const-string v2, "0x80"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/connect/auth/QQToken;->getOpenId()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const-string v2, "hopenid"</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v1, "platform"</span>
+<span class="">	const-string v2, "androidqz"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	const-string v2, "pfStore"</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-boolean v2, Lcom/tencent/connect/common/BaseApi;->isOEM:Z</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	const-string v1, "pf"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "desktop_m_qq-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/tencent/connect/common/BaseApi;->installChannel:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "android"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/tencent/connect/common/BaseApi;->registerChannel:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/tencent/connect/common/BaseApi;->businessId:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v1, "sdkv"</span>
+<span class="">	const-string v2, "2.2.1"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "sdkp"</span>
+<span class="">	const-string v2, "a"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "pf"</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v3, "openmobile_android"</span>
+<span class="">	invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "pf"</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "pf"</span>
+<span class="">	const-string v2, "openmobile_android"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected composeCGIParams()Landroid/os/Bundle;
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v0, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v1, "format"</span>
+<span class="">	const-string v2, "json"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "status_os"</span>
+<span class="">	sget-object v2, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "status_machine"</span>
+<span class="">	sget-object v2, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "status_version"</span>
+<span class="">	sget-object v2, Landroid/os/Build$VERSION;->SDK:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "sdkv"</span>
+<span class="">	const-string v2, "2.2.1"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "sdkp"</span>
+<span class="">	const-string v2, "a"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/connect/auth/QQToken;->isSessionValid()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const-string v1, "access_token"</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/connect/auth/QQToken;->getAccessToken()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "oauth_consumer_key"</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/connect/auth/QQToken;->getAppId()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "openid"</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/connect/auth/QQToken;->getOpenId()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "appid_for_getting_config"</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/connect/auth/QQToken;->getAppId()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	const-string v2, "pfStore"</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-boolean v2, Lcom/tencent/connect/common/BaseApi;->isOEM:Z</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	const-string v1, "pf"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "desktop_m_qq-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/tencent/connect/common/BaseApi;->installChannel:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "android"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/tencent/connect/common/BaseApi;->registerChannel:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "-"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/tencent/connect/common/BaseApi;->businessId:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v2, "pf"</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v3, "openmobile_android"</span>
+<span class="">	invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "pf"</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  getActivityIntent()Landroid/content/Intent;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mActivityIntent:Landroid/content/Intent;</span>
+.end method
+
+.method protected getAgentIntent()Landroid/content/Intent;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "com.tencent.open.agent.AgentActivity"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/tencent/connect/common/BaseApi;->getTargetActivityIntent(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected getAgentIntentWithTarget(Ljava/lang/String;)Landroid/content/Intent;
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	new-instance v1, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v1}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/tencent/connect/common/BaseApi;->getTargetActivityIntent(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "com.tencent.open.agent.AgentActivity"</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected getTargetActivityIntent(Ljava/lang/String;)Landroid/content/Intent;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v3, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v3}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/common/Constants;->PACKAGE_QZONE:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v3, v0, p1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v0}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	sget-object v2, Lcom/tencent/connect/common/Constants;->PACKAGE_QQ:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v2, p1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	sget-object v4, Lcom/tencent/connect/common/Constants;->PACKAGE_QZONE:Ljava/lang/String;</span>
+<span class="">	invoke-static {v2, v4}, Lcom/tencent/utils/SystemUtils;->getAppVersionName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	if-nez v4, :cond_2</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	invoke-static {v2, v0}, Lcom/tencent/utils/SystemUtils;->isActivityExist(Landroid/content/Context;Landroid/content/Intent;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v5, p0, Lcom/tencent/connect/common/BaseApi;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	invoke-virtual {v5}, Lcom/tencent/connect/auth/QQToken;->getAppId()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v2, v5}, Lcom/tencent/utils/OpenConfig;->getInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/tencent/utils/OpenConfig;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v5, "Common_SSO_QzoneVersion"</span>
+<span class="">	invoke-virtual {v2, v5}, Lcom/tencent/utils/OpenConfig;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_3</span>
+<span class="">	const-string v2, "4.0"</span>
+<span class="">	const-string v5, "3.4"</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-static {v4, v5}, Lcom/tencent/utils/SystemUtils;->compareVersion(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-ltz v5, :cond_5</span>
+<span class="">	invoke-static {v4, v2}, Lcom/tencent/utils/SystemUtils;->compareVersion(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-gez v2, :cond_5</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0, v3}, Lcom/tencent/utils/SystemUtils;->isActivityExist(Landroid/content/Context;Landroid/content/Intent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v4, Lcom/tencent/connect/common/Constants;->SIGNATRUE_QZONE:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0, v2, v4}, Lcom/tencent/utils/SystemUtils;->isAppSignatureValid(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	move-object v1, v3</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-static {v2, v0}, Lcom/tencent/utils/SystemUtils;->isActivityExist(Landroid/content/Context;Landroid/content/Intent;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0, v3}, Lcom/tencent/utils/SystemUtils;->isActivityExist(Landroid/content/Context;Landroid/content/Intent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_6</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v4, Lcom/tencent/connect/common/Constants;->SIGNATRUE_QZONE:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0, v2, v4}, Lcom/tencent/utils/SystemUtils;->isAppSignatureValid(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_6</span>
+<span class="">	move-object v0, v3</span>
+<span class="">	:goto_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object v3, v1</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected hasActivityForIntent()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mActivityIntent:Landroid/content/Intent;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mContext:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mActivityIntent:Landroid/content/Intent;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/utils/SystemUtils;->isActivityExist(Landroid/content/Context;Landroid/content/Intent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onActivityResult(IILandroid/content/Intent;)V
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/common/BaseApi;->mTaskList:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/connect/common/BaseApi$ApiTask;</span>
+<span class="">	iget v3, v0, Lcom/tencent/connect/common/BaseApi$ApiTask;->mRequestCode:I</span>
+<span class="">	if-ne v3, p1, :cond_0</span>
+<span class="">	iget-object v1, v0, Lcom/tencent/connect/common/BaseApi$ApiTask;->mListener:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/common/BaseApi;->mTaskList:Ljava/util/List;</span>
+<span class="">	invoke-interface {v2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	if-ne p2, v0, :cond_5</span>
+<span class="">	const-string v0, "key_error_code"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {p3, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	const-string v0, "key_response"</span>
+<span class="">	invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	invoke-static {v2}, Lcom/tencent/utils/Util;->parseJson(Ljava/lang/String;)Lorg/json/JSONObject;</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v1, v0}, Lcom/tencent/tauth/IUiListener;->onComplete(Ljava/lang/Object;)V</span>
+<span class="">	invoke-static {}, Lcom/tencent/b/a/g;->a()Lcom/tencent/b/a/g;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/b/a/g;->b()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v3, Lcom/tencent/tauth/UiError;</span>
+<span class="">	const/4 v4, -0x4</span>
+<span class="">	const-string v5, "\u670d\u52a1\u5668\u8fd4\u56de\u6570\u636e\u683c\u5f0f\u6709\u8bef!"</span>
+<span class="">	invoke-direct {v3, v4, v5, v2}, Lcom/tencent/tauth/UiError;-><init>(ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {v1, v3}, Lcom/tencent/tauth/IUiListener;->onError(Lcom/tencent/tauth/UiError;)V</span>
+<span class="">	const-string v1, "openSDK_LOG"</span>
+<span class="">	const-string v2, "OpenUi, onActivityResult, json error"</span>
+<span class="">	invoke-static {v1, v2, v0}, Lcom/tencent/b/a/g;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const-string v0, "openSDK_LOG"</span>
+<span class="">	:cond_3</span>
+<span class="">	const-string v2, "OpenUi, onActivityResult, onComplete"</span>
+<span class="">	invoke-static {v0, v2}, Lcom/tencent/b/a/g;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	invoke-interface {v1, v0}, Lcom/tencent/tauth/IUiListener;->onComplete(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const-string v2, "openSDK_LOG"</span>
+<span class="">	:cond_4</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "OpenUi, onActivityResult, onError = "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ""</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v2, v3}, Lcom/tencent/b/a/g;->d(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "key_error_msg"</span>
+<span class="">	invoke-virtual {p3, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "key_error_detail"</span>
+<span class="">	invoke-virtual {p3, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	new-instance v4, Lcom/tencent/tauth/UiError;</span>
+<span class="">	invoke-direct {v4, v0, v2, v3}, Lcom/tencent/tauth/UiError;-><init>(ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {v1, v4}, Lcom/tencent/tauth/IUiListener;->onError(Lcom/tencent/tauth/UiError;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const-string v0, "openSDK_LOG"</span>
+<span class="">	:cond_5</span>
+<span class="">	const-string v2, "OpenUi, onActivityResult, Constants.ACTIVITY_CANCEL"</span>
+<span class="">	invoke-static {v0, v2}, Lcom/tencent/b/a/g;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {v1}, Lcom/tencent/tauth/IUiListener;->onCancel()V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected startAssitActivity(Landroid/app/Activity;Lcom/tencent/tauth/IUiListener;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {p0}, Lcom/tencent/connect/common/AssistActivity;->setApiObject(Lcom/tencent/connect/common/BaseApi;)V</span>
+<span class="">	sget v0, Lcom/tencent/connect/common/BaseApi;->sRequestCode:I</span>
+<span class="">	add-int/lit8 v1, v0, 0x1</span>
+<span class="">	sput v1, Lcom/tencent/connect/common/BaseApi;->sRequestCode:I</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mActivityIntent:Landroid/content/Intent;</span>
+<span class="">	const-string v2, "key_request_code"</span>
+<span class="">	invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/common/BaseApi;->mTaskList:Ljava/util/List;</span>
+<span class="">	new-instance v2, Lcom/tencent/connect/common/BaseApi$ApiTask;</span>
+<span class="">	invoke-direct {v2, p0, v0, p2}, Lcom/tencent/connect/common/BaseApi$ApiTask;-><init>(Lcom/tencent/connect/common/BaseApi;ILcom/tencent/tauth/IUiListener;)V</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/connect/common/BaseApi;->getAssitIntent()Landroid/content/Intent;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

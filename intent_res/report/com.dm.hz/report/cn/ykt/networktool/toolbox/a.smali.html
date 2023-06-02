@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool.toolbox</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/ykt/networktool/toolbox/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcn/ykt/networktool/toolbox/b;
+
+
+.field private final a:Landroid/content/Context;
+.field private final b:Landroid/accounts/Account;
+.field private final c:Ljava/lang/String;
+.field private final d:Z
+
+
+.method public constructor <init>(Landroid/content/Context;Landroid/accounts/Account;Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2, p3, v0}, Lcn/ykt/networktool/toolbox/a;-><init>(Landroid/content/Context;Landroid/accounts/Account;Ljava/lang/String;Z)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/accounts/Account;Ljava/lang/String;Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/toolbox/a;->a:Landroid/content/Context;</span>
+<span class="">	iput-object p2, p0, Lcn/ykt/networktool/toolbox/a;->b:Landroid/accounts/Account;</span>
+<span class="">	iput-object p3, p0, Lcn/ykt/networktool/toolbox/a;->c:Ljava/lang/String;</span>
+<span class="">	iput-boolean p4, p0, Lcn/ykt/networktool/toolbox/a;->d:Z</span>
+.end method
+
+.method public a()Landroid/accounts/Account;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/a;->b:Landroid/accounts/Account;</span>
+.end method
+
+.method public a(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/a;->a:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/a;->b:Landroid/accounts/Account;</span>
+<span class="">	iget-object v1, v1, Landroid/accounts/Account;->type:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, p1}, Landroid/accounts/AccountManager;->invalidateAuthToken(Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method public b()Ljava/lang/String;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcn/ykt/networktool/a;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/a;->a:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/a;->b:Landroid/accounts/Account;</span>
+<span class="">	iget-object v2, p0, Lcn/ykt/networktool/toolbox/a;->c:Ljava/lang/String;</span>
+<span class="">	iget-boolean v3, p0, Lcn/ykt/networktool/toolbox/a;->d:Z</span>
+<span class="">	move-object v5, v4</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Landroid/accounts/AccountManager;->getAuthToken(Landroid/accounts/Account;Ljava/lang/String;ZLandroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-interface {v1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/os/Bundle;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	invoke-interface {v1}, Landroid/accounts/AccountManagerFuture;->isDone()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-interface {v1}, Landroid/accounts/AccountManagerFuture;->isCancelled()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	const-string v1, "intent"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const-string v1, "intent"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Intent;</span>
+<span class="">	new-instance v1, Lcn/ykt/networktool/a;</span>
+<span class="">	invoke-direct {v1, v0}, Lcn/ykt/networktool/a;-><init>(Landroid/content/Intent;)V</span>
+<span class="">	throw v1</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	new-instance v1, Lcn/ykt/networktool/a;</span>
+<span class="">	const-string v2, "Error while retrieving auth token"</span>
+<span class="">	invoke-direct {v1, v2, v0}, Lcn/ykt/networktool/a;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V</span>
+<span class="">	throw v1</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "authtoken"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v4, :cond_2</span>
+<span class="">	new-instance v0, Lcn/ykt/networktool/a;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "Got null auth token for type: "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcn/ykt/networktool/toolbox/a;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Lcn/ykt/networktool/a;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_2</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view</a></li>
+        <li><i class="ico ico-class"></i> v$a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/umeng/socialize/view/v$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/umeng/socialize/view/v;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x2
+name = "a"
+.end annotation
+
+.field  a:Lcom/umeng/socialize/bean/g;
+.field  b:Landroid/widget/ImageButton;
+.field  c:Landroid/widget/ImageView;
+.field  d:Z
+.field  e:Ljava/lang/String;
+.field  f:Landroid/view/View;
+.field  g:Lcom/umeng/socialize/bean/k;
+.field final synthetic h:Lcom/umeng/socialize/view/v;
+
+
+.method public constructor <init>(Lcom/umeng/socialize/view/v;Landroid/content/Context;Lcom/umeng/socialize/bean/k;)V
+<span class="">	.locals 4</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/v$a;->h:Lcom/umeng/socialize/view/v;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/view/v$a;->g:Lcom/umeng/socialize/bean/k;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/v$a;->g:Lcom/umeng/socialize/bean/k;</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/k;->a:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/bean/g;->a(Ljava/lang/String;)Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/v$a;->a:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/view/v;->a(Lcom/umeng/socialize/view/v;)Landroid/view/LayoutInflater;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/view/v;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->a:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_post_comment_platform"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/view/v;->b(Lcom/umeng/socialize/view/v;)Landroid/widget/LinearLayout;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/v$a;->f:Landroid/view/View;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/v$a;->f:Landroid/view/View;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/view/v;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_post_cws_ic"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/v$a;->b:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/v$a;->f:Landroid/view/View;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/view/v;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_post_cws_selected"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/v$a;->c:Landroid/widget/ImageView;</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/ae;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/view/ae;-><init>(Lcom/umeng/socialize/view/v$a;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/v$a;->b:Landroid/widget/ImageButton;</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/view/af;</span>
+<span class="">	invoke-direct {v2, p0, v0}, Lcom/umeng/socialize/view/af;-><init>(Lcom/umeng/socialize/view/v$a;Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/view/v$a;)Lcom/umeng/socialize/view/v;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/v$a;->h:Lcom/umeng/socialize/view/v;</span>
+.end method
+
+.method public a(Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/v$a;->e:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/view/v$a;->d:Z</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/view/v$a;->d:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/v$a;->e:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/v$a;->c:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ImageView;->getVisibility()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

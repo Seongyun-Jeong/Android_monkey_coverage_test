@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> d$a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/tendcloud/tenddata/d$a;
+.super Ljava/lang/Object;
+.implements Landroid/provider/BaseColumns;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/tendcloud/tenddata/d;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x18
+name = "a"
+.end annotation
+
+.field public static final a:Ljava/lang/String; = "session_id"
+.field public static final b:Ljava/lang/String; = "start_time"
+.field public static final c:Ljava/lang/String; = "duration"
+.field public static final d:Ljava/lang/String; = "is_launch"
+.field public static final e:Ljava/lang/String; = "interval"
+.field public static final f:Ljava/lang/String; = "is_connected"
+.field public static final g:Ljava/lang/String; = "session"
+.field public static final h:[Ljava/lang/String;
+
+
+<span class="cov">.method static constructor &lt;clinit&gt;()V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const/4 v0, 0x7</span>
+<span class="cov">	new-array v0, v0, [Ljava/lang/String;</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="cov">	const-string v2, "_id"</span>
+<span class="cov">	aput-object v2, v0, v1</span>
+<span class="cov">	const/4 v1, 0x1</span>
+<span class="cov">	const-string v2, "session_id"</span>
+<span class="cov">	aput-object v2, v0, v1</span>
+<span class="cov">	const/4 v1, 0x2</span>
+<span class="cov">	const-string v2, "start_time"</span>
+<span class="cov">	aput-object v2, v0, v1</span>
+<span class="cov">	const/4 v1, 0x3</span>
+<span class="cov">	const-string v2, "duration"</span>
+<span class="cov">	aput-object v2, v0, v1</span>
+<span class="cov">	const/4 v1, 0x4</span>
+<span class="cov">	const-string v2, "is_launch"</span>
+<span class="cov">	aput-object v2, v0, v1</span>
+<span class="cov">	const/4 v1, 0x5</span>
+<span class="cov">	const-string v2, "interval"</span>
+<span class="cov">	aput-object v2, v0, v1</span>
+<span class="cov">	const/4 v1, 0x6</span>
+<span class="cov">	const-string v2, "is_connected"</span>
+<span class="cov">	aput-object v2, v0, v1</span>
+<span class="cov">	sput-object v0, Lcom/tendcloud/tenddata/d$a;->h:[Ljava/lang/String;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+<span class="cov">.method public static final a(Landroid/database/sqlite/SQLiteDatabase;)V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const-string v0, "CREATE TABLE session (_id INTEGER PRIMARY KEY autoincrement,session_id TEXT,start_time LONG,duration INTEGER,is_launch INTEGER,interval LONG, is_connected INTEGER)"</span>
+<span class="cov">	invoke-virtual {p0, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public static final b(Landroid/database/sqlite/SQLiteDatabase;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "DROP TABLE IF EXISTS session"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

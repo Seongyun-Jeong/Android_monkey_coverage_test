@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> ab.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tendcloud/tenddata/ab;
+.super Ljava/lang/Object;
+.implements Landroid/hardware/SensorEventListener;
+
+
+.field final a:F
+.field final b:F
+.field  c:Z
+.field final synthetic d:Lcom/tendcloud/tenddata/e;
+
+
+.method constructor <init>(Lcom/tendcloud/tenddata/e;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iput-object p1, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/high16 v0, 0x42340000    # 45.0f</span>
+<span class="">	iput v0, p0, Lcom/tendcloud/tenddata/ab;->a:F</span>
+<span class="">	const/high16 v0, 0x41c80000    # 25.0f</span>
+<span class="">	iput v0, p0, Lcom/tendcloud/tenddata/ab;->b:F</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/tendcloud/tenddata/ab;->c:Z</span>
+.end method
+
+.method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public onSensorChanged(Landroid/hardware/SensorEvent;)V
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	iget-object v0, p1, Landroid/hardware/SensorEvent;->values:[F</span>
+<span class="">	aget v1, v0, v4</span>
+<span class="">	aget v2, v0, v5</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	aget v0, v0, v3</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Math;->abs(F)F</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Math;->abs(F)F</span>
+<span class="">	move-result v2</span>
+<span class="">	add-float/2addr v1, v2</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Math;->abs(F)F</span>
+<span class="">	move-result v0</span>
+<span class="">	add-float/2addr v0, v1</span>
+<span class="">	iget-boolean v1, p0, Lcom/tendcloud/tenddata/ab;->c:Z</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	const/high16 v1, 0x42340000    # 45.0f</span>
+<span class="">	cmpl-float v0, v0, v1</span>
+<span class="">	if-lez v0, :cond_0</span>
+<span class="">	iput-boolean v5, p0, Lcom/tendcloud/tenddata/ab;->c:Z</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->c(Lcom/tendcloud/tenddata/e;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->d(Lcom/tendcloud/tenddata/e;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, 0x5</span>
+<span class="">	if-lt v0, v1, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->e(Lcom/tendcloud/tenddata/e;)Lcom/tendcloud/tenddata/e$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->f(Lcom/tendcloud/tenddata/e;)Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "android.permission.VIBRATE"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tendcloud/tenddata/ai;->a(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->f(Lcom/tendcloud/tenddata/e;)Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "vibrator"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/os/Vibrator;</span>
+<span class="">	const-wide/16 v1, 0x64</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Vibrator;->vibrate(J)V</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->e(Lcom/tendcloud/tenddata/e;)Lcom/tendcloud/tenddata/e$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Lcom/tendcloud/tenddata/e$a;->a()V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->a(Lcom/tendcloud/tenddata/e;)Landroid/hardware/SensorManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/e;->a(Lcom/tendcloud/tenddata/e;)Landroid/hardware/SensorManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/e;->b(Lcom/tendcloud/tenddata/e;)Landroid/hardware/SensorEventListener;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ab;->d:Lcom/tendcloud/tenddata/e;</span>
+<span class="">	invoke-static {v0, v4}, Lcom/tendcloud/tenddata/e;->a(Lcom/tendcloud/tenddata/e;I)I</span>
+<span class="">	:cond_3</span>
+<span class="">	const/high16 v1, 0x41c80000    # 25.0f</span>
+<span class="">	:cond_4</span>
+<span class="">	cmpg-float v0, v0, v1</span>
+<span class="">	if-gtz v0, :cond_0</span>
+<span class="">	iput-boolean v4, p0, Lcom/tendcloud/tenddata/ab;->c:Z</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

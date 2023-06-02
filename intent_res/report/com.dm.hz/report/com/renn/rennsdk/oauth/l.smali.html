@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.renn.rennsdk.oauth</a></li>
+        <li><i class="ico ico-class"></i> l.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/renn/rennsdk/oauth/l;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/renn/rennsdk/oauth/l$a;,
+Lcom/renn/rennsdk/oauth/l$b;,
+Lcom/renn/rennsdk/oauth/l$c;,
+Lcom/renn/rennsdk/oauth/l$d;,
+Lcom/renn/rennsdk/oauth/l$e;
+}
+.end annotation
+
+.field private static final a:Ljava/lang/String; = "com.renren.renren_account_manager"
+.field private static final b:Ljava/lang/String; = "com.renren.renren_account_manager_for_hd"
+.field private static final c:Ljava/lang/String; = "[ACCOUNT_VERIFY_HEAD]"
+.field private static final d:Ljava/lang/String; = "client_id"
+.field private static final e:Ljava/lang/String; = "scope"
+.field private static final f:Ljava/lang/String; = "token_type"
+.field private static final g:Ljava/lang/String; = "client_info"
+.field private static final h:Ljava/lang/String; = "access_token"
+.field private static final i:Ljava/lang/String; = "mac_algorithm"
+.field private static final j:Ljava/lang/String; = "mac_key"
+.field private static final k:Ljava/lang/String; = "expires"
+.field private static final l:Ljava/lang/String; = "package_name"
+.field private static final m:Ljava/lang/String; = "key_for_fix_4_0_bug"
+.field private static final n:Ljava/lang/String; = "key_for_fix_4_0_bug_account"
+.field private static final o:Ljava/lang/String; = "key_for_fix_4_0_bug_token"
+.field private static final p:Ljava/lang/String; = "com.renren.mobile.android"
+.field private static final q:I = 0x4dab98
+.field private static final r:Ljava/lang/String; = "com.renren.mobile.apad"
+.field private static final s:I = 0x2dc6c0
+.field private static final t:D = 5.0
+.field private A:Landroid/os/Handler;
+.field private B:Ljava/lang/String;
+.field private C:Ljava/lang/String;
+.field private D:Ljava/lang/String;
+.field private E:Ljava/lang/String;
+.field private F:Ljava/lang/String;
+.field private G:J
+.field private H:Ljava/lang/String;
+.field private I:Z
+.field private J:Lcom/renn/rennsdk/oauth/l$a;
+.field private K:Lcom/renn/rennsdk/oauth/l$b;
+.field private L:Lcom/renn/rennsdk/oauth/l$c;
+.field private u:Landroid/app/Activity;
+.field private v:Landroid/accounts/AccountManager;
+.field private w:Ljava/lang/String;
+.field private x:Ljava/lang/String;
+.field private y:Ljava/lang/String;
+.field private z:Lcom/renn/rennsdk/oauth/l$d;
+
+
+.method public constructor <init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->B:Ljava/lang/String;</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->C:Ljava/lang/String;</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->D:Ljava/lang/String;</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->E:Ljava/lang/String;</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->F:Ljava/lang/String;</span>
+<span class="">	const-wide/16 v0, -0x1</span>
+<span class="">	iput-wide v0, p0, Lcom/renn/rennsdk/oauth/l;->G:J</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/oauth/l;->I:Z</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/oauth/l$a;</span>
+<span class="">	invoke-direct {v0, p0, v2}, Lcom/renn/rennsdk/oauth/l$a;-><init>(Lcom/renn/rennsdk/oauth/l;Lcom/renn/rennsdk/oauth/l$a;)V</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->J:Lcom/renn/rennsdk/oauth/l$a;</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/oauth/l$b;</span>
+<span class="">	invoke-direct {v0, p0, v2}, Lcom/renn/rennsdk/oauth/l$b;-><init>(Lcom/renn/rennsdk/oauth/l;Lcom/renn/rennsdk/oauth/l$b;)V</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->K:Lcom/renn/rennsdk/oauth/l$b;</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/oauth/l$c;</span>
+<span class="">	invoke-direct {v0, p0, v2}, Lcom/renn/rennsdk/oauth/l$c;-><init>(Lcom/renn/rennsdk/oauth/l;Lcom/renn/rennsdk/oauth/l$c;)V</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->L:Lcom/renn/rennsdk/oauth/l$c;</span>
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	iput-object p2, p0, Lcom/renn/rennsdk/oauth/l;->w:Ljava/lang/String;</span>
+<span class="">	iput-object p3, p0, Lcom/renn/rennsdk/oauth/l;->x:Ljava/lang/String;</span>
+<span class="">	iput-object p4, p0, Lcom/renn/rennsdk/oauth/l;->y:Ljava/lang/String;</span>
+<span class="">	iput-object p5, p0, Lcom/renn/rennsdk/oauth/l;->D:Ljava/lang/String;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->v:Landroid/accounts/AccountManager;</span>
+<span class="">	new-instance v0, Landroid/os/Handler;</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Handler;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->A:Landroid/os/Handler;</span>
+.end method
+
+.method static synthetic a(Lcom/renn/rennsdk/oauth/l;)Lcom/renn/rennsdk/oauth/l$d;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->z:Lcom/renn/rennsdk/oauth/l$d;</span>
+.end method
+
+.method private a(Landroid/accounts/Account;)V
+<span class="">	.locals 8</span>
+
+<span class="">	new-instance v2, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "package_name"</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v1}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	const-string v0, "client_id"</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->w:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->D:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "token_type"</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->D:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->x:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const-string v0, "scope"</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->x:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->y:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	const-string v0, "client_info"</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->y:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:cond_2</span>
+<span class="">	new-instance v4, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v4}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v0, "API_VERSION"</span>
+<span class="">	const-string v1, "2.0"</span>
+<span class="">	invoke-virtual {v4, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "key_for_fix_4_0_bug"</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v4, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V</span>
+<span class="">	const-string v0, "key_for_fix_4_0_bug_account"</span>
+<span class="">	invoke-virtual {v4, v0, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->v:Landroid/accounts/AccountManager;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	iget-object v5, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	iget-object v6, p0, Lcom/renn/rennsdk/oauth/l;->K:Lcom/renn/rennsdk/oauth/l$b;</span>
+<span class="">	iget-object v7, p0, Lcom/renn/rennsdk/oauth/l;->A:Landroid/os/Handler;</span>
+<span class="">	invoke-virtual/range {v0 .. v7}, Landroid/accounts/AccountManager;->addAccount(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v0, Ljava/lang/RuntimeException;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method private a(Landroid/os/Bundle;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v0, "authtoken"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "key_for_fix_4_0_bug_token"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->v:Landroid/accounts/AccountManager;</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2, v0}, Landroid/accounts/AccountManager;->invalidateAuthToken(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "access_token"</span>
+<span class="">	invoke-virtual {v1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->B:Ljava/lang/String;</span>
+<span class="">	const-string v0, "expires"</span>
+<span class="">	invoke-virtual {v1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	iput-wide v2, p0, Lcom/renn/rennsdk/oauth/l;->G:J</span>
+<span class="">	const-string v0, "mac_key"</span>
+<span class="">	invoke-virtual {v1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->E:Ljava/lang/String;</span>
+<span class="">	const-string v0, "mac_algorithm"</span>
+<span class="">	invoke-virtual {v1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->F:Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	const-string v0, "scope"</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/l;->C:Ljava/lang/String;</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v0, Ljava/lang/RuntimeException;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method static synthetic a(Lcom/renn/rennsdk/oauth/l;Landroid/accounts/Account;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/renn/rennsdk/oauth/l;->a(Landroid/accounts/Account;)V</span>
+.end method
+
+.method static synthetic a(Lcom/renn/rennsdk/oauth/l;Landroid/os/Bundle;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/renn/rennsdk/oauth/l;->a(Landroid/os/Bundle;)V</span>
+.end method
+
+.method static synthetic a(Lcom/renn/rennsdk/oauth/l;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/renn/rennsdk/oauth/l;->a(Ljava/lang/String;)V</span>
+.end method
+
+.method private a(Ljava/lang/String;)V
+<span class="">	.locals 7</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->v:Landroid/accounts/AccountManager;</span>
+<span class="">	new-instance v1, Landroid/accounts/Account;</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	invoke-direct {v1, p1, v2}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	iget-object v4, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	iget-object v5, p0, Lcom/renn/rennsdk/oauth/l;->L:Lcom/renn/rennsdk/oauth/l$c;</span>
+<span class="">	iget-object v6, p0, Lcom/renn/rennsdk/oauth/l;->A:Landroid/os/Handler;</span>
+<span class="">	invoke-virtual/range {v0 .. v6}, Landroid/accounts/AccountManager;->updateCredentials(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;</span>
+.end method
+
+.method static synthetic b(Lcom/renn/rennsdk/oauth/l;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic c(Lcom/renn/rennsdk/oauth/l;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/renn/rennsdk/oauth/l;->I:Z</span>
+.end method
+
+.method private i()V
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->v:Landroid/accounts/AccountManager;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[Landroid/accounts/Account;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v1, v0</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->v:Landroid/accounts/AccountManager;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	iget-object v5, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	iget-object v6, p0, Lcom/renn/rennsdk/oauth/l;->J:Lcom/renn/rennsdk/oauth/l$a;</span>
+<span class="">	iget-object v7, p0, Lcom/renn/rennsdk/oauth/l;->A:Landroid/os/Handler;</span>
+<span class="">	move-object v3, v2</span>
+<span class="">	move-object v4, v2</span>
+<span class="">	invoke-virtual/range {v0 .. v7}, Landroid/accounts/AccountManager;->addAccount(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	aget-object v0, v0, v1</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/renn/rennsdk/oauth/l;->a(Landroid/accounts/Account;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->B:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "please call login and success before call RenrenAccountManager.getAccessToken()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->B:Ljava/lang/String;</span>
+.end method
+
+.method public a(Lcom/renn/rennsdk/oauth/l$d;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	const-string v1, "the login callback is null for RenrenAccountManager.login(LoginCallback cb)"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/oauth/l;->g()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/l;->z:Lcom/renn/rennsdk/oauth/l$d;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/renn/rennsdk/oauth/l;->i()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->C:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "please call login and success before call RenrenAccountManager.getScope()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->C:Ljava/lang/String;</span>
+.end method
+
+.method public c()J
+<span class="">	.locals 4</span>
+
+<span class="">	iget-wide v0, p0, Lcom/renn/rennsdk/oauth/l;->G:J</span>
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	cmp-long v0, v0, v2</span>
+<span class="">	if-gez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "please call login and success before call RenrenAccountManager.getExpires()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-wide v0, p0, Lcom/renn/rennsdk/oauth/l;->G:J</span>
+.end method
+
+.method public d()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->D:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "please call login and success before call RenrenAccountManager.getScope()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->D:Ljava/lang/String;</span>
+.end method
+
+.method public e()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->E:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "please call login and success before call RenrenAccountManager.getScope()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->E:Ljava/lang/String;</span>
+.end method
+
+.method public f()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->F:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "please call login and success before call RenrenAccountManager.getScope()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/l;->F:Ljava/lang/String;</span>
+.end method
+
+.method public g()Z
+<span class="">	.locals 11</span>
+
+<span class="">	const-wide/high16 v9, 0x4014000000000000L    # 5.0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v2}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "com.renren.mobile.android"</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget v2, v2, Landroid/content/pm/PackageInfo;->versionCode:I</span>
+<span class="">	const v3, 0x4dab98</span>
+<span class="">	if-gt v2, v3, :cond_6</span>
+<span class="">	move v2, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v3, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v3}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, "com.renren.mobile.android"</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v3, v3, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;</span>
+<span class="">	const-string v4, "[.]"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	:try_start_1</span>
+<span class="">	aget-object v3, v3, v4</span>
+<span class="">	const-string v4, "v"</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	move-result v3</span>
+<span class="">	const/4 v4, 0x5</span>
+<span class="">	if-ge v3, v4, :cond_5</span>
+<span class="">	move v3, v0</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_2</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v2}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v4, "com.renren.mobile.apad"</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-virtual {v2, v4, v5}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget v2, v2, Landroid/content/pm/PackageInfo;->versionCode:I</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_2</span>
+<span class="">	const v4, 0x2dc6c0</span>
+<span class="">	if-ge v2, v4, :cond_4</span>
+<span class="">	move v2, v0</span>
+<span class="">	:goto_2</span>
+<span class="">	if-nez v3, :cond_0</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	:goto_3</span>
+<span class="">	move-exception v3</span>
+<span class="">	:catch_0</span>
+<span class="">	move v3, v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catch_1</span>
+<span class="">	move v3, v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catch_2</span>
+<span class="">	move v2, v0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	const-string v2, "com.renren.renren_account_manager"</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/oauth/l;->I:Z</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_3</span>
+<span class="">	if-nez v3, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	const-string v2, "com.renren.renren_account_manager_for_hd"</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	iput-boolean v1, p0, Lcom/renn/rennsdk/oauth/l;->I:Z</span>
+<span class="">	goto :goto_3</span>
+<span class="">	new-instance v2, Landroid/util/DisplayMetrics;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V</span>
+<span class="">	iget-object v3, p0, Lcom/renn/rennsdk/oauth/l;->u:Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v3}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v3}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v2}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V</span>
+<span class="">	iget v3, v2, Landroid/util/DisplayMetrics;->density:F</span>
+<span class="">	const/high16 v4, 0x43200000    # 160.0f</span>
+<span class="">	mul-float/2addr v3, v4</span>
+<span class="">	float-to-double v3, v3</span>
+<span class="">	iget v5, v2, Landroid/util/DisplayMetrics;->widthPixels:I</span>
+<span class="">	int-to-double v5, v5</span>
+<span class="">	iget v2, v2, Landroid/util/DisplayMetrics;->heightPixels:I</span>
+<span class="">	int-to-double v7, v2</span>
+<span class="">	mul-double/2addr v5, v5</span>
+<span class="">	mul-double/2addr v7, v7</span>
+<span class="">	add-double/2addr v5, v7</span>
+<span class="">	mul-double v2, v3, v3</span>
+<span class="">	mul-double/2addr v2, v9</span>
+<span class="">	mul-double/2addr v2, v9</span>
+<span class="">	cmpl-double v2, v5, v2</span>
+<span class="">	if-lez v2, :cond_3</span>
+<span class="">	const-string v2, "com.renren.renren_account_manager_for_hd"</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	iput-boolean v1, p0, Lcom/renn/rennsdk/oauth/l;->I:Z</span>
+<span class="">	goto :goto_3</span>
+<span class="">	const-string v2, "com.renren.renren_account_manager"</span>
+<span class="">	:cond_3</span>
+<span class="">	iput-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/oauth/l;->I:Z</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move v2, v1</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move v3, v2</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v2, v1</span>
+<span class="">	:cond_6</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method public h()[Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/oauth/l;->g()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/l;->v:Landroid/accounts/AccountManager;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/oauth/l;->H:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[Landroid/accounts/Account;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	array-length v1, v2</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	new-array v0, v0, [Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	array-length v1, v2</span>
+<span class="">	:cond_1</span>
+<span class="">	new-array v1, v1, [Ljava/lang/String;</span>
+<span class="">	array-length v3, v2</span>
+<span class="">	:goto_1</span>
+<span class="">	if-lt v0, v3, :cond_2</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	aget-object v3, v2, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v3, v3, Landroid/accounts/Account;->name:Ljava/lang/String;</span>
+<span class="">	aput-object v3, v1, v0</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

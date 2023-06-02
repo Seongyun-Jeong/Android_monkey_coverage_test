@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.google.gson</a></li>
+        <li><i class="ico ico-class"></i> Gson.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/google/gson/Gson;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field static final DEFAULT_ANON_LOCAL_CLASS_EXCLUSION_STRATEGY:Lcom/google/gson/AnonymousAndLocalClassExclusionStrategy;
+.field private static final DEFAULT_EXCLUSION_STRATEGY:Lcom/google/gson/ExclusionStrategy;
+.field static final DEFAULT_JSON_NON_EXECUTABLE:Z = false
+.field static final DEFAULT_MODIFIER_BASED_EXCLUSION_STRATEGY:Lcom/google/gson/ModifierBasedExclusionStrategy;
+.field static final DEFAULT_NAMING_POLICY:Lcom/google/gson/FieldNamingStrategy2;
+.field static final DEFAULT_SYNTHETIC_FIELD_EXCLUSION_STRATEGY:Lcom/google/gson/SyntheticFieldExclusionStrategy;
+.field private static final JSON_NON_EXECUTABLE_PREFIX:Ljava/lang/String; = ")]}\'\n"
+.field private final deserializationExclusionStrategy:Lcom/google/gson/ExclusionStrategy;
+.field private final deserializers:Lcom/google/gson/ParameterizedTypeHandlerMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/google/gson/ParameterizedTypeHandlerMap",
+"<",
+"Lcom/google/gson/JsonDeserializer",
+"<*>;>;"
+}
+.end annotation
+.end field
+.field private final fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy2;
+.field private final generateNonExecutableJson:Z
+.field private final htmlSafe:Z
+.field private final objectConstructor:Lcom/google/gson/MappedObjectConstructor;
+.field private final prettyPrinting:Z
+.field private final serializationExclusionStrategy:Lcom/google/gson/ExclusionStrategy;
+.field private final serializeNulls:Z
+.field private final serializers:Lcom/google/gson/ParameterizedTypeHandlerMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/google/gson/ParameterizedTypeHandlerMap",
+"<",
+"Lcom/google/gson/JsonSerializer",
+"<*>;>;"
+}
+.end annotation
+.end field
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/AnonymousAndLocalClassExclusionStrategy;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/AnonymousAndLocalClassExclusionStrategy;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/google/gson/Gson;->DEFAULT_ANON_LOCAL_CLASS_EXCLUSION_STRATEGY:Lcom/google/gson/AnonymousAndLocalClassExclusionStrategy;</span>
+<span class="">	new-instance v0, Lcom/google/gson/SyntheticFieldExclusionStrategy;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/SyntheticFieldExclusionStrategy;-><init>(Z)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/Gson;->DEFAULT_SYNTHETIC_FIELD_EXCLUSION_STRATEGY:Lcom/google/gson/SyntheticFieldExclusionStrategy;</span>
+<span class="">	new-instance v0, Lcom/google/gson/ModifierBasedExclusionStrategy;</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	new-array v1, v1, [I</span>
+<span class="">	fill-array-data v1, :array_0</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/ModifierBasedExclusionStrategy;-><init>([I)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/Gson;->DEFAULT_MODIFIER_BASED_EXCLUSION_STRATEGY:Lcom/google/gson/ModifierBasedExclusionStrategy;</span>
+<span class="">	new-instance v0, Lcom/google/gson/SerializedNameAnnotationInterceptingNamingPolicy;</span>
+<span class="">	new-instance v1, Lcom/google/gson/JavaFieldNamingPolicy;</span>
+<span class="">	invoke-direct {v1}, Lcom/google/gson/JavaFieldNamingPolicy;-><init>()V</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/SerializedNameAnnotationInterceptingNamingPolicy;-><init>(Lcom/google/gson/FieldNamingStrategy2;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/Gson;->DEFAULT_NAMING_POLICY:Lcom/google/gson/FieldNamingStrategy2;</span>
+<span class="">	invoke-static {}, Lcom/google/gson/Gson;->createExclusionStrategy()Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/Gson;->DEFAULT_EXCLUSION_STRATEGY:Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	nop</span>
+<span class="">	:array_0</span>
+<span class="">	.array-data 4</span>
+<span class="">	0x80</span>
+<span class="">	0x8</span>
+<span class="">	.end array-data</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 11</span>
+
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	sget-object v1, Lcom/google/gson/Gson;->DEFAULT_EXCLUSION_STRATEGY:Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	sget-object v2, Lcom/google/gson/Gson;->DEFAULT_EXCLUSION_STRATEGY:Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	sget-object v3, Lcom/google/gson/Gson;->DEFAULT_NAMING_POLICY:Lcom/google/gson/FieldNamingStrategy2;</span>
+<span class="">	new-instance v4, Lcom/google/gson/MappedObjectConstructor;</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->getDefaultInstanceCreators()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v4, v0}, Lcom/google/gson/MappedObjectConstructor;-><init>(Lcom/google/gson/ParameterizedTypeHandlerMap;)V</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->getAllDefaultSerializers()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->getAllDefaultDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	const/4 v9, 0x1</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move v8, v5</span>
+<span class="">	move v10, v5</span>
+<span class="">	invoke-direct/range {v0 .. v10}, Lcom/google/gson/Gson;-><init>(Lcom/google/gson/ExclusionStrategy;Lcom/google/gson/ExclusionStrategy;Lcom/google/gson/FieldNamingStrategy2;Lcom/google/gson/MappedObjectConstructor;ZLcom/google/gson/ParameterizedTypeHandlerMap;Lcom/google/gson/ParameterizedTypeHandlerMap;ZZZ)V</span>
+.end method
+
+.method constructor <init>(Lcom/google/gson/ExclusionStrategy;Lcom/google/gson/ExclusionStrategy;Lcom/google/gson/FieldNamingStrategy2;Lcom/google/gson/MappedObjectConstructor;ZLcom/google/gson/ParameterizedTypeHandlerMap;Lcom/google/gson/ParameterizedTypeHandlerMap;ZZZ)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/google/gson/ExclusionStrategy;",</span>
+<span class="">	"Lcom/google/gson/ExclusionStrategy;",</span>
+<span class="">	"Lcom/google/gson/FieldNamingStrategy2;",</span>
+<span class="">	"Lcom/google/gson/MappedObjectConstructor;",</span>
+<span class="">	"Z",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonSerializer",</span>
+<span class="">	"<*>;>;",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonDeserializer",</span>
+<span class="">	"<*>;>;ZZZ)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/google/gson/Gson;->deserializationExclusionStrategy:Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	iput-object p2, p0, Lcom/google/gson/Gson;->serializationExclusionStrategy:Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	iput-object p3, p0, Lcom/google/gson/Gson;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy2;</span>
+<span class="">	iput-object p4, p0, Lcom/google/gson/Gson;->objectConstructor:Lcom/google/gson/MappedObjectConstructor;</span>
+<span class="">	iput-boolean p5, p0, Lcom/google/gson/Gson;->serializeNulls:Z</span>
+<span class="">	iput-object p6, p0, Lcom/google/gson/Gson;->serializers:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	iput-object p7, p0, Lcom/google/gson/Gson;->deserializers:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	iput-boolean p8, p0, Lcom/google/gson/Gson;->generateNonExecutableJson:Z</span>
+<span class="">	iput-boolean p9, p0, Lcom/google/gson/Gson;->htmlSafe:Z</span>
+<span class="">	iput-boolean p10, p0, Lcom/google/gson/Gson;->prettyPrinting:Z</span>
+.end method
+
+.method private static assertFullConsumption(Ljava/lang/Object;Lcom/google/gson/stream/JsonReader;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	new-instance v0, Lcom/google/gson/JsonIOException;</span>
+<span class="">	const-string v1, "JSON document was not fully consumed."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lcom/google/gson/stream/MalformedJsonException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	new-instance v1, Lcom/google/gson/JsonSyntaxException;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	throw v1</span>
+<span class="">	:catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	new-instance v1, Lcom/google/gson/JsonIOException;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	throw v1</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private static createExclusionStrategy()Lcom/google/gson/ExclusionStrategy;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/util/LinkedList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V</span>
+<span class="">	sget-object v1, Lcom/google/gson/Gson;->DEFAULT_ANON_LOCAL_CLASS_EXCLUSION_STRATEGY:Lcom/google/gson/AnonymousAndLocalClassExclusionStrategy;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	sget-object v1, Lcom/google/gson/Gson;->DEFAULT_SYNTHETIC_FIELD_EXCLUSION_STRATEGY:Lcom/google/gson/SyntheticFieldExclusionStrategy;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	sget-object v1, Lcom/google/gson/Gson;->DEFAULT_MODIFIER_BASED_EXCLUSION_STRATEGY:Lcom/google/gson/ModifierBasedExclusionStrategy;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	new-instance v1, Lcom/google/gson/DisjunctionExclusionStrategy;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/google/gson/DisjunctionExclusionStrategy;-><init>(Ljava/util/Collection;)V</span>
+.end method
+
+.method public fromJson(Lcom/google/gson/JsonElement;Ljava/lang/Class;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonSyntaxException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Lcom/google/gson/JsonElement;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;)TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/google/gson/Gson;->fromJson(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p2}, Lcom/google/gson/Primitives;->wrap(Ljava/lang/Class;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public fromJson(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonSyntaxException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Lcom/google/gson/JsonElement;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	")TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Lcom/google/gson/JsonDeserializationContextDefault;</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Lcom/google/gson/ObjectNavigator;</span>
+<span class="">	iget-object v2, p0, Lcom/google/gson/Gson;->deserializationExclusionStrategy:Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	invoke-direct {v1, v2}, Lcom/google/gson/ObjectNavigator;-><init>(Lcom/google/gson/ExclusionStrategy;)V</span>
+<span class="">	iget-object v2, p0, Lcom/google/gson/Gson;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy2;</span>
+<span class="">	iget-object v3, p0, Lcom/google/gson/Gson;->deserializers:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	iget-object v4, p0, Lcom/google/gson/Gson;->objectConstructor:Lcom/google/gson/MappedObjectConstructor;</span>
+<span class="">	invoke-direct {v0, v1, v2, v3, v4}, Lcom/google/gson/JsonDeserializationContextDefault;-><init>(Lcom/google/gson/ObjectNavigator;Lcom/google/gson/FieldNamingStrategy2;Lcom/google/gson/ParameterizedTypeHandlerMap;Lcom/google/gson/MappedObjectConstructor;)V</span>
+<span class="">	invoke-interface {v0, p1, p2}, Lcom/google/gson/JsonDeserializationContext;->deserialize(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public fromJson(Lcom/google/gson/stream/JsonReader;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonIOException;,</span>
+<span class="">	Lcom/google/gson/JsonSyntaxException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Lcom/google/gson/stream/JsonReader;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	")TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->isLenient()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {p1}, Lcom/google/gson/Streams;->parse(Lcom/google/gson/stream/JsonReader;)Lcom/google/gson/JsonElement;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0, p2}, Lcom/google/gson/Gson;->fromJson(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;)Ljava/lang/Object;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, v1}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {p1, v1}, Lcom/google/gson/stream/JsonReader;->setLenient(Z)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public fromJson(Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonSyntaxException;,</span>
+<span class="">	Lcom/google/gson/JsonIOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/io/Reader;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;)TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/stream/JsonReader;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/google/gson/stream/JsonReader;-><init>(Ljava/io/Reader;)V</span>
+<span class="">	invoke-virtual {p0, v0, p2}, Lcom/google/gson/Gson;->fromJson(Lcom/google/gson/stream/JsonReader;Ljava/lang/reflect/Type;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1, v0}, Lcom/google/gson/Gson;->assertFullConsumption(Ljava/lang/Object;Lcom/google/gson/stream/JsonReader;)V</span>
+<span class="">	invoke-static {p2}, Lcom/google/gson/Primitives;->wrap(Ljava/lang/Class;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public fromJson(Ljava/io/Reader;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonIOException;,</span>
+<span class="">	Lcom/google/gson/JsonSyntaxException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/io/Reader;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	")TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/stream/JsonReader;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/google/gson/stream/JsonReader;-><init>(Ljava/io/Reader;)V</span>
+<span class="">	invoke-virtual {p0, v0, p2}, Lcom/google/gson/Gson;->fromJson(Lcom/google/gson/stream/JsonReader;Ljava/lang/reflect/Type;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1, v0}, Lcom/google/gson/Gson;->assertFullConsumption(Ljava/lang/Object;Lcom/google/gson/stream/JsonReader;)V</span>
+.end method
+
+.method public fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonSyntaxException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;)TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p2}, Lcom/google/gson/Primitives;->wrap(Ljava/lang/Class;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public fromJson(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonSyntaxException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	")TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Ljava/io/StringReader;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, v0, p2}, Lcom/google/gson/Gson;->fromJson(Ljava/io/Reader;Ljava/lang/reflect/Type;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public toJson(Lcom/google/gson/JsonElement;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Ljava/io/StringWriter;</span>
+<span class="">	invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Ljava/lang/Appendable;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public toJson(Ljava/lang/Object;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/google/gson/JsonNull;->createJsonNull()Lcom/google/gson/JsonNull;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/io/StringWriter;</span>
+<span class="">	invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/google/gson/Gson;->toJsonTree(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Ljava/lang/Appendable;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public toJson(Lcom/google/gson/JsonElement;Lcom/google/gson/stream/JsonWriter;)V
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonIOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p2}, Lcom/google/gson/stream/JsonWriter;->isLenient()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {p2, v0}, Lcom/google/gson/stream/JsonWriter;->setLenient(Z)V</span>
+<span class="">	invoke-virtual {p2}, Lcom/google/gson/stream/JsonWriter;->isHtmlSafe()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	iget-boolean v0, p0, Lcom/google/gson/Gson;->htmlSafe:Z</span>
+<span class="">	invoke-virtual {p2, v0}, Lcom/google/gson/stream/JsonWriter;->setHtmlSafe(Z)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/google/gson/Gson;->serializeNulls:Z</span>
+<span class="">	invoke-static {p1, v0, p2}, Lcom/google/gson/Streams;->write(Lcom/google/gson/JsonElement;ZLcom/google/gson/stream/JsonWriter;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	invoke-virtual {p2, v1}, Lcom/google/gson/stream/JsonWriter;->setLenient(Z)V</span>
+<span class="">	invoke-virtual {p2, v2}, Lcom/google/gson/stream/JsonWriter;->setHtmlSafe(Z)V</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v3, Lcom/google/gson/JsonIOException;</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-direct {v3, v0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	throw v3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {p2, v1}, Lcom/google/gson/stream/JsonWriter;->setLenient(Z)V</span>
+<span class="">	invoke-virtual {p2, v2}, Lcom/google/gson/stream/JsonWriter;->setHtmlSafe(Z)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public toJson(Lcom/google/gson/JsonElement;Ljava/lang/Appendable;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonIOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/google/gson/Gson;->generateNonExecutableJson:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v0, ")]}\'\n"</span>
+<span class="">	invoke-interface {p2, v0}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v0, Lcom/google/gson/stream/JsonWriter;</span>
+<span class="">	invoke-static {p2}, Lcom/google/gson/Streams;->writerForAppendable(Ljava/lang/Appendable;)Ljava/io/Writer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/stream/JsonWriter;-><init>(Ljava/io/Writer;)V</span>
+<span class="">	iget-boolean v1, p0, Lcom/google/gson/Gson;->prettyPrinting:Z</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const-string v1, "  "</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/google/gson/stream/JsonWriter;->setIndent(Ljava/lang/String;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Lcom/google/gson/stream/JsonWriter;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Ljava/lang/RuntimeException;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public toJson(Ljava/lang/Object;Ljava/lang/Appendable;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonIOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, p1, v0, p2}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;Ljava/lang/Appendable;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/google/gson/JsonNull;->createJsonNull()Lcom/google/gson/JsonNull;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0, p2}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Ljava/lang/Appendable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/stream/JsonWriter;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonIOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/google/gson/Gson;->toJsonTree(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0, p3}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Lcom/google/gson/stream/JsonWriter;)V</span>
+.end method
+
+.method public toJson(Ljava/lang/Object;Ljava/lang/reflect/Type;Ljava/lang/Appendable;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonIOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/google/gson/Gson;->toJsonTree(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0, p3}, Lcom/google/gson/Gson;->toJson(Lcom/google/gson/JsonElement;Ljava/lang/Appendable;)V</span>
+.end method
+
+.method public toJsonTree(Ljava/lang/Object;)Lcom/google/gson/JsonElement;
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/google/gson/JsonNull;->createJsonNull()Lcom/google/gson/JsonNull;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/google/gson/Gson;->toJsonTree(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public toJsonTree(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;
+<span class="">	.locals 5</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/JsonSerializationContextDefault;</span>
+<span class="">	new-instance v1, Lcom/google/gson/ObjectNavigator;</span>
+<span class="">	iget-object v2, p0, Lcom/google/gson/Gson;->serializationExclusionStrategy:Lcom/google/gson/ExclusionStrategy;</span>
+<span class="">	invoke-direct {v1, v2}, Lcom/google/gson/ObjectNavigator;-><init>(Lcom/google/gson/ExclusionStrategy;)V</span>
+<span class="">	iget-object v2, p0, Lcom/google/gson/Gson;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy2;</span>
+<span class="">	iget-boolean v3, p0, Lcom/google/gson/Gson;->serializeNulls:Z</span>
+<span class="">	iget-object v4, p0, Lcom/google/gson/Gson;->serializers:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-direct {v0, v1, v2, v3, v4}, Lcom/google/gson/JsonSerializationContextDefault;-><init>(Lcom/google/gson/ObjectNavigator;Lcom/google/gson/FieldNamingStrategy2;ZLcom/google/gson/ParameterizedTypeHandlerMap;)V</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Lcom/google/gson/JsonSerializationContextDefault;->serialize(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public toString()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "{"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "serializeNulls:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-boolean v1, p0, Lcom/google/gson/Gson;->serializeNulls:Z</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ",serializers:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/google/gson/Gson;->serializers:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ",deserializers:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/google/gson/Gson;->deserializers:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ",instanceCreators:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/google/gson/Gson;->objectConstructor:Lcom/google/gson/MappedObjectConstructor;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "}"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

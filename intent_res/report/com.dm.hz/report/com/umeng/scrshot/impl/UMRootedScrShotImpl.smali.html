@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.scrshot.impl</a></li>
+        <li><i class="ico ico-class"></i> UMRootedScrShotImpl.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;
+.super Lcom/umeng/scrshot/impl/UMBaseScrShotImpl;
+.source "SourceFile"
+
+
+.field private b:Landroid/content/Context;
+.field private final c:Ljava/lang/String;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/scrshot/impl/UMBaseScrShotImpl;-><init>()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->b:Landroid/content/Context;</span>
+<span class="">	const-string v0, "/dev/graphics/fb0"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->c:Ljava/lang/String;</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->b:Landroid/content/Context;</span>
+.end method
+
+.method private a(Ljava/lang/String;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a()Landroid/graphics/Bitmap;
+<span class="">	.locals 11</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->b:Landroid/content/Context;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->a:Ljava/lang/String;</span>
+<span class="">	const-string v2, "#### UMRootedScrShotImpl\'s mContext is null."</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->c()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->a:Ljava/lang/String;</span>
+<span class="">	const-string v2, "#### your device is not root."</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->b:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v2, "window"</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/WindowManager;</span>
+<span class="">	new-instance v2, Landroid/util/DisplayMetrics;</span>
+<span class="">	invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V</span>
+<span class="">	invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V</span>
+<span class="">	iget v3, v2, Landroid/util/DisplayMetrics;->heightPixels:I</span>
+<span class="">	iget v2, v2, Landroid/util/DisplayMetrics;->widthPixels:I</span>
+<span class="">	invoke-virtual {v0}, Landroid/view/Display;->getPixelFormat()I</span>
+<span class="">	move-result v0</span>
+<span class="">	new-instance v4, Landroid/graphics/PixelFormat;</span>
+<span class="">	invoke-direct {v4}, Landroid/graphics/PixelFormat;-><init>()V</span>
+<span class="">	invoke-static {v0, v4}, Landroid/graphics/PixelFormat;->getPixelFormatInfo(ILandroid/graphics/PixelFormat;)V</span>
+<span class="">	iget v4, v4, Landroid/graphics/PixelFormat;->bytesPerPixel:I</span>
+<span class="">	mul-int v0, v3, v2</span>
+<span class="">	mul-int/2addr v0, v4</span>
+<span class="">	new-array v5, v0, [B</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->b()Ljava/io/InputStream;</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v6, Ljava/io/DataInputStream;</span>
+<span class="">	invoke-direct {v6, v0}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	invoke-virtual {v6, v5}, Ljava/io/DataInputStream;->readFully([B)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/InputStream;->close()V</span>
+<span class="">	mul-int v0, v2, v3</span>
+<span class="">	new-array v6, v0, [I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	mul-int v7, v2, v3</span>
+<span class="">	:goto_1</span>
+<span class="">	mul-int/2addr v7, v4</span>
+<span class="">	if-lt v0, v7, :cond_2</span>
+<span class="">	sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;</span>
+<span class="">	invoke-static {v6, v2, v3, v0}, Landroid/graphics/Bitmap;->createBitmap([IIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	aget-byte v7, v5, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	and-int/lit16 v7, v7, 0xff</span>
+<span class="">	add-int/lit8 v8, v0, 0x1</span>
+<span class="">	aget-byte v8, v5, v8</span>
+<span class="">	and-int/lit16 v8, v8, 0xff</span>
+<span class="">	add-int/lit8 v9, v0, 0x2</span>
+<span class="">	aget-byte v9, v5, v9</span>
+<span class="">	and-int/lit16 v9, v9, 0xff</span>
+<span class="">	div-int v10, v0, v4</span>
+<span class="">	shl-int/lit8 v9, v9, 0x10</span>
+<span class="">	shl-int/lit8 v8, v8, 0x8</span>
+<span class="">	or-int/2addr v8, v9</span>
+<span class="">	or-int/2addr v7, v8</span>
+<span class="">	const/high16 v8, -0x1000000</span>
+<span class="">	or-int/2addr v7, v8</span>
+<span class="">	aput v7, v6, v10</span>
+<span class="">	add-int/2addr v0, v4</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->a:Ljava/lang/String;</span>
+<span class="">	const-string v3, "#### root \u8bfb\u53d6\u5c4f\u5e55\u622a\u56fe\u5931\u8d25."</span>
+<span class="">	invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method public b()Ljava/io/InputStream;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	const-string v1, "/dev/graphics/fb0"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "su"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "cat "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "\n"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Process;->getOutputStream()Ljava/io/OutputStream;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/io/OutputStream;->write([B)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public c()Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	sget-object v1, Landroid/os/Build;->TAGS:Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const-string v2, "test-keys"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v2, "/system/app/Superuser.apk"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "/system/xbin/which su"</span>
+<span class="">	invoke-direct {p0, v1}, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "/system/bin/which su"</span>
+<span class="">	invoke-direct {p0, v1}, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "which su"</span>
+<span class="">	invoke-direct {p0, v1}, Lcom/umeng/scrshot/impl/UMRootedScrShotImpl;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

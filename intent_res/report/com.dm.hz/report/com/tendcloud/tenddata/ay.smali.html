@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> ay.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tendcloud/tenddata/ay;
+.super Ljava/lang/Object;
+.implements Lcom/tendcloud/tenddata/i;
+.implements Lcom/tendcloud/tenddata/s;
+
+
+.field public a:Ljava/lang/String;
+.field public b:J
+.field public c:I
+.field public d:Ljava/lang/String;
+
+
+.method public constructor <init>()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/ay;->a:Ljava/lang/String;</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	iput-wide v0, p0, Lcom/tendcloud/tenddata/ay;->b:J</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput v0, p0, Lcom/tendcloud/tenddata/ay;->c:I</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/ay;->d:Ljava/lang/String;</span>
+.end method
+
+.method public a()I
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/y;->c(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/ay;->a:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/y;->c(Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iget-wide v1, p0, Lcom/tendcloud/tenddata/ay;->b:J</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tendcloud/tenddata/y;->c(J)I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iget v1, p0, Lcom/tendcloud/tenddata/ay;->c:I</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/y;->c(I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/ay;->d:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/y;->c(Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+.end method
+
+.method public a(Lcom/tendcloud/tenddata/y;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->b(I)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ay;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(Ljava/lang/String;)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-wide v0, p0, Lcom/tendcloud/tenddata/ay;->b:J</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Lcom/tendcloud/tenddata/y;->a(J)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget v0, p0, Lcom/tendcloud/tenddata/ay;->c:I</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(I)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/ay;->d:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(Ljava/lang/String;)Lcom/tendcloud/tenddata/y;</span>
+.end method
+
+.method public toString()Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "Activity{"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "name:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/ay;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ",start:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-wide v1, p0, Lcom/tendcloud/tenddata/ay;->b:J</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ",duration:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget v1, p0, Lcom/tendcloud/tenddata/ay;->c:I</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ",refer:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/ay;->d:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook</a></li>
+        <li><i class="ico ico-class"></i> AppEventsLogger$PersistedEvents.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/facebook/AppEventsLogger$PersistedEvents;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/AppEventsLogger;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x8
+name = "PersistedEvents"
+.end annotation
+
+.field static final a:Ljava/lang/String; = "AppEventsLogger.persistedevents"
+.field private static b:Ljava/lang/Object;
+.field private c:Landroid/content/Context;
+.field private d:Ljava/util/HashMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/HashMap",
+"<",
+"Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;",
+"Ljava/util/List",
+"<",
+"Lcom/facebook/AppEventsLogger$AppEvent;",
+">;>;"
+}
+.end annotation
+.end field
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Ljava/lang/Object;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/facebook/AppEventsLogger$PersistedEvents;->b:Ljava/lang/Object;</span>
+.end method
+
+.method private constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->c:Landroid/content/Context;</span>
+.end method
+
+.method public static a(Landroid/content/Context;)Lcom/facebook/AppEventsLogger$PersistedEvents;
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v1, Lcom/facebook/AppEventsLogger$PersistedEvents;->b:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Lcom/facebook/AppEventsLogger$PersistedEvents;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/facebook/AppEventsLogger$PersistedEvents;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/AppEventsLogger$PersistedEvents;->c()V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;Lcom/facebook/AppEventsLogger$SessionEventsState;)V
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/AppEventsLogger$PersistedEvents;->a(Landroid/content/Context;Ljava/util/Map;)V</span>
+.end method
+
+.method public static a(Landroid/content/Context;Ljava/util/Map;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/content/Context;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;",</span>
+<span class="">	"Lcom/facebook/AppEventsLogger$SessionEventsState;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v2, Lcom/facebook/AppEventsLogger$PersistedEvents;->b:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {p0}, Lcom/facebook/AppEventsLogger$PersistedEvents;->a(Landroid/content/Context;)Lcom/facebook/AppEventsLogger$PersistedEvents;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-direct {v3}, Lcom/facebook/AppEventsLogger$PersistedEvents;->b()V</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/facebook/AppEventsLogger$SessionEventsState;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/AppEventsLogger$SessionEventsState;->b()Ljava/util/List;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Lcom/facebook/AppEventsLogger$PersistedEvents;->a(Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;Ljava/util/List;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method private b()V
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Ljava/io/ObjectOutputStream;</span>
+<span class="">	new-instance v0, Ljava/io/BufferedOutputStream;</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->c:Landroid/content/Context;</span>
+<span class="">	const-string v4, "AppEventsLogger.persistedevents"</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/Context;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v0, v3}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/ObjectOutputStream;-><init>(Ljava/io/OutputStream;)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	invoke-static {}, Lcom/facebook/AppEventsLogger;->f()Ljava/lang/String;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_2</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "Got unexpected exception: "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:goto_2</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private c()V
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Ljava/io/ObjectInputStream;</span>
+<span class="">	new-instance v2, Ljava/io/BufferedInputStream;</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->c:Landroid/content/Context;</span>
+<span class="">	const-string v4, "AppEventsLogger.persistedevents"</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/HashMap;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->c:Landroid/content/Context;</span>
+<span class="">	const-string v3, "AppEventsLogger.persistedevents"</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/content/Context;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->delete()Z</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_3</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	move-object v5, v1</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	move-object v0, v5</span>
+<span class="">	invoke-static {}, Lcom/facebook/AppEventsLogger;->f()Ljava/lang/String;</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_start_2</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "Got unexpected exception: "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v5, v1</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	move-object v0, v5</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:goto_3</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_3</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public a(Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;)Ljava/util/List;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/facebook/AppEventsLogger$AppEvent;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/List;</span>
+.end method
+
+.method public a()Ljava/util/Set;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Set",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;Ljava/util/List;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/AppEventsLogger$AccessTokenAppIdPair;",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/facebook/AppEventsLogger$AppEvent;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	new-instance v1, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AppEventsLogger$PersistedEvents;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../.resources/report.js"></script>
+</body>
+</html>

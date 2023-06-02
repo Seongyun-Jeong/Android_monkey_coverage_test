@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.b</a></li>
+        <li><i class="ico ico-class"></i> j.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/b/j;
+.super Lcom/umeng/socialize/b/a/b;
+.source "SourceFile"
+
+
+.field private static final f:Ljava/lang/String; = "/share/validate_token/"
+.field private static final j:I = 0x18
+.field private k:[Lcom/umeng/socialize/bean/g;
+
+
+.method public constructor <init>(Landroid/content/Context;Lcom/umeng/socialize/bean/m;[Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const-string v2, ""</span>
+<span class="">	const-class v3, Lcom/umeng/socialize/b/k;</span>
+<span class="">	const/16 v5, 0x18</span>
+<span class="">	sget-object v6, Lcom/umeng/socialize/b/a/b$b;->a:Lcom/umeng/socialize/b/a/b$b;</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/umeng/socialize/b/a/b;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Lcom/umeng/socialize/bean/m;ILcom/umeng/socialize/b/a/b$b;)V</span>
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/b/j;->k:[Lcom/umeng/socialize/bean/g;</span>
+.end method
+
+.method protected a()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "/share/validate_token/"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/b/j;->d:Landroid/content/Context;</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/utils/m;->a(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "/"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected a(Ljava/util/Map;)Ljava/util/Map;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/j;->k:[Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/j;->k:[Lcom/umeng/socialize/bean/g;</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	if-lez v0, :cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/b/j;->k:[Lcom/umeng/socialize/bean/g;</span>
+<span class="">	array-length v3, v2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v0, v3, :cond_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->deleteCharAt(I)Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "platforms"</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	const-string v0, "uid"</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/n;->g:Ljava/lang/String;</span>
+<span class="">	invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	aget-object v4, v2, v0</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v5, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v4, v5, :cond_2</span>
+<span class="">	invoke-virtual {v4}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ","</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

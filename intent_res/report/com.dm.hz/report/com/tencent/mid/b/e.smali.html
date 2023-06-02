@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.mid.b</a></li>
+        <li><i class="ico ico-class"></i> e.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/mid/b/e;
+.super Lcom/tencent/mid/b/f;
+
+
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/mid/b/f;-><init>(Landroid/content/Context;)V</span>
+.end method
+
+.method protected a(Lcom/tencent/mid/b/a;)V
+<span class="">	.locals 3</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v1, "write CheckEntity to Settings.System:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/tencent/mid/b/a;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logInfo(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/e;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/e;->g()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p1}, Lcom/tencent/mid/b/a;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method protected a(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "write mid to Settings.System"</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logInfo(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/e;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/e;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method protected a()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/e;->a:Landroid/content/Context;</span>
+<span class="">	const-string v1, "android.permission.WRITE_SETTINGS"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/mid/util/Util;->checkPermission(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method protected b()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "read mid from Settings.System"</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logInfo(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/e;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/e;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method protected c()V
+<span class="">	.locals 3</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/e;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/e;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/e;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/e;->g()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method protected d()Lcom/tencent/mid/b/a;
+<span class="">	.locals 3</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/e;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/e;->g()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/tencent/mid/b/a;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/tencent/mid/b/a;-><init>(Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "read readCheckEntity from Settings.System:"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/mid/b/a;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logInfo(Ljava/lang/String;)V</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

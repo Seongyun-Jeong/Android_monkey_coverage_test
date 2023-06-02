@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.a.a</a></li>
+        <li><i class="ico ico-class"></i> i.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/dm/hz/a/a/i;
+.super Landroid/widget/BaseAdapter;
+.source "SourceFile"
+
+
+.field protected a:Landroid/view/LayoutInflater;
+.field public b:Landroid/app/Activity;
+.field public c:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/dm/hz/a/a/b;",
+">;"
+}
+.end annotation
+.end field
+.field private d:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+.field private e:Lcom/nostra13/universalimageloader/core/ImageLoader;
+.field private final f:Ljava/util/HashMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/HashMap",
+"<",
+"Landroid/view/View;",
+"Lcom/dm/hz/a/a/b;",
+">;"
+}
+.end annotation
+.end field
+
+
+<span class="cov">.method public constructor &lt;init&gt;(Landroid/app/Activity;Ljava/util/List;)V</span>
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/app/Activity;",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/dm/hz/a/a/b;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="cov">	const/4 v3, 0x0</span>
+<span class="cov">	invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/a/a/j;</span>
+<span class="cov">	const/16 v1, 0x14</span>
+<span class="cov">	const/high16 v2, 0x3f400000    # 0.75f</span>
+<span class="cov">	invoke-direct {v0, p0, v1, v2, v3}, Lcom/dm/hz/a/a/j;-><init>(Lcom/dm/hz/a/a/i;IFZ)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/a/a/i;->f:Ljava/util/HashMap;</span>
+<span class="cov">	iput-object p2, p0, Lcom/dm/hz/a/a/i;->c:Ljava/util/List;</span>
+<span class="cov">	iput-object p1, p0, Lcom/dm/hz/a/a/i;->b:Landroid/app/Activity;</span>
+<span class="exec">	invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/a/a/i;->a:Landroid/view/LayoutInflater;</span>
+<span class="exec">	invoke-static {}, Lcom/nostra13/universalimageloader/core/ImageLoader;->getInstance()Lcom/nostra13/universalimageloader/core/ImageLoader;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/a/a/i;->e:Lcom/nostra13/universalimageloader/core/ImageLoader;</span>
+<span class="cov">	new-instance v0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;</span>
+<span class="cov">	invoke-direct {v0}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;-><init>()V</span>
+<span class="exec">	invoke-virtual {v0, v3}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;->cacheInMemory(Z)Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const/4 v1, 0x1</span>
+<span class="exec">	invoke-virtual {v0, v1}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;->cacheOnDisc(Z)Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sget-object v1, Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;->EXACTLY_STRETCHED:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="exec">	invoke-virtual {v0, v1}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;->imageScaleType(Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;)Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;->build()Lcom/nostra13/universalimageloader/core/DisplayImageOptions;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/a/a/i;->d:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public a(Lcom/dm/hz/a/a/b;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/a/a/i;->c:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public a(Ljava/lang/String;Landroid/widget/ImageView;Lcom/nostra13/universalimageloader/core/listener/ImageLoadingListener;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/a/a/i;->e:Lcom/nostra13/universalimageloader/core/ImageLoader;</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/a/a/i;->d:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;</span>
+<span class="">	invoke-virtual {v0, p1, p2, v1, p3}, Lcom/nostra13/universalimageloader/core/ImageLoader;->displayImage(Ljava/lang/String;Landroid/widget/ImageView;Lcom/nostra13/universalimageloader/core/DisplayImageOptions;Lcom/nostra13/universalimageloader/core/listener/ImageLoadingListener;)V</span>
+.end method
+
+.method public abstract a()[Landroid/view/View$OnClickListener;
+<span class="">	</span>
+
+.end method
+
+.method public b(Lcom/dm/hz/a/a/b;)V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/a/a/i;->f:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/dm/hz/a/a/b;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	if-eq v3, v4, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	invoke-static {v1}, Lcom/dm/hz/a/a/d;->a(Lcom/dm/hz/a/a/b;)Lcom/dm/hz/a/a/k;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/View;</span>
+<span class="">	invoke-interface {v3, p0, v0, v1}, Lcom/dm/hz/a/a/k;->a(Lcom/dm/hz/a/a/i;Landroid/view/View;Ljava/lang/Object;)Landroid/view/View;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public c(Lcom/dm/hz/a/a/b;)Landroid/view/View;
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/a/a/i;->f:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/dm/hz/a/a/b;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	if-eq v3, v4, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/View;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public getCount()I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/a/a/i;->c:Ljava/util/List;</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="cov">	move-result v0</span>
+<span class="exec">	return v0</span>
+.end method
+
+.method public getItem(I)Ljava/lang/Object;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/a/a/i;->c:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public getItemId(I)J
+<span class="">	.locals 2</span>
+
+<span class="">	int-to-long v0, p1</span>
+.end method
+
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/a/a/i;->c:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/dm/hz/a/a/b;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/a/a/d;->a(Lcom/dm/hz/a/a/b;)Lcom/dm/hz/a/a/k;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1, p0, p2, v0}, Lcom/dm/hz/a/a/k;->a(Lcom/dm/hz/a/a/i;Landroid/view/View;Ljava/lang/Object;)Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/dm/hz/a/a/i;->f:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v2, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

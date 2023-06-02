@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.lockscreen.ui</a></li>
+        <li><i class="ico ico-class"></i> LockScreenHome$a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/dm/hz/lockscreen/ui/LockScreenHome;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x1
+name = "a"
+.end annotation
+
+.field  a:Landroid/content/Context;
+.field  b:Landroid/content/Intent;
+.field  c:Landroid/content/SharedPreferences;
+.field  d:Landroid/content/SharedPreferences$Editor;
+.field  e:Ljava/lang/String;
+.field  f:Ljava/lang/String;
+.field  g:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field  h:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field final synthetic i:Lcom/dm/hz/lockscreen/ui/LockScreenHome;
+
+
+.method public constructor <init>(Lcom/dm/hz/lockscreen/ui/LockScreenHome;Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iput-object p1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->i:Lcom/dm/hz/lockscreen/ui/LockScreenHome;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const-string v0, "packageName"</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->e:Ljava/lang/String;</span>
+<span class="">	const-string v0, "activityName"</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->f:Ljava/lang/String;</span>
+<span class="">	iput-object p2, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->a:Landroid/content/Context;</span>
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	const-string v1, "android.intent.action.MAIN"</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->b:Landroid/content/Intent;</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->b:Landroid/content/Intent;</span>
+<span class="">	const-string v1, "android.intent.category.HOME"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	const-string v0, "homeChoice"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p2, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->c:Landroid/content/SharedPreferences;</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->c:Landroid/content/SharedPreferences;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->d:Landroid/content/SharedPreferences$Editor;</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-instance v3, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	new-instance v4, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	new-instance v5, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->b:Landroid/content/Intent;</span>
+<span class="">	const/high16 v6, 0x10000</span>
+<span class="">	invoke-virtual {v0, v1, v6}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	move v1, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v6}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ge v1, v0, :cond_1</span>
+<span class="">	invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/pm/ResolveInfo;</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;</span>
+<span class="">	iget-object v7, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v7</span>
+<span class="">	if-nez v7, :cond_0</span>
+<span class="">	invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/pm/ResolveInfo;</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;</span>
+<span class="">	invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/pm/ResolveInfo;</span>
+<span class="">	iget-object v7, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->i:Lcom/dm/hz/lockscreen/ui/LockScreenHome;</span>
+<span class="">	invoke-virtual {v7}, Lcom/dm/hz/lockscreen/ui/LockScreenHome;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v0, v7}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-interface {v5, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_0</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v5}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	new-array v6, v0, [Ljava/lang/String;</span>
+<span class="">	move v1, v2</span>
+<span class="">	:goto_1</span>
+<span class="">	array-length v0, v6</span>
+<span class="">	if-ge v1, v0, :cond_2</span>
+<span class="">	invoke-interface {v5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	aput-object v0, v6, v1</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object v3, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->g:Ljava/util/List;</span>
+<span class="">	iput-object v4, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->h:Ljava/util/List;</span>
+<span class="">	new-instance v0, Landroid/app/AlertDialog$Builder;</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->a:Landroid/content/Context;</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const-string v1, "\u8bf7\u9009\u62e9\u89e3\u9501\u540e\u7684\u5c4f\u5e55"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/dm/hz/lockscreen/ui/e;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/dm/hz/lockscreen/ui/e;-><init>(Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;)V</span>
+<span class="">	invoke-virtual {v0, v6, v2, v1}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->c:Landroid/content/SharedPreferences;</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->e:Ljava/lang/String;</span>
+<span class="">	invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->c:Landroid/content/SharedPreferences;</span>
+<span class="">	iget-object v2, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->f:Ljava/lang/String;</span>
+<span class="">	invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Landroid/content/ComponentName;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v0}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->a:Landroid/content/Context;</span>
+<span class="">	check-cast v0, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/Activity;->finish()V</span>
+.end method
+
+.method public c()V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	const-string v1, "android.intent.action.MAIN"</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "android.intent.category.HOME"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenHome$a;->i:Lcom/dm/hz/lockscreen/ui/LockScreenHome;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenHome;->startActivity(Landroid/content/Intent;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

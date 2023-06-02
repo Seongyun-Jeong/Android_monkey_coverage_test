@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.a.b</a></li>
+        <li><i class="ico ico-class"></i> a$1.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tencent/a/b/a$1;
+.super Ljava/lang/Object;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/tencent/a/b/a;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x1008
+name = null
+.end annotation
+
+.field final synthetic a:Lcom/tencent/a/b/a;
+
+
+.method private constructor <init>(Lcom/tencent/a/b/a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/a/b/a$1;->a:Lcom/tencent/a/b/a;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method synthetic constructor <init>(Lcom/tencent/a/b/a;B)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/a/b/a$1;-><init>(Lcom/tencent/a/b/a;)V</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/String;)Z
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/a$1;->a:Lcom/tencent/a/b/a;</span>
+<span class="">	invoke-static {v0, p1}, Lcom/tencent/a/b/a;->a(Lcom/tencent/a/b/a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	mul-int/lit8 v2, v0, 0x9</span>
+<span class="">	add-int/lit8 v2, v2, 0xa</span>
+<span class="">	div-int/lit8 v2, v2, 0x3</span>
+<span class="">	add-int/lit8 v2, v2, 0x24</span>
+<span class="">	and-int/lit8 v2, v2, 0x1f</span>
+<span class="">	const/4 v4, 0x4</span>
+<span class="">	invoke-virtual {p2, v4}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v4</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eq v4, v2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	mul-int/lit8 v2, v0, 0x5</span>
+<span class="">	:cond_1</span>
+<span class="">	add-int/lit8 v2, v2, 0xb</span>
+<span class="">	div-int/lit8 v2, v2, 0x5</span>
+<span class="">	and-int/lit8 v2, v2, 0x1f</span>
+<span class="">	const/4 v4, 0x7</span>
+<span class="">	invoke-virtual {p2, v4}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v4</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	if-ne v4, v2, :cond_0</span>
+<span class="">	add-int/lit8 v2, v0, 0xa</span>
+<span class="">	div-int/lit8 v2, v2, 0x3</span>
+<span class="">	shl-int/lit8 v2, v2, 0x3</span>
+<span class="">	and-int/lit8 v2, v2, 0x1f</span>
+<span class="">	const/16 v4, 0xc</span>
+<span class="">	invoke-virtual {p2, v4}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v4</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	if-ne v4, v2, :cond_0</span>
+<span class="">	mul-int/lit8 v2, v0, 0x3</span>
+<span class="">	add-int/lit8 v2, v2, 0x13</span>
+<span class="">	div-int/lit8 v2, v2, 0x9</span>
+<span class="">	and-int/lit8 v2, v2, 0x1f</span>
+<span class="">	const/16 v4, 0xe</span>
+<span class="">	invoke-virtual {p2, v4}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v4</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	if-ne v4, v2, :cond_0</span>
+<span class="">	mul-int/lit8 v2, v0, 0x3</span>
+<span class="">	add-int/lit8 v2, v2, 0x27</span>
+<span class="">	div-int/lit8 v2, v2, 0x8</span>
+<span class="">	and-int/lit8 v2, v2, 0x1f</span>
+<span class="">	const/16 v4, 0x13</span>
+<span class="">	invoke-virtual {p2, v4}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v4</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	if-ne v4, v2, :cond_0</span>
+<span class="">	div-int/lit8 v2, v0, 0x17</span>
+<span class="">	add-int/lit8 v2, v2, 0x43</span>
+<span class="">	div-int/lit8 v2, v2, 0x7</span>
+<span class="">	and-int/lit8 v2, v2, 0x1f</span>
+<span class="">	const/16 v4, 0x15</span>
+<span class="">	invoke-virtual {p2, v4}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v4</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	if-ne v4, v2, :cond_0</span>
+<span class="">	add-int/lit8 v0, v0, 0x17</span>
+<span class="">	div-int/lit8 v0, v0, 0x6</span>
+<span class="">	add-int/lit8 v0, v0, 0x3</span>
+<span class="">	mul-int/lit8 v0, v0, 0x7</span>
+<span class="">	and-int/lit8 v0, v0, 0x1f</span>
+<span class="">	const/16 v2, 0x1a</span>
+<span class="">	invoke-virtual {p2, v2}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	sget-object v4, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v4, v0}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v2, v0, :cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	move v2, v1</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->length()I</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result v4</span>
+<span class="">	if-ge v0, v4, :cond_2</span>
+<span class="">	shr-int/lit8 v4, v2, 0x8</span>
+<span class="">	and-int/lit16 v4, v4, 0xff</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->b:[I</span>
+<span class="">	invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v6</span>
+<span class="">	invoke-static {v6}, Lcom/tencent/a/b/i;->a(C)I</span>
+<span class="">	move-result v6</span>
+<span class="">	xor-int/2addr v2, v6</span>
+<span class="">	and-int/lit16 v2, v2, 0xff</span>
+<span class="">	aget v2, v5, v2</span>
+<span class="">	xor-int/2addr v2, v4</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	and-int/lit8 v0, v2, 0x1f</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p2, v1}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v4</span>
+<span class="">	sget-object v5, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v0}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v4, v0, :cond_0</span>
+<span class="">	shr-int/lit8 v0, v2, 0x5</span>
+<span class="">	and-int/lit8 v0, v0, 0x1f</span>
+<span class="">	invoke-virtual {p2, v3}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v2</span>
+<span class="">	sget-object v4, Lcom/tencent/a/b/i;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v4, v0}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v2, v0, :cond_0</span>
+<span class="">	move v1, v3</span>
+<span class="">	goto/16 :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

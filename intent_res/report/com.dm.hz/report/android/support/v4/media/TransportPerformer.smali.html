@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.media</a></li>
+        <li><i class="ico ico-class"></i> TransportPerformer.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Landroid/support/v4/media/TransportPerformer;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field static final AUDIOFOCUS_GAIN:I = 0x1
+.field static final AUDIOFOCUS_GAIN_TRANSIENT:I = 0x2
+.field static final AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK:I = 0x3
+.field static final AUDIOFOCUS_LOSS:I = -0x1
+.field static final AUDIOFOCUS_LOSS_TRANSIENT:I = -0x2
+.field static final AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:I = -0x3
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public onAudioFocusChange(I)V
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	packed-switch p1, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz v6, :cond_0</span>
+<span class="">	invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	new-instance v0, Landroid/view/KeyEvent;</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	move-wide v3, v1</span>
+<span class="">	invoke-direct/range {v0 .. v7}, Landroid/view/KeyEvent;-><init>(JJIII)V</span>
+<span class="">	invoke-virtual {p0, v6, v0}, Landroid/support/v4/media/TransportPerformer;->onMediaButtonDown(ILandroid/view/KeyEvent;)Z</span>
+<span class="">	new-instance v0, Landroid/view/KeyEvent;</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	move-wide v3, v1</span>
+<span class="">	invoke-direct/range {v0 .. v7}, Landroid/view/KeyEvent;-><init>(JJIII)V</span>
+<span class="">	invoke-virtual {p0, v6, v0}, Landroid/support/v4/media/TransportPerformer;->onMediaButtonUp(ILandroid/view/KeyEvent;)Z</span>
+<span class="">	:cond_0</span>
+<span class="">	const/16 v6, 0x7f</span>
+<span class="">	:pswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch -0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public onGetBufferPercentage()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/16 v0, 0x64</span>
+.end method
+
+.method public abstract onGetCurrentPosition()J
+<span class="">	</span>
+
+.end method
+
+.method public abstract onGetDuration()J
+<span class="">	</span>
+
+.end method
+
+.method public onGetTransportControlFlags()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/16 v0, 0x3c</span>
+.end method
+
+.method public abstract onIsPlaying()Z
+<span class="">	</span>
+
+.end method
+
+.method public onMediaButtonDown(ILandroid/view/KeyEvent;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	sparse-switch p1, :sswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/media/TransportPerformer;->onStart()V</span>
+<span class="">	:sswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/media/TransportPerformer;->onPause()V</span>
+<span class="">	:sswitch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/media/TransportPerformer;->onStop()V</span>
+<span class="">	:sswitch_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/media/TransportPerformer;->onIsPlaying()Z</span>
+<span class="">	:sswitch_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/media/TransportPerformer;->onPause()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/media/TransportPerformer;->onStart()V</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:sswitch_data_0</span>
+<span class="">	.sparse-switch</span>
+<span class="">	0x4f -> :sswitch_3</span>
+<span class="">	0x55 -> :sswitch_3</span>
+<span class="">	0x56 -> :sswitch_2</span>
+<span class="">	0x7e -> :sswitch_0</span>
+<span class="">	0x7f -> :sswitch_1</span>
+<span class="">	.end sparse-switch</span>
+.end method
+
+.method public onMediaButtonUp(ILandroid/view/KeyEvent;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+.end method
+
+.method public abstract onPause()V
+<span class="">	</span>
+
+.end method
+
+.method public abstract onSeekTo(J)V
+<span class="">	</span>
+
+.end method
+
+.method public abstract onStart()V
+<span class="">	</span>
+
+.end method
+
+.method public abstract onStop()V
+<span class="">	</span>
+
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.lockscreen.view</a></li>
+        <li><i class="ico ico-class"></i> TargetDrawable.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/lockscreen/view/TargetDrawable;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private chargePercent:I
+.field private mAlpha:F
+.field private mDrawable:Landroid/graphics/drawable/Drawable;
+.field private mDrawableBackGround:Landroid/graphics/drawable/Drawable;
+.field private mRestoreDrawable:Landroid/graphics/drawable/Drawable;
+.field private mScaleX:F
+.field private mScaleY:F
+.field private mTargetString:Ljava/lang/String;
+.field private mTranslationX:F
+.field private mTranslationY:F
+
+
+.method public constructor <init>(Landroid/content/res/Resources;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p2, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/dm/hz/lockscreen/view/TargetDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public constructor &lt;init&gt;(Landroid/content/res/Resources;Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="cov">	const/high16 v1, 0x3f800000    # 1.0f</span>
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="cov">	iput v2, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationX:F</span>
+<span class="cov">	iput v2, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationY:F</span>
+<span class="cov">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleX:F</span>
+<span class="cov">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleY:F</span>
+<span class="cov">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mAlpha:F</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="cov">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->chargePercent:I</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTargetString:Ljava/lang/String;</span>
+<span class="cov">	if-eqz p2, :cond_0</span>
+<span class="exec">	invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mRestoreDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public constructor <init>(Landroid/content/res/Resources;Landroid/graphics/drawable/Drawable;Z)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/high16 v1, 0x3f800000    # 1.0f</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput v2, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationX:F</span>
+<span class="">	iput v2, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationY:F</span>
+<span class="">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleX:F</span>
+<span class="">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleY:F</span>
+<span class="">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mAlpha:F</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iput v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->chargePercent:I</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTargetString:Ljava/lang/String;</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mRestoreDrawable:Landroid/graphics/drawable/Drawable;</span>
+.end method
+
+<span class="cov">.method private drawTargets(Landroid/graphics/Canvas;)V</span>
+<span class="">	.locals 5</span>
+
+<span class="cov">	const/high16 v4, 0x437f0000    # 255.0f</span>
+<span class="cov">	const/4 v3, 0x0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	iget v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mAlpha:F</span>
+<span class="cov">	mul-float/2addr v1, v4</span>
+<span class="exec">	invoke-static {v1}, Ljava/lang/Math;->round(F)I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	iget v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mAlpha:F</span>
+<span class="cov">	mul-float/2addr v1, v4</span>
+<span class="exec">	invoke-static {v1}, Ljava/lang/Math;->round(F)I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private drawText(Landroid/graphics/Canvas;)V</span>
+<span class="">	.locals 6</span>
+
+<span class="cov">	const/4 v5, 0x1</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTargetString:Ljava/lang/String;</span>
+<span class="exec">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	new-instance v2, Landroid/graphics/Paint;</span>
+<span class="cov">	invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V</span>
+<span class="cov">	invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V</span>
+<span class="cov">	sget-object v3, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;</span>
+<span class="cov">	invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V</span>
+<span class="cov">	const-string v3, "#b8b8b8"</span>
+<span class="exec">	invoke-static {v3}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="cov">	move-result v3</span>
+<span class="cov">	invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColor(I)V</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v3</span>
+<span class="cov">	const/high16 v4, 0x41400000    # 12.0f</span>
+<span class="exec">	invoke-static {v3, v4}, Lcom/dm/hz/f/k;->a(Landroid/content/Context;F)I</span>
+<span class="cov">	move-result v3</span>
+<span class="cov">	int-to-float v3, v3</span>
+<span class="cov">	invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setTextSize(F)V</span>
+<span class="cov">	iget-object v3, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTargetString:Ljava/lang/String;</span>
+<span class="exec">	invoke-direct {p0, v2, v3}, Lcom/dm/hz/lockscreen/view/TargetDrawable;->getStrigBounds(Landroid/graphics/Paint;Ljava/lang/String;)[I</span>
+<span class="cov">	move-result-object v3</span>
+<span class="cov">	const/4 v4, 0x0</span>
+<span class="cov">	aget v4, v3, v4</span>
+<span class="cov">	sub-int/2addr v0, v4</span>
+<span class="cov">	div-int/lit8 v0, v0, 0x2</span>
+<span class="cov">	int-to-float v0, v0</span>
+<span class="cov">	aget v3, v3, v5</span>
+<span class="cov">	add-int/2addr v1, v3</span>
+<span class="cov">	add-int/lit8 v1, v1, 0x1b</span>
+<span class="cov">	int-to-float v1, v1</span>
+<span class="cov">	iget-object v3, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTargetString:Ljava/lang/String;</span>
+<span class="cov">	invoke-virtual {p1, v3, v0, v1, v2}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method private getStrigBounds(Landroid/graphics/Paint;Ljava/lang/String;)[I</span>
+<span class="">	.locals 4</span>
+
+<span class="cov">	const/4 v3, 0x0</span>
+<span class="cov">	const/4 v0, 0x2</span>
+<span class="cov">	new-array v0, v0, [I</span>
+<span class="cov">	new-instance v1, Landroid/graphics/Rect;</span>
+<span class="cov">	invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V</span>
+<span class="exec">	invoke-virtual {p2}, Ljava/lang/String;->length()I</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	invoke-virtual {p1, p2, v3, v2, v1}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V</span>
+<span class="exec">	invoke-virtual {v1}, Landroid/graphics/Rect;->width()I</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	aput v2, v0, v3</span>
+<span class="cov">	const/4 v2, 0x1</span>
+<span class="exec">	invoke-virtual {v1}, Landroid/graphics/Rect;->height()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	aput v1, v0, v2</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method public draw(Landroid/graphics/Canvas;)V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const/high16 v2, -0x41000000    # -0.5f</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->save(I)I</span>
+<span class="cov">	iget v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationX:F</span>
+<span class="cov">	iget v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationY:F</span>
+<span class="cov">	invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V</span>
+<span class="cov">	iget v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleX:F</span>
+<span class="cov">	iget v1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleY:F</span>
+<span class="cov">	invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V</span>
+<span class="exec">	invoke-virtual {p0}, Lcom/dm/hz/lockscreen/view/TargetDrawable;->getWidth()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	int-to-float v0, v0</span>
+<span class="cov">	mul-float/2addr v0, v2</span>
+<span class="exec">	invoke-virtual {p0}, Lcom/dm/hz/lockscreen/view/TargetDrawable;->getHeight()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	int-to-float v1, v1</span>
+<span class="cov">	mul-float/2addr v1, v2</span>
+<span class="cov">	invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V</span>
+<span class="cov">	invoke-direct {p0, p1}, Lcom/dm/hz/lockscreen/view/TargetDrawable;->drawTargets(Landroid/graphics/Canvas;)V</span>
+<span class="cov">	invoke-direct {p0, p1}, Lcom/dm/hz/lockscreen/view/TargetDrawable;->drawText(Landroid/graphics/Canvas;)V</span>
+<span class="cov">	invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public getAlpha()F</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mAlpha:F</span>
+<span class="exec">	return v0</span>
+.end method
+
+.method public getBackGroundHeight()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public getBackGroundWidth()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public getDrawable()Landroid/graphics/drawable/Drawable;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+.end method
+
+<span class="cov">.method public getHeight()I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return v0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public getScaleX()F
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleX:F</span>
+.end method
+
+.method public getScaleY()F
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleY:F</span>
+.end method
+
+<span class="cov">.method public getWidth()I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return v0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public getX()F</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationX:F</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method public getY()F</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationY:F</span>
+<span class="exec">	return v0</span>
+.end method
+
+.method public isActive()Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	instance-of v0, v0, Landroid/graphics/drawable/StateListDrawable;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	check-cast v0, Landroid/graphics/drawable/StateListDrawable;</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/drawable/StateListDrawable;->getState()[I</span>
+<span class="">	move-result-object v2</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	array-length v3, v2</span>
+<span class="">	if-ge v0, v3, :cond_0</span>
+<span class="">	aget v3, v2, v0</span>
+<span class="">	const v4, 0x101009c</span>
+<span class="">	if-ne v3, v4, :cond_1</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public isValid()Z</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return v0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public restoreDrawable()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mRestoreDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mRestoreDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public setAlpha(F)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput p1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mAlpha:F</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public setBackground(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	if-eqz p1, :cond_0</span>
+<span class="exec">	invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawableBackGround:Landroid/graphics/drawable/Drawable;</span>
+<span class="exec">	return-void</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public setChargePercent(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->chargePercent:I</span>
+.end method
+
+.method public setDrawable(Landroid/graphics/drawable/Drawable;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public setScaleX(F)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleX:F</span>
+.end method
+
+.method public setScaleY(F)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mScaleY:F</span>
+.end method
+
+<span class="cov">.method public setText(Ljava/lang/String;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput-object p1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTargetString:Ljava/lang/String;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public setX(F)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput p1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationX:F</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public setY(F)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput p1, p0, Lcom/dm/hz/lockscreen/view/TargetDrawable;->mTranslationY:F</span>
+<span class="exec">	return-void</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

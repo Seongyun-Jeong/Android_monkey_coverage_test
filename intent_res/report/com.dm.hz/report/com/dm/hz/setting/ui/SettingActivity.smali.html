@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.setting.ui</a></li>
+        <li><i class="ico ico-class"></i> SettingActivity.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/setting/ui/SettingActivity;
+.super Lcom/dm/hz/other/ui/BaseActivity;
+.source "SourceFile"
+.implements Landroid/view/View$OnClickListener;
+
+
+.field private a:Lcom/dm/hz/f/i;
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/other/ui/BaseActivity;-><init>()V</span>
+.end method
+
+.method private a()V
+<span class="">	.locals 1</span>
+
+<span class="">	const v0, 0x7f0a008a</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	const v0, 0x7f0a008e</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	const v0, 0x7f0a008f</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	const v0, 0x7f0a0090</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	const v0, 0x7f0a0094</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	const v0, 0x7f0a0092</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	const v0, 0x7f0a0093</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	const v0, 0x7f0a0091</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+.end method
+
+.method public static a(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	const-class v1, Lcom/dm/hz/setting/ui/SettingActivity;</span>
+<span class="">	invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-instance v0, Lcom/dm/hz/f/i;</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-direct {v0, v1, v2, v2, v2}, Lcom/dm/hz/f/i;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->a:Lcom/dm/hz/f/i;</span>
+.end method
+
+.method private e()V
+<span class="">	.locals 4</span>
+
+<span class="">	const/16 v0, 0x8</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const v2, 0x7f0a0094</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	const v1, 0x7f0a008c</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/dm/hz/setting/ui/SettingActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	move v3, v1</span>
+<span class="">	:cond_0</span>
+<span class="">	move v1, v0</span>
+<span class="">	move v0, v3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected onActivityResult(IILandroid/content/Intent;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1, p2, p3}, Lcom/dm/hz/other/ui/BaseActivity;->onActivityResult(IILandroid/content/Intent;)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->a:Lcom/dm/hz/f/i;</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/f/i;->a()Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/controller/UMSocialService;->c()Lcom/umeng/socialize/bean/l;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/umeng/socialize/bean/l;->a(I)Lcom/umeng/socialize/sso/ab;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3}, Lcom/umeng/socialize/sso/ab;->a(IILandroid/content/Intent;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public onClick(Landroid/view/View;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/a/a/b/g;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/View;->getId()I</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v0</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/setting/ui/SettingActivity;->finish()V</span>
+<span class="">	:pswitch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	:pswitch_2</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/account/ui/AccountActivity;->b(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	:pswitch_3</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/account/ui/AccountActivity;->a(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="">	:pswitch_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/account/ui/AccountActivity;->c(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/account/ui/AccountActivity;->a(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	:pswitch_5</span>
+<span class="">	const/16 v1, 0x3f</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/other/ui/HelpActivity;->a(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	:pswitch_6</span>
+<span class="">	const/16 v1, 0x40</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/other/ui/HelpActivity;->b(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="">	:pswitch_7</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->e()V</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/setting/ui/SettingActivity;->e()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	:pswitch_8</span>
+<span class="">	const/16 v1, 0x41</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/setting/ui/SettingActivity;->a:Lcom/dm/hz/f/i;</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/f/i;->b()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x7f0a008a</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_3</span>
+<span class="">	:pswitch_4</span>
+<span class="">	:pswitch_8</span>
+<span class="">	:pswitch_5</span>
+<span class="">	:pswitch_6</span>
+<span class="">	:pswitch_7</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/dm/hz/other/ui/BaseActivity;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	const v0, 0x7f03001e</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/setting/ui/SettingActivity;->setContentView(I)V</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/setting/ui/SettingActivity;->a()V</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/setting/ui/SettingActivity;->d()V</span>
+.end method
+
+.method protected onResume()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-super {p0}, Lcom/dm/hz/other/ui/BaseActivity;->onResume()V</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/setting/ui/SettingActivity;->e()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

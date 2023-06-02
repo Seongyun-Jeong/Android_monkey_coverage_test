@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.google.gson</a></li>
+        <li><i class="ico ico-class"></i> DefaultTypeAdapters.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/google/gson/DefaultTypeAdapters;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/google/gson/DefaultTypeAdapters$1;,
+Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;,
+Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$StringBufferTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$StringBuilderTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$StringTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$DoubleDeserializer;,
+Lcom/google/gson/DefaultTypeAdapters$DoubleSerializer;,
+Lcom/google/gson/DefaultTypeAdapters$FloatDeserializer;,
+Lcom/google/gson/DefaultTypeAdapters$FloatSerializer;,
+Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$LongDeserializer;,
+Lcom/google/gson/DefaultTypeAdapters$LongSerializer;,
+Lcom/google/gson/DefaultTypeAdapters$NumberTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$BigIntegerTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$BigDecimalTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$CollectionTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$LocaleTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$UuidTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$UriTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$UrlTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$EnumTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$DefaultInetAddressAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$DefaultTimeTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$DefaultTimestampDeserializer;,
+Lcom/google/gson/DefaultTypeAdapters$DefaultJavaSqlDateTypeAdapter;,
+Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;
+}
+.end annotation
+
+.field private static final BIG_DECIMAL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigDecimalTypeAdapter;
+.field private static final BIG_INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigIntegerTypeAdapter;
+.field private static final BOOLEAN_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;
+.field private static final BYTE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;
+.field private static final CHARACTER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;
+.field private static final COLLECTION_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CollectionTypeAdapter;
+.field private static final DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;
+.field private static final DEFAULT_DESERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/google/gson/ParameterizedTypeHandlerMap",
+"<",
+"Lcom/google/gson/JsonDeserializer",
+"<*>;>;"
+}
+.end annotation
+.end field
+.field static final DEFAULT_HIERARCHY_DESERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/google/gson/ParameterizedTypeHandlerMap",
+"<",
+"Lcom/google/gson/JsonDeserializer",
+"<*>;>;"
+}
+.end annotation
+.end field
+.field static final DEFAULT_HIERARCHY_SERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/google/gson/ParameterizedTypeHandlerMap",
+"<",
+"Lcom/google/gson/JsonSerializer",
+"<*>;>;"
+}
+.end annotation
+.end field
+.field private static final DEFAULT_INSTANCE_CREATORS:Lcom/google/gson/ParameterizedTypeHandlerMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/google/gson/ParameterizedTypeHandlerMap",
+"<",
+"Lcom/google/gson/InstanceCreator",
+"<*>;>;"
+}
+.end annotation
+.end field
+.field private static final DEFAULT_SERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/google/gson/ParameterizedTypeHandlerMap",
+"<",
+"Lcom/google/gson/JsonSerializer",
+"<*>;>;"
+}
+.end annotation
+.end field
+.field private static final DOUBLE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DoubleDeserializer;
+.field private static final ENUM_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$EnumTypeAdapter;
+.field private static final FLOAT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$FloatDeserializer;
+.field private static final GREGORIAN_CALENDAR_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;
+.field private static final INET_ADDRESS_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultInetAddressAdapter;
+.field private static final INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;
+.field private static final JAVA_SQL_DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultJavaSqlDateTypeAdapter;
+.field private static final LOCALE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$LocaleTypeAdapter;
+.field private static final LONG_DESERIALIZER:Lcom/google/gson/DefaultTypeAdapters$LongDeserializer;
+.field private static final MAP_TYPE_ADAPTER:Lcom/google/gson/MapTypeAdapter;
+.field private static final NUMBER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$NumberTypeAdapter;
+.field private static final SHORT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;
+.field private static final STRING_BUFFER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBufferTypeAdapter;
+.field private static final STRING_BUILDER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBuilderTypeAdapter;
+.field private static final STRING_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringTypeAdapter;
+.field private static final TIMESTAMP_DESERIALIZER:Lcom/google/gson/DefaultTypeAdapters$DefaultTimestampDeserializer;
+.field private static final TIME_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultTimeTypeAdapter;
+.field private static final URI_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UriTypeAdapter;
+.field private static final URL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UrlTypeAdapter;
+.field private static final UUUID_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UuidTypeAdapter;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$DefaultJavaSqlDateTypeAdapter;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/DefaultTypeAdapters$DefaultJavaSqlDateTypeAdapter;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->JAVA_SQL_DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultJavaSqlDateTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$DefaultTimeTypeAdapter;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/DefaultTypeAdapters$DefaultTimeTypeAdapter;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->TIME_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultTimeTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$DefaultTimestampDeserializer;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/DefaultTypeAdapters$DefaultTimestampDeserializer;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->TIMESTAMP_DESERIALIZER:Lcom/google/gson/DefaultTypeAdapters$DefaultTimestampDeserializer;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$EnumTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$EnumTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->ENUM_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$EnumTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$UrlTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$UrlTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->URL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UrlTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$UriTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$UriTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->URI_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UriTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$UuidTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$UuidTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->UUUID_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UuidTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$LocaleTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$LocaleTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->LOCALE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$LocaleTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$DefaultInetAddressAdapter;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/DefaultTypeAdapters$DefaultInetAddressAdapter;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->INET_ADDRESS_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultInetAddressAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$CollectionTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$CollectionTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->COLLECTION_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CollectionTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/MapTypeAdapter;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/MapTypeAdapter;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->MAP_TYPE_ADAPTER:Lcom/google/gson/MapTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$BigDecimalTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$BigDecimalTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->BIG_DECIMAL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigDecimalTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$BigIntegerTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$BigIntegerTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->BIG_INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigIntegerTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->BOOLEAN_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->BYTE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->CHARACTER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$DoubleDeserializer;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$DoubleDeserializer;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->DOUBLE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DoubleDeserializer;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$FloatDeserializer;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$FloatDeserializer;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->FLOAT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$FloatDeserializer;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$LongDeserializer;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$LongDeserializer;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->LONG_DESERIALIZER:Lcom/google/gson/DefaultTypeAdapters$LongDeserializer;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$NumberTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$NumberTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->NUMBER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$NumberTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->SHORT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$StringTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$StringTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->STRING_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$StringBuilderTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$StringBuilderTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->STRING_BUILDER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBuilderTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$StringBufferTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$StringBufferTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->STRING_BUFFER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBufferTypeAdapter;</span>
+<span class="">	new-instance v0, Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;-><init>(Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->GREGORIAN_CALENDAR_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->createDefaultSerializers()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_SERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->createDefaultHierarchySerializers()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_HIERARCHY_SERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->createDefaultDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_DESERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->createDefaultHierarchyDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_HIERARCHY_DESERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->createDefaultInstanceCreators()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_INSTANCE_CREATORS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+.end method
+
+.method constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method private static createDefaultDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonDeserializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;-><init>()V</span>
+<span class="">	const-class v1, Ljava/net/URL;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->URL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UrlTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/net/URI;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->URI_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UriTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/UUID;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->UUUID_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UuidTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Locale;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->LOCALE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$LocaleTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Date;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/sql/Date;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->JAVA_SQL_DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultJavaSqlDateTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/sql/Timestamp;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->TIMESTAMP_DESERIALIZER:Lcom/google/gson/DefaultTypeAdapters$DefaultTimestampDeserializer;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/sql/Time;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->TIME_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultTimeTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Calendar;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->GREGORIAN_CALENDAR_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/GregorianCalendar;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->GREGORIAN_CALENDAR_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/math/BigDecimal;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BIG_DECIMAL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigDecimalTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/math/BigInteger;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BIG_INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigIntegerTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Boolean;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BOOLEAN_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BOOLEAN_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Byte;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BYTE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BYTE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Character;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->CHARACTER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->CHARACTER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Double;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->DOUBLE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DoubleDeserializer;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->DOUBLE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DoubleDeserializer;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Float;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->FLOAT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$FloatDeserializer;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->FLOAT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$FloatDeserializer;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Integer;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Long;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->LONG_DESERIALIZER:Lcom/google/gson/DefaultTypeAdapters$LongDeserializer;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->LONG_DESERIALIZER:Lcom/google/gson/DefaultTypeAdapters$LongDeserializer;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Number;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->NUMBER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$NumberTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Short;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->SHORT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Short;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->SHORT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/String;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->STRING_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/StringBuilder;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->STRING_BUILDER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBuilderTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/StringBuffer;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->STRING_BUFFER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBufferTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;->makeUnmodifiable()V</span>
+.end method
+
+.method private static createDefaultHierarchyDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonDeserializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;-><init>()V</span>
+<span class="">	const-class v1, Ljava/lang/Enum;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->ENUM_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$EnumTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/net/InetAddress;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->INET_ADDRESS_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultInetAddressAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Collection;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->COLLECTION_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CollectionTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Map;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->MAP_TYPE_ADAPTER:Lcom/google/gson/MapTypeAdapter;</span>
+<span class="">	invoke-static {v2}, Lcom/google/gson/DefaultTypeAdapters;->wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;->makeUnmodifiable()V</span>
+.end method
+
+.method private static createDefaultHierarchySerializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonSerializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;-><init>()V</span>
+<span class="">	const-class v1, Ljava/lang/Enum;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->ENUM_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$EnumTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/net/InetAddress;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->INET_ADDRESS_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultInetAddressAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Collection;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->COLLECTION_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CollectionTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Map;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->MAP_TYPE_ADAPTER:Lcom/google/gson/MapTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;->makeUnmodifiable()V</span>
+.end method
+
+.method private static createDefaultInstanceCreators()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 7</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/InstanceCreator",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;-><init>()V</span>
+<span class="">	new-instance v1, Lcom/google/gson/DefaultConstructorAllocator;</span>
+<span class="">	const/16 v2, 0x32</span>
+<span class="">	invoke-direct {v1, v2}, Lcom/google/gson/DefaultConstructorAllocator;-><init>(I)V</span>
+<span class="">	const-class v2, Ljava/util/Map;</span>
+<span class="">	new-instance v3, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;</span>
+<span class="">	const-class v4, Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-direct {v3, v4, v1}, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;-><init>(Ljava/lang/Class;Lcom/google/gson/DefaultConstructorAllocator;)V</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	new-instance v2, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;</span>
+<span class="">	const-class v3, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v2, v3, v1}, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;-><init>(Ljava/lang/Class;Lcom/google/gson/DefaultConstructorAllocator;)V</span>
+<span class="">	new-instance v3, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;</span>
+<span class="">	const-class v4, Ljava/util/LinkedList;</span>
+<span class="">	invoke-direct {v3, v4, v1}, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;-><init>(Ljava/lang/Class;Lcom/google/gson/DefaultConstructorAllocator;)V</span>
+<span class="">	new-instance v4, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;</span>
+<span class="">	const-class v5, Ljava/util/HashSet;</span>
+<span class="">	invoke-direct {v4, v5, v1}, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;-><init>(Ljava/lang/Class;Lcom/google/gson/DefaultConstructorAllocator;)V</span>
+<span class="">	new-instance v5, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;</span>
+<span class="">	const-class v6, Ljava/util/TreeSet;</span>
+<span class="">	invoke-direct {v5, v6, v1}, Lcom/google/gson/DefaultTypeAdapters$DefaultConstructorCreator;-><init>(Ljava/lang/Class;Lcom/google/gson/DefaultConstructorAllocator;)V</span>
+<span class="">	const-class v1, Ljava/util/Collection;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Queue;</span>
+<span class="">	invoke-virtual {v0, v1, v3}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Set;</span>
+<span class="">	invoke-virtual {v0, v1, v4}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/SortedSet;</span>
+<span class="">	invoke-virtual {v0, v1, v5}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerForTypeHierarchy(Ljava/lang/Class;Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;->makeUnmodifiable()V</span>
+.end method
+
+.method private static createDefaultSerializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonSerializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;-><init>()V</span>
+<span class="">	const-class v1, Ljava/net/URL;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->URL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UrlTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/net/URI;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->URI_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UriTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/UUID;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->UUUID_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$UuidTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Locale;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->LOCALE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$LocaleTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Date;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/sql/Date;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->JAVA_SQL_DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultJavaSqlDateTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/sql/Timestamp;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->DATE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultDateTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/sql/Time;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->TIME_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$DefaultTimeTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/Calendar;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->GREGORIAN_CALENDAR_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/util/GregorianCalendar;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->GREGORIAN_CALENDAR_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$GregorianCalendarTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/math/BigDecimal;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BIG_DECIMAL_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigDecimalTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/math/BigInteger;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BIG_INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BigIntegerTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Boolean;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BOOLEAN_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BOOLEAN_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$BooleanTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Byte;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BYTE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->BYTE_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ByteTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Character;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->CHARACTER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->CHARACTER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Integer;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->INTEGER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$IntegerTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Number;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->NUMBER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$NumberTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/Short;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->SHORT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Ljava/lang/Short;->TYPE:Ljava/lang/Class;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->SHORT_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$ShortTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/String;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->STRING_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/StringBuilder;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->STRING_BUILDER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBuilderTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	const-class v1, Ljava/lang/StringBuffer;</span>
+<span class="">	sget-object v2, Lcom/google/gson/DefaultTypeAdapters;->STRING_BUFFER_TYPE_ADAPTER:Lcom/google/gson/DefaultTypeAdapters$StringBufferTypeAdapter;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;->makeUnmodifiable()V</span>
+.end method
+
+.method static getAllDefaultDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonDeserializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Lcom/google/gson/DefaultTypeAdapters;->getDefaultDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;->copyOf()Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_HIERARCHY_DESERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Lcom/google/gson/ParameterizedTypeHandlerMap;)V</span>
+.end method
+
+.method static getAllDefaultSerializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonSerializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/google/gson/LongSerializationPolicy;->DEFAULT:Lcom/google/gson/LongSerializationPolicy;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/google/gson/DefaultTypeAdapters;->getDefaultSerializers(ZLcom/google/gson/LongSerializationPolicy;)Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_HIERARCHY_SERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->register(Lcom/google/gson/ParameterizedTypeHandlerMap;)V</span>
+.end method
+
+.method static getDefaultDeserializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonDeserializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v0, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_DESERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+.end method
+
+.method static getDefaultInstanceCreators()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/InstanceCreator",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v0, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_INSTANCE_CREATORS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+.end method
+
+.method static getDefaultSerializers()Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonSerializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/google/gson/LongSerializationPolicy;->DEFAULT:Lcom/google/gson/LongSerializationPolicy;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/google/gson/DefaultTypeAdapters;->getDefaultSerializers(ZLcom/google/gson/LongSerializationPolicy;)Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static getDefaultSerializers(ZLcom/google/gson/LongSerializationPolicy;)Lcom/google/gson/ParameterizedTypeHandlerMap;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(Z",</span>
+<span class="">	"Lcom/google/gson/LongSerializationPolicy;",</span>
+<span class="">	")",</span>
+<span class="">	"Lcom/google/gson/ParameterizedTypeHandlerMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/google/gson/JsonSerializer",</span>
+<span class="">	"<*>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-direct {v0}, Lcom/google/gson/ParameterizedTypeHandlerMap;-><init>()V</span>
+<span class="">	new-instance v1, Lcom/google/gson/DefaultTypeAdapters$DoubleSerializer;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/google/gson/DefaultTypeAdapters$DoubleSerializer;-><init>(Z)V</span>
+<span class="">	const-class v2, Ljava/lang/Double;</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerIfAbsent(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Double;->TYPE:Ljava/lang/Class;</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerIfAbsent(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	new-instance v1, Lcom/google/gson/DefaultTypeAdapters$FloatSerializer;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/google/gson/DefaultTypeAdapters$FloatSerializer;-><init>(Z)V</span>
+<span class="">	const-class v2, Ljava/lang/Float;</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerIfAbsent(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Float;->TYPE:Ljava/lang/Class;</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerIfAbsent(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	new-instance v1, Lcom/google/gson/DefaultTypeAdapters$LongSerializer;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-direct {v1, p1, v2}, Lcom/google/gson/DefaultTypeAdapters$LongSerializer;-><init>(Lcom/google/gson/LongSerializationPolicy;Lcom/google/gson/DefaultTypeAdapters$1;)V</span>
+<span class="">	const-class v2, Ljava/lang/Long;</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerIfAbsent(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerIfAbsent(Ljava/lang/reflect/Type;Ljava/lang/Object;)V</span>
+<span class="">	sget-object v1, Lcom/google/gson/DefaultTypeAdapters;->DEFAULT_SERIALIZERS:Lcom/google/gson/ParameterizedTypeHandlerMap;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/google/gson/ParameterizedTypeHandlerMap;->registerIfAbsent(Lcom/google/gson/ParameterizedTypeHandlerMap;)V</span>
+.end method
+
+.method private static wrapDeserializer(Lcom/google/gson/JsonDeserializer;)Lcom/google/gson/JsonDeserializer;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/google/gson/JsonDeserializer",</span>
+<span class="">	"<*>;)",</span>
+<span class="">	"Lcom/google/gson/JsonDeserializer",</span>
+<span class="">	"<*>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/JsonDeserializerExceptionWrapper;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/google/gson/JsonDeserializerExceptionWrapper;-><init>(Lcom/google/gson/JsonDeserializer;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

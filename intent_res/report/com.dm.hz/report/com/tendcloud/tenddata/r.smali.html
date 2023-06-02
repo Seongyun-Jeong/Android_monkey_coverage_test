@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> r.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tendcloud/tenddata/r;
+.super Ljava/lang/Object;
+
+
+.field private static final a:I = 0x36ee80
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method private static a(Ljava/lang/String;)I
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	const-string v2, "([0-9]+)"</span>
+<span class="">	invoke-static {v2}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/util/regex/Matcher;->find()Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	invoke-virtual {v2}, Ljava/util/regex/Matcher;->toMatchResult()Ljava/util/regex/MatchResult;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/regex/MatchResult;->group(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v1, "Android+"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static a(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 5</span>
+
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget v1, v0, Landroid/util/DisplayMetrics;->widthPixels:I</span>
+<span class="">	iget v2, v0, Landroid/util/DisplayMetrics;->heightPixels:I</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, "*"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "*"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget v0, v0, Landroid/util/DisplayMetrics;->densityDpi:I</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "unknown"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "alps"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "android"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "sprd"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "spreadtrum"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "rockchip"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "wondermedia"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "mtk"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "mt65"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "nvidia"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "brcm"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "marvell"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 p0, 0x0</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method public static b()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private static b(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Ljava/io/FileReader;</span>
+<span class="">	invoke-direct {v1, p0}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	const/16 v2, 0x400</span>
+<span class="">	:try_start_1</span>
+<span class="">	new-array v2, v2, [C</span>
+<span class="">	new-instance v3, Ljava/io/BufferedReader;</span>
+<span class="">	const/16 v4, 0x400</span>
+<span class="">	invoke-direct {v3, v1, v4}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v4, -0x1</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	const/16 v6, 0x400</span>
+<span class="">	invoke-virtual {v3, v2, v5, v6}, Ljava/io/BufferedReader;->read([CII)I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eq v4, v5, :cond_0</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	new-instance v6, Ljava/lang/String;</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	invoke-direct {v6, v2, v7, v5}, Ljava/lang/String;-><init>([CII)V</span>
+<span class="">	invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/FileReader;->close()V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static c()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static d()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static e()I
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/TimeZone;->getRawOffset()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const v1, 0x36ee80</span>
+<span class="">	div-int/2addr v0, v1</span>
+.end method
+
+.method public static f()Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tendcloud/tenddata/r;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tendcloud/tenddata/r;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ":"</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static g()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Landroid/os/Build$VERSION;->SDK_INT:I</span>
+.end method
+
+.method public static h()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;</span>
+.end method
+
+.method public static i()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static j()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static k()[Ljava/lang/String;
+<span class="">	.locals 12</span>
+
+<span class="">	const/4 v4, 0x4</span>
+<span class="">	const/4 v11, 0x3</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-array v5, v4, [Ljava/lang/String;</span>
+<span class="">	move v0, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v0, v4, :cond_0</span>
+<span class="">	const-string v3, ""</span>
+<span class="">	aput-object v3, v5, v0</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v6, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v3, Ljava/io/FileReader;</span>
+<span class="">	const-string v0, "/proc/cpuinfo"</span>
+<span class="">	invoke-direct {v3, v0}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V</span>
+<span class="">	new-instance v4, Ljava/io/BufferedReader;</span>
+<span class="">	const/16 v0, 0x400</span>
+<span class="">	invoke-direct {v4, v3, v0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_3</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/FileReader;->close()V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_3</span>
+<span class="">	move v0, v2</span>
+<span class="">	:goto_2</span>
+<span class="">	new-array v7, v11, [Ljava/lang/String;</span>
+<span class="">	const-string v3, "Processor\\s*:\\s*(.*)"</span>
+<span class="">	aput-object v3, v7, v2</span>
+<span class="">	const-string v3, "CPU\\s*variant\\s*:\\s*0x(.*)"</span>
+<span class="">	aput-object v3, v7, v1</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	const-string v4, "Hardware\\s*:\\s*(.*)"</span>
+<span class="">	aput-object v4, v7, v3</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	invoke-interface {v6}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v8</span>
+<span class="">	move v4, v2</span>
+<span class="">	:goto_3</span>
+<span class="">	if-ge v4, v11, :cond_4</span>
+<span class="">	aget-object v0, v7, v4</span>
+<span class="">	invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	move v3, v2</span>
+<span class="">	:goto_4</span>
+<span class="">	if-ge v3, v8, :cond_3</span>
+<span class="">	invoke-interface {v6, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v9, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z</span>
+<span class="">	move-result v10</span>
+<span class="">	if-eqz v10, :cond_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/regex/Matcher;->toMatchResult()Ljava/util/regex/MatchResult;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/regex/MatchResult;->group(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	aput-object v0, v5, v4</span>
+<span class="">	:cond_1</span>
+<span class="">	add-int/lit8 v0, v3, 0x1</span>
+<span class="">	move v3, v0</span>
+<span class="">	goto :goto_4</span>
+<span class="">	:try_start_3</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/FileReader;->close()V</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_4</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	:catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	:catch_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	move v0, v2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_start_4</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/FileReader;->close()V</span>
+<span class="">	:try_start_5</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_5</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_3</span>
+<span class="">	:goto_5</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_3</span>
+<span class="">	:catch_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	move v0, v2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	:cond_3</span>
+<span class="">	add-int/lit8 v0, v4, 0x1</span>
+<span class="">	move v4, v0</span>
+<span class="">	goto :goto_3</span>
+<span class="">	:cond_4</span>
+<span class="">	const-string v0, "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/r;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	aput-object v0, v5, v11</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_4</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v3</span>
+<span class="">	:catch_5</span>
+<span class="">	goto :goto_5</span>
+.end method
+
+.method public static l()[Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public static m()[I
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	const/4 v6, 0x4</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	new-array v2, v2, [I</span>
+<span class="">	aput v0, v2, v0</span>
+<span class="">	aput v0, v2, v1</span>
+<span class="">	new-array v3, v6, [I</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v1, v6, :cond_0</span>
+<span class="">	aput v0, v3, v1</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/io/FileReader;</span>
+<span class="">	const-string v4, "/proc/meminfo"</span>
+<span class="">	invoke-direct {v1, v4}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V</span>
+<span class="">	new-instance v4, Ljava/io/BufferedReader;</span>
+<span class="">	const/16 v5, 0x400</span>
+<span class="">	invoke-direct {v4, v1, v5}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_2</span>
+<span class="">	:goto_1</span>
+<span class="">	if-ge v0, v6, :cond_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v5}, Lcom/tendcloud/tenddata/r;->a(Ljava/lang/String;)I</span>
+<span class="">	move-result v5</span>
+<span class="">	aput v5, v3, v0</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	aget v5, v3, v5</span>
+<span class="">	aput v5, v2, v0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	aget v5, v3, v5</span>
+<span class="">	const/4 v6, 0x2</span>
+<span class="">	aget v6, v3, v6</span>
+<span class="">	add-int/2addr v5, v6</span>
+<span class="">	const/4 v6, 0x3</span>
+<span class="">	aget v3, v3, v6</span>
+<span class="">	add-int/2addr v3, v5</span>
+<span class="">	aput v3, v2, v0</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/FileReader;->close()V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2</span>
+<span class="">	:goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V</span>
+<span class="">	:try_start_3</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/FileReader;->close()V</span>
+<span class="">	goto :goto_2</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V</span>
+<span class="">	:try_start_4</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/FileReader;->close()V</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_5</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_2</span>
+<span class="">	:goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_2</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_3</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_4</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method public static n()[I
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	new-instance v1, Landroid/os/StatFs;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getBlockCount()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getBlockSize()I</span>
+<span class="">	move-result v4</span>
+<span class="">	div-int/lit16 v4, v4, 0x200</span>
+<span class="">	mul-int/2addr v3, v4</span>
+<span class="">	div-int/lit8 v3, v3, 0x2</span>
+<span class="">	aput v3, v0, v2</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getAvailableBlocks()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getBlockSize()I</span>
+<span class="">	move-result v1</span>
+<span class="">	div-int/lit16 v1, v1, 0x200</span>
+<span class="">	mul-int/2addr v1, v3</span>
+<span class="">	div-int/lit8 v1, v1, 0x2</span>
+<span class="">	aput v1, v0, v2</span>
+<span class="">	new-instance v1, Landroid/os/StatFs;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getBlockCount()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getBlockSize()I</span>
+<span class="">	move-result v4</span>
+<span class="">	div-int/lit16 v4, v4, 0x200</span>
+<span class="">	mul-int/2addr v3, v4</span>
+<span class="">	div-int/lit8 v3, v3, 0x2</span>
+<span class="">	aput v3, v0, v2</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getAvailableBlocks()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/StatFs;->getBlockSize()I</span>
+<span class="">	move-result v1</span>
+<span class="">	div-int/lit16 v1, v1, 0x200</span>
+<span class="">	mul-int/2addr v1, v3</span>
+<span class="">	div-int/lit8 v1, v1, 0x2</span>
+<span class="">	aput v1, v0, v2</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static o()I
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v1, "/sys/class/power_supply/battery/full_bat"</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/r;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "\\s*([0-9]+)"</span>
+<span class="">	invoke-static {v2}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/regex/Matcher;->find()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/regex/Matcher;->toMatchResult()Ljava/util/regex/MatchResult;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/regex/MatchResult;->group(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

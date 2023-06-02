@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.utils</a></li>
+        <li><i class="ico ico-class"></i> k.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/utils/k;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field public static final a:Ljava/lang/String; = "appid"
+.field public static final b:Ljava/lang/String; = "appkey"
+.field private static final c:Ljava/lang/String;
+.field private static final d:Ljava/lang/String; = "qq_sso"
+
+
+<span class="cov">.method static constructor &lt;clinit&gt;()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const-class v0, Lcom/umeng/socialize/utils/k;</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a(Landroid/content/Context;)Ljava/util/Map;
+<span class="">	.locals 9</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/content/Context;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/umeng/socialize/bean/g;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/bean/g;->d()[Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	array-length v3, v2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v1, v3, :cond_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "found platform count "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-object v4, v2, v1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p0, v4}, Lcom/umeng/socialize/utils/k;->a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_1</span>
+<span class="">	invoke-static {p0, v4}, Lcom/umeng/socialize/utils/k;->e(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	sget-object v6, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	new-instance v7, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v8, "found platform "</span>
+<span class="">	invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v4}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v7, " usid="</span>
+<span class="">	invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v6, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	:goto_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v5, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v6, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v7, "No found oauthed platform "</span>
+<span class="">	invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v4}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v5, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_2</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v1, "no authenticated platform......."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static a(Landroid/content/Context;Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "access_token"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "openid"</span>
+<span class="">	invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "expires_in"</span>
+<span class="">	invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {p0, v0, v1, v2}, Lcom/umeng/socialize/utils/k;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;J)V
+<span class="">	.locals 5</span>
+
+<span class="">	const-string v0, "umeng_socialize_refresh_token_expires"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	const-wide/16 v3, 0x3e8</span>
+<span class="">	div-long/2addr v1, v3</span>
+<span class="">	add-long/2addr v1, p2</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v0, v3, v1, v2}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;Ljava/lang/String;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v1, "context is null when save expires in"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/common/m;->a(Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v1, "platform is null when save expires in "</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p2}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	cmp-long v2, v0, v2</span>
+<span class="">	:goto_1</span>
+<span class="">	if-gtz v2, :cond_3</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v4, " expires in is "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-wide v0, v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	const-wide/16 v5, 0x3e8</span>
+<span class="">	div-long/2addr v2, v5</span>
+<span class="">	add-long/2addr v0, v2</span>
+<span class="">	const-string v2, "umeng_socialize_token_expire_in"</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {p0, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v2, v4, v0, v1}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const-string v0, "umeng_socialize"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/common/m;->a(Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-nez v3, :cond_0</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "_ak"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v0, v3, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v3, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "_as"</span>
+<span class="">	invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v2, p3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+<span class="cov">.method public static a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const-string v0, "umeng_socialize_qq"</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="exec">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	monitor-enter v1</span>
+<span class="cov">	:try_start_0</span>
+<span class="exec">	invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v2, "appid"</span>
+<span class="cov">	invoke-interface {v0, v2, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="cov">	invoke-interface {v0, p2, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="cov">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="cov">	monitor-exit v1</span>
+<span class="exec">	return-void</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method private static a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v0, "umeng_socialize_qq"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v2, "qq_sso_token"</span>
+<span class="">	invoke-interface {v0, v2, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	const-string v2, "qq_sso_openid"</span>
+<span class="">	invoke-interface {v0, v2, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	const-string v2, "qq_sso_expires_in"</span>
+<span class="">	invoke-static {p3}, Lcom/umeng/socialize/utils/k;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v2, "### Saved QQ Token."</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_1</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public static a(Landroid/content/Context;Lorg/json/JSONObject;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v0, "access_token"</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "openid"</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-virtual {p1, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "expires_in"</span>
+<span class="">	const-string v3, ""</span>
+<span class="">	invoke-virtual {p1, v2, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {p0, v0, v1, v2}, Lcom/umeng/socialize/utils/k;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+<span class="cov">.method public static a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Z</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v2, "context\u5bf9\u8c61\u4e3a\u7a7a\uff0c\u8bf7\u4f20\u9012\u4e00\u4e2a\u975e\u7a7aContext\u5bf9\u8c61"</span>
+<span class="">	invoke-static {v1, v2}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return v0</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	if-eqz p1, :cond_2</span>
+<span class="cov">	sget-object v1, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-ne p1, v1, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v2, "\u4f20\u9012\u7684\u68c0\u6d4b\u6388\u6743\u5e73\u53f0\u65e0\u6548"</span>
+<span class="">	invoke-static {v1, v2}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_3</span>
+<span class="exec">	invoke-static {p0, p1}, Lcom/umeng/socialize/utils/k;->e(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="exec">	invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="cov">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;)Z
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	const-wide/16 v2, 0x3e8</span>
+<span class="">	div-long/2addr v0, v2</span>
+<span class="">	invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	cmp-long v0, v0, v2</span>
+<span class="">	if-ltz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static b(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	const-wide/16 v2, 0x3e8</span>
+<span class="">	div-long/2addr v0, v2</span>
+<span class="">	invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	add-long/2addr v0, v2</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static b(Landroid/content/Context;Lcom/umeng/socialize/bean/g;Ljava/lang/String;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const-string v0, "umeng_socialize"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/common/m;->a(Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-nez v3, :cond_0</span>
+<span class="">	invoke-interface {v0, v2, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "Save platform "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "   "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public static b(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Z
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0, p1}, Lcom/umeng/socialize/utils/k;->a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p0, p1}, Lcom/umeng/socialize/utils/k;->c(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)J</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	const-wide/16 v5, 0x3e8</span>
+<span class="">	div-long/2addr v3, v5</span>
+<span class="">	cmp-long v1, v3, v1</span>
+<span class="">	if-gez v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static b(Landroid/content/Context;)[Ljava/lang/String;
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	const-string v1, "umeng_socialize_qq"</span>
+<span class="">	invoke-virtual {p0, v1, v7}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "qq_sso_token"</span>
+<span class="">	const-string v3, "qq_sso_openid"</span>
+<span class="">	const-string v4, "qq_sso_expires_in"</span>
+<span class="">	invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_0</span>
+<span class="">	invoke-interface {v1, v3}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_0</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-interface {v1, v2, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-interface {v1, v3, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-interface {v1, v4, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	new-instance v5, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v6, "get QQ Token."</span>
+<span class="">	invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/utils/k;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	:cond_1</span>
+<span class="">	new-array v0, v0, [Ljava/lang/String;</span>
+<span class="">	aput-object v2, v0, v7</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput-object v3, v0, v2</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	aput-object v1, v0, v2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)J
+<span class="">	.locals 5</span>
+
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v3, "context is null when obtain expires in"</span>
+<span class="">	invoke-static {v2, v3}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/common/m;->a(Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v3, "platform is null when save expires in "</span>
+<span class="">	invoke-static {v2, v3}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v3, "umeng_socialize_token_expire_in"</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-virtual {p0, v3, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v3, v2, v0, v1}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c(Landroid/content/Context;)Ljava/util/Map;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/content/Context;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, "umeng_socialize_qq"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "appid"</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "appkey"</span>
+<span class="">	const-string v3, ""</span>
+<span class="">	invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v2, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	const-string v3, "appid"</span>
+<span class="">	invoke-interface {v2, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	const-string v1, "appkey"</span>
+<span class="">	invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+.end method
+
+.method public static c(Landroid/content/Context;Lcom/umeng/socialize/bean/g;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "umeng_socialize_refresh_token"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+.end method
+
+.method public static d(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 3</span>
+
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v1, "context is null when removing expires in"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/common/m;->a(Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	const-string v1, "platform is null when save expires in "</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v1, "umeng_socialize_token_expire_in"</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {p0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public static e(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	.locals 4</span>
+
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	const-string v0, ""</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-object v0</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	const-string v0, "umeng_socialize"</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="exec">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="exec">	invoke-static {p1}, Lcom/umeng/socialize/common/m;->a(Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	const-string v0, ""</span>
+<span class="exec">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="cov">	move-result v3</span>
+<span class="cov">	if-nez v3, :cond_0</span>
+<span class="cov">	const-string v0, ""</span>
+<span class="exec">	invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static f(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)[Ljava/lang/String;
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const-string v0, "umeng_socialize"</span>
+<span class="">	invoke-virtual {p0, v0, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/common/m;->a(Lcom/umeng/socialize/bean/g;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v3, "_ak"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "_as"</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v2}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	invoke-interface {v0, v1}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	const-string v3, ""</span>
+<span class="">	invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, ""</span>
+<span class="">	invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	new-array v0, v0, [Ljava/lang/String;</span>
+<span class="">	aput-object v2, v0, v4</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput-object v1, v0, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	new-array v0, v4, [Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static g(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v0, "umeng_socialize"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v2}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v3, "_ak"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v2}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v3, "_as"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v2}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/k;->c:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "Remove platform "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public static h(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "umeng_socialize_refresh_token"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static i(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)Z
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const-string v1, "umeng_socialize_refresh_token_expires"</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	const-wide/16 v4, 0x3e8</span>
+<span class="">	div-long/2addr v2, v4</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-wide/16 v5, 0x0</span>
+<span class="">	invoke-interface {v1, v4, v5, v6}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	cmp-long v1, v4, v2</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

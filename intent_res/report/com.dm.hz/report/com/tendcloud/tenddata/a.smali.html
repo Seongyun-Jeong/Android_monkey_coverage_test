@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tendcloud/tenddata/a;
+.super Ljava/lang/Object;
+
+
+.field static a:Landroid/telephony/TelephonyManager; = null
+.field static b:Ljava/lang/String; = null
+.field private static final c:Ljava/lang/String; = "pref.deviceid.key"
+.field private static final d:Ljava/lang/String; = "00:00:00:00:00:00"
+.field private static final e:Ljava/util/regex/Pattern;
+.field private static final f:Ljava/util/regex/Pattern;
+.field private static final g:Ljava/util/regex/Pattern;
+.field private static final h:Ljava/lang/String; = ".tcookieid"
+.field private static i:Ljava/lang/String;
+
+
+<span class="cov">.method static constructor &lt;clinit&gt;()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const-string v0, "^([0-9A-F]{2}:){5}([0-9A-F]{2})$"</span>
+<span class="exec">	invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/tendcloud/tenddata/a;->e:Ljava/util/regex/Pattern;</span>
+<span class="cov">	const-string v0, "[0-3][0-9a-f]{24,32}"</span>
+<span class="exec">	invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/tendcloud/tenddata/a;->f:Ljava/util/regex/Pattern;</span>
+<span class="cov">	const-string v0, "[0-3][0-9a-f]{32}"</span>
+<span class="exec">	invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/tendcloud/tenddata/a;->g:Ljava/util/regex/Pattern;</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	sput-object v0, Lcom/tendcloud/tenddata/a;->i:Ljava/lang/String;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static final a()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const/16 v0, 0x9</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(I)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Landroid/os/Build;->SERIAL:Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static a(Landroid/content/Context;Z)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "mounted"</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	const-string v0, ".tcookieid"</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/a;->a(Ljava/io/File;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, ".tid"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/a;->a(Ljava/io/File;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	:goto_1</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, ".tcookieid"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static a(Ljava/io/File;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->canRead()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/io/FileInputStream;</span>
+<span class="">	invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	const/16 v1, 0x80</span>
+<span class="">	new-array v1, v1, [B</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/FileInputStream;->read([B)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V</span>
+<span class="">	new-instance v0, Ljava/lang/String;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-direct {v0, v1, v3, v2}, Ljava/lang/String;-><init>([BII)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "phone"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="">	sput-object v0, Lcom/tendcloud/tenddata/a;->a:Landroid/telephony/TelephonyManager;</span>
+.end method
+
+.method private static a(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 11</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	const-string v2, "/"</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	array-length v4, v3</span>
+<span class="">	move v2, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v2, v4, :cond_3</span>
+<span class="">	aget-object v0, v3, v2</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_2</span>
+<span class="">	const-string v5, "/sdcard"</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-nez v5, :cond_2</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->canWrite()Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_0</span>
+<span class="">	new-instance v5, Ljava/io/File;</span>
+<span class="">	new-instance v6, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v7, ".tcookieid"</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-direct {v5, v0, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v5}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-nez v5, :cond_0</span>
+<span class="">	new-instance v5, Ljava/io/File;</span>
+<span class="">	const-string v6, ".tcookieid"</span>
+<span class="">	invoke-direct {v5, v0, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v5, p1}, Lcom/tendcloud/tenddata/a;->a(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	if-eqz v5, :cond_2</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	array-length v6, v5</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_1</span>
+<span class="">	if-ge v0, v6, :cond_2</span>
+<span class="">	aget-object v7, v5, v0</span>
+<span class="">	invoke-virtual {v7}, Ljava/io/File;->isDirectory()Z</span>
+<span class="">	move-result v8</span>
+<span class="">	if-eqz v8, :cond_1</span>
+<span class="">	invoke-virtual {v7}, Ljava/io/File;->canWrite()Z</span>
+<span class="">	move-result v8</span>
+<span class="">	if-eqz v8, :cond_1</span>
+<span class="">	new-instance v8, Ljava/io/File;</span>
+<span class="">	new-instance v9, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v10, ".tcookieid"</span>
+<span class="">	invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v10</span>
+<span class="">	invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	invoke-direct {v8, v7, v9}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v8}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v8</span>
+<span class="">	if-nez v8, :cond_1</span>
+<span class="">	new-instance v8, Ljava/io/File;</span>
+<span class="">	const-string v9, ".tcookieid"</span>
+<span class="">	invoke-direct {v8, v7, v9}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v8, p1}, Lcom/tendcloud/tenddata/a;->a(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	add-int/lit8 v0, v2, 0x1</span>
+<span class="">	move v2, v0</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:cond_3</span>
+.end method
+
+.method private static a(Landroid/content/Context;Ljava/lang/String;Z)V
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	const-string v0, ".tcookieid"</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v1, p1}, Lcom/tendcloud/tenddata/a;->a(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, ".tcookieid"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static a(Ljava/io/File;Ljava/lang/String;)V
+<span class="">	.locals 5</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/io/FileOutputStream;</span>
+<span class="">	invoke-direct {v0, p0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/FileOutputStream;->write([B)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V</span>
+<span class="">	const/16 v0, 0x9</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(I)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "setReadable"</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Class;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	new-array v1, v1, [Ljava/lang/Object;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aput-object v3, v1, v2</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aput-object v3, v1, v2</span>
+<span class="">	invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "chmod 444 "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method private static b()Ljava/lang/String;</span>
+<span class="">	.locals 10</span>
+
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	new-instance v1, Ljava/io/File;</span>
+<span class="cov">	const-string v3, "/"</span>
+<span class="cov">	invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {v1}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="cov">	move-result-object v4</span>
+<span class="">	array-length v5, v4</span>
+<span class="">	move v1, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v1, v5, :cond_0</span>
+<span class="">	aget-object v3, v4, v1</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z</span>
+<span class="">	move-result v6</span>
+<span class="">	if-eqz v6, :cond_3</span>
+<span class="">	const-string v6, "/sdcard"</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v6</span>
+<span class="">	if-nez v6, :cond_3</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/File;->canWrite()Z</span>
+<span class="">	move-result v6</span>
+<span class="">	if-eqz v6, :cond_1</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	const-string v6, ".tcookieid"</span>
+<span class="">	invoke-direct {v0, v3, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/a;->a(Ljava/io/File;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v6</span>
+<span class="">	if-nez v6, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v6</span>
+<span class="">	if-eqz v6, :cond_3</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	array-length v7, v6</span>
+<span class="">	move v3, v2</span>
+<span class="">	if-ge v3, v7, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-object v8, v6, v3</span>
+<span class="">	invoke-virtual {v8}, Ljava/io/File;->isDirectory()Z</span>
+<span class="">	move-result v9</span>
+<span class="">	if-eqz v9, :cond_2</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	const-string v9, ".tcookieid"</span>
+<span class="">	invoke-direct {v0, v8, v9}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/a;->a(Ljava/io/File;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v8</span>
+<span class="">	if-eqz v8, :cond_0</span>
+<span class="">	add-int/lit8 v3, v3, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public static declared-synchronized b(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	const-class v1, Lcom/tendcloud/tenddata/a;</span>
+<span class="cov">	monitor-enter v1</span>
+<span class="cov">	:try_start_0</span>
+<span class="cov">	sget-object v0, Lcom/tendcloud/tenddata/a;->b:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->j(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tendcloud/tenddata/a;->b:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->b:Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="cov">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="cov">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+.end method
+
+.method private static b(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "tdid"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "pref.deviceid.key"</span>
+<span class="">	invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "android_id"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static c()Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/16 v0, 0x9</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(I)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-class v0, Landroid/os/Environment;</span>
+<span class="">	const-string v2, "isExternalStorageRemovable"</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Boolean;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static d(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "android.permission.READ_PHONE_STATE"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tendcloud/tenddata/ai;->a(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->a:Landroid/telephony/TelephonyManager;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->a(Landroid/content/Context;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->a:Landroid/telephony/TelephonyManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static e(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "android.permission.READ_PHONE_STATE"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tendcloud/tenddata/ai;->a(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->a:Landroid/telephony/TelephonyManager;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->a(Landroid/content/Context;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->a:Landroid/telephony/TelephonyManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimSerialNumber()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static f(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "android.permission.READ_PHONE_STATE"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tendcloud/tenddata/ai;->a(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->a:Landroid/telephony/TelephonyManager;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->a(Landroid/content/Context;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->a:Landroid/telephony/TelephonyManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static g(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "android.permission.ACCESS_WIFI_STATE"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tendcloud/tenddata/ai;->a(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const-string v0, "wifi"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/wifi/WifiManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getMacAddress()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "00:00:00:00:00:00"</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	sget-object v2, Lcom/tendcloud/tenddata/a;->e:Ljava/util/regex/Pattern;</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/util/regex/Matcher;->matches()Z</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static final h(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "com.google.android.gms.ads.identifier.AdvertisingIdClient"</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "getAdvertisingIdInfo"</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	new-array v3, v3, [Ljava/lang/Class;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const-class v5, Landroid/content/Context;</span>
+<span class="">	aput-object v5, v3, v4</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	new-array v3, v3, [Ljava/lang/Object;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	aput-object p0, v3, v4</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "com.google.android.gms.ads.identifier.AdvertisingIdClient$Info"</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "getId"</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-virtual {v2, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v2, v0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static final i(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 10</span>
+
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->g(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, ":"</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x10</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->c(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->d(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->f(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->e(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->b(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->h(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-static {}, Lcom/tendcloud/tenddata/a;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	new-instance v8, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const/4 v9, 0x2</span>
+<span class="">	invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	const-string v9, "|"</span>
+<span class="">	invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v8, "|"</span>
+<span class="">	invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "|"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "|"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "|"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "|"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "|"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "|"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+<span class="cov">.method private static j(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 13</span>
+
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="exec">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->k(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v4</span>
+<span class="">	invoke-static {}, Lcom/tendcloud/tenddata/a;->b()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {}, Lcom/tendcloud/tenddata/a;->c()Z</span>
+<span class="">	move-result v6</span>
+<span class="">	invoke-static {p0, v6}, Lcom/tendcloud/tenddata/a;->a(Landroid/content/Context;Z)Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	new-array v8, v0, [Ljava/lang/String;</span>
+<span class="">	aput-object v4, v8, v2</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	aput-object v5, v8, v0</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	aput-object v7, v8, v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	array-length v9, v8</span>
+<span class="">	move v3, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v3, v9, :cond_7</span>
+<span class="">	aget-object v0, v8, v3</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v10</span>
+<span class="">	if-nez v10, :cond_5</span>
+<span class="">	sget-object v10, Lcom/tendcloud/tenddata/a;->g:Ljava/util/regex/Pattern;</span>
+<span class="">	invoke-virtual {v10, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;</span>
+<span class="">	move-result-object v10</span>
+<span class="">	invoke-virtual {v10}, Ljava/util/regex/Matcher;->matches()Z</span>
+<span class="">	move-result v10</span>
+<span class="">	if-eqz v10, :cond_5</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {v4}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/Math;->random()D</span>
+<span class="">	move-result-wide v9</span>
+<span class="">	const-wide v11, 0x3fefae147ae147aeL    # 0.99</span>
+<span class="">	cmpg-double v1, v9, v11</span>
+<span class="">	if-gez v1, :cond_0</span>
+<span class="">	array-length v3, v8</span>
+<span class="">	:goto_2</span>
+<span class="">	if-ge v2, v3, :cond_0</span>
+<span class="">	aget-object v1, v8, v2</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v9</span>
+<span class="">	if-nez v9, :cond_6</span>
+<span class="">	sget-object v9, Lcom/tendcloud/tenddata/a;->f:Ljava/util/regex/Pattern;</span>
+<span class="">	invoke-virtual {v9, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	invoke-virtual {v9}, Ljava/util/regex/Matcher;->matches()Z</span>
+<span class="">	move-result v9</span>
+<span class="">	if-eqz v9, :cond_6</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->l(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tendcloud/tenddata/a;->b(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_3</span>
+<span class="">	invoke-static {p0, v0, v6}, Lcom/tendcloud/tenddata/a;->a(Landroid/content/Context;Ljava/lang/String;Z)V</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tendcloud/tenddata/a;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	:cond_4</span>
+<span class="">	add-int/lit8 v0, v3, 0x1</span>
+<span class="">	:cond_5</span>
+<span class="">	move v3, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	add-int/lit8 v1, v2, 0x1</span>
+<span class="">	:cond_6</span>
+<span class="">	move v2, v1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_7</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+<span class="cov">.method private static k(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="cov">	const-string v0, "tdid"</span>
+<span class="cov">	const-string v1, "pref.deviceid.key"</span>
+<span class="exec">	invoke-static {p0, v0, v1, v2}, Lcom/tendcloud/tenddata/ap;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->a(Ljava/lang/String;)Z</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	if-eqz v1, :cond_0</span>
+<span class="exec">	invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, "pref.deviceid.key"</span>
+<span class="exec">	invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method private static l(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "1"</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->m(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "3"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/ai;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private static m(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	const/16 v3, 0x2d</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->d(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->g(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {p0}, Lcom/tendcloud/tenddata/a;->c(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private static n(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 6</span>
+
+<span class="">	const/16 v5, 0x2d</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->i:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	const-string v0, "sensor"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/hardware/SensorManager;</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x40</span>
+<span class="">	new-array v1, v1, [Landroid/hardware/Sensor;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/hardware/Sensor;</span>
+<span class="">	invoke-virtual {v0}, Landroid/hardware/Sensor;->getType()I</span>
+<span class="">	move-result v3</span>
+<span class="">	array-length v4, v1</span>
+<span class="">	if-ge v3, v4, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/hardware/Sensor;->getType()I</span>
+<span class="">	move-result v3</span>
+<span class="">	if-ltz v3, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/hardware/Sensor;->getType()I</span>
+<span class="">	move-result v3</span>
+<span class="">	aput-object v0, v1, v3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuffer;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	array-length v3, v1</span>
+<span class="">	if-ge v0, v3, :cond_3</span>
+<span class="">	aget-object v3, v1, v0</span>
+<span class="">	if-eqz v3, :cond_2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/16 v4, 0x2e</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aget-object v4, v1, v0</span>
+<span class="">	invoke-virtual {v4}, Landroid/hardware/Sensor;->getVendor()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aget-object v4, v1, v0</span>
+<span class="">	invoke-virtual {v4}, Landroid/hardware/Sensor;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aget-object v4, v1, v0</span>
+<span class="">	invoke-virtual {v4}, Landroid/hardware/Sensor;->getVersion()I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/16 v4, 0xa</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;</span>
+<span class="">	:cond_2</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->hashCode()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tendcloud/tenddata/a;->i:Ljava/lang/String;</span>
+<span class="">	:cond_4</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/a;->i:Ljava/lang/String;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

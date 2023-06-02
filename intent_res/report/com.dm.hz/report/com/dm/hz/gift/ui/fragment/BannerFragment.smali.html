@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.gift.ui.fragment</a></li>
+        <li><i class="ico ico-class"></i> BannerFragment.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/gift/ui/fragment/BannerFragment;
+.super Lcom/a/a/a/c;
+.source "SourceFile"
+
+
+.field private a:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/dm/hz/a/a/b;",
+">;"
+}
+.end annotation
+.end field
+.field private m:Lcom/dm/hz/gift/ui/view/CustomBannerView;
+.field private n:Lcom/dm/hz/gift/ui/view/CustomBannerView$a;
+
+
+<span class="cov">.method public constructor &lt;init&gt;()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-direct {p0}, Lcom/a/a/a/c;-><init>()V</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/gift/ui/fragment/b;</span>
+<span class="cov">	invoke-direct {v0, p0}, Lcom/dm/hz/gift/ui/fragment/b;-><init>(Lcom/dm/hz/gift/ui/fragment/BannerFragment;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->n:Lcom/dm/hz/gift/ui/view/CustomBannerView$a;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/gift/ui/fragment/BannerFragment;)Ljava/util/List;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+.end method
+
+.method private a(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->i:Landroid/app/Activity;</span>
+<span class="">	const/16 v1, 0x45</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/dm/hz/gift/model/Banner;</span>
+<span class="">	iget v1, v0, Lcom/dm/hz/gift/model/Banner;->type:I</span>
+<span class="">	packed-switch v1, :pswitch_data_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->i:Landroid/app/Activity;</span>
+<span class="">	:cond_1</span>
+<span class="">	const/16 v1, 0x46</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v1, Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="">	:pswitch_1</span>
+<span class="">	invoke-direct {v1}, Lcom/dm/hz/lockscreen/model/Offer;-><init>()V</span>
+<span class="">	iget-object v0, v0, Lcom/dm/hz/gift/model/Banner;->link_url:Ljava/lang/String;</span>
+<span class="">	iput-object v0, v1, Lcom/dm/hz/lockscreen/model/Offer;->url:Ljava/lang/String;</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->i:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/lockscreen/ui/RewardDetailActivity;->a(Landroid/content/Context;Lcom/dm/hz/lockscreen/model/Offer;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/gift/ui/fragment/BannerFragment;I)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a(I)V</span>
+.end method
+
+<span class="cov">.method static synthetic a(Lcom/dm/hz/gift/ui/fragment/BannerFragment;Ljava/lang/String;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-virtual {p0, p1}, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->b(Ljava/lang/String;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic b(Lcom/dm/hz/gift/ui/fragment/BannerFragment;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->h()V</span>
+.end method
+
+<span class="cov">.method private d()V</span>
+<span class="">	.locals 3</span>
+
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->f()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	mul-int/lit8 v0, v0, 0x4</span>
+<span class="cov">	div-int/lit8 v0, v0, 0xb</span>
+<span class="cov">	new-instance v1, Landroid/widget/FrameLayout$LayoutParams;</span>
+<span class="cov">	const/4 v2, -0x1</span>
+<span class="cov">	invoke-direct {v1, v2, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->m:Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/gift/ui/view/CustomBannerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method private h()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	new-array v2, v0, [Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ge v1, v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/dm/hz/gift/model/Banner;</span>
+<span class="">	iget-object v0, v0, Lcom/dm/hz/gift/model/Banner;->img_url:Ljava/lang/String;</span>
+<span class="">	aput-object v0, v2, v1</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->m:Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/dm/hz/gift/ui/view/CustomBannerView;->a([Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->m:Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="">	const-wide/16 v1, 0x1388</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/dm/hz/gift/ui/view/CustomBannerView;->a(J)V</span>
+<span class="">	:cond_1</span>
+.end method
+
+<span class="cov">.method protected a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	new-instance v0, Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->i:Landroid/app/Activity;</span>
+<span class="cov">	invoke-direct {v0, v1}, Lcom/dm/hz/gift/ui/view/CustomBannerView;-><init>(Landroid/content/Context;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->m:Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->m:Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method protected a()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->m:Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->n:Lcom/dm/hz/gift/ui/view/CustomBannerView$a;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/gift/ui/view/CustomBannerView;->a(Lcom/dm/hz/gift/ui/view/CustomBannerView$a;)V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->d()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected b()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="cov">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->a:Ljava/util/List;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected c()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->i:Landroid/app/Activity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/d/d;->a(Landroid/content/Context;)Lcom/dm/hz/d/d;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	new-instance v1, Lcom/dm/hz/gift/ui/fragment/a;</span>
+<span class="cov">	invoke-direct {v1, p0}, Lcom/dm/hz/gift/ui/fragment/a;-><init>(Lcom/dm/hz/gift/ui/fragment/BannerFragment;)V</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/d/d;->i(Lcom/dm/hz/d/c;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public onDestroy()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-super {p0}, Lcom/a/a/a/c;->onDestroy()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/BannerFragment;->m:Lcom/dm/hz/gift/ui/view/CustomBannerView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/gift/ui/view/CustomBannerView;->b()V</span>
+<span class="exec">	return-void</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.open</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/tencent/open/b;
+.super Landroid/app/Dialog;
+.source "SourceFile"
+
+
+.field protected jsBridge:Lcom/tencent/open/a;
+.field protected final mChromeClient:Landroid/webkit/WebChromeClient;
+.annotation build Landroid/annotation/SuppressLint;
+value = {
+"NewApi"
+}
+.end annotation
+.end field
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V</span>
+<span class="">	new-instance v0, Lcom/tencent/open/j;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/tencent/open/j;-><init>(Lcom/tencent/open/b;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/b;->mChromeClient:Landroid/webkit/WebChromeClient;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V</span>
+<span class="">	new-instance v0, Lcom/tencent/open/j;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/tencent/open/j;-><init>(Lcom/tencent/open/b;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/b;->mChromeClient:Landroid/webkit/WebChromeClient;</span>
+.end method
+
+.method protected abstract onConsoleMessage(Ljava/lang/String;)V
+<span class="">	</span>
+
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	new-instance v0, Lcom/tencent/open/a;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/open/a;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/b;->jsBridge:Lcom/tencent/open/a;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

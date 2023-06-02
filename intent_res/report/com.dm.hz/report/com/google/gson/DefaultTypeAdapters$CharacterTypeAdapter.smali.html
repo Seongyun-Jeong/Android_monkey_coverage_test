@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.google.gson</a></li>
+        <li><i class="ico ico-class"></i> DefaultTypeAdapters$CharacterTypeAdapter.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/google/gson/JsonDeserializer;
+.implements Lcom/google/gson/JsonSerializer;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/google/gson/DefaultTypeAdapters;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x1a
+name = "CharacterTypeAdapter"
+.end annotation
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/Object;",
+"Lcom/google/gson/JsonDeserializer",
+"<",
+"Ljava/lang/Character;",
+">;",
+"Lcom/google/gson/JsonSerializer",
+"<",
+"Ljava/lang/Character;",
+">;"
+}
+.end annotation
+
+
+
+.method private constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method synthetic constructor <init>(Lcom/google/gson/DefaultTypeAdapters$1;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;-><init>()V</span>
+.end method
+
+.method public deserialize(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Character;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonParseException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p1}, Lcom/google/gson/JsonElement;->getAsCharacter()C</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public bridge synthetic deserialize(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/google/gson/JsonParseException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1, p2, p3}, Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;->deserialize(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Character;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public serialize(Ljava/lang/Character;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/JsonPrimitive;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Character;)V</span>
+.end method
+
+.method public bridge synthetic serialize(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;
+<span class="">	.locals 1</span>
+
+<span class="">	check-cast p1, Ljava/lang/Character;</span>
+<span class="">	invoke-virtual {p0, p1, p2, p3}, Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;->serialize(Ljava/lang/Character;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public toString()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/google/gson/DefaultTypeAdapters$CharacterTypeAdapter;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view</a></li>
+        <li><i class="ico ico-class"></i> aw.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/view/aw;
+.super Landroid/widget/RelativeLayout;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/view/aw$a;
+}
+.end annotation
+
+.field private static synthetic f:[I
+.field private a:Landroid/content/Context;
+.field private b:Lcom/umeng/socialize/view/aw$a;
+.field private c:Landroid/view/View;
+.field private d:Landroid/view/View;
+.field private e:Landroid/widget/TextView;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/aw;->a:Landroid/content/Context;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/view/aw;->d()V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/view/aw;)Lcom/umeng/socialize/view/aw$a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->b:Lcom/umeng/socialize/view/aw$a;</span>
+.end method
+
+.method static synthetic c()[I
+<span class="">	.locals 3</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/view/aw;->f:[I</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/view/aw$a;->values()[Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/view/aw$a;->c:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/view/aw$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/view/aw$a;->b:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_3</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/view/aw$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/view/aw$a;->d:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_2</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/view/aw$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/view/aw$a;->a:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	:goto_3</span>
+<span class="">	:try_start_3</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/view/aw$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/view/aw;->f:[I</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0</span>
+<span class="">	:goto_4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_4</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_3</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, -0x1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->a:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/aw;->a:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->a:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_comment_more"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/view/aw;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	invoke-virtual {p0, v0, v4, v4}, Lcom/umeng/socialize/view/aw;->addView(Landroid/view/View;II)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/aw;->a:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_text"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/aw;->e:Landroid/widget/TextView;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/aw;->a:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_pb"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/aw;->d:Landroid/view/View;</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/ax;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/view/ax;-><init>(Lcom/umeng/socialize/view/aw;)V</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/view/aw;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public a(Lcom/umeng/socialize/view/aw$a;)V
+<span class="">	.locals 6</span>
+
+<span class="">	const/16 v5, 0x8</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const-string v0, "com.umeng.socialize"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "Footer change status "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/view/aw;->c()[I</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/view/aw$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	aget v0, v0, v1</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	:pswitch_0</span>
+<span class="">	const/4 v1, 0x4</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	invoke-virtual {p0, v3}, Lcom/umeng/socialize/view/aw;->setFocusable(Z)V</span>
+<span class="">	invoke-virtual {p0, v3}, Lcom/umeng/socialize/view/aw;->setClickable(Z)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/view/aw$a;->a:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/aw;->b:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->e:Landroid/widget/TextView;</span>
+<span class="">	:pswitch_1</span>
+<span class="">	const-string v1, "\u6b63\u5728\u52a0\u8f7d"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->d:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	invoke-virtual {p0, v3}, Lcom/umeng/socialize/view/aw;->setFocusable(Z)V</span>
+<span class="">	invoke-virtual {p0, v3}, Lcom/umeng/socialize/view/aw;->setClickable(Z)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/view/aw$a;->b:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/aw;->b:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->e:Landroid/widget/TextView;</span>
+<span class="">	:pswitch_2</span>
+<span class="">	const-string v1, "\u70b9\u51fb\u52a0\u8f7d\u66f4\u591a\u8bc4\u8bba"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/view/aw;->setFocusable(Z)V</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/view/aw;->setClickable(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->d:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/view/aw$a;->c:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/aw;->b:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->e:Landroid/widget/TextView;</span>
+<span class="">	:pswitch_3</span>
+<span class="">	const-string v1, "\u56de\u5230\u9876\u90e8"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->c:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/view/aw;->setClickable(Z)V</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/view/aw;->setFocusable(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/aw;->d:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/view/aw$a;->d:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/aw;->b:Lcom/umeng/socialize/view/aw$a;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_3</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 0</span>
+
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

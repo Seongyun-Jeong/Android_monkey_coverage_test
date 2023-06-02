@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.stat</a></li>
+        <li><i class="ico ico-class"></i> m.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tencent/stat/m;
+.super Ljava/lang/Object;
+.implements Ljava/lang/Runnable;
+
+
+.field final synthetic a:Lcom/tencent/stat/StatStore;
+
+
+.method constructor <init>(Lcom/tencent/stat/StatStore;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/stat/m;->a:Lcom/tencent/stat/StatStore;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public run()V
+<span class="">	.locals 9</span>
+
+<span class="">	const/4 v8, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/stat/m;->a:Lcom/tencent/stat/StatStore;</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatStore;->access$300(Lcom/tencent/stat/StatStore;)Lcom/tencent/stat/StatStore$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/StatStore$a;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "config"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-interface {v1, v0}, Landroid/database/Cursor;->getInt(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/4 v4, 0x3</span>
+<span class="">	invoke-interface {v1, v4}, Landroid/database/Cursor;->getInt(I)I</span>
+<span class="">	move-result v4</span>
+<span class="">	new-instance v5, Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	invoke-direct {v5, v0}, Lcom/tencent/stat/StatConfig$a;-><init>(I)V</span>
+<span class="">	iput v0, v5, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iput-object v0, v5, Lcom/tencent/stat/StatConfig$a;->b:Lorg/json/JSONObject;</span>
+<span class="">	iput-object v3, v5, Lcom/tencent/stat/StatConfig$a;->c:Ljava/lang/String;</span>
+<span class="">	iput v4, v5, Lcom/tencent/stat/StatConfig$a;->d:I</span>
+<span class="">	invoke-static {v5}, Lcom/tencent/stat/StatConfig;->setConfig(Lcom/tencent/stat/StatConfig$a;)V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatStore;->access$400()Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Exception;)V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-interface {v1}, Landroid/database/Cursor;->close()V</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v1}, Landroid/database/Cursor;->close()V</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v1, v8</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	:goto_3</span>
+<span class="">	invoke-interface {v1}, Landroid/database/Cursor;->close()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	move-object v1, v8</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

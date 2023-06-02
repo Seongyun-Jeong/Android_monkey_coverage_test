@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> bd.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tendcloud/tenddata/bd;
+.super Ljava/lang/Object;
+.implements Lcom/tendcloud/tenddata/aa;
+.implements Lcom/tendcloud/tenddata/i;
+
+
+.field public a:Ljava/lang/String;
+.field public b:Ljava/lang/String;
+.field public c:Lcom/tendcloud/tenddata/m;
+.field public d:Lcom/tendcloud/tenddata/af;
+.field public e:Ljava/util/List;
+.field public f:J
+.field public g:J
+.field public h:J
+.field public i:[[Ljava/lang/Long;
+
+
+<span class="cov">.method public constructor &lt;init&gt;()V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const-wide/16 v1, 0x0</span>
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="cov">	const-string v0, ""</span>
+<span class="cov">	iput-object v0, p0, Lcom/tendcloud/tenddata/bd;->a:Ljava/lang/String;</span>
+<span class="cov">	const-string v0, ""</span>
+<span class="cov">	iput-object v0, p0, Lcom/tendcloud/tenddata/bd;->b:Ljava/lang/String;</span>
+<span class="cov">	new-instance v0, Lcom/tendcloud/tenddata/m;</span>
+<span class="cov">	invoke-direct {v0}, Lcom/tendcloud/tenddata/m;-><init>()V</span>
+<span class="cov">	iput-object v0, p0, Lcom/tendcloud/tenddata/bd;->c:Lcom/tendcloud/tenddata/m;</span>
+<span class="cov">	new-instance v0, Lcom/tendcloud/tenddata/af;</span>
+<span class="cov">	invoke-direct {v0}, Lcom/tendcloud/tenddata/af;-><init>()V</span>
+<span class="cov">	iput-object v0, p0, Lcom/tendcloud/tenddata/bd;->d:Lcom/tendcloud/tenddata/af;</span>
+<span class="cov">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="cov">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="cov">	iput-object v0, p0, Lcom/tendcloud/tenddata/bd;->e:Ljava/util/List;</span>
+<span class="cov">	iput-wide v1, p0, Lcom/tendcloud/tenddata/bd;->f:J</span>
+<span class="cov">	iput-wide v1, p0, Lcom/tendcloud/tenddata/bd;->g:J</span>
+<span class="cov">	iput-wide v1, p0, Lcom/tendcloud/tenddata/bd;->h:J</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public a()I
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x5</span>
+<span class="">	invoke-static {v0}, Lcom/tendcloud/tenddata/y;->c(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/bd;->a:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/y;->c(Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/bd;->b:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Lcom/tendcloud/tenddata/y;->c(Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/bd;->c:Lcom/tendcloud/tenddata/m;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tendcloud/tenddata/m;->a()I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/bd;->d:Lcom/tendcloud/tenddata/af;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tendcloud/tenddata/af;->a()I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+.end method
+
+.method public a(Lcom/tendcloud/tenddata/y;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x6</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->b(I)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(Ljava/lang/String;)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(Ljava/lang/String;)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->c:Lcom/tendcloud/tenddata/m;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(Lcom/tendcloud/tenddata/i;)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->d:Lcom/tendcloud/tenddata/af;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(Lcom/tendcloud/tenddata/i;)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->e:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->b(I)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->e:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tendcloud/tenddata/al;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->a(Lcom/tendcloud/tenddata/i;)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->i:[[Ljava/lang/Long;</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	invoke-virtual {p1}, Lcom/tendcloud/tenddata/y;->b()Lcom/tendcloud/tenddata/y;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/bd;->i:[[Ljava/lang/Long;</span>
+<span class="">	:cond_2</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/tendcloud/tenddata/y;->b(I)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/bd;->i:[[Ljava/lang/Long;</span>
+<span class="">	array-length v2, v1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-ge v0, v2, :cond_1</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-object v3, v1, v0</span>
+<span class="">	invoke-virtual {p1, v3}, Lcom/tendcloud/tenddata/y;->a([Ljava/lang/Long;)Lcom/tendcloud/tenddata/y;</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.android</a></li>
+        <li><i class="ico ico-class"></i> Facebook$TokenRefreshConnectionHandler.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/facebook/android/Facebook$TokenRefreshConnectionHandler;
+.super Landroid/os/Handler;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/android/Facebook;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0xa
+name = "TokenRefreshConnectionHandler"
+.end annotation
+
+.field  a:Ljava/lang/ref/WeakReference;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/ref/WeakReference",
+"<",
+"Lcom/facebook/android/Facebook;",
+">;"
+}
+.end annotation
+.end field
+.field  b:Ljava/lang/ref/WeakReference;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/ref/WeakReference",
+"<",
+"Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method constructor <init>(Lcom/facebook/android/Facebook;Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Landroid/os/Handler;-><init>()V</span>
+<span class="">	new-instance v0, Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/android/Facebook$TokenRefreshConnectionHandler;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	new-instance v0, Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/android/Facebook$TokenRefreshConnectionHandler;->b:Ljava/lang/ref/WeakReference;</span>
+.end method
+
+.method public handleMessage(Landroid/os/Message;)V
+<span class="">	.locals 7</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/android/Facebook$TokenRefreshConnectionHandler;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/android/Facebook;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/android/Facebook$TokenRefreshConnectionHandler;->b:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "access_token"</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, "expires_in"</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	const-wide/16 v5, 0x3e8</span>
+<span class="">	mul-long/2addr v3, v5</span>
+<span class="">	if-eqz v2, :cond_4</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/facebook/android/Facebook;->b(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, v3, v4}, Lcom/facebook/android/Facebook;->a(J)V</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/android/Facebook;->b(Lcom/facebook/android/Facebook;)Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/facebook/LegacyHelper;->a(Lcom/facebook/Session;Landroid/os/Bundle;)V</span>
+<span class="">	iget-object v0, v1, Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;->b:Lcom/facebook/android/Facebook$ServiceListener;</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/Bundle;->clone()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/os/Bundle;</span>
+<span class="">	const-string v2, "expires_in"</span>
+<span class="">	invoke-virtual {v0, v2, v3, v4}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V</span>
+<span class="">	iget-object v2, v1, Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;->b:Lcom/facebook/android/Facebook$ServiceListener;</span>
+<span class="">	invoke-interface {v2, v0}, Lcom/facebook/android/Facebook$ServiceListener;->a(Landroid/os/Bundle;)V</span>
+<span class="">	iget-object v0, v1, Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;->c:Landroid/content/Context;</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, v1, Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;->b:Lcom/facebook/android/Facebook$ServiceListener;</span>
+<span class="">	:cond_4</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "error"</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "error_code"</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_5</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "error_code"</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	iget-object v3, v1, Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;->b:Lcom/facebook/android/Facebook$ServiceListener;</span>
+<span class="">	new-instance v4, Lcom/facebook/android/FacebookError;</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-direct {v4, v0, v5, v2}, Lcom/facebook/android/FacebookError;-><init>(Ljava/lang/String;Ljava/lang/String;I)V</span>
+<span class="">	invoke-interface {v3, v4}, Lcom/facebook/android/Facebook$ServiceListener;->a(Lcom/facebook/android/FacebookError;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget-object v2, v1, Lcom/facebook/android/Facebook$TokenRefreshServiceConnection;->b:Lcom/facebook/android/Facebook$ServiceListener;</span>
+<span class="">	:cond_5</span>
+<span class="">	new-instance v3, Ljava/lang/Error;</span>
+<span class="">	if-eqz v0, :cond_6</span>
+<span class="">	invoke-direct {v3, v0}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-interface {v2, v3}, Lcom/facebook/android/Facebook$ServiceListener;->a(Ljava/lang/Error;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const-string v0, "Unknown service error"</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_2</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

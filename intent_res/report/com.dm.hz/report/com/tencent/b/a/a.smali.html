@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.b.a</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/b/a/a;
+.super Lcom/tencent/b/a/f;
+.source "SourceFile"
+.implements Landroid/os/Handler$Callback;
+
+
+.field private a:Lcom/tencent/b/a/b;
+.field private b:Ljava/io/FileWriter;
+.field private c:Ljava/io/File;
+.field private d:[C
+.field private volatile e:Lcom/tencent/b/a/d;
+.field private volatile f:Lcom/tencent/b/a/d;
+.field private volatile g:Lcom/tencent/b/a/d;
+.field private volatile h:Lcom/tencent/b/a/d;
+.field private volatile i:Z
+.field private j:Landroid/os/HandlerThread;
+.field private k:Landroid/os/Handler;
+
+
+.method public constructor <init>(IZLcom/tencent/b/a/e;Lcom/tencent/b/a/b;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3}, Lcom/tencent/b/a/f;-><init>(IZLcom/tencent/b/a/e;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/b/a/a;->i:Z</span>
+<span class="">	invoke-virtual {p0, p4}, Lcom/tencent/b/a/a;->a(Lcom/tencent/b/a/b;)V</span>
+<span class="">	new-instance v0, Lcom/tencent/b/a/d;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/b/a/d;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->e:Lcom/tencent/b/a/d;</span>
+<span class="">	new-instance v0, Lcom/tencent/b/a/d;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/b/a/d;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->f:Lcom/tencent/b/a/d;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->e:Lcom/tencent/b/a/d;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->g:Lcom/tencent/b/a/d;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->f:Lcom/tencent/b/a/d;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->h:Lcom/tencent/b/a/d;</span>
+<span class="">	invoke-virtual {p4}, Lcom/tencent/b/a/b;->f()I</span>
+<span class="">	move-result v0</span>
+<span class="">	new-array v0, v0, [C</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->d:[C</span>
+<span class="">	invoke-virtual {p4}, Lcom/tencent/b/a/b;->b()V</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->h()Ljava/io/Writer;</span>
+<span class="">	new-instance v0, Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {p4}, Lcom/tencent/b/a/b;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p4}, Lcom/tencent/b/a/b;->i()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/HandlerThread;->isAlive()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	new-instance v0, Landroid/os/Handler;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->k:Landroid/os/Handler;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->f()V</span>
+.end method
+
+.method public constructor <init>(Lcom/tencent/b/a/b;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/16 v0, 0x3f</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	sget-object v2, Lcom/tencent/b/a/e;->a:Lcom/tencent/b/a/e;</span>
+<span class="">	invoke-direct {p0, v0, v1, v2, p1}, Lcom/tencent/b/a/a;-><init>(IZLcom/tencent/b/a/e;Lcom/tencent/b/a/b;)V</span>
+.end method
+
+.method private f()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->k:Landroid/os/Handler;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->k:Landroid/os/Handler;</span>
+<span class="">	const/16 v1, 0x400</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/a;->c()Lcom/tencent/b/a/b;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/b/a/b;->g()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private g()V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	if-eq v0, v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/tencent/b/a/a;->i:Z</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/b/a/a;->i:Z</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->j()V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->h:Lcom/tencent/b/a/d;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->h()Ljava/io/Writer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/b/a/a;->d:[C</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/tencent/b/a/d;->a(Ljava/io/Writer;[C)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->h:Lcom/tencent/b/a/d;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/b/a/d;->b()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/b/a/a;->i:Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->h:Lcom/tencent/b/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/b/a/d;->b()V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/b/a/a;->h:Lcom/tencent/b/a/d;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/b/a/d;->b()V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method private h()Ljava/io/Writer;
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/a;->c()Lcom/tencent/b/a/b;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/b/a/b;->a()Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/b/a/a;->c:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/File;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->c:Ljava/io/File;</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->i()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/io/FileWriter;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/b/a/a;->c:Ljava/io/File;</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/FileWriter;-><init>(Ljava/io/File;Z)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->b:Ljava/io/FileWriter;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->b:Ljava/io/FileWriter;</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private i()V
+<span class="">	.locals 1</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->b:Ljava/io/FileWriter;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->b:Ljava/io/FileWriter;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/FileWriter;->flush()V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->b:Ljava/io/FileWriter;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/FileWriter;->close()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private j()V
+<span class="">	.locals 2</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->g:Lcom/tencent/b/a/d;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/b/a/a;->e:Lcom/tencent/b/a/d;</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->f:Lcom/tencent/b/a/d;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->g:Lcom/tencent/b/a/d;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->e:Lcom/tencent/b/a/d;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->h:Lcom/tencent/b/a/d;</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->e:Lcom/tencent/b/a/d;</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->g:Lcom/tencent/b/a/d;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->f:Lcom/tencent/b/a/d;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/a;->h:Lcom/tencent/b/a/d;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/16 v1, 0x400</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->k:Landroid/os/Handler;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->hasMessages(I)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->k:Landroid/os/Handler;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method protected a(ILjava/lang/Thread;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+<span class="">	.locals 8</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/a;->e()Lcom/tencent/b/a/e;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move v1, p1</span>
+<span class="">	move-object v2, p2</span>
+<span class="">	move-wide v3, p3</span>
+<span class="">	move-object v5, p5</span>
+<span class="">	move-object v6, p6</span>
+<span class="">	move-object v7, p7</span>
+<span class="">	invoke-virtual/range {v0 .. v7}, Lcom/tencent/b/a/e;->a(ILjava/lang/Thread;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/tencent/b/a/a;->a(Ljava/lang/String;)V</span>
+.end method
+
+.method public a(Lcom/tencent/b/a/b;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/b/a/a;->a:Lcom/tencent/b/a/b;</span>
+.end method
+
+.method protected a(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->g:Lcom/tencent/b/a/d;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/tencent/b/a/d;->a(Ljava/lang/String;)I</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->g:Lcom/tencent/b/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/b/a/d;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/a;->c()Lcom/tencent/b/a/b;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/b/a/b;->f()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lt v0, v1, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/a;->a()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->i()V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->j:Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z</span>
+.end method
+
+.method public c()Lcom/tencent/b/a/b;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/a;->a:Lcom/tencent/b/a/b;</span>
+.end method
+
+.method public handleMessage(Landroid/os/Message;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p1, Landroid/os/Message;->what:I</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->g()V</span>
+<span class="">	:pswitch_0</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/b/a/a;->f()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x400</span>
+<span class="">	:pswitch_0</span>
+<span class="">	.end packed-switch</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

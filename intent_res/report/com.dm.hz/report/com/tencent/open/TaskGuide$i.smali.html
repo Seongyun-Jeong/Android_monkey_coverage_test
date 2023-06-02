@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.open</a></li>
+        <li><i class="ico ico-class"></i> TaskGuide$i.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tencent/open/TaskGuide$i;
+.super Landroid/widget/LinearLayout;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/tencent/open/TaskGuide;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x2
+name = "i"
+.end annotation
+
+.field final synthetic a:Lcom/tencent/open/TaskGuide;
+.field private b:Landroid/widget/TextView;
+.field private c:Landroid/widget/Button;
+.field private d:Lcom/tencent/open/TaskGuide$g;
+
+
+.method public constructor <init>(Lcom/tencent/open/TaskGuide;Landroid/content/Context;Lcom/tencent/open/TaskGuide$g;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	invoke-direct {p0, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object p3, p0, Lcom/tencent/open/TaskGuide$i;->d:Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/tencent/open/TaskGuide$i;->setOrientation(I)V</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/open/TaskGuide$i;->a()V</span>
+.end method
+
+.method private a()V
+<span class="">	.locals 8</span>
+
+<span class="">	const/16 v7, 0xd3</span>
+<span class="">	const/16 v6, 0xc7</span>
+<span class="">	const/16 v5, 0xff</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const/high16 v3, 0x3f800000    # 1.0f</span>
+<span class="">	new-instance v0, Landroid/widget/TextView;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/open/TaskGuide;->m(Lcom/tencent/open/TaskGuide;)Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	invoke-static {v5, v5, v5}, Landroid/graphics/Color;->rgb(III)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	const/high16 v1, 0x41700000    # 15.0f</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	const/16 v1, 0xf2</span>
+<span class="">	invoke-static {v1, v7, v6}, Landroid/graphics/Color;->rgb(III)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v3, v3, v3, v1}, Landroid/widget/TextView;->setShadowLayer(FFFI)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	const/4 v1, 0x3</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	sget-object v1, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	invoke-virtual {v0, v4}, Landroid/widget/TextView;->setIncludeFontPadding(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSingleLine(Z)V</span>
+<span class="">	new-instance v0, Landroid/widget/LinearLayout$LayoutParams;</span>
+<span class="">	const/4 v1, -0x2</span>
+<span class="">	invoke-direct {v0, v4, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	iput v3, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tencent/open/TaskGuide;->d(Lcom/tencent/open/TaskGuide;I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/tencent/open/TaskGuide$i;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	new-instance v0, Landroid/widget/Button;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/open/TaskGuide;->n(Lcom/tencent/open/TaskGuide;)Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {v0, v4, v4, v4, v4}, Landroid/widget/Button;->setPadding(IIII)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	const/high16 v1, 0x41800000    # 16.0f</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextSize(F)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-static {v5, v5, v5}, Landroid/graphics/Color;->rgb(III)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextColor(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	const/16 v1, 0xf2</span>
+<span class="">	invoke-static {v1, v7, v6}, Landroid/graphics/Color;->rgb(III)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v3, v3, v3, v1}, Landroid/widget/Button;->setShadowLayer(FFFI)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {v0, v4}, Landroid/widget/Button;->setIncludeFontPadding(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	new-instance v1, Lcom/tencent/open/TaskGuide$f;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	iget-object v3, p0, Lcom/tencent/open/TaskGuide$i;->d:Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	iget v3, v3, Lcom/tencent/open/TaskGuide$g;->a:I</span>
+<span class="">	invoke-direct {v1, v2, v3}, Lcom/tencent/open/TaskGuide$f;-><init>(Lcom/tencent/open/TaskGuide;I)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	new-instance v0, Landroid/widget/LinearLayout$LayoutParams;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	invoke-static {}, Lcom/tencent/open/TaskGuide;->a()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tencent/open/TaskGuide;->d(Lcom/tencent/open/TaskGuide;I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	invoke-static {}, Lcom/tencent/open/TaskGuide;->b()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-static {v2, v3}, Lcom/tencent/open/TaskGuide;->d(Lcom/tencent/open/TaskGuide;I)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tencent/open/TaskGuide;->d(Lcom/tencent/open/TaskGuide;I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	const/16 v2, 0x8</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tencent/open/TaskGuide;->d(Lcom/tencent/open/TaskGuide;I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/tencent/open/TaskGuide$i;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V</span>
+.end method
+
+.method public a(Lcom/tencent/open/TaskGuide$k;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	const/16 v3, 0xff</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->d:Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	iget-object v0, v0, Lcom/tencent/open/TaskGuide$g;->b:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->b:Landroid/widget/TextView;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->d:Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	iget-object v1, v1, Lcom/tencent/open/TaskGuide$g;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/open/TaskGuide$1;->a:[I</span>
+<span class="">	invoke-virtual {p1}, Lcom/tencent/open/TaskGuide$k;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	aget v0, v0, v1</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	:pswitch_0</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->d:Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	:pswitch_1</span>
+<span class="">	iget v0, v0, Lcom/tencent/open/TaskGuide$g;->e:I</span>
+<span class="">	if-ne v0, v4, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->d:Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	iget-object v1, v1, Lcom/tencent/open/TaskGuide$g;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	const/16 v1, 0xf6</span>
+<span class="">	invoke-static {v3, v1, v2}, Landroid/graphics/Color;->rgb(III)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextColor(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->d:Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	:cond_2</span>
+<span class="">	iget v0, v0, Lcom/tencent/open/TaskGuide$g;->e:I</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	const-string v1, "\u9886\u53d6\u5956\u52b1"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-static {v3, v3, v3}, Landroid/graphics/Color;->rgb(III)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextColor(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/open/TaskGuide;->o(Lcom/tencent/open/TaskGuide;)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {v0, v4}, Landroid/widget/Button;->setEnabled(Z)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	:pswitch_2</span>
+<span class="">	const-string v1, "\u9886\u53d6\u4e2d..."</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	:pswitch_3</span>
+<span class="">	const-string v1, "\u5df2\u9886\u53d6"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/TaskGuide$i;->a:Lcom/tencent/open/TaskGuide;</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/open/TaskGuide;->p(Lcom/tencent/open/TaskGuide;)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$i;->c:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_3</span>
+<span class="">	.end packed-switch</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

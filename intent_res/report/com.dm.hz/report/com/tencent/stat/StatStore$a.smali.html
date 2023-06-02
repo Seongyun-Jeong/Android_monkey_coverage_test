@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.stat</a></li>
+        <li><i class="ico ico-class"></i> StatStore$a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tencent/stat/StatStore$a;
+.super Landroid/database/sqlite/SQLiteOpenHelper;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/tencent/stat/StatStore;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x8
+name = "a"
+.end annotation
+
+.field private static a:Ljava/lang/String;
+.field private static b:I
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "tencent_analysis.db"</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatStore$a;->a:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatStore$a;->b:I</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 3</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatStore$a;->a:Ljava/lang/String;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	sget v2, Lcom/tencent/stat/StatStore$a;->b:I</span>
+<span class="">	invoke-direct {p0, p1, v0, v1, v2}, Landroid/database/sqlite/SQLiteOpenHelper;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V</span>
+.end method
+
+.method private a(Landroid/database/sqlite/SQLiteDatabase;)V
+<span class="">	.locals 10</span>
+
+<span class="">	const/4 v9, 0x1</span>
+<span class="">	const/4 v8, 0x0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const-string v1, "user"</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	move-object v3, v2</span>
+<span class="">	move-object v4, v2</span>
+<span class="">	move-object v5, v2</span>
+<span class="">	move-object v6, v2</span>
+<span class="">	move-object v7, v2</span>
+<span class="">	invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Landroid/content/ContentValues;</span>
+<span class="">	invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V</span>
+<span class="">	invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	invoke-interface {v0, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v9}, Landroid/database/Cursor;->getInt(I)I</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	invoke-interface {v0, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	const/4 v3, 0x3</span>
+<span class="">	invoke-interface {v0, v3}, Landroid/database/Cursor;->getLong(I)J</span>
+<span class="">	invoke-static {v2}, Lcom/tencent/stat/common/StatCommonHelper;->encode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "uid"</span>
+<span class="">	invoke-virtual {v1, v3, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	const-string v0, "user"</span>
+<span class="">	const-string v3, "uid=?"</span>
+<span class="">	new-array v4, v9, [Ljava/lang/String;</span>
+<span class="">	aput-object v2, v4, v8</span>
+<span class="">	invoke-virtual {p1, v0, v1, v3, v4}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method private b(Landroid/database/sqlite/SQLiteDatabase;)V
+<span class="">	.locals 10</span>
+
+<span class="">	const/4 v9, 0x1</span>
+<span class="">	const/4 v8, 0x0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const-string v1, "events"</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	move-object v3, v2</span>
+<span class="">	move-object v4, v2</span>
+<span class="">	move-object v5, v2</span>
+<span class="">	move-object v6, v2</span>
+<span class="">	move-object v7, v2</span>
+<span class="">	invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	new-instance v7, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v6, v8}, Landroid/database/Cursor;->getLong(I)J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-interface {v6, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I</span>
+<span class="">	move-result v4</span>
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I</span>
+<span class="">	move-result v5</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/StatStore$b;</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/tencent/stat/StatStore$b;-><init>(JLjava/lang/String;II)V</span>
+<span class="">	invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Landroid/content/ContentValues;</span>
+<span class="">	invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V</span>
+<span class="">	invoke-interface {v7}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/stat/StatStore$b;</span>
+<span class="">	const-string v3, "content"</span>
+<span class="">	iget-object v4, v0, Lcom/tencent/stat/StatStore$b;->b:Ljava/lang/String;</span>
+<span class="">	invoke-static {v4}, Lcom/tencent/stat/common/StatCommonHelper;->encode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v1, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v3, "events"</span>
+<span class="">	const-string v4, "event_id=?"</span>
+<span class="">	new-array v5, v9, [Ljava/lang/String;</span>
+<span class="">	iget-wide v6, v0, Lcom/tencent/stat/StatStore$b;->a:J</span>
+<span class="">	invoke-static {v6, v7}, Ljava/lang/Long;->toString(J)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	aput-object v0, v5, v8</span>
+<span class="">	invoke-virtual {p1, v3, v1, v4, v5}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "create table if not exists events(event_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, content TEXT, status INTEGER, send_count INTEGER, timestamp LONG)"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "create table if not exists user(uid TEXT PRIMARY KEY, user_type INTEGER, app_ver TEXT, ts INTEGER)"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "create table if not exists config(type INTEGER PRIMARY KEY NOT NULL, content TEXT, md5sum TEXT, version INTEGER)"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "create table if not exists keyvalues(key TEXT PRIMARY KEY NOT NULL, value TEXT)"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+.end method
+
+.method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatStore;->access$400()Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "upgrade DB from oldVersion "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, " to newVersion "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->debug(Ljava/lang/Object;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	if-ne p2, v0, :cond_0</span>
+<span class="">	const-string v0, "create table if not exists keyvalues(key TEXT PRIMARY KEY NOT NULL, value TEXT)"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/stat/StatStore$a;->a(Landroid/database/sqlite/SQLiteDatabase;)V</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/stat/StatStore$a;->b(Landroid/database/sqlite/SQLiteDatabase;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	if-ne p2, v0, :cond_1</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/stat/StatStore$a;->a(Landroid/database/sqlite/SQLiteDatabase;)V</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/stat/StatStore$a;->b(Landroid/database/sqlite/SQLiteDatabase;)V</span>
+<span class="">	:cond_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

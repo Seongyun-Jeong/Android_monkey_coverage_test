@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.mm.sdk.modelmsg</a></li>
+        <li><i class="ico ico-class"></i> GetMessageFromWX$Resp.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/mm/sdk/modelmsg/GetMessageFromWX$Resp;
+.super Lcom/tencent/mm/sdk/modelbase/BaseResp;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/tencent/mm/sdk/modelmsg/GetMessageFromWX;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x9
+name = "Resp"
+.end annotation
+
+.field private static final TAG:Ljava/lang/String; = "MicroMsg.SDK.GetMessageFromWX.Resp"
+.field public message:Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/tencent/mm/sdk/modelbase/BaseResp;-><init>()V</span>
+.end method
+
+.method public constructor <init>(Landroid/os/Bundle;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/tencent/mm/sdk/modelbase/BaseResp;-><init>()V</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/tencent/mm/sdk/modelmsg/GetMessageFromWX$Resp;->fromBundle(Landroid/os/Bundle;)V</span>
+.end method
+
+.method public checkArgs()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/mm/sdk/modelmsg/GetMessageFromWX$Resp;->message:Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "MicroMsg.SDK.GetMessageFromWX.Resp"</span>
+<span class="">	const-string v1, "checkArgs fail, message is null"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/mm/sdk/b/a;->a(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mm/sdk/modelmsg/GetMessageFromWX$Resp;->message:Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;->checkArgs()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public fromBundle(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/tencent/mm/sdk/modelbase/BaseResp;->fromBundle(Landroid/os/Bundle;)V</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage$Builder;->fromBundle(Landroid/os/Bundle;)Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/mm/sdk/modelmsg/GetMessageFromWX$Resp;->message:Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;</span>
+.end method
+
+.method public getType()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x3</span>
+.end method
+
+.method public toBundle(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/tencent/mm/sdk/modelbase/BaseResp;->toBundle(Landroid/os/Bundle;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/mm/sdk/modelmsg/GetMessageFromWX$Resp;->message:Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage$Builder;->toBundle(Lcom/tencent/mm/sdk/modelmsg/WXMediaMessage;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

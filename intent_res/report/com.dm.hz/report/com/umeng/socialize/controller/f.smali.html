@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.controller</a></li>
+        <li><i class="ico ico-class"></i> f.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/umeng/socialize/controller/f;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/umeng/socialize/controller/listener/SocializeListeners$OnSnsPlatformClickListener;
+
+
+.field private final synthetic a:Lcom/umeng/socialize/bean/g;
+.field private final synthetic b:Ljava/lang/String;
+
+
+.method constructor <init>(Lcom/umeng/socialize/bean/g;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/controller/f;->a:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/controller/f;->b:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public a(Landroid/content/Context;Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-eqz p2, :cond_3</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/bean/m;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/bean/m;->a()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	instance-of v2, v0, Lcom/umeng/socialize/media/BaseShareContent;</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/BaseShareContent;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/BaseShareContent;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/BaseShareContent;->d()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/controller/f;->a:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/bean/l;->e(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	invoke-static {p1, v1, v0}, Lcom/umeng/socialize/controller/e;->a(Landroid/content/Context;Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/controller/f;->a:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-static {p1, v3, v2}, Lcom/umeng/socialize/controller/e;->a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;Landroid/content/Intent;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/16 v2, 0xc8</span>
+<span class="">	if-eqz v3, :cond_2</span>
+<span class="">	invoke-virtual {p1, v3}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/controller/f;->b:Ljava/lang/String;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/controller/f;->a:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v4}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {p1, v3, v1, v0, v4}, Lcom/umeng/socialize/utils/m;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)V</span>
+<span class="">	move v0, v2</span>
+<span class="">	:goto_1</span>
+<span class="">	if-eqz p3, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/controller/f;->a:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {p3, v1, v0, p2}, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;->a(Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "sorry, you haven\'t installed "</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/controller/f;->a:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "yet."</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	const v0, 0x9c40</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

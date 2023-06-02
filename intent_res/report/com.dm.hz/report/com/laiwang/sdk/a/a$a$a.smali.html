@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.laiwang.sdk.a</a></li>
+        <li><i class="ico ico-class"></i> a$a$a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/laiwang/sdk/a/a$a$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/laiwang/sdk/a/a;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/laiwang/sdk/a/a$a;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0xa
+name = "a"
+.end annotation
+
+.field private a:Landroid/os/IBinder;
+
+
+.method constructor <init>(Landroid/os/IBinder;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/laiwang/sdk/a/a$a$a;->a:Landroid/os/IBinder;</span>
+.end method
+
+.method public a(Lcom/laiwang/sdk/openapi/LWAPIAccount;Landroid/os/Bundle;I)I
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Landroid/os/RemoteException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "com.laiwang.sdk.channel.IILWAPIChannel"</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p1, v1, v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->writeToParcel(Landroid/os/Parcel;I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p2, :cond_2</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p2, v1, v0}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/a/a$a$a;->a:Landroid/os/IBinder;</span>
+<span class="">	const/4 v3, 0x4</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readException()V</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	invoke-virtual {p1, v2}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->a(Landroid/os/Parcel;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	throw v0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	:try_start_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+.end method
+
+.method public a(Lcom/laiwang/sdk/openapi/LWAPIAccount;Lcom/laiwang/sdk/message/LWMessage;I)I
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Landroid/os/RemoteException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "com.laiwang.sdk.channel.IILWAPIChannel"</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p1, v1, v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->writeToParcel(Landroid/os/Parcel;I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p2, :cond_2</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p2, v1, v0}, Lcom/laiwang/sdk/message/LWMessage;->writeToParcel(Landroid/os/Parcel;I)V</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/a/a$a$a;->a:Landroid/os/IBinder;</span>
+<span class="">	const/4 v3, 0x3</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readException()V</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	invoke-virtual {p1, v2}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->a(Landroid/os/Parcel;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	throw v0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	:try_start_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+.end method
+
+.method public a(Lcom/laiwang/sdk/openapi/LWAPIAccount;Lcom/laiwang/sdk/openapi/a;ILjava/lang/String;)I
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Landroid/os/RemoteException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "com.laiwang.sdk.channel.IILWAPIChannel"</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p1, v1, v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->writeToParcel(Landroid/os/Parcel;I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p2, :cond_1</span>
+<span class="">	invoke-interface {p2}, Lcom/laiwang/sdk/openapi/a;->asBinder()Landroid/os/IBinder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V</span>
+<span class="">	invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/a/a$a$a;->a:Landroid/os/IBinder;</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readException()V</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	throw v0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public a(Ljava/lang/String;)I
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Landroid/os/RemoteException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "com.laiwang.sdk.channel.IILWAPIChannel"</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/a/a$a$a;->a:Landroid/os/IBinder;</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readException()V</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public a()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "com.laiwang.sdk.channel.IILWAPIChannel"</span>
+.end method
+
+.method public asBinder()Landroid/os/IBinder;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/a/a$a$a;->a:Landroid/os/IBinder;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

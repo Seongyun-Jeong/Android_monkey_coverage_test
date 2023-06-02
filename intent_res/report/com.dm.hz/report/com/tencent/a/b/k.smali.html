@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.a.b</a></li>
+        <li><i class="ico ico-class"></i> k.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/tencent/a/b/k;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/a/b/k$a;
+}
+.end annotation
+
+.field private static a:I
+.field private static b:I
+.field private static c:I
+.field private static d:I
+.field private static e:I
+.field private static f:I
+.field private static g:Ljava/util/ArrayList;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/ArrayList",
+"<",
+"Lcom/tencent/a/b/k$a;",
+">;"
+}
+.end annotation
+.end field
+.field private static h:J
+.field private static i:J
+.field private static j:J
+.field private static k:J
+.field private static l:J
+.field private static m:J
+.field private static n:J
+.field private static o:J
+.field private static p:J
+.field private static q:J
+.field private static r:I
+.field private static s:I
+.field private static t:I
+.field private static u:I
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 6</span>
+
+<span class="">	const/16 v5, 0x2710</span>
+<span class="">	const/16 v1, 0x4e20</span>
+<span class="">	const/16 v4, 0x61a8</span>
+<span class="">	const/16 v3, 0x3a98</span>
+<span class="">	sput v5, Lcom/tencent/a/b/k;->a:I</span>
+<span class="">	sput v3, Lcom/tencent/a/b/k;->b:I</span>
+<span class="">	const/16 v0, 0x1388</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	sput v1, Lcom/tencent/a/b/k;->d:I</span>
+<span class="">	sput v4, Lcom/tencent/a/b/k;->e:I</span>
+<span class="">	sput v3, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	const/16 v0, 0x2ee0</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->a:I</span>
+<span class="">	sput v1, Lcom/tencent/a/b/k;->b:I</span>
+<span class="">	const/16 v0, 0x1f40</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	sput v1, Lcom/tencent/a/b/k;->d:I</span>
+<span class="">	sput v4, Lcom/tencent/a/b/k;->e:I</span>
+<span class="">	sput v3, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	invoke-static {}, Lcom/tencent/a/b/l;->b()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "connectivity"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/ConnectivityManager;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/a/b/l;->b()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "phone"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	if-le v1, v2, :cond_0</span>
+<span class="">	const-string v1, "46000"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "46002"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sput v3, Lcom/tencent/a/b/k;->a:I</span>
+<span class="">	sput v4, Lcom/tencent/a/b/k;->b:I</span>
+<span class="">	sput v5, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	sput v4, Lcom/tencent/a/b/k;->d:I</span>
+<span class="">	const v0, 0x88b8</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->e:I</span>
+<span class="">	sput v3, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public static a()I
+<span class="">	.locals 6</span>
+
+<span class="">	const-wide/16 v4, 0x0</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->a:I</span>
+<span class="">	sget-wide v1, Lcom/tencent/a/b/k;->j:J</span>
+<span class="">	cmp-long v1, v1, v4</span>
+<span class="">	if-lez v1, :cond_7</span>
+<span class="">	sget-wide v1, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	cmp-long v1, v1, v4</span>
+<span class="">	if-lez v1, :cond_7</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->m:J</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->j:J</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(JJ)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	add-long/2addr v0, v2</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	sub-long/2addr v0, v2</span>
+<span class="">	long-to-int v0, v0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/a/b/l;->b()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "connectivity"</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/ConnectivityManager;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_6</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_6</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->b:I</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->u:I</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	mul-int/2addr v0, v2</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	if-gt v0, v1, :cond_1</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	:cond_1</span>
+<span class="">	int-to-long v1, v0</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	cmp-long v1, v1, v3</span>
+<span class="">	if-gtz v1, :cond_2</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	int-to-long v2, v2</span>
+<span class="">	add-long/2addr v0, v2</span>
+<span class="">	long-to-int v0, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->b:I</span>
+<span class="">	if-lt v0, v1, :cond_3</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->b:I</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tencent/a/b/k;->b(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tencent/a/b/k;->a(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:cond_4</span>
+<span class="">	iget v2, v1, Lcom/tencent/a/b/k$a;->g:I</span>
+<span class="">	sget v3, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	add-int/2addr v2, v3</span>
+<span class="">	if-ge v0, v2, :cond_5</span>
+<span class="">	iget v0, v1, Lcom/tencent/a/b/k$a;->g:I</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	add-int/2addr v0, v2</span>
+<span class="">	:cond_5</span>
+<span class="">	iput v0, v1, Lcom/tencent/a/b/k$a;->g:I</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	:cond_6</span>
+<span class="">	cmp-long v0, v2, v4</span>
+<span class="">	if-lez v0, :cond_0</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	int-to-long v4, v0</span>
+<span class="">	cmp-long v0, v2, v4</span>
+<span class="">	if-gez v0, :cond_0</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v1, v0</span>
+<span class="">	:cond_7</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static a(J)Lcom/tencent/a/b/k$a;
+<span class="">	.locals 13</span>
+
+<span class="">	const-wide/16 v10, 0x0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	new-instance v1, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	sput-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v4, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	monitor-enter v4</span>
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/16 v2, 0x14</span>
+<span class="">	if-le v1, v2, :cond_3</span>
+<span class="">	sget-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v5</span>
+<span class="">	move v3, v0</span>
+<span class="">	move v1, v0</span>
+<span class="">	move v2, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	div-int/lit8 v0, v5, 0x2</span>
+<span class="">	if-lt v3, v0, :cond_4</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->h:J</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->i:J</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v0, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v0, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v0, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v0, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v0, v0, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	cmp-long v0, v0, v10</span>
+<span class="">	if-lez v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget v0, v0, Lcom/tencent/a/b/k$a;->e:I</span>
+<span class="">	mul-int/lit16 v0, v0, 0x3e8</span>
+<span class="">	int-to-long v1, v0</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v5, v0, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	div-long v0, v1, v5</span>
+<span class="">	long-to-int v0, v0</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->r:I</span>
+<span class="">	:cond_1</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->r:I</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->s:I</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_7</span>
+<span class="">	:cond_3</span>
+<span class="">	new-instance v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/a/b/k$a;-><init>()V</span>
+<span class="">	iput-wide p0, v0, Lcom/tencent/a/b/k$a;->a:J</span>
+<span class="">	sget-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	monitor-exit v4</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v6, v0, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	cmp-long v0, v6, v10</span>
+<span class="">	if-gtz v0, :cond_5</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v8, v0, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	sub-long/2addr v6, v8</span>
+<span class="">	const-wide/32 v8, 0x927c0</span>
+<span class="">	cmp-long v0, v6, v8</span>
+<span class="">	if-lez v0, :cond_6</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	move v1, v2</span>
+<span class="">	add-int/lit8 v2, v3, 0x1</span>
+<span class="">	:goto_2</span>
+<span class="">	move v3, v2</span>
+<span class="">	move v2, v1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	add-int/lit8 v0, v2, 0x1</span>
+<span class="">	:cond_6</span>
+<span class="">	move v12, v1</span>
+<span class="">	move v1, v0</span>
+<span class="">	move v0, v12</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_7</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->h:J</span>
+<span class="">	cmp-long v2, v10, v2</span>
+<span class="">	if-lez v2, :cond_8</span>
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	sput-wide v2, Lcom/tencent/a/b/k;->h:J</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->i:J</span>
+<span class="">	:cond_8</span>
+<span class="">	cmp-long v2, v10, v2</span>
+<span class="">	if-gez v2, :cond_9</span>
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	sput-wide v2, Lcom/tencent/a/b/k;->i:J</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	:cond_9</span>
+<span class="">	sget-wide v5, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	cmp-long v2, v2, v5</span>
+<span class="">	if-lez v2, :cond_a</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sput-wide v2, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	:cond_a</span>
+<span class="">	sget-wide v5, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	cmp-long v2, v2, v5</span>
+<span class="">	if-gez v2, :cond_b</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sput-wide v2, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	:cond_b</span>
+<span class="">	sget-wide v5, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	cmp-long v2, v2, v5</span>
+<span class="">	if-lez v2, :cond_c</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sput-wide v2, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	:cond_c</span>
+<span class="">	sget-wide v5, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	cmp-long v2, v2, v5</span>
+<span class="">	if-gez v2, :cond_d</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sput-wide v2, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	iget-wide v2, v0, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	:cond_d</span>
+<span class="">	cmp-long v2, v2, v10</span>
+<span class="">	if-lez v2, :cond_2</span>
+<span class="">	iget v2, v0, Lcom/tencent/a/b/k$a;->e:I</span>
+<span class="">	mul-int/lit16 v2, v2, 0x3e8</span>
+<span class="">	int-to-long v2, v2</span>
+<span class="">	iget-wide v5, v0, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	div-long/2addr v2, v5</span>
+<span class="">	long-to-int v0, v2</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->r:I</span>
+<span class="">	if-le v0, v2, :cond_e</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->r:I</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->s:I</span>
+<span class="">	:cond_e</span>
+<span class="">	if-ge v0, v2, :cond_2</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->s:I</span>
+<span class="">	goto/16 :goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v4</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public static a(I)V
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/a/b/k;->b(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iget-wide v3, v2, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	sub-long/2addr v0, v3</span>
+<span class="">	iput-wide v0, v2, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iput-wide v0, v2, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	iput p0, v2, Lcom/tencent/a/b/k$a;->e:I</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	const-wide/16 v3, 0x0</span>
+<span class="">	cmp-long v0, v0, v3</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	const-wide/16 v0, 0x1</span>
+<span class="">	mul-int/lit16 v3, p0, 0x3e8</span>
+<span class="">	:goto_1</span>
+<span class="">	int-to-long v3, v3</span>
+<span class="">	div-long v0, v3, v0</span>
+<span class="">	long-to-int v0, v0</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->t:I</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->r:I</span>
+<span class="">	if-le v0, v1, :cond_4</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->t:I</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->r:I</span>
+<span class="">	:goto_2</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->t:I</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->s:I</span>
+<span class="">	if-ge v0, v1, :cond_5</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->t:I</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->s:I</span>
+<span class="">	:goto_3</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_4</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_7</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->u:I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	:cond_1</span>
+<span class="">	if-lez v0, :cond_2</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sget v3, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	int-to-long v3, v3</span>
+<span class="">	cmp-long v0, v0, v3</span>
+<span class="">	if-gez v0, :cond_2</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sget v3, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	int-to-long v3, v3</span>
+<span class="">	cmp-long v0, v0, v3</span>
+<span class="">	if-gez v0, :cond_2</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->u:I</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->u:I</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	:cond_2</span>
+<span class="">	long-to-int v0, v0</span>
+<span class="">	iput v0, v2, Lcom/tencent/a/b/k$a;->g:I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->r:I</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_2</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->s:I</span>
+<span class="">	:cond_5</span>
+<span class="">	if-nez v0, :cond_6</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->t:I</span>
+<span class="">	goto :goto_3</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->s:I</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_3</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_7</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget v4, v0, Lcom/tencent/a/b/k$a;->e:I</span>
+<span class="">	iget-wide v4, v0, Lcom/tencent/a/b/k$a;->f:J</span>
+<span class="">	goto :goto_4</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public static a(Ljava/net/HttpURLConnection;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/a/b/k;->b(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/a/b/k;->a(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	iput-wide v1, v0, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Z)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->u:I</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	sput v0, Lcom/tencent/a/b/k;->u:I</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/a/b/k;->c(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-wide v0, v0, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method public static b()I
+<span class="">	.locals 6</span>
+
+<span class="">	const-wide/16 v4, 0x0</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->d:I</span>
+<span class="">	sget-wide v1, Lcom/tencent/a/b/k;->n:J</span>
+<span class="">	cmp-long v1, v1, v4</span>
+<span class="">	if-lez v1, :cond_8</span>
+<span class="">	sget-wide v1, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	cmp-long v1, v1, v4</span>
+<span class="">	if-lez v1, :cond_8</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->q:J</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->n:J</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(JJ)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	add-long/2addr v0, v2</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	sub-long/2addr v0, v2</span>
+<span class="">	long-to-int v0, v0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/a/b/l;->b()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "connectivity"</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/ConnectivityManager;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_7</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_7</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->e:I</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->u:I</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->c:I</span>
+<span class="">	mul-int/2addr v0, v2</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	if-gt v0, v1, :cond_1</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	:cond_1</span>
+<span class="">	int-to-long v1, v0</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	cmp-long v1, v1, v3</span>
+<span class="">	if-gtz v1, :cond_2</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	int-to-long v2, v2</span>
+<span class="">	add-long/2addr v0, v2</span>
+<span class="">	long-to-int v0, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->e:I</span>
+<span class="">	if-lt v0, v1, :cond_3</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->e:I</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-static {v1, v2}, Lcom/tencent/a/b/k;->b(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_6</span>
+<span class="">	iget v2, v1, Lcom/tencent/a/b/k$a;->h:I</span>
+<span class="">	sget v3, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	add-int/2addr v2, v3</span>
+<span class="">	if-ge v0, v2, :cond_4</span>
+<span class="">	iget v0, v1, Lcom/tencent/a/b/k$a;->h:I</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	add-int/2addr v0, v2</span>
+<span class="">	:cond_4</span>
+<span class="">	iget v2, v1, Lcom/tencent/a/b/k$a;->g:I</span>
+<span class="">	sget v3, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	add-int/2addr v2, v3</span>
+<span class="">	if-ge v0, v2, :cond_5</span>
+<span class="">	iget v0, v1, Lcom/tencent/a/b/k$a;->g:I</span>
+<span class="">	sget v2, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	add-int/2addr v0, v2</span>
+<span class="">	:cond_5</span>
+<span class="">	iput v0, v1, Lcom/tencent/a/b/k$a;->h:I</span>
+<span class="">	:cond_6</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	:cond_7</span>
+<span class="">	cmp-long v0, v2, v4</span>
+<span class="">	if-lez v0, :cond_0</span>
+<span class="">	sget-wide v2, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	sget v0, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	int-to-long v4, v0</span>
+<span class="">	cmp-long v0, v2, v4</span>
+<span class="">	if-gez v0, :cond_0</span>
+<span class="">	sget v1, Lcom/tencent/a/b/k;->f:I</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v1, v0</span>
+<span class="">	:cond_8</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static b(J)Lcom/tencent/a/b/k$a;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v2, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v4, v0, Lcom/tencent/a/b/k$a;->a:J</span>
+<span class="">	cmp-long v4, v4, p0</span>
+<span class="">	if-nez v4, :cond_1</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	throw v0</span>
+.end method
+
+.method private static c(J)Lcom/tencent/a/b/k$a;
+<span class="">	.locals 5</span>
+
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v2, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-gez v1, :cond_1</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v3, v0, Lcom/tencent/a/b/k$a;->a:J</span>
+<span class="">	cmp-long v0, v3, p0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	throw v0</span>
+<span class="">	add-int/lit8 v0, v1, -0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c()V
+<span class="">	.locals 10</span>
+
+<span class="">	const-wide/16 v8, 0x0</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/a/b/k;->b(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iget-wide v3, v2, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	sub-long/2addr v0, v3</span>
+<span class="">	iput-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iput-wide v0, v2, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->m:J</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	cmp-long v0, v0, v3</span>
+<span class="">	if-lez v0, :cond_4</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	cmp-long v0, v0, v3</span>
+<span class="">	if-gez v0, :cond_5</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	:goto_2</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v2, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move v1, v0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_7</span>
+<span class="">	if-lez v1, :cond_3</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->j:J</span>
+<span class="">	int-to-long v0, v1</span>
+<span class="">	div-long v0, v3, v0</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->j:J</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	throw v0</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->k:J</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	:cond_5</span>
+<span class="">	cmp-long v0, v0, v8</span>
+<span class="">	if-nez v0, :cond_6</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	goto :goto_2</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->l:J</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_7</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v4, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	cmp-long v4, v4, v8</span>
+<span class="">	if-lez v4, :cond_2</span>
+<span class="">	sget-wide v4, Lcom/tencent/a/b/k;->j:J</span>
+<span class="">	iget-wide v6, v0, Lcom/tencent/a/b/k$a;->c:J</span>
+<span class="">	add-long/2addr v4, v6</span>
+<span class="">	sput-wide v4, Lcom/tencent/a/b/k;->j:J</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_3</span>
+.end method
+
+.method public static d()V
+<span class="">	.locals 10</span>
+
+<span class="">	const-wide/16 v8, 0x0</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->getId()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/a/b/k;->b(J)Lcom/tencent/a/b/k$a;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iget-wide v3, v2, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	sub-long/2addr v0, v3</span>
+<span class="">	iput-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iput-wide v0, v2, Lcom/tencent/a/b/k$a;->b:J</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->q:J</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	cmp-long v0, v0, v3</span>
+<span class="">	if-lez v0, :cond_4</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	cmp-long v0, v0, v3</span>
+<span class="">	if-gez v0, :cond_5</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	:goto_2</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v2, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/tencent/a/b/k;->g:Ljava/util/ArrayList;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move v1, v0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_7</span>
+<span class="">	if-lez v1, :cond_3</span>
+<span class="">	sget-wide v3, Lcom/tencent/a/b/k;->n:J</span>
+<span class="">	int-to-long v0, v1</span>
+<span class="">	div-long v0, v3, v0</span>
+<span class="">	sput-wide v0, Lcom/tencent/a/b/k;->n:J</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	throw v0</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->o:J</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	:cond_5</span>
+<span class="">	cmp-long v0, v0, v8</span>
+<span class="">	if-nez v0, :cond_6</span>
+<span class="">	iget-wide v0, v2, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	goto :goto_2</span>
+<span class="">	sget-wide v0, Lcom/tencent/a/b/k;->p:J</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_7</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/k$a;</span>
+<span class="">	iget-wide v4, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	cmp-long v4, v4, v8</span>
+<span class="">	if-lez v4, :cond_2</span>
+<span class="">	sget-wide v4, Lcom/tencent/a/b/k;->n:J</span>
+<span class="">	iget-wide v6, v0, Lcom/tencent/a/b/k$a;->d:J</span>
+<span class="">	add-long/2addr v4, v6</span>
+<span class="">	sput-wide v4, Lcom/tencent/a/b/k;->n:J</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_3</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

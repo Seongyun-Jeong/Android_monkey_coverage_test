@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.internal</a></li>
+        <li><i class="ico ico-class"></i> FileLruCache.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/facebook/internal/FileLruCache;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/internal/FileLruCache$BufferFile;,
+Lcom/facebook/internal/FileLruCache$CloseCallbackOutputStream;,
+Lcom/facebook/internal/FileLruCache$CopyingInputStream;,
+Lcom/facebook/internal/FileLruCache$Limits;,
+Lcom/facebook/internal/FileLruCache$ModifiedFile;,
+Lcom/facebook/internal/FileLruCache$StreamCloseCallback;,
+Lcom/facebook/internal/FileLruCache$StreamHeader;
+}
+.end annotation
+
+.field static final a:Ljava/lang/String;
+.field private static final b:Ljava/lang/String; = "key"
+.field private static final c:Ljava/lang/String; = "tag"
+.field private static final d:Ljava/util/concurrent/atomic/AtomicLong;
+.field private final e:Ljava/lang/String;
+.field private final f:Lcom/facebook/internal/FileLruCache$Limits;
+.field private final g:Ljava/io/File;
+.field private h:Z
+.field private final i:Ljava/lang/Object;
+.field private j:Ljava/util/concurrent/atomic/AtomicLong;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/internal/FileLruCache;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/facebook/internal/FileLruCache;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/facebook/internal/FileLruCache;->d:Ljava/util/concurrent/atomic/AtomicLong;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/internal/FileLruCache$Limits;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;</span>
+<span class="">	const-wide/16 v1, 0x0</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicLong;-><init>(J)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/FileLruCache;->j:Ljava/util/concurrent/atomic/AtomicLong;</span>
+<span class="">	iput-object p2, p0, Lcom/facebook/internal/FileLruCache;->e:Ljava/lang/String;</span>
+<span class="">	iput-object p3, p0, Lcom/facebook/internal/FileLruCache;->f:Lcom/facebook/internal/FileLruCache$Limits;</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getCacheDir()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	new-instance v0, Ljava/lang/Object;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/FileLruCache$BufferFile;->a(Ljava/io/File;)V</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/internal/FileLruCache;)Ljava/util/concurrent/atomic/AtomicLong;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->j:Ljava/util/concurrent/atomic/AtomicLong;</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/internal/FileLruCache;Ljava/lang/String;Ljava/io/File;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/facebook/internal/FileLruCache;->a(Ljava/lang/String;Ljava/io/File;)V</span>
+.end method
+
+.method private a(Ljava/lang/String;Ljava/io/File;)V
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/internal/Utility;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p2, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p2}, Ljava/io/File;->delete()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/internal/FileLruCache;->d()V</span>
+.end method
+
+.method static synthetic b(Lcom/facebook/internal/FileLruCache;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/internal/FileLruCache;->e()V</span>
+.end method
+
+.method static synthetic c()Ljava/util/concurrent/atomic/AtomicLong;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/internal/FileLruCache;->d:Ljava/util/concurrent/atomic/AtomicLong;</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/facebook/internal/FileLruCache;->h:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/internal/FileLruCache;->h:Z</span>
+<span class="">	invoke-static {}, Lcom/facebook/Settings;->c()Ljava/util/concurrent/Executor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v2, Lcom/facebook/internal/FileLruCache$3;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/facebook/internal/FileLruCache$3;-><init>(Lcom/facebook/internal/FileLruCache;)V</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method private e()V
+<span class="">	.locals 20</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v1, Lcom/facebook/LoggingBehavior;->d:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	sget-object v2, Lcom/facebook/internal/FileLruCache;->a:Ljava/lang/String;</span>
+<span class="">	const-string v3, "trim started"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v8, Ljava/util/PriorityQueue;</span>
+<span class="">	invoke-direct {v8}, Ljava/util/PriorityQueue;-><init>()V</span>
+<span class="">	const-wide/16 v3, 0x0</span>
+<span class="">	const-wide/16 v1, 0x0</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v5, v0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-static {}, Lcom/facebook/internal/FileLruCache$BufferFile;->a()Ljava/io/FilenameFilter;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v5, v6}, Ljava/io/File;->listFiles(Ljava/io/FilenameFilter;)[Ljava/io/File;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	if-eqz v9, :cond_2</span>
+<span class="">	array-length v10, v9</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v5, v10, :cond_0</span>
+<span class="">	move-wide/from16 v16, v1</span>
+<span class="">	move-wide/from16 v18, v3</span>
+<span class="">	move-wide/from16 v4, v18</span>
+<span class="">	move-wide/from16 v2, v16</span>
+<span class="">	:goto_1</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v1, v0, Lcom/facebook/internal/FileLruCache;->f:Lcom/facebook/internal/FileLruCache$Limits;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/FileLruCache$Limits;->a()I</span>
+<span class="">	move-result v1</span>
+<span class="">	int-to-long v6, v1</span>
+<span class="">	cmp-long v1, v4, v6</span>
+<span class="">	if-gtz v1, :cond_1</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v1, v0, Lcom/facebook/internal/FileLruCache;->f:Lcom/facebook/internal/FileLruCache$Limits;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/FileLruCache$Limits;->b()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result v1</span>
+<span class="">	int-to-long v6, v1</span>
+<span class="">	cmp-long v1, v2, v6</span>
+<span class="">	if-gtz v1, :cond_1</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v2, v0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:try_start_1</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iput-boolean v1, v0, Lcom/facebook/internal/FileLruCache;->h:Z</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v1, v0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_2</span>
+<span class="">	aget-object v6, v9, v5</span>
+<span class="">	:try_start_2</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v7, Lcom/facebook/internal/FileLruCache$ModifiedFile;</span>
+<span class="">	invoke-direct {v7, v6}, Lcom/facebook/internal/FileLruCache$ModifiedFile;-><init>(Ljava/io/File;)V</span>
+<span class="">	invoke-virtual {v8, v7}, Ljava/util/PriorityQueue;->add(Ljava/lang/Object;)Z</span>
+<span class="">	sget-object v11, Lcom/facebook/LoggingBehavior;->d:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	sget-object v12, Lcom/facebook/internal/FileLruCache;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v13, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v14, "  trim considering time="</span>
+<span class="">	invoke-direct {v13, v14}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v7}, Lcom/facebook/internal/FileLruCache$ModifiedFile;->b()J</span>
+<span class="">	move-result-wide v14</span>
+<span class="">	invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v14</span>
+<span class="">	invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v13</span>
+<span class="">	const-string v14, " name="</span>
+<span class="">	invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v13</span>
+<span class="">	invoke-virtual {v7}, Lcom/facebook/internal/FileLruCache$ModifiedFile;->a()Ljava/io/File;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v7}, Ljava/io/File;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v13, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-static {v11, v12, v7}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v6}, Ljava/io/File;->length()J</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	add-long/2addr v6, v3</span>
+<span class="">	const-wide/16 v3, 0x1</span>
+<span class="">	add-long v2, v1, v3</span>
+<span class="">	add-int/lit8 v1, v5, 0x1</span>
+<span class="">	move v5, v1</span>
+<span class="">	move-wide/from16 v16, v2</span>
+<span class="">	move-wide/from16 v1, v16</span>
+<span class="">	move-wide v3, v6</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	invoke-virtual {v8}, Ljava/util/PriorityQueue;->remove()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/facebook/internal/FileLruCache$ModifiedFile;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/FileLruCache$ModifiedFile;->a()Ljava/io/File;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	sget-object v1, Lcom/facebook/LoggingBehavior;->d:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	sget-object v7, Lcom/facebook/internal/FileLruCache;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v9, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v10, "  trim removing "</span>
+<span class="">	invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v10</span>
+<span class="">	invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	invoke-static {v1, v7, v9}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v6}, Ljava/io/File;->length()J</span>
+<span class="">	move-result-wide v9</span>
+<span class="">	sub-long/2addr v4, v9</span>
+<span class="">	const-wide/16 v9, 0x1</span>
+<span class="">	sub-long v1, v2, v9</span>
+<span class="">	invoke-virtual {v6}, Ljava/io/File;->delete()Z</span>
+<span class="">	move-wide v2, v1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	goto/16 :goto_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v2, v0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	:try_start_3</span>
+<span class="">	iput-boolean v3, v0, Lcom/facebook/internal/FileLruCache;->h:Z</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v3, v0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/Object;->notifyAll()V</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	throw v1</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_1</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:try_start_4</span>
+<span class="">	throw v1</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_2</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:try_start_5</span>
+<span class="">	throw v1</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catchall {:try_start_5 .. :try_end_5} :catchall_2</span>
+<span class="">	move-wide/from16 v16, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	move-wide/from16 v18, v3</span>
+<span class="">	move-wide/from16 v4, v18</span>
+<span class="">	move-wide/from16 v2, v16</span>
+<span class="">	goto/16 :goto_1</span>
+.end method
+
+.method  a()J
+<span class="">	.locals 7</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/facebook/internal/FileLruCache;->h:Z</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	if-eqz v5, :cond_0</span>
+<span class="">	array-length v6, v5</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	if-lt v2, v6, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->i:Ljava/lang/Object;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Object;->wait()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_start_2</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	aget-object v3, v5, v2</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/File;->length()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	add-long/2addr v3, v0</span>
+<span class="">	add-int/lit8 v0, v2, 0x1</span>
+<span class="">	move v2, v0</span>
+<span class="">	move-wide v0, v3</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public a(Ljava/lang/String;)Ljava/io/InputStream;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/facebook/internal/FileLruCache;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/io/InputStream;)Ljava/io/InputStream;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/internal/FileLruCache;->b(Ljava/lang/String;)Ljava/io/OutputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/facebook/internal/FileLruCache$CopyingInputStream;</span>
+<span class="">	invoke-direct {v1, p2, v0}, Lcom/facebook/internal/FileLruCache$CopyingInputStream;-><init>(Ljava/io/InputStream;Ljava/io/OutputStream;)V</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;
+<span class="">	.locals 8</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	new-instance v2, Ljava/io/File;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/internal/Utility;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v1, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v3, Ljava/io/FileInputStream;</span>
+<span class="">	invoke-direct {v3, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	new-instance v1, Ljava/io/BufferedInputStream;</span>
+<span class="">	const/16 v4, 0x2000</span>
+<span class="">	invoke-direct {v1, v3, v4}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/FileLruCache$StreamHeader;->a(Ljava/io/InputStream;)Lorg/json/JSONObject;</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-result-object v3</span>
+<span class="">	if-nez v3, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedInputStream;->close()V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v4, "key"</span>
+<span class="">	:try_start_2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	if-eqz v4, :cond_1</span>
+<span class="">	invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	if-nez v4, :cond_2</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedInputStream;->close()V</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v4, "tag"</span>
+<span class="">	:try_start_3</span>
+<span class="">	:cond_2</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	if-nez p2, :cond_3</span>
+<span class="">	if-nez v3, :cond_4</span>
+<span class="">	if-eqz p2, :cond_5</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	if-nez v3, :cond_5</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedInputStream;->close()V</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Ljava/util/Date;</span>
+<span class="">	:try_start_4</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-direct {v0}, Ljava/util/Date;-><init>()V</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/Date;->getTime()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	sget-object v0, Lcom/facebook/LoggingBehavior;->d:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	sget-object v5, Lcom/facebook/internal/FileLruCache;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v6, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v7, "Setting lastModified to "</span>
+<span class="">	invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	const-string v7, " for "</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-static {v0, v5, v6}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, v3, v4}, Ljava/io/File;->setLastModified(J)Z</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedInputStream;->close()V</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  b(Ljava/lang/String;)Ljava/io/OutputStream;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/facebook/internal/FileLruCache;->b(Ljava/lang/String;Ljava/lang/String;)Ljava/io/OutputStream;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public b(Ljava/lang/String;Ljava/lang/String;)Ljava/io/OutputStream;
+<span class="">	.locals 7</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v5, 0x5</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/FileLruCache$BufferFile;->b(Ljava/io/File;)Ljava/io/File;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/File;->delete()Z</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/File;->createNewFile()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/io/IOException;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "Could not create file at "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v6, Ljava/io/FileOutputStream;</span>
+<span class="">	invoke-direct {v6, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	new-instance v0, Lcom/facebook/internal/FileLruCache$1;</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v5, p1</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/facebook/internal/FileLruCache$1;-><init>(Lcom/facebook/internal/FileLruCache;JLjava/io/File;Ljava/lang/String;)V</span>
+<span class="">	new-instance v1, Lcom/facebook/internal/FileLruCache$CloseCallbackOutputStream;</span>
+<span class="">	invoke-direct {v1, v6, v0}, Lcom/facebook/internal/FileLruCache$CloseCallbackOutputStream;-><init>(Ljava/io/OutputStream;Lcom/facebook/internal/FileLruCache$StreamCloseCallback;)V</span>
+<span class="">	new-instance v2, Ljava/io/BufferedOutputStream;</span>
+<span class="">	const/16 v0, 0x2000</span>
+<span class="">	invoke-direct {v2, v1, v0}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	const-string v1, "key"</span>
+<span class="">	invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	invoke-static {p2}, Lcom/facebook/internal/Utility;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	const-string v1, "tag"</span>
+<span class="">	invoke-virtual {v0, v1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v2, v0}, Lcom/facebook/internal/FileLruCache$StreamHeader;->a(Ljava/io/OutputStream;Lorg/json/JSONObject;)V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcom/facebook/LoggingBehavior;->d:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	sget-object v2, Lcom/facebook/internal/FileLruCache;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "Error creating buffer output stream: "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v1, v5, v2, v3}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v1, Ljava/io/IOException;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/FileNotFoundException;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	sget-object v1, Lcom/facebook/LoggingBehavior;->d:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	:try_start_2</span>
+<span class="">	const/4 v3, 0x5</span>
+<span class="">	sget-object v4, Lcom/facebook/internal/FileLruCache;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v5, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v6, "Error creating JSON header for cache file: "</span>
+<span class="">	invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v1, v3, v4, v5}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v1, Ljava/io/IOException;</span>
+<span class="">	invoke-virtual {v0}, Lorg/json/JSONException;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/BufferedOutputStream;->close()V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-static {}, Lcom/facebook/internal/FileLruCache$BufferFile;->a()Ljava/io/FilenameFilter;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/File;->listFiles(Ljava/io/FilenameFilter;)[Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/FileLruCache;->j:Ljava/util/concurrent/atomic/AtomicLong;</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Ljava/util/concurrent/atomic/AtomicLong;->set(J)V</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Settings;->c()Ljava/util/concurrent/Executor;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/facebook/internal/FileLruCache$2;</span>
+<span class="">	invoke-direct {v2, p0, v0}, Lcom/facebook/internal/FileLruCache$2;-><init>(Lcom/facebook/internal/FileLruCache;[Ljava/io/File;)V</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public toString()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "{FileLruCache: tag:"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/FileLruCache;->e:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, " file:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/FileLruCache;->g:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "}"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

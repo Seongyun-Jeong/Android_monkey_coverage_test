@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> LoginButton.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/widget/LoginButton;
+.super Landroid/widget/Button;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/widget/LoginButton$LoginButtonCallback;,
+Lcom/facebook/widget/LoginButton$LoginButtonProperties;,
+Lcom/facebook/widget/LoginButton$LoginClickListener;,
+Lcom/facebook/widget/LoginButton$OnErrorListener;,
+Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;
+}
+.end annotation
+
+.field private static final a:Ljava/lang/String;
+.field private b:Ljava/lang/String;
+.field private c:Lcom/facebook/internal/SessionTracker;
+.field private d:Lcom/facebook/model/GraphUser;
+.field private e:Lcom/facebook/Session;
+.field private f:Z
+.field private g:Z
+.field private h:Ljava/lang/String;
+.field private i:Ljava/lang/String;
+.field private j:Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;
+.field private k:Landroid/support/v4/app/Fragment;
+.field private l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;
+.field private m:Ljava/lang/String;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/widget/LoginButton;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/facebook/widget/LoginButton;->a:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->b:Ljava/lang/String;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->d:Lcom/facebook/model/GraphUser;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->e:Lcom/facebook/Session;</span>
+<span class="">	new-instance v0, Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	const-string v0, "fb_login_view_usage"</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->m:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/LoginButton;->a(Landroid/content/Context;)Z</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->i()V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->b:Ljava/lang/String;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->d:Lcom/facebook/model/GraphUser;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->e:Lcom/facebook/Session;</span>
+<span class="">	new-instance v0, Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	const-string v0, "fb_login_view_usage"</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->m:Ljava/lang/String;</span>
+<span class="">	invoke-interface {p2}, Landroid/util/AttributeSet;->getStyleAttribute()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/16 v0, 0x11</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setGravity(I)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v1, Lcom/facebook/android/R$color;->com_facebook_loginview_text_color:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setTextColor(I)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v1, Lcom/facebook/android/R$dimen;->com_facebook_loginview_text_size:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v2, v0}, Lcom/facebook/widget/LoginButton;->setTextSize(IF)V</span>
+<span class="">	sget-object v0, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setTypeface(Landroid/graphics/Typeface;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->isInEditMode()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v1, Lcom/facebook/android/R$color;->com_facebook_blue:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setBackgroundColor(I)V</span>
+<span class="">	const-string v0, "Log in with Facebook"</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->h:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0, p2}, Lcom/facebook/widget/LoginButton;->a(Landroid/util/AttributeSet;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->isInEditMode()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/LoginButton;->a(Landroid/content/Context;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	sget v0, Lcom/facebook/android/R$drawable;->com_facebook_button_blue:I</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setBackgroundResource(I)V</span>
+<span class="">	sget v0, Lcom/facebook/android/R$drawable;->com_facebook_inverse_icon:I</span>
+<span class="">	invoke-virtual {p0, v0, v2, v2, v2}, Lcom/facebook/widget/LoginButton;->setCompoundDrawablesWithIntrinsicBounds(IIII)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v1, Lcom/facebook/android/R$dimen;->com_facebook_loginview_compound_drawable_padding:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setCompoundDrawablePadding(I)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v1, Lcom/facebook/android/R$dimen;->com_facebook_loginview_padding_left:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget v2, Lcom/facebook/android/R$dimen;->com_facebook_loginview_padding_top:I</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget v3, Lcom/facebook/android/R$dimen;->com_facebook_loginview_padding_right:I</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	sget v4, Lcom/facebook/android/R$dimen;->com_facebook_loginview_padding_bottom:I</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {p0, v0, v1, v2, v3}, Lcom/facebook/widget/LoginButton;->setPadding(IIII)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2, p3}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->b:Ljava/lang/String;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->d:Lcom/facebook/model/GraphUser;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->e:Lcom/facebook/Session;</span>
+<span class="">	new-instance v0, Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	const-string v0, "fb_login_view_usage"</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->m:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, p2}, Lcom/facebook/widget/LoginButton;->a(Landroid/util/AttributeSet;)V</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/LoginButton;->a(Landroid/content/Context;)Z</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/LoginButton;)Lcom/facebook/internal/SessionTracker;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+.end method
+
+.method private a(Landroid/util/AttributeSet;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/facebook/android/R$styleable;->com_facebook_login_view:[I</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/LoginButton;->f:Z</span>
+<span class="">	invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/LoginButton;->g:Z</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/LoginButton;->h:Ljava/lang/String;</span>
+<span class="">	const/4 v1, 0x3</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/LoginButton;->i:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/LoginButton;Lcom/facebook/model/GraphUser;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/LoginButton;->d:Lcom/facebook/model/GraphUser;</span>
+.end method
+
+.method private a(Landroid/content/Context;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/Session;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/internal/Utility;->a(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/Session;->a(Landroid/content/Context;)Lcom/facebook/Session;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic b(Lcom/facebook/widget/LoginButton;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/LoginButton;->f:Z</span>
+.end method
+
+.method static synthetic c(Lcom/facebook/widget/LoginButton;)Lcom/facebook/model/GraphUser;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->d:Lcom/facebook/model/GraphUser;</span>
+.end method
+
+.method static synthetic d(Lcom/facebook/widget/LoginButton;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->b:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic e(Lcom/facebook/widget/LoginButton;)Landroid/support/v4/app/Fragment;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->k:Landroid/support/v4/app/Fragment;</span>
+.end method
+
+.method static synthetic f(Lcom/facebook/widget/LoginButton;)Lcom/facebook/widget/LoginButton$LoginButtonProperties;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+.end method
+
+.method static synthetic g(Lcom/facebook/widget/LoginButton;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->m:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic h()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/widget/LoginButton;->a:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic h(Lcom/facebook/widget/LoginButton;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->k()V</span>
+.end method
+
+.method private i()V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	new-instance v0, Lcom/facebook/widget/LoginButton$LoginClickListener;</span>
+<span class="">	invoke-direct {v0, p0, v4}, Lcom/facebook/widget/LoginButton$LoginClickListener;-><init>(Lcom/facebook/widget/LoginButton;Lcom/facebook/widget/LoginButton$LoginClickListener;)V</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->j()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->isInEditMode()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/facebook/widget/LoginButton$LoginButtonCallback;</span>
+<span class="">	invoke-direct {v2, p0, v4}, Lcom/facebook/widget/LoginButton$LoginButtonCallback;-><init>(Lcom/facebook/widget/LoginButton;Lcom/facebook/widget/LoginButton$LoginButtonCallback;)V</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-direct {v0, v1, v2, v4, v3}, Lcom/facebook/internal/SessionTracker;-><init>(Landroid/content/Context;Lcom/facebook/Session$StatusCallback;Lcom/facebook/Session;Z)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->k()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method static synthetic i(Lcom/facebook/widget/LoginButton;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->j()V</span>
+.end method
+
+.method static synthetic j(Lcom/facebook/widget/LoginButton;)Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->j:Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;</span>
+.end method
+
+.method private j()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->b()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->i:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->i:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v1, Lcom/facebook/android/R$string;->com_facebook_loginview_log_out_button:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->h:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->h:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/LoginButton;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:goto_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v1, Lcom/facebook/android/R$string;->com_facebook_loginview_log_in_button:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method private k()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/LoginButton;->g:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->b()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/LoginButton;->e:Lcom/facebook/Session;</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/LoginButton$1;</span>
+<span class="">	invoke-direct {v1, p0, v0}, Lcom/facebook/widget/LoginButton$1;-><init>(Lcom/facebook/widget/LoginButton;Lcom/facebook/Session;)V</span>
+<span class="">	invoke-static {v0, v1}, Lcom/facebook/Request;->a(Lcom/facebook/Session;Lcom/facebook/Request$GraphUserCallback;)Lcom/facebook/Request;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	new-array v2, v2, [Lcom/facebook/Request;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	aput-object v1, v2, v3</span>
+<span class="">	invoke-static {v2}, Lcom/facebook/Request;->c([Lcom/facebook/Request;)Lcom/facebook/RequestAsyncTask;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->e:Lcom/facebook/Session;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/LoginButton;->d:Lcom/facebook/model/GraphUser;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->j:Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->j:Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/LoginButton;->d:Lcom/facebook/model/GraphUser;</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;->a(Lcom/facebook/model/GraphUser;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a()Lcom/facebook/widget/LoginButton$OnErrorListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->a()Lcom/facebook/widget/LoginButton$OnErrorListener;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Landroid/support/v4/app/Fragment;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/LoginButton;->k:Landroid/support/v4/app/Fragment;</span>
+.end method
+
+.method public a(Lcom/facebook/Session$StatusCallback;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->a(Lcom/facebook/Session$StatusCallback;)V</span>
+.end method
+
+.method public a(Lcom/facebook/Session;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/internal/SessionTracker;->a(Lcom/facebook/Session;)V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->k()V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->j()V</span>
+.end method
+
+.method public a(Lcom/facebook/SessionDefaultAudience;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->a(Lcom/facebook/SessionDefaultAudience;)V</span>
+.end method
+
+.method public a(Lcom/facebook/SessionLoginBehavior;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->a(Lcom/facebook/SessionLoginBehavior;)V</span>
+.end method
+
+.method  a(Lcom/facebook/widget/LoginButton$LoginButtonProperties;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+.end method
+
+.method public a(Lcom/facebook/widget/LoginButton$OnErrorListener;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->a(Lcom/facebook/widget/LoginButton$OnErrorListener;)V</span>
+.end method
+
+.method public a(Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/LoginButton;->j:Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;</span>
+.end method
+
+.method  a(Ljava/lang/Exception;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->f(Lcom/facebook/widget/LoginButton$LoginButtonProperties;)Lcom/facebook/widget/LoginButton$OnErrorListener;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	instance-of v0, p1, Lcom/facebook/FacebookException;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->f(Lcom/facebook/widget/LoginButton$LoginButtonProperties;)Lcom/facebook/widget/LoginButton$OnErrorListener;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast p1, Lcom/facebook/FacebookException;</span>
+<span class="">	invoke-interface {v0, p1}, Lcom/facebook/widget/LoginButton$OnErrorListener;->a(Lcom/facebook/FacebookException;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->f(Lcom/facebook/widget/LoginButton$LoginButtonProperties;)Lcom/facebook/widget/LoginButton$OnErrorListener;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/facebook/FacebookException;</span>
+<span class="">	invoke-direct {v1, p1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/facebook/widget/LoginButton$OnErrorListener;->a(Lcom/facebook/FacebookException;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/LoginButton;->b:Ljava/lang/String;</span>
+.end method
+
+.method public a(Ljava/util/List;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/SessionTracker;->a()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->a(Ljava/util/List;Lcom/facebook/Session;)V</span>
+.end method
+
+.method public varargs a([Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/internal/SessionTracker;->a()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->a(Ljava/util/List;Lcom/facebook/Session;)V</span>
+.end method
+
+.method public a(IILandroid/content/Intent;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->a()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/LoginButton;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v1, v0, p1, p2, p3}, Lcom/facebook/Session;->a(Landroid/app/Activity;IILandroid/content/Intent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b()Lcom/facebook/SessionDefaultAudience;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->b()Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method  b(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/LoginButton;->m:Ljava/lang/String;</span>
+.end method
+
+.method public b(Ljava/util/List;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/SessionTracker;->a()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->b(Ljava/util/List;Lcom/facebook/Session;)V</span>
+.end method
+
+.method public varargs b([Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/internal/SessionTracker;->a()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->b(Ljava/util/List;Lcom/facebook/Session;)V</span>
+.end method
+
+.method public c()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->d()V</span>
+.end method
+
+.method public d()Lcom/facebook/SessionLoginBehavior;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->e()Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public e()Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->j:Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;</span>
+.end method
+
+.method public f()Lcom/facebook/Session$StatusCallback;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->f()Lcom/facebook/Session$StatusCallback;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method  g()Ljava/util/List;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->l:Lcom/facebook/widget/LoginButton$LoginButtonProperties;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/LoginButton$LoginButtonProperties;->c()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected onAttachedToWindow()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0}, Landroid/widget/Button;->onAttachedToWindow()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->e()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->c()V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->k()V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->j()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method protected onDetachedFromWindow()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0}, Landroid/widget/Button;->onDetachedFromWindow()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/LoginButton;->c:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->d()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public onFinishInflate()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-super {p0}, Landroid/widget/Button;->onFinishInflate()V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/LoginButton;->i()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

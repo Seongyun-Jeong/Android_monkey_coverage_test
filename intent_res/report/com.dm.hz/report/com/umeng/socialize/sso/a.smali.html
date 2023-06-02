@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.sso</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/umeng/socialize/sso/a;
+.super Lcom/umeng/socialize/sso/ab;
+.source "SourceFile"
+
+
+.field protected a:Landroid/app/ProgressDialog;
+.field protected b:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;
+.field protected c:Ljava/lang/String;
+.field protected d:Lcom/umeng/socialize/media/UMediaObject;
+.field protected e:Ljava/lang/String;
+.field protected f:I
+.field protected g:I
+.field protected h:Ljava/lang/String;
+.field protected i:Ljava/lang/String;
+.field protected j:Z
+.field protected k:Ljava/lang/String;
+.field protected l:I
+.field protected m:I
+.field protected n:I
+.field protected o:I
+.field protected p:Lcom/umeng/socialize/media/UMediaObject$a;
+.field protected q:Ljava/lang/String;
+.field protected r:I
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/umeng/socialize/sso/a;-><init>(Landroid/content/Context;Ljava/lang/String;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sso/ab;-><init>()V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sso/a;->a:Landroid/app/ProgressDialog;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sso/a;->b:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->e:Ljava/lang/String;</span>
+<span class="">	iput v2, p0, Lcom/umeng/socialize/sso/a;->f:I</span>
+<span class="">	iput v2, p0, Lcom/umeng/socialize/sso/a;->g:I</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->h:Ljava/lang/String;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->i:Ljava/lang/String;</span>
+<span class="">	iput-boolean v2, p0, Lcom/umeng/socialize/sso/a;->j:Z</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->k:Ljava/lang/String;</span>
+<span class="">	const/16 v0, 0x200</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sso/a;->l:I</span>
+<span class="">	const/16 v0, 0x96</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sso/a;->m:I</span>
+<span class="">	const v0, 0x8000</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sso/a;->n:I</span>
+<span class="">	const/16 v0, 0x400</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sso/a;->o:I</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sso/a;->p:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->q:Ljava/lang/String;</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sso/a;->r:I</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sso/a;->E:Landroid/content/Context;</span>
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/sso/a;->e:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Landroid/app/ProgressDialog;</span>
+<span class="">	invoke-direct {v0, p1}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->a:Landroid/app/ProgressDialog;</span>
+.end method
+
+.method protected a(Landroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;
+<span class="">	.locals 4</span>
+
+<span class="">	const/16 v3, 0xc8</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-eqz p1, :cond_4</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v2</span>
+<span class="">	const/high16 v0, 0x3f800000    # 1.0f</span>
+<span class="">	if-lt v1, v3, :cond_0</span>
+<span class="">	if-ge v2, v3, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	if-ge v1, v2, :cond_2</span>
+<span class="">	int-to-float v0, v1</span>
+<span class="">	div-float v0, p2, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	int-to-float v1, v1</span>
+<span class="">	mul-float/2addr v1, v0</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	int-to-float v2, v2</span>
+<span class="">	mul-float/2addr v0, v2</span>
+<span class="">	float-to-int v0, v0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-static {p1, v1, v0, v2}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	int-to-float v0, v2</span>
+<span class="">	:cond_2</span>
+<span class="">	div-float v0, p2, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object p1, v0</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object p1, v0</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected a()Lcom/umeng/socialize/bean/a;
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sso/a;->d()V</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/bean/a;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/a;->h:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/a;->i:Ljava/lang/String;</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/sso/a;->f:I</span>
+<span class="">	invoke-direct {v0, v1, v2, v3}, Lcom/umeng/socialize/bean/a;-><init>(Ljava/lang/String;Ljava/lang/String;I)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->H:Lcom/umeng/socialize/bean/a;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->H:Lcom/umeng/socialize/bean/a;</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/sso/a;->g:I</span>
+<span class="">	iput v1, v0, Lcom/umeng/socialize/bean/a;->d:I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->H:Lcom/umeng/socialize/bean/a;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/sso/ag;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/sso/ag;-><init>(Lcom/umeng/socialize/sso/a;)V</span>
+<span class="">	iput-object v1, v0, Lcom/umeng/socialize/bean/a;->k:Lcom/umeng/socialize/controller/listener/SocializeListeners$OnSnsPlatformClickListener;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->H:Lcom/umeng/socialize/bean/a;</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/media/UMediaObject$a;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMediaObject$a;->a:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	if-ne p1, v1, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/sso/a;->a(Lcom/umeng/socialize/media/UMediaObject;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMediaObject$a;->c:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-ne p1, v1, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/umeng/socialize/sso/a;->a(Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMediaObject$a;->d:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	:cond_2</span>
+<span class="">	if-ne p1, v1, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/sso/a;->a(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMediaObject$a;->e:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	:cond_3</span>
+<span class="">	if-ne p1, v1, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/umeng/socialize/sso/a;->a(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMediaObject$a;->b:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	:cond_4</span>
+<span class="">	if-ne p1, v1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/umeng/socialize/sso/a;->b(Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected abstract a(Lcom/umeng/socialize/media/UMediaObject;)Ljava/lang/Object;
+<span class="">	</span>
+
+.end method
+
+.method protected abstract a(Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)Ljava/lang/Object;
+<span class="">	</span>
+
+.end method
+
+.method protected abstract a(Ljava/lang/String;)Ljava/lang/Object;
+<span class="">	</span>
+
+.end method
+
+.method protected abstract a(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)Ljava/lang/Object;
+<span class="">	</span>
+
+.end method
+
+.method protected a(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/umeng/socialize/sso/a;->r:I</span>
+.end method
+
+.method public a(IILandroid/content/Intent;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public a(Landroid/app/Activity;Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method protected a(Lcom/umeng/socialize/bean/a;Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/sso/a;->b:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sso/a;->f()V</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/sso/a;->a(Lcom/umeng/socialize/bean/m;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0, p1, p2, p3}, Lcom/umeng/socialize/sso/a;->b(Lcom/umeng/socialize/bean/a;Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/sso/a;->b(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/umeng/socialize/sso/a;->b(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->E:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "\u8bf7\u8bbe\u7f6e"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/a;->H:Lcom/umeng/socialize/bean/a;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/a;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "\u7684\u5206\u4eab\u5185\u5bb9..."</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->b:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->b:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-interface {v0, p1, p2, v1}, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;->a(Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->D:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	const-class v1, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0, v1, p1, p2, v2}, Lcom/umeng/socialize/bean/l;->a(Ljava/lang/Class;Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/bean/m;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	sput-object p1, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->j()Lcom/umeng/socialize/bean/i;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/i;->a:Lcom/umeng/socialize/bean/i;</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->p()Lcom/umeng/socialize/bean/UMShareMsg;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/UMShareMsg;->a:Ljava/lang/String;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->p()Lcom/umeng/socialize/bean/UMShareMsg;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/UMShareMsg;->a()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/i;->b:Lcom/umeng/socialize/bean/i;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/bean/m;->a(Lcom/umeng/socialize/bean/i;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->a()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected a(Z)V
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-static {}, Lcom/umeng/socialize/bean/l;->n()Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->E:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/m;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/sso/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v0, v2, v3, v4, v5}, Lcom/umeng/socialize/utils/m;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->E:Landroid/content/Context;</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/sso/a;->r:I</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/utils/n;->a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;I)V</span>
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/a;->E:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/umeng/socialize/sso/a;->a(Landroid/content/Context;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sso/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {p0, v1, v0, v2}, Lcom/umeng/socialize/sso/a;->a(Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method protected a(Landroid/content/Context;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method protected abstract a(Ljava/lang/Object;Lcom/umeng/socialize/media/UMediaObject$a;)Z
+<span class="">	</span>
+
+.end method
+
+.method protected a([B)[B
+<span class="">	.locals 9</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-eqz p1, :cond_2</span>
+<span class="">	array-length v2, p1</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/sso/a;->n:I</span>
+<span class="">	if-lt v2, v3, :cond_2</span>
+<span class="">	new-instance v3, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	invoke-direct {v3}, Ljava/io/ByteArrayOutputStream;-><init>()V</span>
+<span class="">	array-length v2, p1</span>
+<span class="">	invoke-static {p1, v0, v2}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	move v2, v0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	const/16 v5, 0xa</span>
+<span class="">	if-le v0, v5, :cond_3</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v3, :cond_2</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	move-result-object p1</span>
+<span class="">	invoke-virtual {v4}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-virtual {v4}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->q:Ljava/lang/String;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "### \u5206\u4eab"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/a;->i:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "\u7684\u7f29\u7565\u56fe\u5927\u5c0f : "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	array-length v2, p1</span>
+<span class="">	div-int/lit16 v2, v2, 0x400</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, " KB"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	array-length v0, p1</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->q:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### \u7f29\u7565\u56fe\u7684\u539f\u56fe\u592a\u5927,\u8bf7\u8bbe\u7f6e\u5c0f\u4e8e64KB\u7684\u7f29\u7565\u56fe"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	const-wide v5, 0x3fe999999999999aL    # 0.8</span>
+<span class="">	:cond_3</span>
+<span class="">	int-to-double v7, v0</span>
+<span class="">	invoke-static {v5, v6, v7, v8}, Ljava/lang/Math;->pow(DD)D</span>
+<span class="">	move-result-wide v5</span>
+<span class="">	const-wide/high16 v7, 0x4059000000000000L    # 100.0</span>
+<span class="">	mul-double/2addr v5, v7</span>
+<span class="">	double-to-int v5, v5</span>
+<span class="">	iget-object v6, p0, Lcom/umeng/socialize/sso/a;->q:Ljava/lang/String;</span>
+<span class="">	new-instance v7, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v8, "quality = "</span>
+<span class="">	invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-static {v6, v7}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	sget-object v6, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	invoke-virtual {v4, v6, v5, v3}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z</span>
+<span class="">	iget-object v5, p0, Lcom/umeng/socialize/sso/a;->q:Ljava/lang/String;</span>
+<span class="">	new-instance v6, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v7, "Thumb Size = "</span>
+<span class="">	invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	move-result-object v7</span>
+<span class="">	array-length v7, v7</span>
+<span class="">	div-int/lit16 v7, v7, 0x400</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	const-string v7, " KB"</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-static {v5, v6}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	if-eqz v3, :cond_4</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->size()I</span>
+<span class="">	move-result v5</span>
+<span class="">	iget v6, p0, Lcom/umeng/socialize/sso/a;->n:I</span>
+<span class="">	if-ge v5, v6, :cond_4</span>
+<span class="">	move v2, v1</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->reset()V</span>
+<span class="">	:cond_4</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method protected abstract b(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/UMediaObject;
+<span class="">	</span>
+
+.end method
+
+.method protected abstract b(Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)Ljava/lang/Object;
+<span class="">	</span>
+
+.end method
+
+.method protected b(Lcom/umeng/socialize/bean/a;Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	if-eqz p3, :cond_0</span>
+<span class="">	invoke-interface {p3}, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;->a()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sso/a;->j()V</span>
+.end method
+
+.method protected b(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/sso/a;->c(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/a;->p:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->p:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sso/a;->c()Z</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->E:Landroid/content/Context;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "\u8bf7\u8bbe\u7f6e\u5206\u4eab\u5185\u5bb9..."</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->q:Ljava/lang/String;</span>
+<span class="">	const-string v1, "\u60a8\u8bbe\u7f6e\u7684\u5206\u4eab\u5185\u5bb9\u4e3a\u7a7a,\u5206\u4eab\u5185\u5bb9\u53ea\u652f\u6301\u6587\u5b57\u3001\u56fe\u7247\uff0c\u56fe\u6587\u3001\u97f3\u4e50\u3001\u89c6\u9891\u3001\u7f51\u9875\u7c7b\u578b..."</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/umeng/socialize/sso/a;->j:Z</span>
+.end method
+
+.method public abstract b()Z
+<span class="">	</span>
+
+.end method
+
+.method protected c(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/UMediaObject$a;
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	invoke-interface {p1}, Lcom/umeng/socialize/media/UMediaObject;->g()Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMediaObject$a;->a:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/media/UMediaObject$a;->e:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/a;->c:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/media/UMediaObject$a;->d:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected abstract d()V
+<span class="">	</span>
+
+.end method
+
+.method public d(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sso/a;->e:Ljava/lang/String;</span>
+.end method
+
+.method protected d(Lcom/umeng/socialize/media/UMediaObject;)[B
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_1</span>
+<span class="">	instance-of v2, p1, Lcom/umeng/socialize/media/UMusic;</span>
+<span class="">	if-eqz v2, :cond_5</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/UMusic;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMusic;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMusic;->j()Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	move-result-object p1</span>
+<span class="">	if-eqz p1, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->b_()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_9</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/sso/a;->m:I</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/sso/a;->m:I</span>
+<span class="">	invoke-static {v0, v2, v3}, Lcom/umeng/socialize/utils/a;->b(Ljava/lang/String;II)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_9</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_9</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/a;->a(Landroid/graphics/Bitmap;)[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	:goto_2</span>
+<span class="">	array-length v1, v0</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->b_()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->e_()[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	instance-of v2, p1, Lcom/umeng/socialize/media/UMVideo;</span>
+<span class="">	:cond_5</span>
+<span class="">	if-eqz v2, :cond_6</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/UMVideo;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMVideo;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMVideo;->i()Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	move-result-object p1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	instance-of v2, p1, Lcom/umeng/socialize/media/UMWebPage;</span>
+<span class="">	:cond_6</span>
+<span class="">	if-eqz v2, :cond_7</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/UMWebPage;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMWebPage;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMWebPage;->j()Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	move-result-object p1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	instance-of v2, p1, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	:cond_7</span>
+<span class="">	if-eqz v2, :cond_a</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_8</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->b_()Z</span>
+<span class="">	:cond_8</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_9</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-object p1, v1</span>
+<span class="">	:cond_a</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected e(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected abstract f()V
+<span class="">	</span>
+
+.end method
+
+.method public h()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->e:Ljava/lang/String;</span>
+.end method
+
+.method public i()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/sso/a;->j:Z</span>
+.end method
+
+.method protected j()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/a;->D:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	const-class v1, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/bean/l;->b(Ljava/lang/Class;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

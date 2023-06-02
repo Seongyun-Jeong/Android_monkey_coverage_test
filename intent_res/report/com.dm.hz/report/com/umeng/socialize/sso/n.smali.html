@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.sso</a></li>
+        <li><i class="ico ico-class"></i> n.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/sso/n;
+.super Lcom/umeng/socialize/sso/ab;
+.source "SourceFile"
+
+
+.field private static final b:Ljava/lang/String; = "30820295308201fea00302010202044b4ef1bf300d06092a864886f70d010105050030818d310b300906035504061302434e3110300e060355040813074265694a696e673110300e060355040713074265694a696e67312c302a060355040a132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c7464312c302a060355040b132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c74643020170d3130303131343130323831355a180f32303630303130323130323831355a30818d310b300906035504061302434e3110300e060355040813074265694a696e673110300e060355040713074265694a696e67312c302a060355040a132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c7464312c302a060355040b132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c746430819f300d06092a864886f70d010101050003818d00308189028181009d367115bc206c86c237bb56c8e9033111889b5691f051b28d1aa8e42b66b7413657635b44786ea7e85d451a12a82a331fced99c48717922170b7fc9bc1040753c0d38b4cf2b22094b1df7c55705b0989441e75913a1a8bd2bc591aa729a1013c277c01c98cbec7da5ad7778b2fad62b85ac29ca28ced588638c98d6b7df5a130203010001300d06092a864886f70d0101050500038181000ad4b4c4dec800bd8fd2991adfd70676fce8ba9692ae50475f60ec468d1b758a665e961a3aedbece9fd4d7ce9295cd83f5f19dc441a065689d9820faedbb7c4a4c4635f5ba1293f6da4b72ed32fb8795f736a20c95cda776402099054fccefb4a1a558664ab8d637288feceba9508aa907fc1fe2b1ae5a0dec954ed831c0bea4"
+.field private static c:Ljava/lang/String;
+.field private static d:Ljava/lang/String;
+.field private static e:Ljava/lang/String;
+.field private a:Landroid/content/ServiceConnection;
+.field private f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;
+.field private g:Landroid/app/Activity;
+.field private h:Lcom/umeng/socialize/bean/g;
+.field private i:Ljava/lang/String;
+.field private j:Ljava/lang/String;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "http://sns.whalecloud.com"</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sso/n;->c:Ljava/lang/String;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sso/n;->d:Ljava/lang/String;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sso/n;->e:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sso/ab;-><init>()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/n;->a:Landroid/content/ServiceConnection;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->e:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	const-string v0, "SinaSsoHandler"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/n;->i:Ljava/lang/String;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/n;->j:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/sso/n;)Lcom/umeng/socialize/bean/g;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+.end method
+
+.method private a(ILcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->g:Landroid/app/Activity;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/sso/n;->a(Landroid/app/Activity;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/a/a;</span>
+<span class="">	const-string v1, "start sina remote service failed."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/umeng/socialize/a/a;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {p2, v0, v1}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Lcom/umeng/socialize/a/a;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->e:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/bean/l;->e(Lcom/umeng/socialize/bean/g;)V</span>
+.end method
+
+.method static synthetic a(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	sput-object p0, Lcom/umeng/socialize/sso/n;->d:Ljava/lang/String;</span>
+.end method
+
+.method private a(Landroid/app/Activity;)Z
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Landroid/content/Intent;</span>
+<span class="">	const-string v2, "com.sina.weibo.remotessoservice"</span>
+<span class="">	invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/n;->a:Landroid/content/ServiceConnection;</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method private a(Landroid/app/Activity;Landroid/content/Intent;)Z
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p1}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p2, v0}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v1, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/16 v3, 0x40</span>
+<span class="">	invoke-virtual {v2, v1, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, v1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;</span>
+<span class="">	array-length v3, v2</span>
+<span class="">	move v1, v0</span>
+<span class="">	if-ge v1, v3, :cond_0</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-object v4, v2, v1</span>
+<span class="">	const-string v5, "30820295308201fea00302010202044b4ef1bf300d06092a864886f70d010105050030818d310b300906035504061302434e3110300e060355040813074265694a696e673110300e060355040713074265694a696e67312c302a060355040a132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c7464312c302a060355040b132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c74643020170d3130303131343130323831355a180f32303630303130323130323831355a30818d310b300906035504061302434e3110300e060355040813074265694a696e673110300e060355040713074265694a696e67312c302a060355040a132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c7464312c302a060355040b132353696e612e436f6d20546563686e6f6c6f677920284368696e612920436f2e204c746430819f300d06092a864886f70d010101050003818d00308189028181009d367115bc206c86c237bb56c8e9033111889b5691f051b28d1aa8e42b66b7413657635b44786ea7e85d451a12a82a331fced99c48717922170b7fc9bc1040753c0d38b4cf2b22094b1df7c55705b0989441e75913a1a8bd2bc591aa729a1013c277c01c98cbec7da5ad7778b2fad62b85ac29ca28ced588638c98d6b7df5a130203010001300d06092a864886f70d0101050500038181000ad4b4c4dec800bd8fd2991adfd70676fce8ba9692ae50475f60ec468d1b758a665e961a3aedbece9fd4d7ce9295cd83f5f19dc441a065689d9820faedbb7c4a4c4635f5ba1293f6da4b72ed32fb8795f736a20c95cda776402099054fccefb4a1a558664ab8d637288feceba9508aa907fc1fe2b1ae5a0dec954ed831c0bea4"</span>
+<span class="">	invoke-virtual {v4}, Landroid/content/pm/Signature;->toCharsString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	if-eqz v4, :cond_2</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Landroid/app/Activity;Ljava/lang/String;[Ljava/lang/String;I)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	new-instance v2, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v2}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/sso/n;->d:Ljava/lang/String;</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/sso/n;->e:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	const-string v3, "appKey"</span>
+<span class="">	invoke-virtual {v2, v3, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/bean/l;->b()Lcom/umeng/socialize/bean/l;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Lcom/umeng/socialize/bean/l;->s()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	if-nez v4, :cond_0</span>
+<span class="">	sput-object v3, Lcom/umeng/socialize/sso/n;->c:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v3, "redirectUri"</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/sso/n;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	array-length v3, p3</span>
+<span class="">	if-lez v3, :cond_1</span>
+<span class="">	const-string v3, "scope"</span>
+<span class="">	const-string v4, ","</span>
+<span class="">	invoke-static {v4, p3}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {p0, p1, v2}, Lcom/umeng/socialize/sso/n;->a(Landroid/app/Activity;Landroid/content/Intent;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-nez v3, :cond_2</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1, v2, p4}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p1}, Landroid/app/Activity;->getApplication()Landroid/app/Application;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/n;->a:Landroid/content/ServiceConnection;</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/app/Application;->unbindService(Landroid/content/ServiceConnection;)V</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/sso/n;Landroid/app/Activity;Ljava/lang/String;[Ljava/lang/String;I)Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3, p4}, Lcom/umeng/socialize/sso/n;->a(Landroid/app/Activity;Ljava/lang/String;[Ljava/lang/String;I)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method static synthetic b(Lcom/umeng/socialize/sso/n;)Landroid/app/Activity;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->g:Landroid/app/Activity;</span>
+.end method
+
+.method static synthetic b(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	sput-object p0, Lcom/umeng/socialize/sso/n;->e:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic c(Lcom/umeng/socialize/sso/n;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->j:Ljava/lang/String;</span>
+.end method
+
+.method protected a()Lcom/umeng/socialize/bean/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public a(IILandroid/content/Intent;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v3, -0x1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->i:Ljava/lang/String;</span>
+<span class="">	const-string v1, "had been sina sso authorizeCallBack..."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/16 v0, 0x1624</span>
+<span class="">	if-ne p1, v0, :cond_2</span>
+<span class="">	if-ne p2, v3, :cond_6</span>
+<span class="">	const-string v0, "error"</span>
+<span class="">	invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "error_type"</span>
+<span class="">	invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	const-string v1, "access_denied"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	const-string v1, "OAuthAccessDeniedException"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, "Weibo-authorize"</span>
+<span class="">	const-string v1, "Login canceled by user."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "error_description"</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {p3, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_4</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ":"</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "Weibo-authorize"</span>
+<span class="">	:cond_4</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "Login failed: "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/a/a;</span>
+<span class="">	invoke-direct {v2, p2, v1}, Lcom/umeng/socialize/a/a;-><init>(ILjava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2, v1}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Lcom/umeng/socialize/a/a;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	:cond_5</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Landroid/os/Bundle;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez p2, :cond_2</span>
+<span class="">	:cond_6</span>
+<span class="">	if-eqz p3, :cond_7</span>
+<span class="">	const-string v0, "Weibo-authorize"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "Login failed: "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "error"</span>
+<span class="">	invoke-virtual {p3, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/a/a;</span>
+<span class="">	const-string v2, "error_code"</span>
+<span class="">	invoke-virtual {p3, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I</span>
+<span class="">	move-result v2</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "error"</span>
+<span class="">	invoke-virtual {p3, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v4, " : "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, "failing_url"</span>
+<span class="">	invoke-virtual {p3, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v1, v2, v3}, Lcom/umeng/socialize/a/a;-><init>(ILjava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Lcom/umeng/socialize/a/a;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	:cond_7</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const-string v0, "Weibo-authorize"</span>
+<span class="">	const-string v1, "Login canceled by user."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/n;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method public a(Landroid/app/Activity;Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sso/n;->g:Landroid/app/Activity;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/n;->I:Ljava/util/Map;</span>
+<span class="">	const-string v1, "appKey"</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/n;->j:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/sso/o;</span>
+<span class="">	invoke-direct {v0, p0, p2}, Lcom/umeng/socialize/sso/o;-><init>(Lcom/umeng/socialize/sso/n;Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sso/n;->a:Landroid/content/ServiceConnection;</span>
+<span class="">	const/16 v0, 0x1624</span>
+<span class="">	invoke-direct {p0, v0, p2}, Lcom/umeng/socialize/sso/n;->a(ILcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/bean/a;Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method protected a(Z)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public b()Z
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "com.sina.weibo"</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/n;->E:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/b;->a(Ljava/lang/String;Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public c()Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+.end method
+
+.method public g()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/16 v0, 0x1624</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

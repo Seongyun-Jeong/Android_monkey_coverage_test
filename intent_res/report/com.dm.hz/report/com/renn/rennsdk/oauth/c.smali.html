@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.renn.rennsdk.oauth</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/renn/rennsdk/oauth/c;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private a:Landroid/content/Context;
+.field private b:Landroid/app/ProgressDialog;
+.field private c:Lcom/renn/rennsdk/oauth/n;
+.field private d:Lcom/renn/rennsdk/b$a;
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/renn/rennsdk/oauth/n;->a(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->a:Landroid/content/Context;</span>
+<span class="">	instance-of v0, v0, Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v1, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v1}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->a:Landroid/content/Context;</span>
+<span class="">	const-class v2, Lcom/renn/rennsdk/oauth/OAuthActivity;</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;</span>
+<span class="">	const-string v0, "apikey"</span>
+<span class="">	invoke-virtual {v1, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	const-string v0, "scope"</span>
+<span class="">	invoke-virtual {v1, v0, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	const-string v0, "token_type"</span>
+<span class="">	invoke-virtual {v1, v0, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	const-string v0, "fromoauth"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->a:Landroid/content/Context;</span>
+<span class="">	check-cast v0, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v0, v1, p1}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(Landroid/app/Activity;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/c;->a:Landroid/content/Context;</span>
+<span class="">	new-instance v0, Landroid/app/ProgressDialog;</span>
+<span class="">	invoke-direct {v0, p1}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/c;->b:Landroid/app/ProgressDialog;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->b:Landroid/app/ProgressDialog;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setCanceledOnTouchOutside(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->b:Landroid/app/ProgressDialog;</span>
+<span class="">	const-string v1, "renren_login_logging"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/c;->a:Landroid/content/Context;</span>
+<span class="">	invoke-direct {v0, v1, p0}, Lcom/renn/rennsdk/oauth/n;-><init>(Landroid/content/Context;Lcom/renn/rennsdk/oauth/c;)V</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/oauth/k;->a(Landroid/content/Context;)Lcom/renn/rennsdk/oauth/k;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/oauth/k;->a()Lcom/renn/rennsdk/b$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/c;->d:Lcom/renn/rennsdk/b$a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/c;->d:Lcom/renn/rennsdk/b$a;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/oauth/n;->a(Lcom/renn/rennsdk/b$a;)V</span>
+.end method
+
+.method public a(Landroid/content/Context;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/c;->a:Landroid/content/Context;</span>
+.end method
+
+.method public a(IILandroid/content/Intent;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3}, Lcom/renn/rennsdk/oauth/n;->a(IILandroid/content/Intent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+<span class="">	.locals 6</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/c;->a:Landroid/content/Context;</span>
+<span class="">	invoke-direct {v0, v1, p0}, Lcom/renn/rennsdk/oauth/n;-><init>(Landroid/content/Context;Lcom/renn/rennsdk/oauth/c;)V</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/c;->c:Lcom/renn/rennsdk/oauth/n;</span>
+<span class="">	move v1, p1</span>
+<span class="">	move-object v2, p2</span>
+<span class="">	move-object v3, p3</span>
+<span class="">	move-object v4, p4</span>
+<span class="">	move-object v5, p5</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/renn/rennsdk/oauth/n;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

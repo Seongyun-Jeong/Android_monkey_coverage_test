@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.view</a></li>
+        <li><i class="ico ico-class"></i> AutoScrollViewPager.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/view/AutoScrollViewPager;
+.super Landroid/support/v4/view/ViewPager;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/dm/hz/view/AutoScrollViewPager$1;,
+Lcom/dm/hz/view/AutoScrollViewPager$a;
+}
+.end annotation
+
+.field public static final a:I = 0x5dc
+.field public static final b:I = 0x0
+.field public static final c:I = 0x1
+.field public static final d:I = 0x0
+.field public static final e:I = 0x1
+.field public static final f:I = 0x2
+.field public static final g:I
+.field private h:J
+.field private i:I
+.field private j:Z
+.field private k:Z
+.field private l:I
+.field private m:Z
+.field private n:D
+.field private o:D
+.field private p:Landroid/os/Handler;
+.field private q:Z
+.field private r:Z
+.field private s:F
+.field private t:F
+.field private u:Lcom/dm/hz/view/b;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	const-wide/high16 v4, 0x3ff0000000000000L    # 1.0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-direct {p0, p1}, Landroid/support/v4/view/ViewPager;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const-wide/16 v0, 0x5dc</span>
+<span class="">	iput-wide v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->h:J</span>
+<span class="">	iput v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->i:I</span>
+<span class="">	iput-boolean v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->j:Z</span>
+<span class="">	iput-boolean v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->k:Z</span>
+<span class="">	iput v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->l:I</span>
+<span class="">	iput-boolean v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->m:Z</span>
+<span class="">	iput-wide v4, p0, Lcom/dm/hz/view/AutoScrollViewPager;->n:D</span>
+<span class="">	iput-wide v4, p0, Lcom/dm/hz/view/AutoScrollViewPager;->o:D</span>
+<span class="">	iput-boolean v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->q:Z</span>
+<span class="">	iput-boolean v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->r:Z</span>
+<span class="">	iput v6, p0, Lcom/dm/hz/view/AutoScrollViewPager;->s:F</span>
+<span class="">	iput v6, p0, Lcom/dm/hz/view/AutoScrollViewPager;->t:F</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->u:Lcom/dm/hz/view/b;</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->j()V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	const-wide/high16 v4, 0x3ff0000000000000L    # 1.0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/support/v4/view/ViewPager;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	const-wide/16 v0, 0x5dc</span>
+<span class="">	iput-wide v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->h:J</span>
+<span class="">	iput v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->i:I</span>
+<span class="">	iput-boolean v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->j:Z</span>
+<span class="">	iput-boolean v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->k:Z</span>
+<span class="">	iput v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->l:I</span>
+<span class="">	iput-boolean v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->m:Z</span>
+<span class="">	iput-wide v4, p0, Lcom/dm/hz/view/AutoScrollViewPager;->n:D</span>
+<span class="">	iput-wide v4, p0, Lcom/dm/hz/view/AutoScrollViewPager;->o:D</span>
+<span class="">	iput-boolean v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->q:Z</span>
+<span class="">	iput-boolean v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->r:Z</span>
+<span class="">	iput v6, p0, Lcom/dm/hz/view/AutoScrollViewPager;->s:F</span>
+<span class="">	iput v6, p0, Lcom/dm/hz/view/AutoScrollViewPager;->t:F</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->u:Lcom/dm/hz/view/b;</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->j()V</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/view/AutoScrollViewPager;)D
+<span class="">	.locals 2</span>
+
+<span class="">	iget-wide v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->n:D</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/view/AutoScrollViewPager;J)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/dm/hz/view/AutoScrollViewPager;->b(J)V</span>
+.end method
+
+.method static synthetic b(Lcom/dm/hz/view/AutoScrollViewPager;)Lcom/dm/hz/view/b;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->u:Lcom/dm/hz/view/b;</span>
+.end method
+
+.method private b(J)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->p:Landroid/os/Handler;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->p:Landroid/os/Handler;</span>
+<span class="">	invoke-virtual {v0, v1, p1, p2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z</span>
+.end method
+
+.method static synthetic c(Lcom/dm/hz/view/AutoScrollViewPager;)D
+<span class="">	.locals 2</span>
+
+<span class="">	iget-wide v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->o:D</span>
+.end method
+
+.method static synthetic d(Lcom/dm/hz/view/AutoScrollViewPager;)J
+<span class="">	.locals 2</span>
+
+<span class="">	iget-wide v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->h:J</span>
+.end method
+
+.method private j()V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Lcom/dm/hz/view/AutoScrollViewPager$a;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/dm/hz/view/AutoScrollViewPager$a;-><init>(Lcom/dm/hz/view/AutoScrollViewPager;Lcom/dm/hz/view/AutoScrollViewPager$1;)V</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->p:Landroid/os/Handler;</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->k()V</span>
+.end method
+
+.method private k()V
+<span class="">	.locals 5</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-class v0, Landroid/support/v4/view/ViewPager;</span>
+<span class="">	const-string v1, "mScroller"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V</span>
+<span class="">	const-class v0, Landroid/support/v4/view/ViewPager;</span>
+<span class="">	const-string v2, "sInterpolator"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V</span>
+<span class="">	new-instance v2, Lcom/dm/hz/view/b;</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/animation/Interpolator;</span>
+<span class="">	invoke-direct {v2, v3, v0}, Lcom/dm/hz/view/b;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V</span>
+<span class="">	iput-object v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->u:Lcom/dm/hz/view/b;</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->u:Lcom/dm/hz/view/b;</span>
+<span class="">	invoke-virtual {v1, p0, v0}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->q:Z</span>
+<span class="">	iget-wide v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->h:J</span>
+<span class="">	invoke-direct {p0, v0, v1}, Lcom/dm/hz/view/AutoScrollViewPager;->b(J)V</span>
+.end method
+
+.method public a(D)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-wide p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->o:D</span>
+.end method
+
+.method public a(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->q:Z</span>
+<span class="">	int-to-long v0, p1</span>
+<span class="">	invoke-direct {p0, v0, v1}, Lcom/dm/hz/view/AutoScrollViewPager;->b(J)V</span>
+.end method
+
+.method public a(J)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-wide p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->h:J</span>
+.end method
+
+.method public a(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->j:Z</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iput-boolean v1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->q:Z</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->p:Landroid/os/Handler;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V</span>
+.end method
+
+.method public b(D)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-wide p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->n:D</span>
+.end method
+
+.method public b(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->i:I</span>
+.end method
+
+.method public b(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->k:Z</span>
+.end method
+
+.method public c()V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getAdapter()Landroid/support/v4/view/PagerAdapter;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getCurrentItem()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/support/v4/view/PagerAdapter;->getCount()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-gt v2, v3, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->i:I</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	add-int/lit8 v0, v1, -0x1</span>
+<span class="">	if-gez v0, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->j:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	add-int/lit8 v0, v2, -0x1</span>
+<span class="">	iget-boolean v1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->m:Z</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/dm/hz/view/AutoScrollViewPager;->setCurrentItem(IZ)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	if-ne v0, v2, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	iget-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->j:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-boolean v1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->m:Z</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/dm/hz/view/AutoScrollViewPager;->setCurrentItem(IZ)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0, v0, v3}, Lcom/dm/hz/view/AutoScrollViewPager;->setCurrentItem(IZ)V</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public c(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->l:I</span>
+.end method
+
+.method public c(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->m:Z</span>
+.end method
+
+.method public d()J
+<span class="">	.locals 2</span>
+
+<span class="">	iget-wide v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->h:J</span>
+.end method
+
+.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v6, 0x2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	invoke-static {p1}, Landroid/support/v4/view/MotionEventCompat;->getActionMasked(Landroid/view/MotionEvent;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-boolean v2, p0, Lcom/dm/hz/view/AutoScrollViewPager;->k:Z</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	if-nez v0, :cond_5</span>
+<span class="">	iget-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->q:Z</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	iput-boolean v5, p0, Lcom/dm/hz/view/AutoScrollViewPager;->r:Z</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->b()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->l:I</span>
+<span class="">	if-eq v0, v6, :cond_1</span>
+<span class="">	iget v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->l:I</span>
+<span class="">	if-ne v0, v5, :cond_9</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->s:F</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	iget v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->s:F</span>
+<span class="">	iput v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->t:F</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getCurrentItem()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getAdapter()Landroid/support/v4/view/PagerAdapter;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_6</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_1</span>
+<span class="">	if-nez v2, :cond_3</span>
+<span class="">	iget v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->t:F</span>
+<span class="">	iget v4, p0, Lcom/dm/hz/view/AutoScrollViewPager;->s:F</span>
+<span class="">	cmpg-float v3, v3, v4</span>
+<span class="">	if-lez v3, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	add-int/lit8 v3, v0, -0x1</span>
+<span class="">	if-ne v2, v3, :cond_9</span>
+<span class="">	iget v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->t:F</span>
+<span class="">	iget v4, p0, Lcom/dm/hz/view/AutoScrollViewPager;->s:F</span>
+<span class="">	cmpl-float v3, v3, v4</span>
+<span class="">	if-ltz v3, :cond_9</span>
+<span class="">	:cond_4</span>
+<span class="">	iget v3, p0, Lcom/dm/hz/view/AutoScrollViewPager;->l:I</span>
+<span class="">	if-ne v3, v6, :cond_7</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getParent()Landroid/view/ViewParent;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-super {p0, p1}, Landroid/support/v4/view/ViewPager;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_3</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I</span>
+<span class="">	:cond_5</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v5, :cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->r:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->a()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/support/v4/view/PagerAdapter;->getCount()I</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	if-le v0, v5, :cond_8</span>
+<span class="">	:cond_7</span>
+<span class="">	sub-int/2addr v0, v2</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	iget-boolean v1, p0, Lcom/dm/hz/view/AutoScrollViewPager;->m:Z</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/dm/hz/view/AutoScrollViewPager;->setCurrentItem(IZ)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getParent()Landroid/view/ViewParent;</span>
+<span class="">	:cond_8</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0, v5}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/view/AutoScrollViewPager;->getParent()Landroid/view/ViewParent;</span>
+<span class="">	:cond_9</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0, v5}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V</span>
+<span class="">	invoke-super {p0, p1}, Landroid/support/v4/view/ViewPager;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_3</span>
+.end method
+
+.method public e()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->i:I</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public f()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->j:Z</span>
+.end method
+
+.method public g()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->k:Z</span>
+.end method
+
+.method public h()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->l:I</span>
+.end method
+
+.method public i()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/dm/hz/view/AutoScrollViewPager;->m:Z</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

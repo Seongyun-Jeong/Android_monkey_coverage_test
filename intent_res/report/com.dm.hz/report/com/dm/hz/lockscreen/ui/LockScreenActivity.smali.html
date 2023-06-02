@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.lockscreen.ui</a></li>
+        <li><i class="ico ico-class"></i> LockScreenActivity.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/lockscreen/ui/LockScreenActivity;
+.super Lcom/dm/hz/other/ui/BaseActivity;
+.source "SourceFile"
+.implements Lcom/dm/hz/lockscreen/LockScreenModelReceiver$a;
+
+.annotation build Landroid/annotation/SuppressLint;
+value = {
+"NewApi"
+}
+.end annotation
+
+.field  a:Lcom/dm/hz/lockscreen/view/SlidingUnLockView$OnTriggerListener;
+.field private f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;
+.field private g:Lcom/dm/hz/lockscreen/view/LandingTitle;
+.field private h:Landroid/widget/TextView;
+.field private i:Landroid/widget/TextView;
+.field private j:Landroid/widget/ImageView;
+.field private k:Landroid/graphics/Bitmap;
+.field private l:Lcom/dm/hz/lockscreen/LockScreenModelReceiver;
+.field private m:Lcom/dm/hz/lockscreen/model/Offer;
+.field private n:Landroid/content/BroadcastReceiver;
+
+
+<span class="cov">.method public constructor &lt;init&gt;()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/BaseActivity;-><init>()V</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/lockscreen/ui/a;</span>
+<span class="cov">	invoke-direct {v0, p0}, Lcom/dm/hz/lockscreen/ui/a;-><init>(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->n:Landroid/content/BroadcastReceiver;</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/lockscreen/ui/c;</span>
+<span class="cov">	invoke-direct {v0, p0}, Lcom/dm/hz/lockscreen/ui/c;-><init>(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->a:Lcom/dm/hz/lockscreen/view/SlidingUnLockView$OnTriggerListener;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->k:Landroid/graphics/Bitmap;</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;)Lcom/dm/hz/lockscreen/model/Offer;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+.end method
+
+<span class="cov">.method public static a(Landroid/content/Context;)V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	new-instance v0, Landroid/content/Intent;</span>
+<span class="cov">	const-class v1, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;</span>
+<span class="cov">	invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V</span>
+<span class="cov">	const/high16 v1, 0x10000000</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;</span>
+<span class="cov">	invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->b(Ljava/lang/String;)V</span>
+.end method
+
+.method static synthetic b(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->h()V</span>
+.end method
+
+.method private b(Ljava/lang/String;)V
+<span class="">	.locals 5</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "status"</span>
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, "point"</span>
+<span class="">	invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	cmpl-double v2, v2, v0</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v2}, Lcom/a/a/b/e;->a(Landroid/content/Context;)Lcom/a/a/b/e;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "\u6bcf\u65e5\u9501\u5c4f +"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, " \u5143"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Lcom/a/a/b/e;->a(Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic c(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->i()V</span>
+.end method
+
+<span class="cov">.method private d()V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	new-instance v0, Landroid/content/IntentFilter;</span>
+<span class="cov">	invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V</span>
+<span class="cov">	const-string v1, "CALL_STATE_RINGING"</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->n:Landroid/content/BroadcastReceiver;</span>
+<span class="cov">	invoke-virtual {v1, v0, v2}, Lcom/dm/hz/HZApplication;->a(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/c/a/b;->b(Landroid/content/Context;)Lcom/dm/hz/c/a/b;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, "is_frist_time_lock"</span>
+<span class="cov">	const/4 v2, 0x1</span>
+<span class="exec">	invoke-virtual {v0, v1, v2}, Lcom/dm/hz/c/a/b;->b(Ljava/lang/String;Z)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/offer/i;->a(Landroid/content/Context;)Lcom/dm/hz/offer/i;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/offer/i;->c()Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/c/a/b;->b(Landroid/content/Context;)Lcom/dm/hz/c/a/b;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, "is_frist_time_lock"</span>
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="cov">	invoke-virtual {v0, v1, v2}, Lcom/dm/hz/c/a/b;->a(Ljava/lang/String;Z)V</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/offer/i;->a(Landroid/content/Context;)Lcom/dm/hz/offer/i;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/offer/i;->b()Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method private e()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	const v0, 0x7f0a0066</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="cov">	const v0, 0x7f0a0067</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/lockscreen/view/LandingTitle;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->g:Lcom/dm/hz/lockscreen/view/LandingTitle;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->a:Lcom/dm/hz/lockscreen/view/SlidingUnLockView$OnTriggerListener;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->setOnTriggerListener(Lcom/dm/hz/lockscreen/view/SlidingUnLockView$OnTriggerListener;)V</span>
+<span class="cov">	const v0, 0x7f0a0064</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->h:Landroid/widget/TextView;</span>
+<span class="cov">	const v0, 0x7f0a0065</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->i:Landroid/widget/TextView;</span>
+<span class="cov">	const v0, 0x7f0a0063</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->j:Landroid/widget/ImageView;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private f()V</span>
+<span class="">	.locals 6</span>
+
+<span class="cov">	const v5, 0x7f02001a</span>
+<span class="cov">	const v4, 0x7f020013</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	iget-object v0, v0, Lcom/dm/hz/lockscreen/model/Offer;->background:Ljava/lang/String;</span>
+<span class="exec">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_1</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->j:Landroid/widget/ImageView;</span>
+<span class="cov">	const v1, 0x7f020053</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->g:Lcom/dm/hz/lockscreen/view/LandingTitle;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	iget-object v1, v1, Lcom/dm/hz/lockscreen/model/Offer;->brief_desc:Ljava/lang/String;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/lockscreen/view/LandingTitle;->setTitle(Ljava/lang/String;)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	iget v0, v0, Lcom/dm/hz/lockscreen/model/Offer;->type:I</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="cov">	invoke-static {v1, v0}, Lcom/dm/hz/f/j;->c(Landroid/content/Context;I)V</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="">	invoke-virtual {v0, v5}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->setLeftIcon(I)V</span>
+<span class="cov">	:goto_1</span>
+<span class="cov">	const-wide/16 v0, 0x0</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	iget-wide v2, v2, Lcom/dm/hz/lockscreen/model/Offer;->point:D</span>
+<span class="cov">	cmpl-double v0, v0, v2</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="cov">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="cov">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="cov">	const-string v2, "+"</span>
+<span class="exec">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	iget-wide v2, v2, Lcom/dm/hz/lockscreen/model/Offer;->point:D</span>
+<span class="exec">	invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="exec">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->setLeftText(Ljava/lang/String;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-void</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/d/b;->a(Landroid/content/Context;)Lcom/dm/hz/d/b;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="">	iget-object v1, v1, Lcom/dm/hz/lockscreen/model/Offer;->background:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->j:Landroid/widget/ImageView;</span>
+<span class="">	new-instance v3, Lcom/dm/hz/lockscreen/ui/b;</span>
+<span class="">	invoke-direct {v3, p0}, Lcom/dm/hz/lockscreen/ui/b;-><init>(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;)V</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Lcom/dm/hz/d/b;->c(Ljava/lang/String;Landroid/widget/ImageView;Lcom/nostra13/universalimageloader/core/listener/ImageLoadingListener;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:pswitch_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="cov">	invoke-virtual {v0, v4}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->setLeftIcon(I)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->j:Landroid/widget/ImageView;</span>
+<span class="cov">	const v1, 0x7f02004a</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="">	invoke-virtual {v0, v5}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->setLeftIcon(I)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="">	const v1, 0x7f02001d</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->setLeftIcon(I)V</span>
+<span class="">	goto :goto_1</span>
+<span class="cov">	:pswitch_3</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="cov">	invoke-virtual {v0, v4}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->setLeftIcon(I)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_3</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+<span class="cov">.method private g()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	new-instance v0, Lcom/dm/hz/lockscreen/LockScreenModelReceiver;</span>
+<span class="cov">	invoke-direct {v0, p0}, Lcom/dm/hz/lockscreen/LockScreenModelReceiver;-><init>(Lcom/dm/hz/lockscreen/LockScreenModelReceiver$a;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->l:Lcom/dm/hz/lockscreen/LockScreenModelReceiver;</span>
+<span class="cov">	new-instance v0, Landroid/content/IntentFilter;</span>
+<span class="cov">	const-string v1, "android.intent.action.TIME_TICK"</span>
+<span class="cov">	invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V</span>
+<span class="cov">	const-string v1, "android.intent.action.TIME_SET"</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V</span>
+<span class="cov">	const-string v1, "android.intent.action.DATE_CHANGED"</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V</span>
+<span class="cov">	const-string v1, "android.intent.action.TIMEZONE_CHANGED"</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V</span>
+<span class="cov">	const-string v1, "finish_lockscreen"</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->l:Lcom/dm/hz/lockscreen/LockScreenModelReceiver;</span>
+<span class="cov">	invoke-virtual {p0, v1, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method private h()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/16 v0, 0x11</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v1, v0}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/d/d;->a(Landroid/content/Context;)Lcom/dm/hz/d/d;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/dm/hz/lockscreen/ui/d;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/dm/hz/lockscreen/ui/d;-><init>(Lcom/dm/hz/lockscreen/ui/LockScreenActivity;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/dm/hz/d/d;->h(Lcom/dm/hz/d/c;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->finish()V</span>
+<span class="">	const/16 v0, 0x12</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private i()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="">	iget v1, v1, Lcom/dm/hz/lockscreen/model/Offer;->type:I</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/f/j;->b(Landroid/content/Context;I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/d/d;->a(Landroid/content/Context;)Lcom/dm/hz/d/d;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="">	iget-object v1, v1, Lcom/dm/hz/lockscreen/model/Offer;->tr:Ljava/lang/String;</span>
+<span class="">	sget-object v2, Lcom/dm/hz/d/a/a;->a:Lcom/dm/hz/d/a/a;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Lcom/dm/hz/d/d;->a(Ljava/lang/String;Lcom/dm/hz/d/a/a;Lcom/dm/hz/d/c;)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->m:Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/lockscreen/ui/RewardDetailActivity;->a(Landroid/content/Context;Lcom/dm/hz/lockscreen/model/Offer;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->finish()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method private j()V</span>
+<span class="">	.locals 2</span>
+
+<span class="exec">	invoke-static {}, Lcom/dm/hz/f/d;->a()Ljava/util/Calendar;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, "kk:mm"</span>
+<span class="exec">	invoke-static {v1, v0}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->h:Landroid/widget/TextView;</span>
+<span class="exec">	invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->i:Landroid/widget/TextView;</span>
+<span class="exec">	invoke-static {}, Lcom/a/a/b/d;->b()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public a()V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->j()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-super {p0, p1}, Lcom/dm/hz/other/ui/BaseActivity;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="cov">	const v0, 0x7f030018</span>
+<span class="cov">	invoke-virtual {p0, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->setContentView(I)V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->d()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->e()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->g()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->j()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f()V</span>
+<span class="cov">	invoke-virtual {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected onDestroy()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	invoke-super {p0}, Lcom/dm/hz/other/ui/BaseActivity;->onDestroy()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->k:Landroid/graphics/Bitmap;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->k:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->k:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->k:Landroid/graphics/Bitmap;</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->f:Lcom/dm/hz/lockscreen/view/SlidingUnLockView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/lockscreen/view/SlidingUnLockView;->onDestroy()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->l:Lcom/dm/hz/lockscreen/LockScreenModelReceiver;</span>
+<span class="cov">	invoke-virtual {p0, v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->n:Landroid/content/BroadcastReceiver;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/HZApplication;->a(Landroid/content/BroadcastReceiver;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public onKeyDown(ILandroid/view/KeyEvent;)Z</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const/4 v0, 0x4</span>
+<span class="cov">	if-ne p1, v0, :cond_0</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return v0</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	invoke-super {p0, p1, p2}, Lcom/dm/hz/other/ui/BaseActivity;->onKeyDown(ILandroid/view/KeyEvent;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected onStop()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-super {p0}, Lcom/dm/hz/other/ui/BaseActivity;->onStop()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/a/a/b/g;->a(Landroid/content/Context;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->finish()V</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-void</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

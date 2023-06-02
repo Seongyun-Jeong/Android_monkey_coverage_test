@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.google.gson</a></li>
+        <li><i class="ico ico-class"></i> Primitives.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/google/gson/Primitives;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private static final PRIMITIVE_TO_WRAPPER_TYPE:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/Class",
+"<*>;",
+"Ljava/lang/Class",
+"<*>;>;"
+}
+.end annotation
+.end field
+.field private static final WRAPPER_TO_PRIMITIVE_TYPE:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/Class",
+"<*>;",
+"Ljava/lang/Class",
+"<*>;>;"
+}
+.end annotation
+.end field
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 4</span>
+
+<span class="">	const/16 v2, 0x10</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/util/HashMap;-><init>(I)V</span>
+<span class="">	new-instance v1, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/util/HashMap;-><init>(I)V</span>
+<span class="">	sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Boolean;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Byte;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Character;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Character;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Double;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Double;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Float;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Float;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Integer;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Long;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Short;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Short;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	sget-object v2, Ljava/lang/Void;->TYPE:Ljava/lang/Class;</span>
+<span class="">	const-class v3, Ljava/lang/Void;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/google/gson/Primitives;->add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V</span>
+<span class="">	invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/Primitives;->PRIMITIVE_TO_WRAPPER_TYPE:Ljava/util/Map;</span>
+<span class="">	invoke-static {v1}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/google/gson/Primitives;->WRAPPER_TO_PRIMITIVE_TYPE:Ljava/util/Map;</span>
+.end method
+
+.method private constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method private static add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;>;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;>;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-interface {p0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	invoke-interface {p1, p3, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+.end method
+
+.method public static isPrimitive(Ljava/lang/reflect/Type;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/google/gson/Primitives;->PRIMITIVE_TO_WRAPPER_TYPE:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, p0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static isWrapperType(Ljava/lang/Class;)Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v0, Lcom/google/gson/Primitives;->WRAPPER_TO_PRIMITIVE_TYPE:Ljava/util/Map;</span>
+<span class="">	invoke-static {p0}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static unwrap(Ljava/lang/Class;)Ljava/lang/Class;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;)",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v0, Lcom/google/gson/Primitives;->WRAPPER_TO_PRIMITIVE_TYPE:Ljava/util/Map;</span>
+<span class="">	invoke-static {p0}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Class;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-object p0, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static wrap(Ljava/lang/Class;)Ljava/lang/Class;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;)",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v0, Lcom/google/gson/Primitives;->PRIMITIVE_TO_WRAPPER_TYPE:Ljava/util/Map;</span>
+<span class="">	invoke-static {p0}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Class;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-object p0, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

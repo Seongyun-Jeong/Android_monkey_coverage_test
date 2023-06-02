@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> PickerFragment$LoadingStrategy.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class abstract Lcom/facebook/widget/PickerFragment$LoadingStrategy;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/widget/PickerFragment;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x400
+name = "LoadingStrategy"
+.end annotation
+
+.field protected static final b:I = 0x7d0
+.field protected c:Lcom/facebook/widget/GraphObjectPagingLoader;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/GraphObjectPagingLoader",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field protected d:Lcom/facebook/widget/GraphObjectAdapter;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/GraphObjectAdapter",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field final synthetic e:Lcom/facebook/widget/PickerFragment;
+
+
+.method constructor <init>(Lcom/facebook/widget/PickerFragment;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->e:Lcom/facebook/widget/PickerFragment;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/PickerFragment$LoadingStrategy;)Lcom/facebook/widget/PickerFragment;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->e:Lcom/facebook/widget/PickerFragment;</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectPagingLoader;->a(Lcom/facebook/widget/GraphObjectPagingLoader$OnErrorListener;)V</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+.end method
+
+.method public a(Lcom/facebook/Request;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Lcom/facebook/widget/GraphObjectPagingLoader;->a(Lcom/facebook/Request;Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->a(Lcom/facebook/widget/GraphObjectPagingLoader;Lcom/facebook/Request;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(Lcom/facebook/widget/GraphObjectAdapter;)V
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectAdapter",</span>
+<span class="">	"<TT;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->e:Lcom/facebook/widget/PickerFragment;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/PickerFragment;->getLoaderManager()Landroid/support/v4/app/LoaderManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-instance v3, Lcom/facebook/widget/PickerFragment$LoadingStrategy$1;</span>
+<span class="">	invoke-direct {v3, p0}, Lcom/facebook/widget/PickerFragment$LoadingStrategy$1;-><init>(Lcom/facebook/widget/PickerFragment$LoadingStrategy;)V</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/LoaderManager;->initLoader(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/PickerFragment$LoadingStrategy$2;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/widget/PickerFragment$LoadingStrategy$2;-><init>(Lcom/facebook/widget/PickerFragment$LoadingStrategy;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectPagingLoader;->a(Lcom/facebook/widget/GraphObjectPagingLoader$OnErrorListener;)V</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/GraphObjectPagingLoader;->b()Lcom/facebook/widget/SimpleGraphObjectCursor;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectCursor;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/PickerFragment$LoadingStrategy$3;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/widget/PickerFragment$LoadingStrategy$3;-><init>(Lcom/facebook/widget/PickerFragment$LoadingStrategy;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;)V</span>
+.end method
+
+.method protected a(Lcom/facebook/widget/GraphObjectPagingLoader;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectPagingLoader",</span>
+<span class="">	"<TT;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectCursor;)Z</span>
+.end method
+
+.method protected a(Lcom/facebook/widget/GraphObjectPagingLoader;Lcom/facebook/Request;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectPagingLoader",</span>
+<span class="">	"<TT;>;",</span>
+<span class="">	"Lcom/facebook/Request;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->e:Lcom/facebook/widget/PickerFragment;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/PickerFragment;->v()V</span>
+.end method
+
+.method protected a(Lcom/facebook/widget/GraphObjectPagingLoader;Lcom/facebook/widget/SimpleGraphObjectCursor;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectPagingLoader",</span>
+<span class="">	"<TT;>;",</span>
+<span class="">	"Lcom/facebook/widget/SimpleGraphObjectCursor",</span>
+<span class="">	"<TT;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->e:Lcom/facebook/widget/PickerFragment;</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/facebook/widget/PickerFragment;->a(Lcom/facebook/widget/SimpleGraphObjectCursor;)V</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectPagingLoader;->c()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public c()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c:Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectPagingLoader;->d()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected d()Lcom/facebook/widget/GraphObjectPagingLoader;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectPagingLoader",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/facebook/widget/GraphObjectPagingLoader;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->e:Lcom/facebook/widget/PickerFragment;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/PickerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->e:Lcom/facebook/widget/PickerFragment;</span>
+<span class="">	invoke-static {v2}, Lcom/facebook/widget/PickerFragment;->c(Lcom/facebook/widget/PickerFragment;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/facebook/widget/GraphObjectPagingLoader;-><init>(Landroid/content/Context;Ljava/lang/Class;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

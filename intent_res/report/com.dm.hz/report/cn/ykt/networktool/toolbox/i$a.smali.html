@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool.toolbox</a></li>
+        <li><i class="ico ico-class"></i> i$a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcn/ykt/networktool/toolbox/i$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcn/ykt/networktool/toolbox/i;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0xa
+name = "a"
+.end annotation
+
+.field public a:J
+.field public b:Ljava/lang/String;
+.field public c:Ljava/lang/String;
+.field public d:J
+.field public e:J
+.field public f:J
+.field public g:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method private constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+<span class="cov">.method public constructor &lt;init&gt;(Ljava/lang/String;Lcn/ykt/networktool/b$a;)V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="cov">	iput-object p1, p0, Lcn/ykt/networktool/toolbox/i$a;->b:Ljava/lang/String;</span>
+<span class="cov">	iget-object v0, p2, Lcn/ykt/networktool/b$a;->a:[B</span>
+<span class="cov">	array-length v0, v0</span>
+<span class="cov">	int-to-long v0, v0</span>
+<span class="cov">	iput-wide v0, p0, Lcn/ykt/networktool/toolbox/i$a;->a:J</span>
+<span class="cov">	iget-object v0, p2, Lcn/ykt/networktool/b$a;->b:Ljava/lang/String;</span>
+<span class="cov">	iput-object v0, p0, Lcn/ykt/networktool/toolbox/i$a;->c:Ljava/lang/String;</span>
+<span class="cov">	iget-wide v0, p2, Lcn/ykt/networktool/b$a;->c:J</span>
+<span class="cov">	iput-wide v0, p0, Lcn/ykt/networktool/toolbox/i$a;->d:J</span>
+<span class="cov">	iget-wide v0, p2, Lcn/ykt/networktool/b$a;->d:J</span>
+<span class="cov">	iput-wide v0, p0, Lcn/ykt/networktool/toolbox/i$a;->e:J</span>
+<span class="cov">	iget-wide v0, p2, Lcn/ykt/networktool/b$a;->e:J</span>
+<span class="cov">	iput-wide v0, p0, Lcn/ykt/networktool/toolbox/i$a;->f:J</span>
+<span class="cov">	iget-object v0, p2, Lcn/ykt/networktool/b$a;->f:Ljava/util/Map;</span>
+<span class="cov">	iput-object v0, p0, Lcn/ykt/networktool/toolbox/i$a;->g:Ljava/util/Map;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public static a(Ljava/io/InputStream;)Lcn/ykt/networktool/toolbox/i$a;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcn/ykt/networktool/toolbox/i$a;</span>
+<span class="">	invoke-direct {v0}, Lcn/ykt/networktool/toolbox/i$a;-><init>()V</span>
+<span class="">	new-instance v1, Ljava/io/ObjectInputStream;</span>
+<span class="">	invoke-direct {v1, p0}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readByte()B</span>
+<span class="">	move-result v2</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	if-eq v2, v3, :cond_0</span>
+<span class="">	new-instance v0, Ljava/io/IOException;</span>
+<span class="">	invoke-direct {v0}, Ljava/io/IOException;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readUTF()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, v0, Lcn/ykt/networktool/toolbox/i$a;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readUTF()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, v0, Lcn/ykt/networktool/toolbox/i$a;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v2, v0, Lcn/ykt/networktool/toolbox/i$a;->c:Ljava/lang/String;</span>
+<span class="">	const-string v3, ""</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iput-object v2, v0, Lcn/ykt/networktool/toolbox/i$a;->c:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readLong()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	iput-wide v2, v0, Lcn/ykt/networktool/toolbox/i$a;->d:J</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readLong()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	iput-wide v2, v0, Lcn/ykt/networktool/toolbox/i$a;->e:J</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ObjectInputStream;->readLong()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	iput-wide v2, v0, Lcn/ykt/networktool/toolbox/i$a;->f:J</span>
+<span class="">	invoke-static {v1}, Lcn/ykt/networktool/toolbox/i$a;->a(Ljava/io/ObjectInputStream;)Ljava/util/Map;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v0, Lcn/ykt/networktool/toolbox/i$a;->g:Ljava/util/Map;</span>
+.end method
+
+.method private static a(Ljava/io/ObjectInputStream;)Ljava/util/Map;
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/io/ObjectInputStream;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Ljava/io/ObjectInputStream;->readInt()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	if-lt v1, v2, :cond_1</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/util/HashMap;-><init>(I)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/ObjectInputStream;->readUTF()Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/String;->intern()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/ObjectInputStream;->readUTF()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/String;->intern()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-interface {v0, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+<span class="cov">.method private static a(Ljava/util/Map;Ljava/io/ObjectOutputStream;)V</span>
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;",</span>
+<span class="">	"Ljava/io/ObjectOutputStream;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="cov">	if-eqz p0, :cond_1</span>
+<span class="exec">	invoke-interface {p0}, Ljava/util/Map;->size()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeInt(I)V</span>
+<span class="exec">	invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	:goto_1</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	check-cast v1, Ljava/lang/String;</span>
+<span class="cov">	invoke-virtual {p1, v1}, Ljava/io/ObjectOutputStream;->writeUTF(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Ljava/lang/String;</span>
+<span class="cov">	invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeUTF(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeInt(I)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public a([B)Lcn/ykt/networktool/b$a;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Lcn/ykt/networktool/b$a;</span>
+<span class="">	invoke-direct {v0}, Lcn/ykt/networktool/b$a;-><init>()V</span>
+<span class="">	iput-object p1, v0, Lcn/ykt/networktool/b$a;->a:[B</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/i$a;->c:Ljava/lang/String;</span>
+<span class="">	iput-object v1, v0, Lcn/ykt/networktool/b$a;->b:Ljava/lang/String;</span>
+<span class="">	iget-wide v1, p0, Lcn/ykt/networktool/toolbox/i$a;->d:J</span>
+<span class="">	iput-wide v1, v0, Lcn/ykt/networktool/b$a;->c:J</span>
+<span class="">	iget-wide v1, p0, Lcn/ykt/networktool/toolbox/i$a;->e:J</span>
+<span class="">	iput-wide v1, v0, Lcn/ykt/networktool/b$a;->d:J</span>
+<span class="">	iget-wide v1, p0, Lcn/ykt/networktool/toolbox/i$a;->f:J</span>
+<span class="">	iput-wide v1, v0, Lcn/ykt/networktool/b$a;->e:J</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/i$a;->g:Ljava/util/Map;</span>
+<span class="">	iput-object v1, v0, Lcn/ykt/networktool/b$a;->f:Ljava/util/Map;</span>
+.end method
+
+<span class="cov">.method public a(Ljava/io/OutputStream;)Z</span>
+<span class="">	.locals 6</span>
+
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="cov">	:try_start_0</span>
+<span class="cov">	new-instance v3, Ljava/io/ObjectOutputStream;</span>
+<span class="cov">	invoke-direct {v3, p1}, Ljava/io/ObjectOutputStream;-><init>(Ljava/io/OutputStream;)V</span>
+<span class="cov">	const/4 v2, 0x2</span>
+<span class="cov">	invoke-virtual {v3, v2}, Ljava/io/ObjectOutputStream;->writeByte(I)V</span>
+<span class="cov">	iget-object v2, p0, Lcn/ykt/networktool/toolbox/i$a;->b:Ljava/lang/String;</span>
+<span class="cov">	invoke-virtual {v3, v2}, Ljava/io/ObjectOutputStream;->writeUTF(Ljava/lang/String;)V</span>
+<span class="cov">	iget-object v2, p0, Lcn/ykt/networktool/toolbox/i$a;->c:Ljava/lang/String;</span>
+<span class="cov">	if-nez v2, :cond_0</span>
+<span class="cov">	const-string v2, ""</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	invoke-virtual {v3, v2}, Ljava/io/ObjectOutputStream;->writeUTF(Ljava/lang/String;)V</span>
+<span class="cov">	iget-wide v4, p0, Lcn/ykt/networktool/toolbox/i$a;->d:J</span>
+<span class="cov">	invoke-virtual {v3, v4, v5}, Ljava/io/ObjectOutputStream;->writeLong(J)V</span>
+<span class="cov">	iget-wide v4, p0, Lcn/ykt/networktool/toolbox/i$a;->e:J</span>
+<span class="cov">	invoke-virtual {v3, v4, v5}, Ljava/io/ObjectOutputStream;->writeLong(J)V</span>
+<span class="cov">	iget-wide v4, p0, Lcn/ykt/networktool/toolbox/i$a;->f:J</span>
+<span class="cov">	invoke-virtual {v3, v4, v5}, Ljava/io/ObjectOutputStream;->writeLong(J)V</span>
+<span class="cov">	iget-object v2, p0, Lcn/ykt/networktool/toolbox/i$a;->g:Ljava/util/Map;</span>
+<span class="cov">	invoke-static {v2, v3}, Lcn/ykt/networktool/toolbox/i$a;->a(Ljava/util/Map;Ljava/io/ObjectOutputStream;)V</span>
+<span class="cov">	invoke-virtual {v3}, Ljava/io/ObjectOutputStream;->flush()V</span>
+<span class="cov">	:goto_1</span>
+<span class="exec">	return v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcn/ykt/networktool/toolbox/i$a;->c:Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v2</span>
+<span class="">	const-string v3, "%s"</span>
+<span class="">	new-array v0, v0, [Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	aput-object v2, v0, v1</span>
+<span class="">	invoke-static {v3, v0}, Lcn/ykt/networktool/w;->b(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">a.a.a.a.a</a></li>
+        <li><i class="ico ico-class"></i> g.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public La/a/a/a/a/g;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lorg/apache/http/HttpEntity;
+
+
+.field private static final a:[C
+.field private final b:La/a/a/a/a/c;
+.field private final c:Lorg/apache/http/Header;
+.field private d:J
+.field private volatile e:Z
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, La/a/a/a/a/g;->a:[C</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	sget-object v0, La/a/a/a/a/d;->a:La/a/a/a/a/d;</span>
+<span class="">	invoke-direct {p0, v0, v1, v1}, La/a/a/a/a/g;-><init>(La/a/a/a/a/d;Ljava/lang/String;Ljava/nio/charset/Charset;)V</span>
+.end method
+
+.method public constructor <init>(La/a/a/a/a/d;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1, v0, v0}, La/a/a/a/a/g;-><init>(La/a/a/a/a/d;Ljava/lang/String;Ljava/nio/charset/Charset;)V</span>
+.end method
+
+.method public constructor <init>(La/a/a/a/a/d;Ljava/lang/String;Ljava/nio/charset/Charset;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	if-nez p2, :cond_0</span>
+<span class="">	invoke-virtual {p0}, La/a/a/a/a/g;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object p2</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	sget-object p1, La/a/a/a/a/d;->a:La/a/a/a/a/d;</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v0, La/a/a/a/a/c;</span>
+<span class="">	const-string v1, "form-data"</span>
+<span class="">	invoke-direct {v0, v1, p3, p2, p1}, La/a/a/a/a/c;-><init>(Ljava/lang/String;Ljava/nio/charset/Charset;Ljava/lang/String;La/a/a/a/a/d;)V</span>
+<span class="">	iput-object v0, p0, La/a/a/a/a/g;->b:La/a/a/a/a/c;</span>
+<span class="">	new-instance v0, Lorg/apache/http/message/BasicHeader;</span>
+<span class="">	const-string v1, "Content-Type"</span>
+<span class="">	invoke-virtual {p0, p2, p3}, La/a/a/a/a/g;->a(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lorg/apache/http/message/BasicHeader;-><init>(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iput-object v0, p0, La/a/a/a/a/g;->c:Lorg/apache/http/Header;</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, La/a/a/a/a/g;->e:Z</span>
+.end method
+
+.method protected a()Ljava/lang/String;
+<span class="">	.locals 6</span>
+
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	new-instance v2, Ljava/util/Random;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/Random;-><init>()V</span>
+<span class="">	const/16 v0, 0xb</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit8 v3, v0, 0x1e</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v0, v3, :cond_0</span>
+<span class="">	sget-object v4, La/a/a/a/a/g;->a:[C</span>
+<span class="">	sget-object v5, La/a/a/a/a/g;->a:[C</span>
+<span class="">	array-length v5, v5</span>
+<span class="">	invoke-virtual {v2, v5}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	move-result v5</span>
+<span class="">	aget-char v4, v4, v5</span>
+<span class="">	invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected a(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v1, "multipart/form-data; boundary="</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	const-string v1, "; charset="</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {p2}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(La/a/a/a/a/a;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, La/a/a/a/a/g;->b:La/a/a/a/a/c;</span>
+<span class="">	invoke-virtual {v0, p1}, La/a/a/a/a/c;->a(La/a/a/a/a/a;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, La/a/a/a/a/g;->e:Z</span>
+.end method
+
+.method public a(Ljava/lang/String;La/a/a/a/a/a/c;)V
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, La/a/a/a/a/a;</span>
+<span class="">	invoke-direct {v0, p1, p2}, La/a/a/a/a/a;-><init>(Ljava/lang/String;La/a/a/a/a/a/c;)V</span>
+<span class="">	invoke-virtual {p0, v0}, La/a/a/a/a/g;->a(La/a/a/a/a/a;)V</span>
+.end method
+
+.method public consumeContent()V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;,</span>
+<span class="">	Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, La/a/a/a/a/g;->isStreaming()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v1, "Streaming entity does not implement #consumeContent()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public getContent()Ljava/io/InputStream;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;,</span>
+<span class="">	Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v1, "Multipart form entity does not implement #getContent()"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public getContentEncoding()Lorg/apache/http/Header;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public getContentLength()J
+<span class="">	.locals 2</span>
+
+<span class="">	iget-boolean v0, p0, La/a/a/a/a/g;->e:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, La/a/a/a/a/g;->b:La/a/a/a/a/c;</span>
+<span class="">	invoke-virtual {v0}, La/a/a/a/a/c;->f()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iput-wide v0, p0, La/a/a/a/a/g;->d:J</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, La/a/a/a/a/g;->e:Z</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-wide v0, p0, La/a/a/a/a/g;->d:J</span>
+.end method
+
+.method public getContentType()Lorg/apache/http/Header;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, La/a/a/a/a/g;->c:Lorg/apache/http/Header;</span>
+.end method
+
+.method public isChunked()Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, La/a/a/a/a/g;->isRepeatable()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public isRepeatable()Z
+<span class="">	.locals 6</span>
+
+<span class="">	iget-object v0, p0, La/a/a/a/a/g;->b:La/a/a/a/a/c;</span>
+<span class="">	invoke-virtual {v0}, La/a/a/a/a/c;->d()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, La/a/a/a/a/a;</span>
+<span class="">	invoke-virtual {v0}, La/a/a/a/a/a;->b()La/a/a/a/a/a/c;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, La/a/a/a/a/a/c;->g()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	const-wide/16 v4, 0x0</span>
+<span class="">	cmp-long v0, v2, v4</span>
+<span class="">	if-gez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public isStreaming()Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, La/a/a/a/a/g;->isRepeatable()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public writeTo(Ljava/io/OutputStream;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, La/a/a/a/a/g;->b:La/a/a/a/a/c;</span>
+<span class="">	invoke-virtual {v0, p1}, La/a/a/a/a/c;->a(Ljava/io/OutputStream;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

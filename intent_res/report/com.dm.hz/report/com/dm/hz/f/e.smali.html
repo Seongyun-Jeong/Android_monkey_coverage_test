@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.f</a></li>
+        <li><i class="ico ico-class"></i> e.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/f/e;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/dm/hz/f/e$a;
+}
+.end annotation
+
+.field private static a:Ljava/lang/String; = null
+.field private static b:I = 0x0
+.field private static c:Ljava/lang/String; = null
+.field private static d:Ljava/lang/String; = null
+.field private static e:Ljava/lang/String; = null
+.field private static f:Ljava/lang/String; = null
+.field private static g:Ljava/lang/String; = null
+.field private static h:Ljava/lang/String; = null
+.field private static i:Ljava/lang/String; = null
+.field private static j:Ljava/lang/String; = null
+.field private static k:Ljava/lang/String; = null
+.field private static l:Ljava/lang/String; = null
+.field private static m:F = 0.0f
+.field private static n:F = 0.0f
+.field private static o:I = 0x0
+.field private static p:I = 0x0
+.field private static q:I = 0x0
+.field private static r:I = 0x0
+.field private static s:Ljava/lang/String; = null
+.field private static final t:Ljava/lang/String; = "sdk"
+.field private static final u:Ljava/lang/String; = "unknown"
+.field private static final v:Ljava/lang/String; = "gprs"
+.field private static final w:Ljava/lang/String; = "wifi"
+.field private static final x:Ljava/lang/String; = "android"
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static A(Landroid/content/Context;)Landroid/database/Cursor;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->q(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v1, "wifi"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "content://telephony/carriers/preferapn"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-object v3, v2</span>
+<span class="">	move-object v4, v2</span>
+<span class="">	move-object v5, v2</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static B(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 2</span>
+
+<span class="exec">	invoke-static {}, Lcom/dm/hz/f/e$a;->a()Lcom/dm/hz/f/e$a;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-static {v0, p0}, Lcom/dm/hz/f/e$a;->a(Lcom/dm/hz/f/e$a;Landroid/content/Context;)Landroid/location/Location;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/f/e$a;->a(Lcom/dm/hz/f/e$a;Landroid/location/Location;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-object v0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static C(Landroid/content/Context;)Landroid/net/wifi/ScanResult;</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="cov">	const-string v0, "wifi"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/net/wifi/WifiManager;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="cov">	move-result v2</span>
+<span class="">	if-lez v2, :cond_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/wifi/ScanResult;</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-object v0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static D(Landroid/content/Context;)[J</span>
+<span class="">	.locals 12</span>
+
+<span class="cov">	const/4 v8, 0x1</span>
+<span class="cov">	const/4 v0, 0x2</span>
+<span class="cov">	new-array v3, v0, [J</span>
+<span class="cov">	const-string v0, "activity"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/app/ActivityManager;</span>
+<span class="cov">	new-instance v4, Landroid/app/ActivityManager$MemoryInfo;</span>
+<span class="cov">	invoke-direct {v4}, Landroid/app/ActivityManager$MemoryInfo;-><init>()V</span>
+<span class="cov">	invoke-virtual {v0, v4}, Landroid/app/ActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V</span>
+<span class="cov">	const-wide/16 v1, 0x0</span>
+<span class="cov">	iget-wide v4, v4, Landroid/app/ActivityManager$MemoryInfo;->availMem:J</span>
+<span class="cov">	const-string v0, "/proc/meminfo"</span>
+<span class="cov">	:try_start_0</span>
+<span class="cov">	new-instance v6, Ljava/io/FileReader;</span>
+<span class="cov">	invoke-direct {v6, v0}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V</span>
+<span class="cov">	new-instance v7, Ljava/io/BufferedReader;</span>
+<span class="cov">	const/16 v0, 0x2000</span>
+<span class="cov">	invoke-direct {v7, v6, v0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V</span>
+<span class="exec">	invoke-virtual {v7}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v6, "\\s+"</span>
+<span class="exec">	invoke-virtual {v0, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const/4 v6, 0x1</span>
+<span class="cov">	aget-object v0, v0, v6</span>
+<span class="exec">	invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	mul-int/lit16 v0, v0, 0x400</span>
+<span class="cov">	int-to-long v0, v0</span>
+<span class="cov">	:try_start_1</span>
+<span class="cov">	invoke-virtual {v7}, Ljava/io/BufferedReader;->close()V</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="cov">	aput-wide v0, v3, v2</span>
+<span class="cov">	aput-wide v4, v3, v8</span>
+<span class="exec">	return-object v3</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	move-object v9, v0</span>
+<span class="">	move-wide v10, v1</span>
+<span class="">	move-wide v0, v10</span>
+<span class="">	move-object v2, v9</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_1</span>
+<span class="">	move-exception v2</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+<span class="cov">.method protected static E(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const-string v0, "phone"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimState()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	const/4 v2, 0x5</span>
+<span class="cov">	if-ne v1, v2, :cond_0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimSerialNumber()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimState()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	const-string v0, "0"</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, "-1"</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method private static F(Landroid/content/Context;)V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="exec">	invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="exec">	invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="exec">	invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	if-eqz v1, :cond_0</span>
+<span class="cov">	iget-object v2, v1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;</span>
+<span class="cov">	sput-object v2, Lcom/dm/hz/f/e;->a:Ljava/lang/String;</span>
+<span class="cov">	iget v2, v1, Landroid/content/pm/PackageInfo;->versionCode:I</span>
+<span class="cov">	sput v2, Lcom/dm/hz/f/e;->b:I</span>
+<span class="cov">	iget-object v1, v1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;</span>
+<span class="cov">	sput-object v1, Lcom/dm/hz/f/e;->c:Ljava/lang/String;</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	const/16 v2, 0x80</span>
+<span class="exec">	invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	if-eqz v0, :cond_1</span>
+<span class="cov">	iget v1, v0, Landroid/content/pm/ApplicationInfo;->labelRes:I</span>
+<span class="cov">	if-eqz v1, :cond_2</span>
+<span class="exec">	invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	iget v0, v0, Landroid/content/pm/ApplicationInfo;->labelRes:I</span>
+<span class="exec">	invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->d:Ljava/lang/String;</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_1</span>
+<span class="exec">	return-void</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v1, v0, Landroid/content/pm/ApplicationInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;</span>
+<span class="">	if-nez v1, :cond_3</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	sput-object v0, Lcom/dm/hz/f/e;->d:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_3</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;</span>
+<span class="">	invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected static a()Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {}, Ljava/net/NetworkInterface;->getNetworkInterfaces()Ljava/util/Enumeration;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/net/NetworkInterface;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/NetworkInterface;->getInetAddresses()Ljava/util/Enumeration;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/net/InetAddress;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/InetAddress;->isLoopbackAddress()Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-nez v3, :cond_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->toString()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static a(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->a:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	invoke-static {p0}, Lcom/dm/hz/f/e;->F(Landroid/content/Context;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->a:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method public static a(IZ)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	if-eqz p1, :cond_2</span>
+<span class="">	sget v2, Landroid/os/Build$VERSION;->SDK_INT:I</span>
+<span class="">	if-lt v2, p0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget v2, Landroid/os/Build$VERSION;->SDK_INT:I</span>
+<span class="">	:cond_2</span>
+<span class="">	if-gt v2, p0, :cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Landroid/content/Context;Ljava/lang/String;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-virtual {v1, p1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static b(Landroid/content/Context;)I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->a:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->F(Landroid/content/Context;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget v0, Lcom/dm/hz/f/e;->b:I</span>
+<span class="exec">	return v0</span>
+.end method
+
+.method protected static b()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/text/SimpleDateFormat;</span>
+<span class="">	const-string v1, "Z"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V</span>
+<span class="">	new-instance v1, Ljava/util/Date;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/Date;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+<span class="cov">.method protected static c()I</span>
+<span class="">	.locals 1</span>
+
+<span class="exec">	invoke-static {}, Lcom/dm/hz/f/e$a;->a()Lcom/dm/hz/f/e$a;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/f/e$a;->a(Lcom/dm/hz/f/e$a;)I</span>
+<span class="cov">	move-result v0</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method protected static c(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->a:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->F(Landroid/content/Context;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->c:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method protected static d()I</span>
+<span class="">	.locals 1</span>
+
+<span class="exec">	invoke-static {}, Lcom/dm/hz/f/e$a;->a()Lcom/dm/hz/f/e$a;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/f/e$a;->b(Lcom/dm/hz/f/e$a;)I</span>
+<span class="cov">	move-result v0</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method protected static d(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->a:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->F(Landroid/content/Context;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->d:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method protected static e()J
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/dm/hz/f/e$a;->a()Lcom/dm/hz/f/e$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/f/e$a;->c(Lcom/dm/hz/f/e$a;)J</span>
+<span class="">	move-result-wide v0</span>
+.end method
+
+.method protected static e(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v0, "_"</span>
+<span class="">	sget-object v0, Lcom/dm/hz/f/e;->l:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuffer;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V</span>
+<span class="">	const-string v0, "android"</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lez v0, :cond_3</span>
+<span class="">	sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;</span>
+<span class="">	const-string v2, ","</span>
+<span class="">	const-string v3, "_"</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-lez v2, :cond_0</span>
+<span class="">	const-string v2, ","</span>
+<span class="">	const-string v3, "_"</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	const-string v0, "phone"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getNetworkOperatorName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string v2, ","</span>
+<span class="">	const-string v3, "_"</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/dm/hz/f/e;->l:Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	sget-object v0, Lcom/dm/hz/f/e;->l:Ljava/lang/String;</span>
+<span class="">	const-string v0, "1.5"</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static f()Ljava/lang/String;</span>
+<span class="">	.locals 4</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="cov">	new-instance v0, Ljava/io/FileReader;</span>
+<span class="cov">	const-string v1, "/proc/cpuinfo"</span>
+<span class="cov">	invoke-direct {v0, v1}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V</span>
+<span class="cov">	new-instance v1, Ljava/io/BufferedReader;</span>
+<span class="cov">	invoke-direct {v1, v0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V</span>
+<span class="exec">	invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v2, ":\\s+"</span>
+<span class="cov">	const/4 v3, 0x2</span>
+<span class="exec">	invoke-virtual {v0, v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V</span>
+<span class="cov">	const/4 v1, 0x1</span>
+<span class="cov">	aget-object v0, v0, v1</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static f(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="exec">	invoke-static {p0}, Lcom/dm/hz/f/n;->a(Landroid/content/Context;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	const-string v0, "wifi"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/net/wifi/WifiManager;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getMacAddress()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected static g(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/dm/hz/f/e;->e:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->h(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string v0, "-1,-1,emulator"</span>
+<span class="">	sput-object v0, Lcom/dm/hz/f/e;->e:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/dm/hz/f/e;->e:Ljava/lang/String;</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->k(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/dm/hz/f/e;->e:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static g()[J</span>
+<span class="">	.locals 9</span>
+
+<span class="cov">	const/4 v0, 0x2</span>
+<span class="cov">	new-array v1, v0, [J</span>
+<span class="exec">	invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v2, "mounted"</span>
+<span class="exec">	invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="exec">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	new-instance v2, Landroid/os/StatFs;</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-direct {v2, v0}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {v2}, Landroid/os/StatFs;->getBlockSize()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	int-to-long v3, v0</span>
+<span class="exec">	invoke-virtual {v2}, Landroid/os/StatFs;->getBlockCount()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	int-to-long v5, v0</span>
+<span class="exec">	invoke-virtual {v2}, Landroid/os/StatFs;->getAvailableBlocks()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	int-to-long v7, v0</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	mul-long/2addr v5, v3</span>
+<span class="cov">	aput-wide v5, v1, v0</span>
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	mul-long v2, v7, v3</span>
+<span class="cov">	aput-wide v2, v1, v0</span>
+<span class="exec">	return-object v1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static h()Z</span>
+<span class="">	.locals 7</span>
+
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="cov">	const/4 v2, 0x5</span>
+<span class="cov">	new-array v3, v2, [Ljava/lang/String;</span>
+<span class="cov">	const-string v2, "/system/bin/"</span>
+<span class="cov">	aput-object v2, v3, v1</span>
+<span class="cov">	const-string v2, "/system/xbin/"</span>
+<span class="cov">	aput-object v2, v3, v0</span>
+<span class="cov">	const/4 v2, 0x2</span>
+<span class="cov">	const-string v4, "/system/sbin/"</span>
+<span class="cov">	aput-object v4, v3, v2</span>
+<span class="cov">	const/4 v2, 0x3</span>
+<span class="cov">	const-string v4, "/sbin/"</span>
+<span class="cov">	aput-object v4, v3, v2</span>
+<span class="cov">	const/4 v2, 0x4</span>
+<span class="cov">	const-string v4, "/vendor/bin/"</span>
+<span class="cov">	aput-object v4, v3, v2</span>
+<span class="cov">	move v2, v1</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:try_start_0</span>
+<span class="cov">	array-length v4, v3</span>
+<span class="cov">	if-ge v2, v4, :cond_1</span>
+<span class="cov">	new-instance v4, Ljava/io/File;</span>
+<span class="cov">	new-instance v5, Ljava/lang/StringBuilder;</span>
+<span class="cov">	invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="cov">	aget-object v6, v3, v2</span>
+<span class="exec">	invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v5</span>
+<span class="cov">	const-string v6, "su"</span>
+<span class="exec">	invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v5</span>
+<span class="exec">	invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v5</span>
+<span class="cov">	invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="cov">	if-eqz v4, :cond_0</span>
+<span class="exec">	invoke-virtual {v4}, Ljava/io/File;->exists()Z</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	move-result v4</span>
+<span class="cov">	if-eqz v4, :cond_0</span>
+<span class="cov">	:goto_1</span>
+<span class="exec">	return v0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	add-int/lit8 v2, v2, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:cond_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected static h(Landroid/content/Context;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v0, Lcom/dm/hz/f/e;->h:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/dm/hz/f/e;->h:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/dm/hz/f/e;->h:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->j(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string v0, "sdk"</span>
+<span class="">	sget-object v1, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected static i(Landroid/content/Context;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->j(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v0, "sdk"</span>
+<span class="">	sget-object v1, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected static j(Landroid/content/Context;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->l(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v1, "0"</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected static k(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v1, Ljava/lang/StringBuffer;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->l(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	const-string v0, "phone"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:goto_1</span>
+<span class="">	const-string v0, ","</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	:goto_3</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v0, "-1"</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	const-string v0, "-1"</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	const-string v0, "-1"</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	goto :goto_3</span>
+.end method
+
+<span class="cov">.method protected static l(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->f:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	const-string v0, "phone"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->f:Ljava/lang/String;</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->f:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static m(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->g:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	const-string v0, "phone"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->g:Ljava/lang/String;</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->g:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static n(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->h:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="exec">	invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, "android_id"</span>
+<span class="exec">	invoke-static {v0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->h:Ljava/lang/String;</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->h:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static o(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->i:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-lez v0, :cond_1</span>
+<span class="cov">	sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;</span>
+<span class="cov">	const-string v1, ","</span>
+<span class="cov">	const-string v2, "_"</span>
+<span class="exec">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->i:Ljava/lang/String;</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->i:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, "1.5"</span>
+<span class="">	sput-object v0, Lcom/dm/hz/f/e;->i:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static p(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->j:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-lez v0, :cond_0</span>
+<span class="cov">	sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;</span>
+<span class="cov">	const-string v1, ","</span>
+<span class="cov">	const-string v2, "_"</span>
+<span class="exec">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->j:Ljava/lang/String;</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->j:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method public static q(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	const-string v0, "android.permission.ACCESS_NETWORK_STATE"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	const/4 v1, -0x1</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	const-string v0, "unknown"</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-object v0</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	const-string v0, "connectivity"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/net/ConnectivityManager;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	if-eqz v0, :cond_3</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	if-nez v1, :cond_2</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->getSubtypeName()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "gprs"</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_2</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	if-ne v1, v0, :cond_3</span>
+<span class="">	const-string v0, "wifi"</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_3</span>
+<span class="">	const-string v0, "unknown"</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected static r(Landroid/content/Context;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "connectivity"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/ConnectivityManager;</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public static s(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->k:Ljava/lang/String;</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	const-string v0, "phone"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/telephony/TelephonyManager;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getNetworkOperatorName()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->k:Ljava/lang/String;</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->k:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected static t(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	const-string v0, "v"</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/f/e;->s:Ljava/lang/String;</span>
+<span class="cov">	const-string v0, "window"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/view/WindowManager;</span>
+<span class="exec">	invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/view/Display;->getOrientation()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	const/4 v2, 0x1</span>
+<span class="cov">	if-eq v1, v2, :cond_0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/view/Display;->getOrientation()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	const/4 v1, 0x3</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "h"</span>
+<span class="">	sput-object v0, Lcom/dm/hz/f/e;->s:Ljava/lang/String;</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	sget-object v0, Lcom/dm/hz/f/e;->s:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method protected static u(Landroid/content/Context;)F
+<span class="">	.locals 2</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	sget v0, Lcom/dm/hz/f/e;->m:F</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	cmpl-float v0, v0, v1</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "window"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/WindowManager;</span>
+<span class="">	invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Landroid/util/DisplayMetrics;</span>
+<span class="">	invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V</span>
+<span class="">	iget v0, v1, Landroid/util/DisplayMetrics;->density:F</span>
+<span class="">	sput v0, Lcom/dm/hz/f/e;->m:F</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget v0, Lcom/dm/hz/f/e;->m:F</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public static v(Landroid/content/Context;)F</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="cov">	sget v0, Lcom/dm/hz/f/e;->n:F</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="cov">	cmpl-float v0, v0, v1</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="exec">	invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iget v0, v0, Landroid/util/DisplayMetrics;->density:F</span>
+<span class="cov">	sput v0, Lcom/dm/hz/f/e;->n:F</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget v0, Lcom/dm/hz/f/e;->n:F</span>
+<span class="exec">	return v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static w(Landroid/content/Context;)I
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->y(Landroid/content/Context;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	int-to-float v0, v0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->u(Landroid/content/Context;)F</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->v(Landroid/content/Context;)F</span>
+<span class="">	move-result v2</span>
+<span class="">	div-float/2addr v1, v2</span>
+<span class="">	mul-float/2addr v0, v1</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Math;->round(F)I</span>
+<span class="">	move-result v0</span>
+<span class="">	sput v0, Lcom/dm/hz/f/e;->o:I</span>
+<span class="">	sget v0, Lcom/dm/hz/f/e;->o:I</span>
+.end method
+
+.method public static x(Landroid/content/Context;)I
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->z(Landroid/content/Context;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	int-to-float v0, v0</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->u(Landroid/content/Context;)F</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {p0}, Lcom/dm/hz/f/e;->v(Landroid/content/Context;)F</span>
+<span class="">	move-result v2</span>
+<span class="">	div-float/2addr v1, v2</span>
+<span class="">	mul-float/2addr v0, v1</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Math;->round(F)I</span>
+<span class="">	move-result v0</span>
+<span class="">	sput v0, Lcom/dm/hz/f/e;->p:I</span>
+<span class="">	sget v0, Lcom/dm/hz/f/e;->p:I</span>
+.end method
+
+<span class="cov">.method public static y(Landroid/content/Context;)I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const-string v0, "window"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/view/WindowManager;</span>
+<span class="exec">	invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/view/Display;->getWidth()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	sput v0, Lcom/dm/hz/f/e;->q:I</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget v0, Lcom/dm/hz/f/e;->q:I</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method protected static z(Landroid/content/Context;)I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const-string v0, "window"</span>
+<span class="exec">	invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/view/WindowManager;</span>
+<span class="exec">	invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/view/Display;->getHeight()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	sput v0, Lcom/dm/hz/f/e;->r:I</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	sget v0, Lcom/dm/hz/f/e;->r:I</span>
+<span class="exec">	return v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

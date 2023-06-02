@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.connect.auth</a></li>
+        <li><i class="ico ico-class"></i> AuthDialog.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/connect/auth/AuthDialog;
+.super Landroid/app/Dialog;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/connect/auth/AuthDialog$1;,
+Lcom/tencent/connect/auth/AuthDialog$a;,
+Lcom/tencent/connect/auth/AuthDialog$b;,
+Lcom/tencent/connect/auth/AuthDialog$c;,
+Lcom/tencent/connect/auth/AuthDialog$d;
+}
+.end annotation
+
+.field private static a:Ljava/lang/ref/WeakReference;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/ref/WeakReference",
+"<",
+"Landroid/content/Context;",
+">;"
+}
+.end annotation
+.end field
+.field private static l:Ljava/lang/ref/WeakReference;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/ref/WeakReference",
+"<",
+"Landroid/view/View;",
+">;"
+}
+.end annotation
+.end field
+.field private b:Ljava/lang/String;
+.field private c:Lcom/tencent/connect/auth/AuthDialog$c;
+.field private d:Lcom/tencent/tauth/IUiListener;
+.field private e:Landroid/os/Handler;
+.field private f:Landroid/widget/FrameLayout;
+.field private g:Landroid/widget/LinearLayout;
+.field private h:Landroid/widget/FrameLayout;
+.field private i:Landroid/widget/ProgressBar;
+.field private j:Ljava/lang/String;
+.field private k:Landroid/webkit/WebView;
+.field private m:Z
+
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/tencent/tauth/IUiListener;Lcom/tencent/connect/auth/QQToken;)V
+<span class="">	.locals 6</span>
+
+<span class="">	const v0, 0x1030010</span>
+<span class="">	invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/connect/auth/AuthDialog;->m:Z</span>
+<span class="">	new-instance v0, Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	sput-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	iput-object p3, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Lcom/tencent/connect/auth/AuthDialog$c;</span>
+<span class="">	invoke-virtual {p5}, Lcom/tencent/connect/auth/QQToken;->getAppId()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p2</span>
+<span class="">	move-object v3, p3</span>
+<span class="">	move-object v5, p4</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/tencent/connect/auth/AuthDialog$c;-><init>(Lcom/tencent/connect/auth/AuthDialog;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/tencent/tauth/IUiListener;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->c:Lcom/tencent/connect/auth/AuthDialog$c;</span>
+<span class="">	new-instance v0, Lcom/tencent/connect/auth/AuthDialog$d;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->c:Lcom/tencent/connect/auth/AuthDialog$c;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/tencent/connect/auth/AuthDialog$d;-><init>(Lcom/tencent/connect/auth/AuthDialog$c;Landroid/os/Looper;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->e:Landroid/os/Handler;</span>
+<span class="">	iput-object p4, p0, Lcom/tencent/connect/auth/AuthDialog;->d:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	iput-object p2, p0, Lcom/tencent/connect/auth/AuthDialog;->j:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/connect/auth/AuthDialog;Ljava/lang/Object;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic a()Ljava/lang/ref/WeakReference;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+.end method
+
+.method static synthetic a(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/tencent/connect/auth/AuthDialog;->b(Landroid/content/Context;Ljava/lang/String;)V</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/connect/auth/AuthDialog;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/tencent/connect/auth/AuthDialog;->f()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/connect/auth/AuthDialog;Z)Z
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/tencent/connect/auth/AuthDialog;->m:Z</span>
+.end method
+
+.method static synthetic b()Ljava/lang/ref/WeakReference;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->l:Ljava/lang/ref/WeakReference;</span>
+.end method
+
+.method private static b(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/utils/Util;->parseJson(Ljava/lang/String;)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "type"</span>
+<span class="">	invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const-string v2, "msg"</span>
+<span class="">	invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic b(Lcom/tencent/connect/auth/AuthDialog;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/tencent/connect/auth/AuthDialog;->m:Z</span>
+.end method
+
+.method static synthetic c(Lcom/tencent/connect/auth/AuthDialog;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+.end method
+
+.method private c()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/connect/auth/AuthDialog;->d()V</span>
+<span class="">	new-instance v1, Landroid/widget/FrameLayout$LayoutParams;</span>
+<span class="">	invoke-direct {v1, v0, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	new-instance v2, Landroid/webkit/WebView;</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	invoke-direct {v2, v0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v2, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	new-instance v2, Landroid/widget/FrameLayout;</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	invoke-direct {v2, v0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v2, p0, Lcom/tencent/connect/auth/AuthDialog;->f:Landroid/widget/FrameLayout;</span>
+<span class="">	const/16 v0, 0x11</span>
+<span class="">	iput v0, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->f:Landroid/widget/FrameLayout;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->f:Landroid/widget/FrameLayout;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->f:Landroid/widget/FrameLayout;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->h:Landroid/widget/FrameLayout;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	new-instance v0, Ljava/lang/ref/WeakReference;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->h:Landroid/widget/FrameLayout;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	sput-object v0, Lcom/tencent/connect/auth/AuthDialog;->l:Ljava/lang/ref/WeakReference;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->f:Landroid/widget/FrameLayout;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/tencent/connect/auth/AuthDialog;->setContentView(Landroid/view/View;)V</span>
+.end method
+
+.method static synthetic d(Lcom/tencent/connect/auth/AuthDialog;)Landroid/webkit/WebView;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 9</span>
+
+<span class="">	const/16 v8, 0x50</span>
+<span class="">	const/16 v7, 0x28</span>
+<span class="">	const/16 v6, 0x11</span>
+<span class="">	const/16 v5, 0xff</span>
+<span class="">	const/4 v4, -0x2</span>
+<span class="">	new-instance v1, Landroid/widget/ProgressBar;</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	invoke-direct {v1, v0}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->i:Landroid/widget/ProgressBar;</span>
+<span class="">	new-instance v0, Landroid/widget/LinearLayout$LayoutParams;</span>
+<span class="">	invoke-direct {v0, v4, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->i:Landroid/widget/ProgressBar;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ProgressBar;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	new-instance v1, Landroid/widget/LinearLayout;</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	invoke-direct {v1, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->g:Landroid/widget/LinearLayout;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->j:Ljava/lang/String;</span>
+<span class="">	const-string v2, "action_login"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	new-instance v2, Landroid/widget/LinearLayout$LayoutParams;</span>
+<span class="">	invoke-direct {v2, v4, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	const/16 v0, 0x10</span>
+<span class="">	iput v0, v2, Landroid/widget/LinearLayout$LayoutParams;->gravity:I</span>
+<span class="">	const/4 v0, 0x5</span>
+<span class="">	iput v0, v2, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I</span>
+<span class="">	new-instance v1, Landroid/widget/TextView;</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	invoke-direct {v1, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "zh"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const-string v0, "\u767b\u5f55\u4e2d..."</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v5, v5, v5}, Landroid/graphics/Color;->rgb(III)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V</span>
+<span class="">	const/high16 v0, 0x41900000    # 18.0f</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextSize(F)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Landroid/widget/FrameLayout$LayoutParams;</span>
+<span class="">	invoke-direct {v1, v4, v4}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	iput v6, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/auth/AuthDialog;->g:Landroid/widget/LinearLayout;</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->g:Landroid/widget/LinearLayout;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/auth/AuthDialog;->i:Landroid/widget/ProgressBar;</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->g:Landroid/widget/LinearLayout;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v1, Landroid/widget/FrameLayout;</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	invoke-direct {v1, v0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->h:Landroid/widget/FrameLayout;</span>
+<span class="">	new-instance v0, Landroid/widget/FrameLayout$LayoutParams;</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	invoke-direct {v0, v1, v4}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	iput v8, v0, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I</span>
+<span class="">	iput v8, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I</span>
+<span class="">	iput v7, v0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I</span>
+<span class="">	iput v7, v0, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I</span>
+<span class="">	iput v6, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->h:Landroid/widget/FrameLayout;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->h:Landroid/widget/FrameLayout;</span>
+<span class="">	const/high16 v1, 0x1080000</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->h:Landroid/widget/FrameLayout;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->g:Landroid/widget/LinearLayout;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	const-string v0, "Logging in..."</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic e(Lcom/tencent/connect/auth/AuthDialog;)Lcom/tencent/connect/auth/AuthDialog$c;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->c:Lcom/tencent/connect/auth/AuthDialog$c;</span>
+.end method
+
+.method private e()V
+<span class="">	.locals 7</span>
+<span class="">	.annotation build Landroid/annotation/SuppressLint;</span>
+<span class="">	value = {</span>
+<span class="">	"SetJavaScriptEnabled"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v0, v6}, Landroid/webkit/WebView;->setVerticalScrollBarEnabled(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v0, v6}, Landroid/webkit/WebView;->setHorizontalScrollBarEnabled(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	new-instance v1, Lcom/tencent/connect/auth/AuthDialog$b;</span>
+<span class="">	invoke-direct {v1, p0, v2}, Lcom/tencent/connect/auth/AuthDialog$b;-><init>(Lcom/tencent/connect/auth/AuthDialog;Lcom/tencent/connect/auth/AuthDialog$1;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	new-instance v1, Landroid/webkit/WebChromeClient;</span>
+<span class="">	invoke-direct {v1}, Landroid/webkit/WebChromeClient;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebChromeClient(Landroid/webkit/WebChromeClient;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/webkit/WebView;->clearFormData()V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v6}, Landroid/webkit/WebSettings;->setSavePassword(Z)V</span>
+<span class="">	invoke-virtual {v1, v6}, Landroid/webkit/WebSettings;->setSaveFormData(Z)V</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/webkit/WebSettings;->setCacheMode(I)V</span>
+<span class="">	invoke-virtual {v1, v6}, Landroid/webkit/WebSettings;->setNeedInitialFocus(Z)V</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/webkit/WebSettings;->setBuiltInZoomControls(Z)V</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/webkit/WebSettings;->setSupportZoom(Z)V</span>
+<span class="">	sget-object v0, Landroid/webkit/WebSettings$RenderPriority;->HIGH:Landroid/webkit/WebSettings$RenderPriority;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/webkit/WebSettings;->setRenderPriority(Landroid/webkit/WebSettings$RenderPriority;)V</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/webkit/WebSettings;->setDatabaseEnabled(Z)V</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "databases"</span>
+<span class="">	invoke-virtual {v0, v2, v6}, Landroid/content/Context;->getDir(Ljava/lang/String;I)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/webkit/WebSettings;->setDatabasePath(Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/webkit/WebSettings;->setDomStorageEnabled(Z)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-class v0, Landroid/webkit/WebView;</span>
+<span class="">	const-string v1, "addJavascriptInterface"</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Class;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const-class v4, Ljava/lang/Object;</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const-class v4, Ljava/lang/String;</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Object;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	new-instance v4, Lcom/tencent/connect/auth/AuthDialog$a;</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-direct {v4, p0, v5}, Lcom/tencent/connect/auth/AuthDialog$a;-><init>(Lcom/tencent/connect/auth/AuthDialog;Lcom/tencent/connect/auth/AuthDialog$1;)V</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const-string v4, "sdk_js_if"</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	.catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2</span>
+<span class="">	.catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	const/4 v1, 0x4</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v6}, Landroid/webkit/WebSettings;->setSavePassword(Z)V</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/NoSuchMethodException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_2</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_3</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_4</span>
+<span class="">	const-string v1, "AuthDialog"</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic f(Lcom/tencent/connect/auth/AuthDialog;)Landroid/os/Handler;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->e:Landroid/os/Handler;</span>
+.end method
+
+.method private f()Z
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {}, Lcom/tencent/connect/auth/AuthMap;->getInstance()Lcom/tencent/connect/auth/AuthMap;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/connect/auth/AuthMap;->makeKey()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v3, Lcom/tencent/connect/auth/AuthMap$Auth;</span>
+<span class="">	invoke-direct {v3}, Lcom/tencent/connect/auth/AuthMap$Auth;-><init>()V</span>
+<span class="">	iget-object v4, p0, Lcom/tencent/connect/auth/AuthDialog;->d:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	iput-object v4, v3, Lcom/tencent/connect/auth/AuthMap$Auth;->listener:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	iput-object p0, v3, Lcom/tencent/connect/auth/AuthMap$Auth;->dialog:Lcom/tencent/connect/auth/AuthDialog;</span>
+<span class="">	iput-object v2, v3, Lcom/tencent/connect/auth/AuthMap$Auth;->key:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v3}, Lcom/tencent/connect/auth/AuthMap;->set(Lcom/tencent/connect/auth/AuthMap$Auth;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v3, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	iget-object v4, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	const-string v5, "?"</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {v3, v0, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v4, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	invoke-static {v4}, Lcom/tencent/utils/Util;->parseUrl(Ljava/lang/String;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, "token_key"</span>
+<span class="">	invoke-virtual {v4, v5, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "serial"</span>
+<span class="">	invoke-virtual {v4, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "browser"</span>
+<span class="">	const-string v2, "1"</span>
+<span class="">	invoke-virtual {v4, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v4}, Lcom/tencent/utils/Util;->encodeUrl(Landroid/os/Bundle;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	sget-object v1, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	sget-object v1, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/connect/auth/AuthDialog;->a:Ljava/lang/ref/WeakReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->b:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/utils/Util;->openBrowser(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public callJs(Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v1, "javascript:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "("</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ");void("</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ");"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/auth/AuthDialog;->k:Landroid/webkit/WebView;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V</span>
+.end method
+
+.method public onBackPressed()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/tencent/connect/auth/AuthDialog;->m:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/auth/AuthDialog;->c:Lcom/tencent/connect/auth/AuthDialog$c;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/connect/auth/AuthDialog$c;->onCancel()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->onBackPressed()V</span>
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/tencent/connect/auth/AuthDialog;->requestWindowFeature(I)Z</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/connect/auth/AuthDialog;->c()V</span>
+<span class="">	invoke-direct {p0}, Lcom/tencent/connect/auth/AuthDialog;->e()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.internal</a></li>
+        <li><i class="ico ico-class"></i> PlatformServiceClient.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/facebook/internal/PlatformServiceClient;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Landroid/content/ServiceConnection;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/internal/PlatformServiceClient$CompletedListener;
+}
+.end annotation
+
+.field private final a:Landroid/content/Context;
+.field private final b:Landroid/os/Handler;
+.field private c:Lcom/facebook/internal/PlatformServiceClient$CompletedListener;
+.field private d:Z
+.field private e:Landroid/os/Messenger;
+.field private f:I
+.field private g:I
+.field private final h:Ljava/lang/String;
+.field private final i:I
+
+
+.method public constructor <init>(Landroid/content/Context;IIILjava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	move-object p1, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/internal/PlatformServiceClient;->a:Landroid/content/Context;</span>
+<span class="">	iput p2, p0, Lcom/facebook/internal/PlatformServiceClient;->f:I</span>
+<span class="">	iput p3, p0, Lcom/facebook/internal/PlatformServiceClient;->g:I</span>
+<span class="">	iput-object p5, p0, Lcom/facebook/internal/PlatformServiceClient;->h:Ljava/lang/String;</span>
+<span class="">	iput p4, p0, Lcom/facebook/internal/PlatformServiceClient;->i:I</span>
+<span class="">	new-instance v0, Lcom/facebook/internal/PlatformServiceClient$1;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/facebook/internal/PlatformServiceClient$1;-><init>(Lcom/facebook/internal/PlatformServiceClient;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->b:Landroid/os/Handler;</span>
+.end method
+
+.method private b(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/internal/PlatformServiceClient;->d:Z</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/internal/PlatformServiceClient;->d:Z</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->c:Lcom/facebook/internal/PlatformServiceClient$CompletedListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v0, p1}, Lcom/facebook/internal/PlatformServiceClient$CompletedListener;->a(Landroid/os/Bundle;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	new-instance v0, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v1, "com.facebook.platform.extra.APPLICATION_ID"</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/PlatformServiceClient;->h:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/internal/PlatformServiceClient;->a(Landroid/os/Bundle;)V</span>
+<span class="">	iget v1, p0, Lcom/facebook/internal/PlatformServiceClient;->f:I</span>
+<span class="">	invoke-static {v3, v1}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget v2, p0, Lcom/facebook/internal/PlatformServiceClient;->i:I</span>
+<span class="">	iput v2, v1, Landroid/os/Message;->arg1:I</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V</span>
+<span class="">	new-instance v0, Landroid/os/Messenger;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/PlatformServiceClient;->b:Landroid/os/Handler;</span>
+<span class="">	invoke-direct {v0, v2}, Landroid/os/Messenger;-><init>(Landroid/os/Handler;)V</span>
+<span class="">	iput-object v0, v1, Landroid/os/Message;->replyTo:Landroid/os/Messenger;</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->e:Landroid/os/Messenger;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Messenger;->send(Landroid/os/Message;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-direct {p0, v3}, Lcom/facebook/internal/PlatformServiceClient;->b(Landroid/os/Bundle;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected a()Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->a:Landroid/content/Context;</span>
+.end method
+
+.method protected abstract a(Landroid/os/Bundle;)V
+<span class="">	</span>
+
+.end method
+
+.method protected a(Landroid/os/Message;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget v0, p1, Landroid/os/Message;->what:I</span>
+<span class="">	iget v1, p0, Lcom/facebook/internal/PlatformServiceClient;->g:I</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "com.facebook.platform.status.ERROR_TYPE"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/internal/PlatformServiceClient;->b(Landroid/os/Bundle;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/internal/PlatformServiceClient;->b(Landroid/os/Bundle;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Lcom/facebook/internal/PlatformServiceClient$CompletedListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/internal/PlatformServiceClient;->c:Lcom/facebook/internal/PlatformServiceClient$CompletedListener;</span>
+.end method
+
+.method public b()Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-boolean v2, p0, Lcom/facebook/internal/PlatformServiceClient;->d:Z</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/PlatformServiceClient;->a:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget v3, p0, Lcom/facebook/internal/PlatformServiceClient;->i:I</span>
+<span class="">	invoke-static {v2, v3}, Lcom/facebook/internal/NativeProtocol;->a(Landroid/content/Context;I)I</span>
+<span class="">	move-result v2</span>
+<span class="">	const/4 v3, -0x1</span>
+<span class="">	if-eq v2, v3, :cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/PlatformServiceClient;->a:Landroid/content/Context;</span>
+<span class="">	invoke-static {v2}, Lcom/facebook/internal/NativeProtocol;->b(Landroid/content/Context;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/internal/PlatformServiceClient;->d:Z</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0, v2, p0, v1}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public c()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/internal/PlatformServiceClient;->d:Z</span>
+.end method
+
+.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Landroid/os/Messenger;</span>
+<span class="">	invoke-direct {v0, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->e:Landroid/os/Messenger;</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/internal/PlatformServiceClient;->d()V</span>
+.end method
+
+.method public onServiceDisconnected(Landroid/content/ComponentName;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/internal/PlatformServiceClient;->e:Landroid/os/Messenger;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/PlatformServiceClient;->a:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V</span>
+<span class="">	invoke-direct {p0, v1}, Lcom/facebook/internal/PlatformServiceClient;->b(Landroid/os/Bundle;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.a.b</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/a/b/b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcn/a/b/b$a;,
+Lcn/a/b/b$b;
+}
+.end annotation
+
+.field public static final a:I = 0x0
+.field public static final b:I = 0x1
+.field public static final c:I = 0x2
+.field public static final d:I = 0x4
+.field public static final e:I = 0x8
+.field public static final f:I = 0x10
+.field static final synthetic g:Z
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcn/a/b/b;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	sput-boolean v0, Lcn/a/b/b;->g:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a([BI)Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/lang/String;</span>
+<span class="">	invoke-static {p0, p1}, Lcn/a/b/b;->b([BI)[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "US-ASCII"</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public static a([BIII)[B
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	new-instance v3, Lcn/a/b/b$b;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {v3, p3, v0}, Lcn/a/b/b$b;-><init>(I[B)V</span>
+<span class="">	div-int/lit8 v0, p2, 0x3</span>
+<span class="">	mul-int/lit8 v0, v0, 0x4</span>
+<span class="">	iget-boolean v1, v3, Lcn/a/b/b$b;->e:Z</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	rem-int/lit8 v1, p2, 0x3</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	add-int/lit8 v0, v0, 0x4</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v1, v3, Lcn/a/b/b$b;->f:Z</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	if-lez p2, :cond_1</span>
+<span class="">	add-int/lit8 v1, p2, -0x1</span>
+<span class="">	div-int/lit8 v1, v1, 0x39</span>
+<span class="">	add-int/lit8 v4, v1, 0x1</span>
+<span class="">	iget-boolean v1, v3, Lcn/a/b/b$b;->g:Z</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	:goto_1</span>
+<span class="">	mul-int/2addr v1, v4</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	new-array v1, v0, [B</span>
+<span class="">	iput-object v1, v3, Lcn/a/b/b$b;->a:[B</span>
+<span class="">	invoke-virtual {v3, p0, p1, p2, v2}, Lcn/a/b/b$b;->a([BIIZ)Z</span>
+<span class="">	sget-boolean v1, Lcn/a/b/b;->g:Z</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	iget v1, v3, Lcn/a/b/b$b;->b:I</span>
+<span class="">	if-eq v1, v0, :cond_4</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_2</span>
+<span class="">	rem-int/lit8 v1, p2, 0x3</span>
+<span class="">	packed-switch v1, :pswitch_data_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	add-int/lit8 v0, v0, 0x2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_2</span>
+<span class="">	add-int/lit8 v0, v0, 0x3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_3</span>
+<span class="">	move v1, v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_4</span>
+<span class="">	iget-object v0, v3, Lcn/a/b/b$b;->a:[B</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public static b([BI)[B
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	array-length v1, p0</span>
+<span class="">	invoke-static {p0, v0, v1, p1}, Lcn/a/b/b;->a([BIII)[B</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

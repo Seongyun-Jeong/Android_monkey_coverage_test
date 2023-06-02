@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.sso</a></li>
+        <li><i class="ico ico-class"></i> j.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/umeng/socialize/sso/j;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;
+
+
+.field final synthetic a:Lcom/umeng/socialize/sso/e;
+.field private final synthetic b:Lcom/umeng/socialize/media/UMImage;
+.field private final synthetic c:Landroid/os/Bundle;
+
+
+.method constructor <init>(Lcom/umeng/socialize/sso/e;Lcom/umeng/socialize/media/UMImage;Landroid/os/Bundle;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sso/j;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/sso/j;->b:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/sso/j;->c:Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/sso/j;)Lcom/umeng/socialize/sso/e;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/j;->a:Lcom/umeng/socialize/sso/e;</span>
+.end method
+
+.method public a(Landroid/os/Bundle;Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 5</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	const-string v0, "uid"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v0, "uid"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/j;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sso/j;->b:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	new-instance v3, Lcom/umeng/socialize/sso/k;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/sso/j;->c:Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v3, p0, v4}, Lcom/umeng/socialize/sso/k;-><init>(Lcom/umeng/socialize/sso/j;Landroid/os/Bundle;)V</span>
+<span class="">	invoke-virtual {v1, v2, v0, v3}, Lcom/umeng/socialize/sso/e;->a(Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;Lcom/umeng/socialize/sso/UMTencentSsoHandler$ObtainImageUrlListener;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/a/a;Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public a(Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public b(Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 0</span>
+
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> az.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tendcloud/tenddata/az;
+.super Ljava/lang/Object;
+.implements Ljava/lang/reflect/InvocationHandler;
+
+
+.field final synthetic a:Lcom/tendcloud/tenddata/o;
+
+
+.method constructor <init>(Lcom/tendcloud/tenddata/o;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tendcloud/tenddata/az;->a:Lcom/tendcloud/tenddata/o;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+<span class="">	.locals 3</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "onReceiveLocation"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	array-length v0, p3</span>
+<span class="">	if-lez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	aget-object v0, p3, v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	aget-object v0, p3, v0</span>
+<span class="">	sput-object v0, Lcom/tendcloud/tenddata/o;->k:Ljava/lang/Object;</span>
+<span class="">	const-string v0, "com.baidu.location.LocationClient"</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "stop"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Class;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/tendcloud/tenddata/o;->j:Ljava/lang/Object;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

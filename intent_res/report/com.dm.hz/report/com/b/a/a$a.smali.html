@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.b.a</a></li>
+        <li><i class="ico ico-class"></i> a$a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/b/a/a$a;
+.super Landroid/os/Binder;
+.source "SourceFile"
+.implements Lcom/b/a/a;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/b/a/a;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x409
+name = "a"
+.end annotation
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/b/a/a$a$a;
+}
+.end annotation
+
+.field static final a:I = 0x1
+.field static final b:I = 0x2
+.field private static final c:Ljava/lang/String; = "com.sina.sso.RemoteSSO"
+
+
+.method public constructor <init>()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Landroid/os/Binder;-><init>()V</span>
+<span class="">	const-string v0, "com.sina.sso.RemoteSSO"</span>
+<span class="">	invoke-virtual {p0, p0, v0}, Lcom/b/a/a$a;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V</span>
+.end method
+
+.method public static a(Landroid/os/IBinder;)Lcom/b/a/a;
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "com.sina.sso.RemoteSSO"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	instance-of v1, v0, Lcom/b/a/a;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	check-cast v0, Lcom/b/a/a;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/b/a/a$a$a;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/b/a/a$a$a;-><init>(Landroid/os/IBinder;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public asBinder()Landroid/os/IBinder;
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Landroid/os/RemoteException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	sparse-switch p1, :sswitch_data_0</span>
+<span class="">	invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v1, "com.sina.sso.RemoteSSO"</span>
+<span class="">	:sswitch_0</span>
+<span class="">	invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v1, "com.sina.sso.RemoteSSO"</span>
+<span class="">	:sswitch_1</span>
+<span class="">	invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/b/a/a$a;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V</span>
+<span class="">	invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v1, "com.sina.sso.RemoteSSO"</span>
+<span class="">	:sswitch_2</span>
+<span class="">	invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/b/a/a$a;->b()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V</span>
+<span class="">	invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:sswitch_data_0</span>
+<span class="">	.sparse-switch</span>
+<span class="">	0x1 -> :sswitch_1</span>
+<span class="">	0x2 -> :sswitch_2</span>
+<span class="">	0x5f4e5446 -> :sswitch_0</span>
+<span class="">	.end sparse-switch</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

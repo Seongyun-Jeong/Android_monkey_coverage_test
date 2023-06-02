@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view</a></li>
+        <li><i class="ico ico-class"></i> SocializeAlertDialog.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/view/SocializeAlertDialog;
+.super Landroid/app/Dialog;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/view/SocializeAlertDialog$a;,
+Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;
+}
+.end annotation
+
+.field private a:Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;
+
+
+.method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v3, -0x1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/common/b$a;->d:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v1, "umeng_socialize_popup_dialog_anim"</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V</span>
+<span class="">	new-instance v0, Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-direct {v0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	new-instance v1, Landroid/view/ViewGroup$LayoutParams;</span>
+<span class="">	invoke-direct {v1, v3, v3}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	new-instance v1, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	const/4 v2, -0x2</span>
+<span class="">	invoke-direct {v1, v3, v2}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	const/16 v2, 0xc</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	invoke-virtual {p2, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/view/SocializeAlertDialog;->setContentView(Landroid/view/View;)V</span>
+.end method
+
+.method public a()Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/SocializeAlertDialog;->a:Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/SocializeAlertDialog;->a:Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;</span>
+.end method
+
+.method public dismiss()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/SocializeAlertDialog;->a:Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/SocializeAlertDialog;->a:Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;->b()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->dismiss()V</span>
+.end method
+
+.method public show()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/SocializeAlertDialog;->a:Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/SocializeAlertDialog;->a:Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;->a()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->show()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

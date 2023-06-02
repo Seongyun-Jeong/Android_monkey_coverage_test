@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> am.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tendcloud/tenddata/am;
+.super Ljava/io/OutputStream;
+
+
+.field static final a:I = 0x2000
+.field static final synthetic b:Z
+.field private c:Ljava/io/OutputStream;
+.field private final d:Ljava/io/DataOutputStream;
+.field private final e:Lcom/tendcloud/tenddata/k;
+.field private final f:Lcom/tendcloud/tenddata/j;
+.field private final g:Lcom/tendcloud/tenddata/h;
+.field private final h:I
+.field private i:Z
+.field private j:Z
+.field private k:Z
+.field private l:I
+.field private m:Z
+.field private n:Ljava/io/IOException;
+.field private final o:[B
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/tendcloud/tenddata/am;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	sput-boolean v0, Lcom/tendcloud/tenddata/am;->b:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public constructor <init>(Ljava/io/OutputStream;[B)V
+<span class="">	.locals 13</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V</span>
+<span class="">	iput-boolean v1, p0, Lcom/tendcloud/tenddata/am;->i:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/tendcloud/tenddata/am;->j:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/tendcloud/tenddata/am;->k:Z</span>
+<span class="">	iput v2, p0, Lcom/tendcloud/tenddata/am;->l:I</span>
+<span class="">	iput-boolean v2, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	new-array v0, v1, [B</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->o:[B</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/NullPointerException;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	new-instance v0, Ljava/io/DataOutputStream;</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->d:Ljava/io/DataOutputStream;</span>
+<span class="">	new-instance v0, Lcom/tendcloud/tenddata/j;</span>
+<span class="">	const/16 v3, 0x2000</span>
+<span class="">	invoke-direct {v0, v3}, Lcom/tendcloud/tenddata/j;-><init>(I)V</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->f:Lcom/tendcloud/tenddata/j;</span>
+<span class="">	if-eqz p2, :cond_2</span>
+<span class="">	array-length v0, p2</span>
+<span class="">	add-int/lit16 v4, v0, 0x1000</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v4}, Lcom/tendcloud/tenddata/am;->a(I)I</span>
+<span class="">	move-result v5</span>
+<span class="">	invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Runtime;->availableProcessors()I</span>
+<span class="">	move-result v0</span>
+<span class="">	mul-int/lit8 v0, v0, 0x4</span>
+<span class="">	add-int/lit8 v6, v0, 0x18</span>
+<span class="">	const-wide/high16 v7, 0x4030000000000000L    # 16.0</span>
+<span class="">	invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Runtime;->availableProcessors()I</span>
+<span class="">	move-result v0</span>
+<span class="">	int-to-double v9, v0</span>
+<span class="">	const-wide/high16 v11, 0x4004000000000000L    # 2.5</span>
+<span class="">	mul-double/2addr v9, v11</span>
+<span class="">	add-double/2addr v7, v9</span>
+<span class="">	double-to-int v7, v7</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->f:Lcom/tendcloud/tenddata/j;</span>
+<span class="">	move v3, v2</span>
+<span class="">	invoke-static/range {v0 .. v7}, Lcom/tendcloud/tenddata/h;->a(Lcom/tendcloud/tenddata/j;IIIIIII)Lcom/tendcloud/tenddata/h;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->c()Lcom/tendcloud/tenddata/k;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->e:Lcom/tendcloud/tenddata/k;</span>
+<span class="">	if-eqz p2, :cond_1</span>
+<span class="">	array-length v0, p2</span>
+<span class="">	if-lez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->e:Lcom/tendcloud/tenddata/k;</span>
+<span class="">	invoke-virtual {v0, v4, p2}, Lcom/tendcloud/tenddata/k;->a(I[B)V</span>
+<span class="">	iput-boolean v2, p0, Lcom/tendcloud/tenddata/am;->i:Z</span>
+<span class="">	:cond_1</span>
+<span class="">	iput v1, p0, Lcom/tendcloud/tenddata/am;->h:I</span>
+<span class="">	const/16 v4, 0x1000</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static a(I)I
+<span class="">	.locals 1</span>
+
+<span class="">	const/16 v0, 0x2000</span>
+<span class="">	if-le v0, p0, :cond_0</span>
+<span class="">	rsub-int v0, p0, 0x2000</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(II)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->k:Z</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->i:Z</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/16 v0, 0xe0</span>
+<span class="">	:goto_0</span>
+<span class="">	add-int/lit8 v1, p1, -0x1</span>
+<span class="">	ushr-int/lit8 v1, v1, 0x10</span>
+<span class="">	or-int/2addr v0, v1</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/am;->d:Ljava/io/DataOutputStream;</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/io/DataOutputStream;->writeByte(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->d:Ljava/io/DataOutputStream;</span>
+<span class="">	add-int/lit8 v1, p1, -0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeShort(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->d:Ljava/io/DataOutputStream;</span>
+<span class="">	add-int/lit8 v1, p2, -0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeShort(I)V</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->k:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->d:Ljava/io/DataOutputStream;</span>
+<span class="">	iget v1, p0, Lcom/tendcloud/tenddata/am;->h:I</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->f:Lcom/tendcloud/tenddata/j;</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tendcloud/tenddata/j;->a(Ljava/io/OutputStream;)V</span>
+<span class="">	iput-boolean v2, p0, Lcom/tendcloud/tenddata/am;->k:Z</span>
+<span class="">	iput-boolean v2, p0, Lcom/tendcloud/tenddata/am;->j:Z</span>
+<span class="">	iput-boolean v2, p0, Lcom/tendcloud/tenddata/am;->i:Z</span>
+<span class="">	const/16 v0, 0xc0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->j:Z</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const/16 v0, 0xa0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/16 v0, 0x80</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private b()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->f:Lcom/tendcloud/tenddata/j;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/j;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->d()I</span>
+<span class="">	move-result v0</span>
+<span class="">	sget-boolean v2, Lcom/tendcloud/tenddata/am;->b:Z</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	if-gtz v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(I)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-boolean v2, Lcom/tendcloud/tenddata/am;->b:Z</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	if-gtz v0, :cond_1</span>
+<span class="">	new-instance v1, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(I)V</span>
+<span class="">	throw v1</span>
+<span class="">	:cond_1</span>
+<span class="">	add-int/lit8 v2, v1, 0x2</span>
+<span class="">	if-ge v2, v0, :cond_2</span>
+<span class="">	invoke-direct {p0, v0, v1}, Lcom/tendcloud/tenddata/am;->a(II)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget v1, p0, Lcom/tendcloud/tenddata/am;->l:I</span>
+<span class="">	sub-int v0, v1, v0</span>
+<span class="">	iput v0, p0, Lcom/tendcloud/tenddata/am;->l:I</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->e()V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->f:Lcom/tendcloud/tenddata/j;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/j;->a()V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->b()V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->d()I</span>
+<span class="">	move-result v0</span>
+<span class="">	sget-boolean v1, Lcom/tendcloud/tenddata/am;->b:Z</span>
+<span class="">	if-nez v1, :cond_3</span>
+<span class="">	if-gtz v0, :cond_3</span>
+<span class="">	new-instance v1, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(I)V</span>
+<span class="">	throw v1</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/tendcloud/tenddata/am;->b(I)V</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private b(I)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lez p1, :cond_1</span>
+<span class="">	const/16 v0, 0x2000</span>
+<span class="">	invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	move-result v2</span>
+<span class="">	iget-object v3, p0, Lcom/tendcloud/tenddata/am;->d:Ljava/io/DataOutputStream;</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->i:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/io/DataOutputStream;->writeByte(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->d:Ljava/io/DataOutputStream;</span>
+<span class="">	add-int/lit8 v3, v2, -0x1</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/io/DataOutputStream;->writeShort(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->e:Lcom/tendcloud/tenddata/k;</span>
+<span class="">	iget-object v3, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	invoke-virtual {v0, v3, p1, v2}, Lcom/tendcloud/tenddata/k;->a(Ljava/io/OutputStream;II)V</span>
+<span class="">	sub-int/2addr p1, v2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/tendcloud/tenddata/am;->i:Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-boolean v1, p0, Lcom/tendcloud/tenddata/am;->j:Z</span>
+.end method
+
+.method private c()V
+<span class="">	.locals 2</span>
+
+<span class="">	sget-boolean v0, Lcom/tendcloud/tenddata/am;->b:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->e:Lcom/tendcloud/tenddata/k;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/k;->d()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget v0, p0, Lcom/tendcloud/tenddata/am;->l:I</span>
+<span class="">	if-lez v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->f()Z</span>
+<span class="">	invoke-direct {p0}, Lcom/tendcloud/tenddata/am;->b()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write(I)V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/tendcloud/tenddata/am;->c()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public close()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-direct {p0}, Lcom/tendcloud/tenddata/am;->c()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/OutputStream;->close()V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	throw v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	iget-object v1, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_3</span>
+.end method
+
+.method public flush()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	new-instance v0, Ljava/io/IOException;</span>
+<span class="">	const-string v1, "Stream finished or closed"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->e:Lcom/tendcloud/tenddata/k;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/k;->c()V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget v0, p0, Lcom/tendcloud/tenddata/am;->l:I</span>
+<span class="">	if-lez v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->f()Z</span>
+<span class="">	invoke-direct {p0}, Lcom/tendcloud/tenddata/am;->b()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->c:Ljava/io/OutputStream;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public write(I)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->o:[B</span>
+<span class="">	int-to-byte v1, p1</span>
+<span class="">	aput-byte v1, v0, v2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->o:[B</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {p0, v0, v2, v1}, Lcom/tendcloud/tenddata/am;->write([BII)V</span>
+.end method
+
+.method public write([BII)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-ltz p2, :cond_0</span>
+<span class="">	if-ltz p3, :cond_0</span>
+<span class="">	add-int v0, p2, p3</span>
+<span class="">	if-ltz v0, :cond_0</span>
+<span class="">	add-int v0, p2, p3</span>
+<span class="">	array-length v1, p1</span>
+<span class="">	if-le v0, v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IndexOutOfBoundsException;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-boolean v0, p0, Lcom/tendcloud/tenddata/am;->m:Z</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	new-instance v0, Ljava/io/IOException;</span>
+<span class="">	const-string v1, "Stream finished or closed"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_3</span>
+<span class="">	if-lez p3, :cond_4</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->e:Lcom/tendcloud/tenddata/k;</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3}, Lcom/tendcloud/tenddata/k;->a([BII)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/2addr p2, v0</span>
+<span class="">	sub-int/2addr p3, v0</span>
+<span class="">	iget v1, p0, Lcom/tendcloud/tenddata/am;->l:I</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iput v0, p0, Lcom/tendcloud/tenddata/am;->l:I</span>
+<span class="">	iget-object v0, p0, Lcom/tendcloud/tenddata/am;->g:Lcom/tendcloud/tenddata/h;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tendcloud/tenddata/h;->f()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-direct {p0}, Lcom/tendcloud/tenddata/am;->b()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	iput-object v0, p0, Lcom/tendcloud/tenddata/am;->n:Ljava/io/IOException;</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_4</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

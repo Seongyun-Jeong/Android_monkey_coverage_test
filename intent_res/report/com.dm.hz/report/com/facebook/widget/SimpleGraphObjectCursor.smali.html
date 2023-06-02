@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> SimpleGraphObjectCursor.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/facebook/widget/SimpleGraphObjectCursor;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/facebook/widget/GraphObjectCursor;
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<T::",
+"Lcom/facebook/model/GraphObject;",
+">",
+"Ljava/lang/Object;",
+"Lcom/facebook/widget/GraphObjectCursor",
+"<TT;>;"
+}
+.end annotation
+
+.field private a:I
+.field private b:Z
+.field private c:Ljava/util/ArrayList;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/ArrayList",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field private d:Z
+.field private e:Z
+
+
+.method constructor <init>()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->b:Z</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->d:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+.end method
+
+.method constructor <init>(Lcom/facebook/widget/SimpleGraphObjectCursor;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/SimpleGraphObjectCursor",</span>
+<span class="">	"<TT;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->b:Z</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->d:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+<span class="">	iget v0, p1, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	iget-boolean v0, p1, Lcom/facebook/widget/SimpleGraphObjectCursor;->b:Z</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->b:Z</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	iget-object v1, p1, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z</span>
+<span class="">	iget-boolean v0, p1, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+.end method
+
+.method public a(Ljava/util/Collection;Z)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<TT;>;Z)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z</span>
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+<span class="">	or-int/2addr v0, p2</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+.end method
+
+.method public a(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+.end method
+
+.method public a()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->e:Z</span>
+.end method
+
+.method public a(I)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	add-int/2addr v0, p1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->b(I)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public b(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->d:Z</span>
+.end method
+
+.method public b()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->d:Z</span>
+.end method
+
+.method public b(I)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lt p1, v1, :cond_0</span>
+<span class="">	iput v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	:goto_0</span>
+<span class="">	if-gez p1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	iput v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iput p1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public c()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public d()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+.end method
+
+.method public e()Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->b(I)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public f()Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->b(I)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public g()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->b(I)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public h()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->b(I)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public i()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public j()Z
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	add-int/lit8 v2, v0, -0x1</span>
+<span class="">	if-ne v1, v2, :cond_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public k()Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public l()Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/SimpleGraphObjectCursor;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	if-eq v1, v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public m()Lcom/facebook/model/GraphObject;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	if-gez v0, :cond_0</span>
+<span class="">	new-instance v0, Landroid/database/CursorIndexOutOfBoundsException;</span>
+<span class="">	const-string v1, "Before first object."</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/database/CursorIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lt v0, v1, :cond_1</span>
+<span class="">	new-instance v0, Landroid/database/CursorIndexOutOfBoundsException;</span>
+<span class="">	const-string v1, "After last object."</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/database/CursorIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->c:Ljava/util/ArrayList;</span>
+<span class="">	iget v1, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->a:I</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/model/GraphObject;</span>
+.end method
+
+.method public n()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->b:Z</span>
+.end method
+
+.method public o()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/SimpleGraphObjectCursor;->b:Z</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

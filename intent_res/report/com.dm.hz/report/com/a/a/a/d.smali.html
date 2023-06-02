@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.a.a.a</a></li>
+        <li><i class="ico ico-class"></i> d.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/a/a/a/d;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/a/a/a/d$a;,
+Lcom/a/a/a/d$b;
+}
+.end annotation
+
+.field private final a:Landroid/support/v4/app/FragmentActivity;
+.field private final b:I
+.field private final c:Ljava/util/LinkedHashMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/LinkedHashMap",
+"<",
+"Ljava/lang/String;",
+"Lcom/a/a/a/d$b;",
+">;"
+}
+.end annotation
+.end field
+.field private d:Lcom/a/a/a/d$b;
+.field private e:Lcom/a/a/a/d$a;
+
+
+.method public constructor <init>(Landroid/support/v4/app/FragmentActivity;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	new-instance v0, Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/a/a/a/d;->c:Ljava/util/LinkedHashMap;</span>
+<span class="">	iput-object p1, p0, Lcom/a/a/a/d;->a:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	iput p2, p0, Lcom/a/a/a/d;->b:I</span>
+.end method
+
+.method public a()Lcom/a/a/a/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	instance-of v0, v0, Lcom/a/a/a/a;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/a/a/a/a;</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Lcom/a/a/a/d$a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/a/a/a/d;->e:Lcom/a/a/a/d$a;</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/Class;Landroid/os/Bundle;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;",</span>
+<span class="">	"Landroid/os/Bundle;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/a/a/a/d$b;</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->c:Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/LinkedHashMap;->size()I</span>
+<span class="">	move-result v5</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v3, p2</span>
+<span class="">	move-object v4, p3</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/a/a/a/d$b;-><init>(Lcom/a/a/a/d;Ljava/lang/String;Ljava/lang/Class;Landroid/os/Bundle;I)V</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->a:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->c:Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "mTabs has containsKey"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->c:Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-virtual {v1, p1, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+.end method
+
+.method public a(I)Z
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v1, ""</span>
+<span class="">	iget-object v0, p0, Lcom/a/a/a/d;->c:Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->e(Lcom/a/a/a/d$b;)I</span>
+<span class="">	move-result v3</span>
+<span class="">	if-ne v3, p1, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->d(Lcom/a/a/a/d$b;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/a/a/a/d;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Ljava/lang/String;)Z
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/a/a/a/d;->c:Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/a/a/a/d$b;</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	if-eq v1, v0, :cond_6</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->a:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v1}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v1}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/support/v4/app/FragmentTransaction;->detach(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_5</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->a:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->b(Lcom/a/a/a/d$b;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->c(Lcom/a/a/a/d$b;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v1, v3, v4}, Landroid/support/v4/app/Fragment;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	iget v1, p0, Lcom/a/a/a/d;->b:I</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->d(Lcom/a/a/a/d$b;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v2, v1, v3, v4}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v1}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	instance-of v1, v1, Lcom/a/a/a/c;</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v1}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/a/a/a/c;</span>
+<span class="">	invoke-virtual {v1}, Lcom/a/a/a/c;->f()V</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object v0, p0, Lcom/a/a/a/d;->d:Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-virtual {v2}, Landroid/support/v4/app/FragmentTransaction;->commit()I</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->e:Lcom/a/a/a/d$a;</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	iget-object v1, p0, Lcom/a/a/a/d;->e:Lcom/a/a/a/d$a;</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->e(Lcom/a/a/a/d$b;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-interface {v1, p1, v2}, Lcom/a/a/a/d$a;->a(Ljava/lang/String;I)V</span>
+<span class="">	:cond_3</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	:cond_4</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	:cond_5</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/support/v4/app/FragmentTransaction;->attach(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public b(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/a/a/a/d;->c:Ljava/util/LinkedHashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/a/a/a/d$b;</span>
+<span class="">	invoke-static {v0}, Lcom/a/a/a/d$b;->a(Lcom/a/a/a/d$b;)Landroid/support/v4/app/Fragment;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.open.a</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/open/a/b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/open/a/b$a;
+}
+.end annotation
+
+.field private a:Landroid/content/Context;
+.field private b:Landroid/database/sqlite/SQLiteDatabase;
+.field private c:Lcom/tencent/open/a/b$a;
+.field private d:I
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/tencent/open/a/b;->a:Landroid/content/Context;</span>
+<span class="">	new-instance v0, Lcom/tencent/open/a/b$a;</span>
+<span class="">	const-string v3, "sdk_cgi_report.db"</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const/4 v5, 0x2</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/tencent/open/a/b$a;-><init>(Lcom/tencent/open/a/b;Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/b;->c:Lcom/tencent/open/a/b$a;</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/open/a/b;->c()Ljava/util/ArrayList;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/tencent/open/a/b;->d:I</span>
+.end method
+
+.method public declared-synchronized a(Ljava/util/ArrayList;)I
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/ArrayList",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/tencent/open/a/d;",</span>
+<span class="">	">;)I"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "ReportDataModal backupOldItems count = "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p1}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	new-instance v3, Landroid/content/ContentValues;</span>
+<span class="">	invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V</span>
+<span class="">	const-string v4, "apn"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "frequency"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->b()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "commandid"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "resultcode"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "tmcost"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "reqsize"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "rspsize"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->g()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "deviceinfo"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->i()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v4, "detail"</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->h()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v3, v4, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->c:Lcom/tencent/open/a/b$a;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/b$a;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	const-string v4, "olddata"</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-virtual {v0, v4, v5, v3}, Landroid/database/sqlite/SQLiteDatabase;->insertOrThrow(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_3</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "ReportDataModal backupOldItems succ_count = "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	monitor-exit p0</span>
+.end method
+
+.method public declared-synchronized a()Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v1, "cgi_report_debug"</span>
+<span class="">	const-string v2, "ReportDataModal deleteOldItems start"</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/a/b;->c:Lcom/tencent/open/a/b$a;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/open/a/b$a;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	const-string v1, "delete from olddata;"</span>
+<span class="">	:try_start_3</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+<span class="">	:try_start_4</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportDataModal deleteOldItems success"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_start_5</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catchall {:try_start_5 .. :try_end_5} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_start_6</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_6</span>
+<span class="">	.catchall {:try_start_6 .. :try_end_6} :catchall_0</span>
+.end method
+
+.method public declared-synchronized a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJJJLjava/lang/String;)Z
+<span class="">	.locals 7</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v2, "?"</span>
+<span class="">	invoke-virtual {p3, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	const-string v2, "\\?"</span>
+<span class="">	invoke-virtual {p3, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	aget-object p3, v2, v3</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v2, "cgi_report_debug"</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "ReportDataModal addNewItem apn="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",frequency="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",commandid="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",resultCode="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",costTime="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, p5, p6}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",reqSzie="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, p7, p8}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",rspSize="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move-wide/from16 v0, p9</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	new-instance v3, Landroid/content/ContentValues;</span>
+<span class="">	invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V</span>
+<span class="">	const-string v2, "apn"</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "frequency"</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "commandid"</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "resultcode"</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "tmcost"</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, p5, p6}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "reqsize"</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, p7, p8}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "rspsize"</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	move-wide/from16 v0, p9</span>
+<span class="">	invoke-virtual {v4, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "network="</span>
+<span class="">	invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/16 v5, 0x26</span>
+<span class="">	invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "sdcard="</span>
+<span class="">	invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v6, "mounted"</span>
+<span class="">	invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/16 v5, 0x26</span>
+<span class="">	invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "wifi="</span>
+<span class="">	invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v5, p0, Lcom/tencent/open/a/b;->a:Landroid/content/Context;</span>
+<span class="">	invoke-static {v5}, Lcom/tencent/open/a/a;->c(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v4, "deviceinfo"</span>
+<span class="">	invoke-virtual {v3, v4, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "detail"</span>
+<span class="">	move-object/from16 v0, p11</span>
+<span class="">	invoke-virtual {v3, v2, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/a/b;->c:Lcom/tencent/open/a/b$a;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/open/a/b$a;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	const-string v4, "newdata"</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-virtual {v2, v4, v5, v3}, Landroid/database/sqlite/SQLiteDatabase;->insertOrThrow(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	const-string v2, "cgi_report_debug"</span>
+<span class="">	const-string v3, "ReportDataModal addNewItem success"</span>
+<span class="">	invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	iget v2, p0, Lcom/tencent/open/a/b;->d:I</span>
+<span class="">	add-int/lit8 v2, v2, 0x1</span>
+<span class="">	iput v2, p0, Lcom/tencent/open/a/b;->d:I</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catch_0</span>
+<span class="">	const-string v3, "cgi_report_debug"</span>
+<span class="">	:try_start_3</span>
+<span class="">	const-string v4, "ReportDataModal addNewItem failed"</span>
+<span class="">	invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v2</span>
+.end method
+
+.method public declared-synchronized b()Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v1, "cgi_report_debug"</span>
+<span class="">	const-string v2, "ReportDataModal deleteNewItems start"</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/a/b;->c:Lcom/tencent/open/a/b$a;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/open/a/b$a;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	const-string v1, "delete from newdata;"</span>
+<span class="">	:try_start_3</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_4</span>
+<span class="">	iput v0, p0, Lcom/tencent/open/a/b;->d:I</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportDataModal deleteNewItems start"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_start_5</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catchall {:try_start_5 .. :try_end_5} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_start_6</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_6</span>
+<span class="">	.catchall {:try_start_6 .. :try_end_6} :catchall_0</span>
+.end method
+
+.method public declared-synchronized c()Ljava/util/ArrayList;
+<span class="">	.locals 12</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/ArrayList",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/tencent/open/a/d;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportDataModal getNewItems start"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	new-instance v10, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->c:Lcom/tencent/open/a/b$a;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/b$a;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	const-string v1, "select * from newdata"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-array v2, v2, [Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;</span>
+<span class="">	move-result-object v11</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->moveToFirst()Z</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->isAfterLast()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "apn"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v0, "frequency"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v0, "commandid"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v0, "resultcode"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v0, "tmcost"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	const-string v0, "reqsize"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	const-string v0, "rspsize"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	const-string v0, "detail"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	const-string v0, "deviceinfo"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	new-instance v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-direct/range {v0 .. v9}, Lcom/tencent/open/a/d;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v10, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->moveToNext()Z</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_start_3</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	move-object v0, v10</span>
+<span class="">	:goto_1</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->close()V</span>
+<span class="">	:try_start_4</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "ReportDataModal getNewItems success, count = "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v10}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move-object v0, v10</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public declared-synchronized d()Ljava/util/ArrayList;
+<span class="">	.locals 12</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/ArrayList",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/tencent/open/a/d;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportDataModal getOldItems start"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	new-instance v10, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->c:Lcom/tencent/open/a/b$a;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/b$a;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	const-string v1, "select * from olddata"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-array v2, v2, [Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;</span>
+<span class="">	move-result-object v11</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->moveToFirst()Z</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->isAfterLast()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "apn"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v0, "frequency"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v0, "commandid"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v0, "resultcode"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v0, "tmcost"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	const-string v0, "reqsize"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	const-string v0, "rspsize"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	const-string v0, "detail"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	const-string v0, "deviceinfo"</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-interface {v11, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	new-instance v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-direct/range {v0 .. v9}, Lcom/tencent/open/a/d;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v10, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->moveToNext()Z</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:try_start_3</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	move-object v0, v10</span>
+<span class="">	:goto_1</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	invoke-interface {v11}, Landroid/database/Cursor;->close()V</span>
+<span class="">	:try_start_4</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/b;->b:Landroid/database/sqlite/SQLiteDatabase;</span>
+<span class="">	invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "ReportDataModal getOldItems success, count = "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v10}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move-object v0, v10</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public e()I
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "ReportDataModal getTotalCount count = "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget v2, p0, Lcom/tencent/open/a/b;->d:I</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget v0, p0, Lcom/tencent/open/a/b;->d:I</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

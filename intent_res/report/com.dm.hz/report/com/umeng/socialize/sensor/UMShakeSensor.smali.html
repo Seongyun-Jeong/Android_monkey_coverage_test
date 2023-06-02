@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.sensor</a></li>
+        <li><i class="ico ico-class"></i> UMShakeSensor.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/sensor/UMShakeSensor;
+.super Lcom/umeng/socialize/sensor/UMSensor;
+.source "SourceFile"
+
+
+.field public static final h:I = 0x708
+.field private static final j:I = 0x64
+.field private static q:Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;
+.field private i:I
+.field private k:I
+.field private l:F
+.field private m:F
+.field private n:F
+.field private o:J
+.field private p:J
+.field private r:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sensor/UMShakeSensor;->q:Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;</span>
+.end method
+
+.method protected constructor <init>(Landroid/app/Activity;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/16 v0, 0x708</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/umeng/socialize/sensor/UMShakeSensor;-><init>(Landroid/app/Activity;I)V</span>
+.end method
+
+.method protected constructor <init>(Landroid/app/Activity;I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/UMSensor$SensorType;->a:Lcom/umeng/socialize/sensor/UMSensor$SensorType;</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/umeng/socialize/sensor/UMSensor;-><init>(Landroid/app/Activity;Lcom/umeng/socialize/sensor/UMSensor$SensorType;)V</span>
+<span class="">	const/16 v0, 0x708</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->i:I</span>
+<span class="">	const/16 v0, 0x3e8</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->k:I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->l:F</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->m:F</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->n:F</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/sensor/UMShakeSensor$1;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/sensor/UMShakeSensor$1;-><init>(Lcom/umeng/socialize/sensor/UMShakeSensor;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->r:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	iput p2, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->i:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->d:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/UMShakeSensor;->q()V</span>
+.end method
+
+.method static synthetic o()Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/UMShakeSensor;->q:Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;</span>
+.end method
+
+.method private p()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->e:Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->e:Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;</span>
+<span class="">	instance-of v0, v0, Lcom/umeng/socialize/sensor/strategy/UMShareStrategy;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->e:Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/strategy/UMShareStrategy;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/strategy/UMShareStrategy;->g()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private q()V
+<span class="">	.locals 5</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/UMShakeSensor;->q:Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->a:Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->a:Landroid/app/Activity;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->a:Landroid/app/Activity;</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/common/b$a;->h:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v4, "shake_sound"</span>
+<span class="">	invoke-static {v2, v3, v4}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;-><init>(Landroid/content/Context;I)V</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sensor/UMShakeSensor;->q:Lcom/umeng/socialize/sensor/utils/UMAudioPlayer;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-gez p1, :cond_0</span>
+<span class="">	const/4 p1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->f:Ljava/lang/String;</span>
+<span class="">	const-string v1, "speedShreshold\u901f\u5ea6\u9600\u503c\u4e0d\u80fd\u5c0f\u4e8e0\uff0c\u81ea\u52a8\u91cd\u7f6e\u4e3a0."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_0</span>
+<span class="">	iput p1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->i:I</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->e:Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->e:Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	instance-of v0, p1, Lcom/umeng/socialize/sensor/strategy/UMBaseStrategy;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->e:Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/strategy/UMBaseStrategy;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->r:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/sensor/strategy/UMBaseStrategy;->a(Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public b(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->k:I</span>
+.end method
+
+.method public m()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->i:I</span>
+.end method
+
+.method public n()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->k:I</span>
+.end method
+
+.method public onSensorChanged(Landroid/hardware/SensorEvent;)V
+<span class="">	.locals 10</span>
+
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iget-wide v2, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->o:J</span>
+<span class="">	sub-long v2, v0, v2</span>
+<span class="">	const-wide/16 v4, 0x64</span>
+<span class="">	cmp-long v4, v2, v4</span>
+<span class="">	if-gez v4, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-wide v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->o:J</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v4, p1, Landroid/hardware/SensorEvent;->values:[F</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	aget v4, v4, v5</span>
+<span class="">	iget-object v5, p1, Landroid/hardware/SensorEvent;->values:[F</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	aget v5, v5, v6</span>
+<span class="">	iget-object v6, p1, Landroid/hardware/SensorEvent;->values:[F</span>
+<span class="">	const/4 v7, 0x2</span>
+<span class="">	aget v6, v6, v7</span>
+<span class="">	iget v7, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->l:F</span>
+<span class="">	sub-float v7, v4, v7</span>
+<span class="">	iget v8, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->m:F</span>
+<span class="">	sub-float v8, v5, v8</span>
+<span class="">	iget v9, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->n:F</span>
+<span class="">	sub-float v9, v6, v9</span>
+<span class="">	iput v4, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->l:F</span>
+<span class="">	iput v5, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->m:F</span>
+<span class="">	iput v6, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->n:F</span>
+<span class="">	mul-float v4, v7, v7</span>
+<span class="">	mul-float v5, v8, v8</span>
+<span class="">	add-float/2addr v4, v5</span>
+<span class="">	mul-float v5, v9, v9</span>
+<span class="">	add-float/2addr v4, v5</span>
+<span class="">	float-to-double v4, v4</span>
+<span class="">	invoke-static {v4, v5}, Ljava/lang/Math;->sqrt(D)D</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	long-to-double v2, v2</span>
+<span class="">	div-double v2, v4, v2</span>
+<span class="">	const-wide v4, 0x40c3880000000000L    # 10000.0</span>
+<span class="">	mul-double/2addr v2, v4</span>
+<span class="">	iget v4, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->i:I</span>
+<span class="">	int-to-double v4, v4</span>
+<span class="">	cmpl-double v2, v2, v4</span>
+<span class="">	if-ltz v2, :cond_0</span>
+<span class="">	iget-wide v2, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->p:J</span>
+<span class="">	sub-long v2, v0, v2</span>
+<span class="">	iget v4, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->k:I</span>
+<span class="">	int-to-long v4, v4</span>
+<span class="">	cmp-long v2, v2, v4</span>
+<span class="">	if-lez v2, :cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/UMShakeSensor;->p()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->r:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	invoke-interface {v2, p1}, Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;->a(Landroid/hardware/SensorEvent;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->e:Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;</span>
+<span class="">	invoke-interface {v2}, Lcom/umeng/socialize/sensor/strategy/UMSensorStrategy;->a()V</span>
+<span class="">	iput-wide v0, p0, Lcom/umeng/socialize/sensor/UMShakeSensor;->p:J</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

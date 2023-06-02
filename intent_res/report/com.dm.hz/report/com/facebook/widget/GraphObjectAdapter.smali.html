@@ -1,0 +1,1753 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> GraphObjectAdapter.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/facebook/widget/GraphObjectAdapter;
+.super Landroid/widget/BaseAdapter;
+.source "SourceFile"
+.implements Landroid/widget/SectionIndexer;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;,
+Lcom/facebook/widget/GraphObjectAdapter$Filter;,
+Lcom/facebook/widget/GraphObjectAdapter$ItemPicture;,
+Lcom/facebook/widget/GraphObjectAdapter$ItemPictureData;,
+Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;,
+Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;
+}
+.end annotation
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<T::",
+"Lcom/facebook/model/GraphObject;",
+">",
+"Landroid/widget/BaseAdapter;",
+"Landroid/widget/SectionIndexer;"
+}
+.end annotation
+
+.field private static synthetic A:[I = null
+.field private static final a:I = 0x1
+.field static final synthetic b:Z
+.field private static final c:I = 0x0
+.field private static final d:I = 0x1
+.field private static final e:I = 0x2
+.field private static final f:I = 0x14
+.field private static final g:Ljava/lang/String; = "id"
+.field private static final h:Ljava/lang/String; = "name"
+.field private static final i:Ljava/lang/String; = "picture"
+.field private final j:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Lcom/facebook/internal/ImageRequest;",
+">;"
+}
+.end annotation
+.end field
+.field private final k:Landroid/view/LayoutInflater;
+.field private l:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field private m:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Ljava/util/ArrayList",
+"<TT;>;>;"
+}
+.end annotation
+.end field
+.field private n:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"TT;>;"
+}
+.end annotation
+.end field
+.field private o:Z
+.field private p:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field private q:Ljava/lang/String;
+.field private r:Z
+.field private s:Z
+.field private t:Lcom/facebook/widget/GraphObjectAdapter$Filter;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/GraphObjectAdapter$Filter",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field private u:Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;
+.field private v:Lcom/facebook/widget/GraphObjectCursor;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/GraphObjectCursor",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field private w:Landroid/content/Context;
+.field private x:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Lcom/facebook/internal/ImageResponse;",
+">;"
+}
+.end annotation
+.end field
+.field private y:Ljava/util/ArrayList;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/ArrayList",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field private z:Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	sput-boolean v0, Lcom/facebook/widget/GraphObjectAdapter;->b:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->j:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->n:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->x:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->y:Ljava/util/ArrayList;</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->w:Landroid/content/Context;</span>
+<span class="">	invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->k:Landroid/view/LayoutInflater;</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/model/GraphObject;Lcom/facebook/model/GraphObject;Ljava/util/Collection;Ljava/text/Collator;)I
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p1, p2, p3}, Lcom/facebook/widget/GraphObjectAdapter;->b(Lcom/facebook/model/GraphObject;Lcom/facebook/model/GraphObject;Ljava/util/Collection;Ljava/text/Collator;)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method private a(Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+<span class="">	.locals 3</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->k:Landroid/view/LayoutInflater;</span>
+<span class="">	sget v1, Lcom/facebook/android/R$layout;->com_facebook_picker_activity_circle_row:I</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object p1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_row_activity_circle:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ProgressBar;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/GraphObjectAdapter;)Ljava/util/List;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->p:Ljava/util/List;</span>
+.end method
+
+.method private a(Lcom/facebook/internal/ImageResponse;Ljava/lang/String;Landroid/widget/ImageView;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->j:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->b()Ljava/lang/Exception;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->b()Ljava/lang/Exception;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/GraphObjectAdapter;->a(Ljava/lang/Exception;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p3, :cond_3</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->c()Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->x:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v1, 0x14</span>
+<span class="">	if-lt v0, v1, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->y:Ljava/util/ArrayList;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->x:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->x:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, p2, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_2</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p3}, Landroid/widget/ImageView;->getTag()Ljava/lang/Object;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->b()Ljava/lang/Exception;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->c()Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	invoke-virtual {p3, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->a()Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/ImageRequest;->b()Ljava/net/URI;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p3, v0}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/GraphObjectAdapter;Lcom/facebook/internal/ImageResponse;Ljava/lang/String;Landroid/widget/ImageView;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/internal/ImageResponse;Ljava/lang/String;Landroid/widget/ImageView;)V</span>
+.end method
+
+.method private a(Ljava/lang/Exception;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->z:Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	instance-of v0, p1, Lcom/facebook/FacebookException;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->z:Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;</span>
+<span class="">	check-cast v0, Lcom/facebook/FacebookException;</span>
+<span class="">	invoke-interface {v1, p0, v0}, Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;->a(Lcom/facebook/widget/GraphObjectAdapter;Lcom/facebook/FacebookException;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Ljava/lang/String;Ljava/net/URI;Landroid/widget/ImageView;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p3, :cond_4</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {p3}, Landroid/widget/ImageView;->getTag()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p2, v1}, Ljava/net/URI;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p3, p1}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p3, v0}, Landroid/widget/ImageView;->setImageResource(I)V</span>
+<span class="">	new-instance v0, Lcom/facebook/internal/ImageRequest$Builder;</span>
+<span class="">	:cond_3</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->w:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1, p2}, Lcom/facebook/internal/ImageRequest$Builder;-><init>(Landroid/content/Context;Ljava/net/URI;)V</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/facebook/internal/ImageRequest$Builder;->a(Ljava/lang/Object;)Lcom/facebook/internal/ImageRequest$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/GraphObjectAdapter$2;</span>
+<span class="">	invoke-direct {v1, p0, p1, p3}, Lcom/facebook/widget/GraphObjectAdapter$2;-><init>(Lcom/facebook/widget/GraphObjectAdapter;Ljava/lang/String;Landroid/widget/ImageView;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/internal/ImageRequest$Builder;->a(Lcom/facebook/internal/ImageRequest$Callback;)Lcom/facebook/internal/ImageRequest$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/ImageRequest$Builder;->a()Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->j:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/ImageDownloader;->a(Lcom/facebook/internal/ImageRequest;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static b(Lcom/facebook/model/GraphObject;Lcom/facebook/model/GraphObject;Ljava/util/Collection;Ljava/text/Collator;)I
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/model/GraphObject;",</span>
+<span class="">	"Lcom/facebook/model/GraphObject;",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;",</span>
+<span class="">	"Ljava/text/Collator;",</span>
+<span class="">	")I"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-interface {p0, v0}, Lcom/facebook/model/GraphObject;->f(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	invoke-interface {p1, v0}, Lcom/facebook/model/GraphObject;->f(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {p3, v1, v0}, Ljava/text/Collator;->compare(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez v1, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic l()[I
+<span class="">	.locals 3</span>
+
+<span class="">	sget-object v0, Lcom/facebook/widget/GraphObjectAdapter;->A:[I</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->values()[Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	sget-object v1, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->c:Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->a:Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_2</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->b:Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sput-object v0, Lcom/facebook/widget/GraphObjectAdapter;->A:[I</span>
+<span class="">	:goto_3</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private m()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectCursor;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->u:Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private n()V
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->n:Ljava/util/Map;</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectCursor;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectCursor;->e()Z</span>
+<span class="">	move v0, v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-interface {v2}, Lcom/facebook/widget/GraphObjectCursor;->m()Lcom/facebook/model/GraphObject;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/facebook/widget/GraphObjectAdapter;->h(Lcom/facebook/model/GraphObject;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_4</span>
+<span class="">	move v2, v0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectCursor;->g()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_7</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->p:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_6</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v0, v4}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-le v0, v3, :cond_3</span>
+<span class="">	if-le v2, v3, :cond_3</span>
+<span class="">	move v1, v3</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	add-int/lit8 v2, v0, 0x1</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/facebook/widget/GraphObjectAdapter;->b(Lcom/facebook/model/GraphObject;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v5, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v5, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-nez v5, :cond_5</span>
+<span class="">	iget-object v5, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v5, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v5, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	new-instance v6, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	invoke-interface {v5, v0, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v5, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-interface {v5, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->n:Ljava/util/Map;</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/facebook/widget/GraphObjectAdapter;->g(Lcom/facebook/model/GraphObject;)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-interface {v0, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/List;</span>
+<span class="">	new-instance v6, Lcom/facebook/widget/GraphObjectAdapter$1;</span>
+<span class="">	invoke-direct {v6, p0, v4}, Lcom/facebook/widget/GraphObjectAdapter$1;-><init>(Lcom/facebook/widget/GraphObjectAdapter;Ljava/text/Collator;)V</span>
+<span class="">	invoke-static {v0, v6}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_7</span>
+<span class="">	goto/16 :goto_1</span>
+.end method
+
+.method protected a()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/facebook/android/R$drawable;->com_facebook_profile_default_icon:I</span>
+.end method
+
+.method protected a(Lcom/facebook/model/GraphObject;)I
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)I"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget v0, Lcom/facebook/android/R$layout;->com_facebook_picker_list_row:I</span>
+.end method
+
+.method  a(Ljava/lang/String;Lcom/facebook/model/GraphObject;)I
+<span class="">	.locals 7</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"TT;)I"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v4, -0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	move v1, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	move v0, v2</span>
+<span class="">	:goto_1</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	move v1, v4</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	iget-boolean v6, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	if-eqz v6, :cond_2</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v6</span>
+<span class="">	if-eqz v6, :cond_3</span>
+<span class="">	move v0, v3</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget-object v6, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-interface {v6, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez p2, :cond_6</span>
+<span class="">	:cond_4</span>
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	move v2, v3</span>
+<span class="">	sub-int/2addr v1, v2</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	:cond_6</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_7</span>
+<span class="">	move v1, v4</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_7</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/model/GraphObject;</span>
+<span class="">	invoke-static {v0, p2}, Lcom/facebook/model/GraphObject$Factory;->a(Lcom/facebook/model/GraphObject;Lcom/facebook/model/GraphObject;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_3</span>
+.end method
+
+.method protected a(Lcom/facebook/model/GraphObject;Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;",</span>
+<span class="">	"Landroid/view/View;",</span>
+<span class="">	"Landroid/view/ViewGroup;",</span>
+<span class="">	")",</span>
+<span class="">	"Landroid/view/View;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-nez p2, :cond_0</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->f(Lcom/facebook/model/GraphObject;)Landroid/view/View;</span>
+<span class="">	move-result-object p2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0, p2, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Landroid/view/View;Lcom/facebook/model/GraphObject;)V</span>
+.end method
+
+.method protected a(Ljava/lang/String;Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+<span class="">	.locals 3</span>
+
+<span class="">	check-cast p2, Landroid/widget/TextView;</span>
+<span class="">	if-nez p2, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->k:Landroid/view/LayoutInflater;</span>
+<span class="">	sget v1, Lcom/facebook/android/R$layout;->com_facebook_picker_list_section_header:I</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	move-object v0, p2</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(I)",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/util/List;</span>
+<span class="">	if-ltz p1, :cond_1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ge p1, v1, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/facebook/model/GraphObject;</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	if-eqz v2, :cond_8</span>
+<span class="">	:goto_1</span>
+<span class="">	new-instance v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	invoke-direct {v0, v2, v1}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;-><init>(Ljava/lang/String;Lcom/facebook/model/GraphObject;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-boolean v0, Lcom/facebook/widget/GraphObjectAdapter;->b:Z</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->u:Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectCursor;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	new-instance v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-direct {v0, v2, v2}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;-><init>(Ljava/lang/String;Lcom/facebook/model/GraphObject;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_5</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_5</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	add-int/lit8 v4, p1, -0x1</span>
+<span class="">	if-nez p1, :cond_6</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	:cond_6</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/util/List;</span>
+<span class="">	invoke-interface {v1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-ge v4, v5, :cond_7</span>
+<span class="">	invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/facebook/model/GraphObject;</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/List;->size()I</span>
+<span class="">	:cond_7</span>
+<span class="">	move-result v0</span>
+<span class="">	sub-int p1, v4, v0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	new-instance v0, Ljava/lang/IndexOutOfBoundsException;</span>
+<span class="">	:cond_8</span>
+<span class="">	const-string v1, "position"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public a(Ljava/util/Collection;)Ljava/util/List;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/util/HashSet;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashSet;-><init>()V</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z</span>
+<span class="">	new-instance v1, Ljava/util/ArrayList;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/widget/GraphObjectAdapter;->n:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/model/GraphObject;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(III)V
+<span class="">	.locals 5</span>
+
+<span class="">	if-lt p2, p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	move v1, p2</span>
+<span class="">	:cond_1</span>
+<span class="">	if-gez v1, :cond_3</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sub-int v1, p1, p3</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int v1, p2, p3</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->getCount()I</span>
+<span class="">	move-result v2</span>
+<span class="">	add-int/lit8 v2, v2, -0x1</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-instance v2, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	if-lt v0, p1, :cond_5</span>
+<span class="">	:goto_1</span>
+<span class="">	add-int/lit8 v0, p2, 0x1</span>
+<span class="">	if-le v0, v1, :cond_7</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/model/GraphObject;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/GraphObjectAdapter;->e(Lcom/facebook/model/GraphObject;)Ljava/net/URI;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/GraphObjectAdapter;->g(Lcom/facebook/model/GraphObject;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/widget/GraphObjectAdapter;->y:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	iget-object v4, p0, Lcom/facebook/widget/GraphObjectAdapter;->y:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	if-nez v3, :cond_2</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-direct {p0, v0, v2, v3}, Lcom/facebook/widget/GraphObjectAdapter;->a(Ljava/lang/String;Ljava/net/URI;Landroid/widget/ImageView;)V</span>
+<span class="">	goto :goto_3</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v2, v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	if-eqz v2, :cond_4</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/GraphObjectAdapter;->g(Lcom/facebook/model/GraphObject;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/GraphObjectAdapter;->j:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/ImageDownloader;->c(Lcom/facebook/internal/ImageRequest;)V</span>
+<span class="">	add-int/lit8 v0, v1, -0x1</span>
+<span class="">	:cond_4</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	:cond_5</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v4, v3, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	if-eqz v4, :cond_6</span>
+<span class="">	iget-object v3, v3, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	:cond_7</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v4, v3, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	if-eqz v4, :cond_8</span>
+<span class="">	iget-object v3, v3, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_8</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method protected a(Landroid/view/View;Lcom/facebook/model/GraphObject;)V
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/view/View;",</span>
+<span class="">	"TT;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p2}, Lcom/facebook/widget/GraphObjectAdapter;->g(Lcom/facebook/model/GraphObject;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p1, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/facebook/widget/GraphObjectAdapter;->c(Lcom/facebook/model/GraphObject;)Ljava/lang/CharSequence;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_title:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v3, Landroid/widget/TextView$BufferType;->SPANNABLE:Landroid/widget/TextView$BufferType;</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/facebook/widget/GraphObjectAdapter;->d(Lcom/facebook/model/GraphObject;)Ljava/lang/CharSequence;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->picker_subtitle:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	if-eqz v2, :cond_4</span>
+<span class="">	sget-object v3, Landroid/widget/TextView$BufferType;->SPANNABLE:Landroid/widget/TextView$BufferType;</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->e()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_checkbox:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/CheckBox;</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {p0, v0, v2}, Lcom/facebook/widget/GraphObjectAdapter;->a(Landroid/widget/CheckBox;Z)V</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->d()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/facebook/widget/GraphObjectAdapter;->e(Lcom/facebook/model/GraphObject;)Ljava/net/URI;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_image:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/widget/GraphObjectAdapter;->x:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v3, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_5</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/GraphObjectAdapter;->x:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/facebook/internal/ImageResponse;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/ImageResponse;->c()Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/ImageResponse;->a()Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/internal/ImageRequest;->b()Ljava/net/URI;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_3</span>
+<span class="">	const/16 v2, 0x8</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0, v1, v2, v0}, Lcom/facebook/widget/GraphObjectAdapter;->a(Ljava/lang/String;Ljava/net/URI;Landroid/widget/ImageView;)V</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method  a(Landroid/widget/CheckBox;Z)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public a(Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->u:Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;</span>
+.end method
+
+.method  a(Lcom/facebook/widget/GraphObjectAdapter$Filter;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectAdapter$Filter",</span>
+<span class="">	"<TT;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->t:Lcom/facebook/widget/GraphObjectAdapter$Filter;</span>
+.end method
+
+.method public a(Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->z:Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;</span>
+.end method
+
+.method public a(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->q:Ljava/lang/String;</span>
+.end method
+
+.method public a(Ljava/util/List;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->p:Ljava/util/List;</span>
+.end method
+
+.method public a(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->r:Z</span>
+.end method
+
+.method public a(Lcom/facebook/widget/GraphObjectCursor;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectCursor",</span>
+<span class="">	"<TT;>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	if-ne v0, p1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectCursor;->n()V</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->i()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public areAllItemsEnabled()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+.end method
+
+.method protected b(Lcom/facebook/model/GraphObject;)Ljava/lang/String;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)",</span>
+<span class="">	"Ljava/lang/String;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->q:Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->q:Ljava/lang/String;</span>
+<span class="">	invoke-interface {p1, v0}, Lcom/facebook/model/GraphObject;->f(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b()Ljava/util/List;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->p:Ljava/util/List;</span>
+.end method
+
+.method public b(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/GraphObjectAdapter;->s:Z</span>
+.end method
+
+.method  b(Ljava/lang/String;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method protected c(Lcom/facebook/model/GraphObject;)Ljava/lang/CharSequence;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)",</span>
+<span class="">	"Ljava/lang/CharSequence;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, "name"</span>
+<span class="">	invoke-interface {p1, v0}, Lcom/facebook/model/GraphObject;->f(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+.end method
+
+.method public c()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->q:Ljava/lang/String;</span>
+.end method
+
+.method protected d(Lcom/facebook/model/GraphObject;)Ljava/lang/CharSequence;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)",</span>
+<span class="">	"Ljava/lang/CharSequence;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public d()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->r:Z</span>
+.end method
+
+.method protected e(Lcom/facebook/model/GraphObject;)Ljava/net/URI;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)",</span>
+<span class="">	"Ljava/net/URI;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const-string v0, "picture"</span>
+<span class="">	invoke-interface {p1, v0}, Lcom/facebook/model/GraphObject;->f(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	instance-of v2, v0, Ljava/lang/String;</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/net/URI;</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/net/URI;-><init>(Ljava/lang/String;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	instance-of v2, v0, Lorg/json/JSONObject;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	check-cast v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/model/GraphObject$Factory;->a(Lorg/json/JSONObject;)Lcom/facebook/model/GraphObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-class v2, Lcom/facebook/widget/GraphObjectAdapter$ItemPicture;</span>
+<span class="">	invoke-interface {v0, v2}, Lcom/facebook/model/GraphObject;->a(Ljava/lang/Class;)Lcom/facebook/model/GraphObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/widget/GraphObjectAdapter$ItemPicture;</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectAdapter$ItemPicture;->a()Lcom/facebook/widget/GraphObjectAdapter$ItemPictureData;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectAdapter$ItemPictureData;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public e()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->s:Z</span>
+.end method
+
+.method protected f(Lcom/facebook/model/GraphObject;)Landroid/view/View;
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)",</span>
+<span class="">	"Landroid/view/View;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v4, 0x8</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->k:Landroid/view/LayoutInflater;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/model/GraphObject;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_checkbox_stub:I</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/ViewStub;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->e()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	invoke-virtual {v0, v4}, Landroid/view/ViewStub;->setVisibility(I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_profile_pic_stub:I</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/ViewStub;</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->d()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	invoke-virtual {v0, v4}, Landroid/view/ViewStub;->setVisibility(I)V</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/CheckBox;</span>
+<span class="">	invoke-virtual {p0, v0, v3}, Lcom/facebook/widget/GraphObjectAdapter;->a(Landroid/widget/CheckBox;Z)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public f()Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->u:Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;</span>
+.end method
+
+.method public g()Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->z:Lcom/facebook/widget/GraphObjectAdapter$OnErrorListener;</span>
+.end method
+
+.method  g(Lcom/facebook/model/GraphObject;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)",</span>
+<span class="">	"Ljava/lang/String;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-interface {p1}, Lcom/facebook/model/GraphObject;->h()Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "id"</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v0, "id"</span>
+<span class="">	invoke-interface {p1, v0}, Lcom/facebook/model/GraphObject;->f(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	instance-of v1, v0, Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "Received an object without an ID."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public getCount()I
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-boolean v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->m:Ljava/util/Map;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	move v1, v0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/GraphObjectAdapter;->m()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public getItem(I)Ljava/lang/Object;
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->a:Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	if-ne v1, v2, :cond_0</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public getItemId(I)J
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v1, v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/GraphObjectAdapter;->g(Lcom/facebook/model/GraphObject;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public getItemViewType(I)I
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Lcom/facebook/widget/GraphObjectAdapter;->l()[I</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->ordinal()I</span>
+<span class="">	move-result v0</span>
+<span class="">	aget v0, v1, v0</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v1, "Unexpected type of section and item."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	:pswitch_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_2</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public getPositionForSection(I)I
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-boolean v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/lit8 v1, v1, -0x1</span>
+<span class="">	invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v2}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-ge v1, v2, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Ljava/lang/String;Lcom/facebook/model/GraphObject;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public getSectionForPosition(I)I
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->c:Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	if-eq v2, v3, :cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	iget-object v1, v1, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a:Ljava/lang/String;</span>
+<span class="">	invoke-interface {v2, v1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v2}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	add-int/lit8 v2, v2, -0x1</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public getSections()[Ljava/lang/Object;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->o:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->toArray()[Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-array v0, v0, [Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Lcom/facebook/widget/GraphObjectAdapter;->l()[I</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->ordinal()I</span>
+<span class="">	move-result v2</span>
+<span class="">	aget v1, v1, v2</span>
+<span class="">	packed-switch v1, :pswitch_data_0</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v1, "Unexpected type of section and item."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0, p2, p3}, Lcom/facebook/widget/GraphObjectAdapter;->a(Ljava/lang/String;Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	:pswitch_1</span>
+<span class="">	invoke-virtual {p0, v0, p2, p3}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/model/GraphObject;Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-boolean v0, Lcom/facebook/widget/GraphObjectAdapter;->b:Z</span>
+<span class="">	:pswitch_2</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectCursor;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->u:Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->u:Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;->a()V</span>
+<span class="">	invoke-direct {p0, p2, p3}, Lcom/facebook/widget/GraphObjectAdapter;->a(Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_2</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public getViewTypeCount()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x3</span>
+.end method
+
+.method public h()Lcom/facebook/widget/GraphObjectCursor;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectCursor",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->v:Lcom/facebook/widget/GraphObjectCursor;</span>
+.end method
+
+.method  h(Lcom/facebook/model/GraphObject;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->t:Lcom/facebook/widget/GraphObjectAdapter$Filter;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->t:Lcom/facebook/widget/GraphObjectAdapter$Filter;</span>
+<span class="">	invoke-interface {v0, p1}, Lcom/facebook/widget/GraphObjectAdapter$Filter;->a(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public hasStableIds()Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+.end method
+
+.method public i()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/GraphObjectAdapter;->n()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/GraphObjectAdapter;->notifyDataSetChanged()V</span>
+.end method
+
+.method public isEmpty()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->l:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public isEnabled(I)Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->a:Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  j()Lcom/facebook/widget/GraphObjectAdapter$Filter;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectAdapter$Filter",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/GraphObjectAdapter;->t:Lcom/facebook/widget/GraphObjectAdapter$Filter;</span>
+.end method
+
+.method  k()Ljava/lang/String;
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->f(Lcom/facebook/model/GraphObject;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget v2, Lcom/facebook/android/R$id;->com_facebook_picker_image:I</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "picture.height(%d).width(%d)"</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Object;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	iget v4, v0, Landroid/view/ViewGroup$LayoutParams;->height:I</span>
+<span class="">	invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	aput-object v0, v2, v3</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

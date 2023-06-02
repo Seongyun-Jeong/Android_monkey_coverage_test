@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.b.a</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/b/a/b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private static a:Ljava/text/SimpleDateFormat;
+.field private static b:Ljava/io/FileFilter;
+.field private c:Ljava/lang/String;
+.field private d:I
+.field private e:I
+.field private f:I
+.field private g:J
+.field private h:Ljava/io/File;
+.field private i:I
+.field private j:Ljava/lang/String;
+.field private k:J
+.field private l:Ljava/io/FileFilter;
+.field private m:Ljava/util/Comparator;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Comparator",
+"<-",
+"Ljava/io/File;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "yyyy-MM-dd"</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/b/c/b;->a(Ljava/lang/String;)Ljava/text/SimpleDateFormat;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/b/a/b;->a:Ljava/text/SimpleDateFormat;</span>
+<span class="">	new-instance v0, Lcom/tencent/b/a/i;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/b/a/i;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/tencent/b/a/b;->b:Ljava/io/FileFilter;</span>
+.end method
+
+.method public constructor <init>(Ljava/io/File;IIILjava/lang/String;JILjava/lang/String;J)V
+<span class="">	.locals 2</span>
+
+<span class="">	const v1, 0x7fffffff</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const-string v0, "Tracer.File"</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/b;->c:Ljava/lang/String;</span>
+<span class="">	iput v1, p0, Lcom/tencent/b/a/b;->d:I</span>
+<span class="">	iput v1, p0, Lcom/tencent/b/a/b;->e:I</span>
+<span class="">	const/16 v0, 0x1000</span>
+<span class="">	iput v0, p0, Lcom/tencent/b/a/b;->f:I</span>
+<span class="">	const-wide/16 v0, 0x2710</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/b/a/b;->g:J</span>
+<span class="">	const/16 v0, 0xa</span>
+<span class="">	iput v0, p0, Lcom/tencent/b/a/b;->i:I</span>
+<span class="">	const-string v0, ".log"</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/b;->j:Ljava/lang/String;</span>
+<span class="">	const-wide v0, 0x7fffffffffffffffL</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/b/a/b;->k:J</span>
+<span class="">	new-instance v0, Lcom/tencent/b/a/j;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/tencent/b/a/j;-><init>(Lcom/tencent/b/a/b;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/b;->l:Ljava/io/FileFilter;</span>
+<span class="">	new-instance v0, Lcom/tencent/b/a/k;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/tencent/b/a/k;-><init>(Lcom/tencent/b/a/b;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/b/a/b;->m:Ljava/util/Comparator;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/tencent/b/a/b;->c(Ljava/io/File;)V</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/tencent/b/a/b;->b(I)V</span>
+<span class="">	invoke-virtual {p0, p3}, Lcom/tencent/b/a/b;->a(I)V</span>
+<span class="">	invoke-virtual {p0, p4}, Lcom/tencent/b/a/b;->c(I)V</span>
+<span class="">	invoke-virtual {p0, p5}, Lcom/tencent/b/a/b;->a(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, p6, p7}, Lcom/tencent/b/a/b;->b(J)V</span>
+<span class="">	invoke-virtual {p0, p8}, Lcom/tencent/b/a/b;->d(I)V</span>
+<span class="">	invoke-virtual {p0, p9}, Lcom/tencent/b/a/b;->b(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, p10, p11}, Lcom/tencent/b/a/b;->c(J)V</span>
+.end method
+
+.method public static a(Ljava/io/File;)J
+<span class="">	.locals 2</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/tencent/b/a/b;->a:Ljava/text/SimpleDateFormat;</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/Date;->getTime()J</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const-wide/16 v0, -0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic d(Ljava/io/File;)I
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0}, Lcom/tencent/b/a/b;->f(Ljava/io/File;)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method private d(J)Ljava/io/File;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/tencent/b/a/b;->a(J)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/tencent/b/a/b;->e(Ljava/io/File;)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private e(Ljava/io/File;)Ljava/io/File;
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/tencent/b/a/b;->b(Ljava/io/File;)[Ljava/io/File;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	array-length v0, v3</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "1"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->j()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, p1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, v3}, Lcom/tencent/b/a/b;->a([Ljava/io/File;)[Ljava/io/File;</span>
+<span class="">	:cond_2</span>
+<span class="">	array-length v0, v3</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	aget-object v1, v3, v0</span>
+<span class="">	array-length v0, v3</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->e()I</span>
+<span class="">	move-result v2</span>
+<span class="">	sub-int/2addr v0, v2</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->length()J</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	long-to-int v2, v4</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->d()I</span>
+<span class="">	move-result v4</span>
+<span class="">	if-le v2, v4, :cond_3</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/b/a/b;->f(Ljava/io/File;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/lit8 v2, v1, 0x1</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->j()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, p1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	:cond_3</span>
+<span class="">	if-ge v2, v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	aget-object v4, v3, v2</span>
+<span class="">	invoke-virtual {v4}, Ljava/io/File;->delete()Z</span>
+<span class="">	add-int/lit8 v2, v2, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static f(Ljava/io/File;)I
+<span class="">	.locals 3</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x2e</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a()Ljava/io/File;
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-direct {p0, v0, v1}, Lcom/tencent/b/a/b;->d(J)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(J)Ljava/io/File;
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->h()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/tencent/b/a/b;->a:Ljava/text/SimpleDateFormat;</span>
+<span class="">	invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/text/SimpleDateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z</span>
+.end method
+
+.method public a(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/tencent/b/a/b;->d:I</span>
+.end method
+
+.method public a(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/b/a/b;->c:Ljava/lang/String;</span>
+.end method
+
+.method public a([Ljava/io/File;)[Ljava/io/File;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/b;->m:Ljava/util/Comparator;</span>
+<span class="">	invoke-static {p1, v0}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 8</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->h()Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->h()Ljava/io/File;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/tencent/b/a/b;->b:Ljava/io/FileFilter;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/File;->listFiles(Ljava/io/FileFilter;)[Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	array-length v2, v1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-ge v0, v2, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	aget-object v3, v1, v0</span>
+<span class="">	invoke-static {v3}, Lcom/tencent/b/a/b;->a(Ljava/io/File;)J</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	sub-long v4, v6, v4</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/b/a/b;->k()J</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	cmp-long v4, v4, v6</span>
+<span class="">	if-lez v4, :cond_2</span>
+<span class="">	invoke-static {v3}, Lcom/tencent/b/c/a;->a(Ljava/io/File;)Z</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/tencent/b/a/b;->e:I</span>
+.end method
+
+.method public b(J)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-wide p1, p0, Lcom/tencent/b/a/b;->g:J</span>
+.end method
+
+.method public b(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/b/a/b;->j:Ljava/lang/String;</span>
+.end method
+
+.method public b(Ljava/io/File;)[Ljava/io/File;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/b;->l:Ljava/io/FileFilter;</span>
+<span class="">	invoke-virtual {p1, v0}, Ljava/io/File;->listFiles(Ljava/io/FileFilter;)[Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public c()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/b;->c:Ljava/lang/String;</span>
+.end method
+
+.method public c(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/tencent/b/a/b;->f:I</span>
+.end method
+
+.method public c(J)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-wide p1, p0, Lcom/tencent/b/a/b;->k:J</span>
+.end method
+
+.method public c(Ljava/io/File;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/b/a/b;->h:Ljava/io/File;</span>
+.end method
+
+.method public d()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/b/a/b;->d:I</span>
+.end method
+
+.method public d(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/tencent/b/a/b;->i:I</span>
+.end method
+
+.method public e()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/b/a/b;->e:I</span>
+.end method
+
+.method public f()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/b/a/b;->f:I</span>
+.end method
+
+.method public g()J
+<span class="">	.locals 2</span>
+
+<span class="">	iget-wide v0, p0, Lcom/tencent/b/a/b;->g:J</span>
+.end method
+
+.method public h()Ljava/io/File;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/b;->h:Ljava/io/File;</span>
+.end method
+
+.method public i()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/b/a/b;->i:I</span>
+.end method
+
+.method public j()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/b/a/b;->j:Ljava/lang/String;</span>
+.end method
+
+.method public k()J
+<span class="">	.locals 2</span>
+
+<span class="">	iget-wide v0, p0, Lcom/tencent/b/a/b;->k:J</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

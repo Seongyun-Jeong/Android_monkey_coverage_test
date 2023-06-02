@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.core</a></li>
+        <li><i class="ico ico-class"></i> DefaultConfigurationFactory.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory$DefaultThreadFactory;
+}
+.end annotation
+
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+<span class="cov">.method public static createBitmapDisplayer()Lcom/nostra13/universalimageloader/core/display/BitmapDisplayer;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	new-instance v0, Lcom/nostra13/universalimageloader/core/display/SimpleBitmapDisplayer;</span>
+<span class="cov">	invoke-direct {v0}, Lcom/nostra13/universalimageloader/core/display/SimpleBitmapDisplayer;-><init>()V</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method public static createDiscCache(Landroid/content/Context;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;II)Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;
+<span class="">	.locals 2</span>
+
+<span class="">	if-lez p2, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/nostra13/universalimageloader/utils/StorageUtils;->getIndividualCacheDirectory(Landroid/content/Context;)Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/cache/disc/impl/TotalSizeLimitedDiscCache;</span>
+<span class="">	invoke-direct {v0, v1, p1, p2}, Lcom/nostra13/universalimageloader/cache/disc/impl/TotalSizeLimitedDiscCache;-><init>(Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lez p3, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/nostra13/universalimageloader/utils/StorageUtils;->getIndividualCacheDirectory(Landroid/content/Context;)Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/cache/disc/impl/FileCountLimitedDiscCache;</span>
+<span class="">	invoke-direct {v0, v1, p1, p3}, Lcom/nostra13/universalimageloader/cache/disc/impl/FileCountLimitedDiscCache;-><init>(Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;I)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/nostra13/universalimageloader/utils/StorageUtils;->getCacheDirectory(Landroid/content/Context;)Ljava/io/File;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/cache/disc/impl/UnlimitedDiscCache;</span>
+<span class="">	invoke-direct {v0, v1, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/UnlimitedDiscCache;-><init>(Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static createExecutor(IILcom/nostra13/universalimageloader/core/assist/QueueProcessingType;)Ljava/util/concurrent/Executor;
+<span class="">	.locals 8</span>
+
+<span class="">	sget-object v0, Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;->LIFO:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;</span>
+<span class="">	if-ne p2, v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	new-instance v6, Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;</span>
+<span class="">	invoke-direct {v6}, Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;-><init>()V</span>
+<span class="">	:goto_1</span>
+<span class="">	check-cast v6, Ljava/util/concurrent/BlockingQueue;</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/ThreadPoolExecutor;</span>
+<span class="">	const-wide/16 v3, 0x0</span>
+<span class="">	sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createThreadFactory(I)Ljava/util/concurrent/ThreadFactory;</span>
+<span class="">	move-result-object v7</span>
+<span class="">	move v1, p0</span>
+<span class="">	move v2, p0</span>
+<span class="">	invoke-direct/range {v0 .. v7}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v6, Ljava/util/concurrent/LinkedBlockingQueue;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v6}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static createFileNameGenerator()Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/cache/disc/naming/HashCodeFileNameGenerator;</span>
+<span class="">	invoke-direct {v0}, Lcom/nostra13/universalimageloader/cache/disc/naming/HashCodeFileNameGenerator;-><init>()V</span>
+.end method
+
+.method public static createImageDecoder(Z)Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;-><init>(Z)V</span>
+.end method
+
+.method public static createImageDownloader(Landroid/content/Context;)Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/core/download/BaseImageDownloader;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/nostra13/universalimageloader/core/download/BaseImageDownloader;-><init>(Landroid/content/Context;)V</span>
+.end method
+
+.method public static createMemoryCache(I)Lcom/nostra13/universalimageloader/cache/memory/MemoryCacheAware;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(I)",</span>
+<span class="">	"Lcom/nostra13/universalimageloader/cache/memory/MemoryCacheAware",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Landroid/graphics/Bitmap;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Runtime;->maxMemory()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	const-wide/16 v2, 0x8</span>
+<span class="">	div-long/2addr v0, v2</span>
+<span class="">	long-to-int p0, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/cache/memory/impl/LruMemoryCache;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/nostra13/universalimageloader/cache/memory/impl/LruMemoryCache;-><init>(I)V</span>
+.end method
+
+.method public static createReserveDiscCache(Ljava/io/File;)Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	const-string v1, "uil-images"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->mkdir()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	move-object p0, v0</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/cache/disc/impl/TotalSizeLimitedDiscCache;</span>
+<span class="">	const/high16 v1, 0x200000</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/nostra13/universalimageloader/cache/disc/impl/TotalSizeLimitedDiscCache;-><init>(Ljava/io/File;I)V</span>
+.end method
+
+.method private static createThreadFactory(I)Ljava/util/concurrent/ThreadFactory;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory$DefaultThreadFactory;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory$DefaultThreadFactory;-><init>(I)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.open.a</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/open/a/c;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private static a:Lcom/tencent/open/a/c;
+.field private b:J
+.field private c:I
+.field private d:Z
+.field private e:Ljava/util/Random;
+.field private f:Lcom/tencent/open/a/b;
+.field private g:Ljava/util/ArrayList;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/ArrayList",
+"<",
+"Lcom/tencent/open/a/d;",
+">;"
+}
+.end annotation
+.end field
+.field private h:Ljava/util/ArrayList;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/ArrayList",
+"<",
+"Lcom/tencent/open/a/d;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-object v0, Lcom/tencent/open/a/c;->a:Lcom/tencent/open/a/c;</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/open/a/c;->b:J</span>
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	iput v0, p0, Lcom/tencent/open/a/c;->c:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/open/a/c;->d:Z</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	new-instance v0, Ljava/util/Random;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/Random;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/c;->e:Ljava/util/Random;</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/open/a/c;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/open/a/c;->c:I</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/open/a/c;I)I
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/tencent/open/a/c;->c:I</span>
+.end method
+
+.method public static a()Lcom/tencent/open/a/c;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/open/a/c;->a:Lcom/tencent/open/a/c;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/tencent/open/a/c;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/open/a/c;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/tencent/open/a/c;->a:Lcom/tencent/open/a/c;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/open/a/c;->a:Lcom/tencent/open/a/c;</span>
+.end method
+
+.method private a(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "connectivity"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/ConnectivityManager;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportManager getAPN failed:ConnectivityManager == null"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const-string v0, "no_net"</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v1, "ReportManager getAPN failed:NetworkInfo == null"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const-string v0, "no_net"</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->getTypeName()Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "WIFI"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportManager getAPN type = wifi"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const-string v0, "wifi"</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/net/NetworkInfo;->getExtraInfo()Ljava/lang/String;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportManager getAPN failed:extraInfo == null"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const-string v0, "mobile_unknow"</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "cgi_report_debug"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "ReportManager getAPN type = "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	const-string v0, "unknow"</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportManager doUpload start"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/open/a/c;->d:Z</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/b;->c()Ljava/util/ArrayList;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/b;->b()Z</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/b;->d()Ljava/util/ArrayList;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/b;->a()Z</span>
+<span class="">	new-instance v2, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v2}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v0, "appid"</span>
+<span class="">	invoke-virtual {v2, v0, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "releaseversion"</span>
+<span class="">	const-string v1, "QQConnect_SDK_Android_1_7"</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "device"</span>
+<span class="">	sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "qua"</span>
+<span class="">	const-string v1, "V1_AND_OpenSDK_2.2.1_1077_RDM_B"</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "key"</span>
+<span class="">	const-string v1, "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,deviceinfo"</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ge v1, v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_1"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_2"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->b()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_3"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_4"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_5"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_6"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_7"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->g()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "_8"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->h()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/open/a/a;->b(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->i()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, "_9"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v3, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v3}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v3</span>
+<span class="">	add-int/2addr v0, v3</span>
+<span class="">	if-ge v1, v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/ArrayList;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	sub-int v3, v1, v0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_1"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_2"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->b()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_3"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_4"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_5"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_6"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_7"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->g()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v4, "_8"</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->h()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/open/a/a;->b(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->h:Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/open/a/d;</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/d;->i()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, "_9"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto/16 :goto_1</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, "http://wspeed.qq.com/w.cgi"</span>
+<span class="">	const-string v1, "POST"</span>
+<span class="">	invoke-direct {p0, p1, v0, v1, v2}, Lcom/tencent/open/a/c;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V</span>
+.end method
+
+.method private a(Landroid/content/Context;Ljava/lang/String;JJJILjava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 14</span>
+
+<span class="">	invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	sub-long v7, v2, p3</span>
+<span class="">	const-string v2, "cgi_report_debug"</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "ReportManager updateDB url="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move-object/from16 v0, p2</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",resultCode="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move/from16 v0, p9</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",timeCost="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v7, v8}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",reqSize="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move-wide/from16 v0, p5</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ",rspSize="</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move-wide/from16 v0, p7</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move/from16 v0, p9</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/tencent/open/a/c;->b(Landroid/content/Context;I)I</span>
+<span class="">	move-result v2</span>
+<span class="">	const/16 v3, 0x64</span>
+<span class="">	div-int v2, v3, v2</span>
+<span class="">	if-gtz v2, :cond_0</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	move v4, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/open/a/c;->a(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	new-instance v5, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	move-object/from16 v5, p2</span>
+<span class="">	move/from16 v6, p9</span>
+<span class="">	move-wide/from16 v9, p5</span>
+<span class="">	move-wide/from16 v11, p7</span>
+<span class="">	move-object/from16 v13, p11</span>
+<span class="">	invoke-virtual/range {v2 .. v13}, Lcom/tencent/open/a/b;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJJJLjava/lang/String;)Z</span>
+<span class="">	const/16 v3, 0x64</span>
+<span class="">	:cond_0</span>
+<span class="">	if-le v2, v3, :cond_1</span>
+<span class="">	const/16 v2, 0x64</span>
+<span class="">	move v4, v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v4, v2</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/tencent/open/a/e;</span>
+<span class="">	invoke-direct {v0, p0, p2, p1, p4}, Lcom/tencent/open/a/e;-><init>(Lcom/tencent/open/a/c;Ljava/lang/String;Landroid/content/Context;Landroid/os/Bundle;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/open/a/e;->start()V</span>
+.end method
+
+.method private a(Landroid/content/Context;I)Z
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/tencent/open/a/c;->b(Landroid/content/Context;I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/a/c;->e:Ljava/util/Random;</span>
+<span class="">	const/16 v2, 0x64</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ge v1, v0, :cond_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportManager availableForFrequency = ture"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "ReportManager availableForFrequency = false"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/open/a/c;Z)Z
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/tencent/open/a/c;->d:Z</span>
+.end method
+
+.method private b(Landroid/content/Context;I)I
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-nez p2, :cond_1</span>
+<span class="">	invoke-static {p1, v0}, Lcom/tencent/utils/OpenConfig;->getInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/tencent/utils/OpenConfig;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "Common_CGIReportFrequencySuccess"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/utils/OpenConfig;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const-string v1, "OpenConfig_agent"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "config 4:Common_CGIReportFrequencySuccess     config_value:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/16 v0, 0xa</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "OpenConfig_agent"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "config 4:Common_CGIReportFrequencySuccess     result_value:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p1, v0}, Lcom/tencent/utils/OpenConfig;->getInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/tencent/utils/OpenConfig;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "Common_CGIReportFrequencyFailed"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/utils/OpenConfig;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const-string v1, "OpenConfig_agent"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "config 4:Common_CGIReportFrequencyFailed     config_value:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	const/16 v0, 0x64</span>
+<span class="">	const-string v1, "OpenConfig_agent"</span>
+<span class="">	:cond_2</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "config 4:Common_CGIReportFrequencyFailed     result_value:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic b(Lcom/tencent/open/a/c;)Ljava/util/ArrayList;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->g:Ljava/util/ArrayList;</span>
+.end method
+
+.method private b(Landroid/content/Context;)Z
+<span class="">	.locals 8</span>
+
+<span class="">	const-wide/16 v6, 0x0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p1, v0}, Lcom/tencent/utils/OpenConfig;->getInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/tencent/utils/OpenConfig;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "Common_CGIReportTimeinterval"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/utils/OpenConfig;->getLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	const-string v2, "OpenConfig_test"</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "config 5:Common_CGIReportTimeinterval     config_value:"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	cmp-long v2, v0, v6</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	const-wide/16 v0, 0x4b0</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v2, "OpenConfig_test"</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "config 5:Common_CGIReportTimeinterval     result_value:"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	const-wide/16 v4, 0x3e8</span>
+<span class="">	div-long/2addr v2, v4</span>
+<span class="">	iget-wide v4, p0, Lcom/tencent/open/a/c;->b:J</span>
+<span class="">	cmp-long v4, v4, v6</span>
+<span class="">	if-eqz v4, :cond_1</span>
+<span class="">	iget-wide v4, p0, Lcom/tencent/open/a/c;->b:J</span>
+<span class="">	add-long/2addr v0, v4</span>
+<span class="">	cmp-long v0, v0, v2</span>
+<span class="">	if-gtz v0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-wide v2, p0, Lcom/tencent/open/a/c;->b:J</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportManager availableForTime = ture"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "ReportManager availableForTime = false"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic c(Lcom/tencent/open/a/c;)Lcom/tencent/open/a/b;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+.end method
+
+.method private c(Landroid/content/Context;)Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p1, v0}, Lcom/tencent/utils/OpenConfig;->getInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/tencent/utils/OpenConfig;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "Common_CGIReportMaxcount"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/utils/OpenConfig;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const-string v1, "OpenConfig_test"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "config 6:Common_CGIReportMaxcount     config_value:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/16 v0, 0x14</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "OpenConfig_test"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "config 6:Common_CGIReportMaxcount     result_value:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	invoke-virtual {v1}, Lcom/tencent/open/a/b;->e()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lt v1, v0, :cond_1</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	const-string v1, "ReportManager availableForCount = ture"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "cgi_report_debug"</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v1, "ReportManager availableForCount = false"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Landroid/content/Context;Ljava/lang/String;JJJILjava/lang/String;)V
+<span class="">	.locals 13</span>
+
+<span class="">	const-string v11, ""</span>
+<span class="">	const/4 v12, 0x0</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v2, p2</span>
+<span class="">	move-wide/from16 v3, p3</span>
+<span class="">	move-wide/from16 v5, p5</span>
+<span class="">	move-wide/from16 v7, p7</span>
+<span class="">	move/from16 v9, p9</span>
+<span class="">	move-object/from16 v10, p10</span>
+<span class="">	invoke-virtual/range {v0 .. v12}, Lcom/tencent/open/a/c;->a(Landroid/content/Context;Ljava/lang/String;JJJILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method public a(Landroid/content/Context;Ljava/lang/String;JJJILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	if-nez p12, :cond_0</span>
+<span class="">	const-string p12, "1000067"</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	new-instance v0, Lcom/tencent/open/a/b;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/tencent/open/a/b;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/open/a/c;->f:Lcom/tencent/open/a/b;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {p0, p1, p9}, Lcom/tencent/open/a/c;->a(Landroid/content/Context;I)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v1, :cond_2</span>
+<span class="">	invoke-direct/range {p0 .. p11}, Lcom/tencent/open/a/c;->a(Landroid/content/Context;Ljava/lang/String;JJJILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-boolean v0, p0, Lcom/tencent/open/a/c;->d:Z</span>
+<span class="">	if-ne v0, v1, :cond_3</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/open/a/c;->b(Landroid/content/Context;)Z</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v1, :cond_4</span>
+<span class="">	invoke-direct {p0, p1, p12}, Lcom/tencent/open/a/c;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/open/a/c;->c(Landroid/content/Context;)Z</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v1, :cond_2</span>
+<span class="">	invoke-direct {p0, p1, p12}, Lcom/tencent/open/a/c;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>
