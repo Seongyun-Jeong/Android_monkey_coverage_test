@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.lockscreen.ui.a</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/dm/hz/lockscreen/ui/a/b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Ljava/lang/Runnable;
+
+
+.field final synthetic a:Lcom/dm/hz/lockscreen/ui/a/a;
+
+
+.method constructor <init>(Lcom/dm/hz/lockscreen/ui/a/a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public run()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/a/a;->a(Lcom/dm/hz/lockscreen/ui/a/a;)Landroid/widget/TextView;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/TextView;->getLineCount()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-le v0, v1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/a/a;->b(Lcom/dm/hz/lockscreen/ui/a/a;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/a/a;->a(Lcom/dm/hz/lockscreen/ui/a/a;)Landroid/widget/TextView;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMaxLines(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/a/a;->c(Lcom/dm/hz/lockscreen/ui/a/a;)Landroid/widget/Button;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "\u5c55\u5f00\u5168\u90e8"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/a/a;->c(Lcom/dm/hz/lockscreen/ui/a/a;)Landroid/widget/Button;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/dm/hz/lockscreen/ui/a/a;->a(Lcom/dm/hz/lockscreen/ui/a/a;Z)Z</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/a/a;->a(Lcom/dm/hz/lockscreen/ui/a/a;)Landroid/widget/TextView;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x64</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMaxLines(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/lockscreen/ui/a/b;->a:Lcom/dm/hz/lockscreen/ui/a/a;</span>
+<span class="">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/a/a;->c(Lcom/dm/hz/lockscreen/ui/a/a;)Landroid/widget/Button;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x8</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../../.resources/report.js"></script>
+</body>
+</html>

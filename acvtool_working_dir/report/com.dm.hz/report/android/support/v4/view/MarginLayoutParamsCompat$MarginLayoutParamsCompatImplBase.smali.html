@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.view</a></li>
+        <li><i class="ico ico-class"></i> MarginLayoutParamsCompat$MarginLayoutParamsCompatImplBase.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Landroid/support/v4/view/MarginLayoutParamsCompat$MarginLayoutParamsCompatImplBase;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Landroid/support/v4/view/MarginLayoutParamsCompat$MarginLayoutParamsCompatImpl;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Landroid/support/v4/view/MarginLayoutParamsCompat;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x8
+name = "MarginLayoutParamsCompatImplBase"
+.end annotation
+
+
+
+.method constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public getLayoutDirection(Landroid/view/ViewGroup$MarginLayoutParams;)I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public getMarginEnd(Landroid/view/ViewGroup$MarginLayoutParams;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I</span>
+.end method
+
+.method public getMarginStart(Landroid/view/ViewGroup$MarginLayoutParams;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I</span>
+.end method
+
+.method public isMarginRelative(Landroid/view/ViewGroup$MarginLayoutParams;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public resolveLayoutDirection(Landroid/view/ViewGroup$MarginLayoutParams;I)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public setLayoutDirection(Landroid/view/ViewGroup$MarginLayoutParams;I)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public setMarginEnd(Landroid/view/ViewGroup$MarginLayoutParams;I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p2, p1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I</span>
+.end method
+
+.method public setMarginStart(Landroid/view/ViewGroup$MarginLayoutParams;I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p2, p1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

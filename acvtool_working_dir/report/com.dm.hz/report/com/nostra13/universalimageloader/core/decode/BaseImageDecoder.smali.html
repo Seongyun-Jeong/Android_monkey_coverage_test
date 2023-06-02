@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.core.decode</a></li>
+        <li><i class="ico ico-class"></i> BaseImageDecoder.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;,
+Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;
+}
+.end annotation
+
+.field protected static final ERROR_CANT_DECODE_IMAGE:Ljava/lang/String; = "Image can\'t be decoded [%s]"
+.field protected static final LOG_FLIP_IMAGE:Ljava/lang/String; = "Flip image horizontally [%s]"
+.field protected static final LOG_ROTATE_IMAGE:Ljava/lang/String; = "Rotate image on %1$d\u00b0 [%2$s]"
+.field protected static final LOG_SABSAMPLE_IMAGE:Ljava/lang/String; = "Subsample original image (%1$s) to %2$s (scale = %3$d) [%4$s]"
+.field protected static final LOG_SCALE_IMAGE:Ljava/lang/String; = "Scale subsampled image (%1$s) to %2$s (scale = %3$.5f) [%4$s]"
+.field protected final loggingEnabled:Z
+
+
+.method public constructor <init>(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-boolean p1, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->loggingEnabled:Z</span>
+.end method
+
+.method private canDefineExifParams(Ljava/lang/String;Ljava/lang/String;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	sget v0, Landroid/os/Build$VERSION;->SDK_INT:I</span>
+<span class="">	const/4 v1, 0x5</span>
+<span class="">	if-lt v0, v1, :cond_0</span>
+<span class="">	const-string v0, "image/jpeg"</span>
+<span class="">	invoke-virtual {v0, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;->ofUri(Ljava/lang/String;)Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;->FILE:Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected considerExactScaleAndOrientaiton(Landroid/graphics/Bitmap;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;IZ)Landroid/graphics/Bitmap;
+<span class="">	.locals 10</span>
+
+<span class="">	const/4 v9, 0x2</span>
+<span class="">	const/high16 v8, 0x3f800000    # 1.0f</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v5, Landroid/graphics/Matrix;</span>
+<span class="">	invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageScaleType()Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v2, Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;->EXACTLY:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="">	if-eq v0, v2, :cond_0</span>
+<span class="">	sget-object v2, Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;->EXACTLY_STRETCHED:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="">	if-ne v0, v2, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v2, Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-direct {v2, v3, v4, p3}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;-><init>(III)V</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getTargetSize()Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getViewScaleType()Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	sget-object v7, Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;->EXACTLY_STRETCHED:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="">	if-ne v0, v7, :cond_5</span>
+<span class="">	move v0, v6</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v2, v3, v4, v0}, Lcom/nostra13/universalimageloader/utils/ImageSizeUtils;->computeImageScale(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;Z)F</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0, v8}, Ljava/lang/Float;->compare(FF)I</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	invoke-virtual {v5, v0, v0}, Landroid/graphics/Matrix;->setScale(FF)V</span>
+<span class="">	iget-boolean v3, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->loggingEnabled:Z</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	const-string v3, "Scale subsampled image (%1$s) to %2$s (scale = %3$.5f) [%4$s]"</span>
+<span class="">	const/4 v4, 0x4</span>
+<span class="">	new-array v4, v4, [Ljava/lang/Object;</span>
+<span class="">	aput-object v2, v4, v1</span>
+<span class="">	invoke-virtual {v2, v0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->scale(F)Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	aput-object v2, v4, v6</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	aput-object v0, v4, v9</span>
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageKey()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	aput-object v2, v4, v0</span>
+<span class="">	invoke-static {v3, v4}, Lcom/nostra13/universalimageloader/utils/L;->d(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz p4, :cond_2</span>
+<span class="">	const/high16 v0, -0x40800000    # -1.0f</span>
+<span class="">	invoke-virtual {v5, v0, v8}, Landroid/graphics/Matrix;->postScale(FF)Z</span>
+<span class="">	iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->loggingEnabled:Z</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const-string v0, "Flip image horizontally [%s]"</span>
+<span class="">	new-array v2, v6, [Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageKey()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aput-object v3, v2, v1</span>
+<span class="">	invoke-static {v0, v2}, Lcom/nostra13/universalimageloader/utils/L;->d(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz p3, :cond_3</span>
+<span class="">	int-to-float v0, p3</span>
+<span class="">	invoke-virtual {v5, v0}, Landroid/graphics/Matrix;->postRotate(F)Z</span>
+<span class="">	iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->loggingEnabled:Z</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const-string v0, "Rotate image on %1$d\u00b0 [%2$s]"</span>
+<span class="">	new-array v2, v9, [Ljava/lang/Object;</span>
+<span class="">	invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aput-object v3, v2, v1</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageKey()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aput-object v3, v2, v6</span>
+<span class="">	invoke-static {v0, v2}, Lcom/nostra13/universalimageloader/utils/L;->d(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v4</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	move v2, v1</span>
+<span class="">	invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eq v0, p1, :cond_4</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	:cond_4</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public decode(Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Landroid/graphics/Bitmap;
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->getImageStream(Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0, v1, p1}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->defineImageSizeAndRotation(Ljava/io/InputStream;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0, v1, p1}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->resetStream(Ljava/io/InputStream;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v0, v2, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;->imageSize:Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->prepareDecodingOptions(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-static {v1, v3, v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1}, Lcom/nostra13/universalimageloader/utils/IoUtils;->closeSilently(Ljava/io/Closeable;)V</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v1, "Image can\'t be decoded [%s]"</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Object;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageKey()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	invoke-static {v1, v2}, Lcom/nostra13/universalimageloader/utils/L;->e(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	invoke-static {v1}, Lcom/nostra13/universalimageloader/utils/IoUtils;->closeSilently(Ljava/io/Closeable;)V</span>
+<span class="">	throw v0</span>
+<span class="">	iget-object v1, v2, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;->exif:Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget v1, v1, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;->rotation:I</span>
+<span class="">	iget-object v2, v2, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;->exif:Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;</span>
+<span class="">	iget-boolean v2, v2, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;->flipHorizontal:Z</span>
+<span class="">	invoke-virtual {p0, v0, p1, v1, v2}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->considerExactScaleAndOrientaiton(Landroid/graphics/Bitmap;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;IZ)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected defineExifOrientation(Ljava/lang/String;)Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v2, Landroid/media/ExifInterface;</span>
+<span class="">	sget-object v3, Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;->FILE:Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;</span>
+<span class="">	invoke-virtual {v3, p1}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;->crop(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v3, "Orientation"</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	invoke-virtual {v2, v3, v4}, Landroid/media/ExifInterface;->getAttributeInt(Ljava/lang/String;I)I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result v2</span>
+<span class="">	packed-switch v2, :pswitch_data_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:goto_1</span>
+<span class="">	new-instance v2, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;</span>
+<span class="">	invoke-direct {v2, v1, v0}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;-><init>(IZ)V</span>
+<span class="">	move v0, v1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	const/16 v1, 0x5a</span>
+<span class="">	:pswitch_3</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	:pswitch_4</span>
+<span class="">	const/16 v1, 0xb4</span>
+<span class="">	:pswitch_5</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	:pswitch_6</span>
+<span class="">	const/16 v1, 0x10e</span>
+<span class="">	:pswitch_7</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catch_0</span>
+<span class="">	const-string v2, "Can\'t read EXIF tags from file [%s]"</span>
+<span class="">	new-array v0, v0, [Ljava/lang/Object;</span>
+<span class="">	aput-object p1, v0, v1</span>
+<span class="">	invoke-static {v2, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_4</span>
+<span class="">	:pswitch_5</span>
+<span class="">	:pswitch_7</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_3</span>
+<span class="">	:pswitch_6</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method protected defineImageSizeAndRotation(Ljava/io/InputStream;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v1, Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	invoke-direct {v1}, Landroid/graphics/BitmapFactory$Options;-><init>()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, v1, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p1, v0, v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageUri()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->shouldConsiderExifParams()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	iget-object v2, v1, Landroid/graphics/BitmapFactory$Options;->outMimeType:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, v0, v2}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->canDefineExifParams(Ljava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->defineExifOrientation(Ljava/lang/String;)Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v2, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;</span>
+<span class="">	new-instance v3, Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	iget v4, v1, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	iget v1, v1, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	iget v5, v0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;->rotation:I</span>
+<span class="">	invoke-direct {v3, v4, v1, v5}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;-><init>(III)V</span>
+<span class="">	invoke-direct {v2, v3, v0}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;-><init>(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;)V</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;-><init>()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected getImageStream(Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Ljava/io/InputStream;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getDownloader()Lcom/nostra13/universalimageloader/core/download/ImageDownloader;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageUri()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getExtraForDownloader()Ljava/lang/Object;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v1, v2}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader;->getStream(Ljava/lang/String;Ljava/lang/Object;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected prepareDecodingOptions(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Landroid/graphics/BitmapFactory$Options;
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageScaleType()Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v3, Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;->NONE:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="">	if-ne v0, v3, :cond_1</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/utils/ImageSizeUtils;->computeMinImageSampleSize(Lcom/nostra13/universalimageloader/core/assist/ImageSize;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-le v0, v1, :cond_0</span>
+<span class="">	iget-boolean v3, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->loggingEnabled:Z</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	const-string v3, "Subsample original image (%1$s) to %2$s (scale = %3$d) [%4$s]"</span>
+<span class="">	const/4 v4, 0x4</span>
+<span class="">	new-array v4, v4, [Ljava/lang/Object;</span>
+<span class="">	aput-object p1, v4, v2</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->scaleDown(I)Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	aput-object v2, v4, v1</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	aput-object v2, v4, v1</span>
+<span class="">	const/4 v1, 0x3</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getImageKey()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	aput-object v2, v4, v1</span>
+<span class="">	invoke-static {v3, v4}, Lcom/nostra13/universalimageloader/utils/L;->d(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getDecodingOptions()Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput v0, v1, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getTargetSize()Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v3</span>
+<span class="">	sget-object v4, Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;->IN_SAMPLE_POWER_OF_2:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;</span>
+<span class="">	if-ne v0, v4, :cond_2</span>
+<span class="">	move v0, v1</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->getViewScaleType()Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {p1, v3, v4, v0}, Lcom/nostra13/universalimageloader/utils/ImageSizeUtils;->computeImageSampleSize(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;Z)I</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected resetStream(Ljava/io/InputStream;Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Ljava/io/InputStream;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/io/InputStream;->reset()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/utils/IoUtils;->closeSilently(Ljava/io/Closeable;)V</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;->getImageStream(Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object p1</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

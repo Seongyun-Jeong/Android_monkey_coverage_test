@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.other.ui</a></li>
+        <li><i class="ico ico-class"></i> MainActivity.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/other/ui/MainActivity;
+.super Lcom/dm/hz/other/ui/BaseActivity;
+.source "SourceFile"
+.implements Landroid/view/View$OnClickListener;
+
+.annotation build Landroid/annotation/SuppressLint;
+value = {
+"NewApi"
+}
+.end annotation
+
+.field private a:Lcom/dm/hz/view/ProgressNumberTextView;
+.field private f:Lcom/dm/hz/view/ProgressNumberTextView;
+.field private g:Lcom/dm/hz/view/ProgressNumberTextView;
+.field private h:Landroid/widget/ImageView;
+.field private i:Landroid/graphics/Bitmap;
+
+
+<span class="cov">.method public constructor &lt;init&gt;()V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/BaseActivity;-><init>()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/other/ui/MainActivity;)Lcom/dm/hz/view/ProgressNumberTextView;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->g:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+.end method
+
+<span class="cov">.method private a()V</span>
+<span class="">	.locals 3</span>
+
+<span class="exec">	invoke-virtual {p0}, Lcom/dm/hz/other/ui/MainActivity;->getResources()Landroid/content/res/Resources;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const v1, 0x7f020005</span>
+<span class="exec">	invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->i:Landroid/graphics/Bitmap;</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/other/a;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="cov">	invoke-direct {v0, v1}, Lcom/dm/hz/other/a;-><init>(Landroid/content/Context;)V</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/other/a;->a()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/c/a/b;->b(Landroid/content/Context;)Lcom/dm/hz/c/a/b;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, "is_frist_time_lock"</span>
+<span class="cov">	const/4 v2, 0x1</span>
+<span class="exec">	invoke-virtual {v0, v1, v2}, Lcom/dm/hz/c/a/b;->b(Ljava/lang/String;Z)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="cov">	invoke-static {v0}, Lcom/dm/hz/lockscreen/ui/LockScreenActivity;->a(Landroid/content/Context;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public static a(Landroid/content/Context;)V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	new-instance v0, Landroid/content/Intent;</span>
+<span class="cov">	const-class v1, Lcom/dm/hz/other/ui/MainActivity;</span>
+<span class="cov">	invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V</span>
+<span class="cov">	const/high16 v1, 0x10000000</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;</span>
+<span class="cov">	invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic b(Lcom/dm/hz/other/ui/MainActivity;)Lcom/dm/hz/view/ProgressNumberTextView;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->f:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+.end method
+
+<span class="cov">.method private d()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/16 v0, 0x13</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	invoke-static {v1, v0}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const/16 v0, 0x14</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method private e()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	const v0, 0x7f0a0068</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->h:Landroid/widget/ImageView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->h:Landroid/widget/ImageView;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->i:Landroid/graphics/Bitmap;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+<span class="cov">	const v0, 0x7f0a006b</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->a:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->a:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	const-string v1, "0"</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/view/ProgressNumberTextView;->a(Ljava/lang/String;)V</span>
+<span class="cov">	const v0, 0x7f0a006d</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->f:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	const v0, 0x7f0a006c</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->g:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	const v0, 0x7f0a0070</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="cov">	const v0, 0x7f0a0071</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="cov">	const v0, 0x7f0a006e</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="cov">	const v0, 0x7f0a0069</span>
+<span class="exec">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private f()V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->a:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/lockscreen/c;->b()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	int-to-double v1, v1</span>
+<span class="cov">	invoke-virtual {v0, v1, v2}, Lcom/dm/hz/view/ProgressNumberTextView;->a(D)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private g()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/d/d;->a(Landroid/content/Context;)Lcom/dm/hz/d/d;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	new-instance v1, Lcom/dm/hz/other/ui/b;</span>
+<span class="cov">	invoke-direct {v1, p0}, Lcom/dm/hz/other/ui/b;-><init>(Lcom/dm/hz/other/ui/MainActivity;)V</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/d/d;->e(Lcom/dm/hz/d/c;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private h()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/d/d;->a(Landroid/content/Context;)Lcom/dm/hz/d/d;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	new-instance v1, Lcom/dm/hz/other/ui/c;</span>
+<span class="cov">	invoke-direct {v1, p0}, Lcom/dm/hz/other/ui/c;-><init>(Lcom/dm/hz/other/ui/MainActivity;)V</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/d/d;->f(Lcom/dm/hz/d/c;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private i()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/16 v0, 0x4b</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	invoke-static {v1, v0}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/lockscreen/model/Offer;</span>
+<span class="cov">	invoke-direct {v0}, Lcom/dm/hz/lockscreen/model/Offer;-><init>()V</span>
+<span class="cov">	sget-object v1, Lcom/dm/hz/d/a;->y:Ljava/lang/String;</span>
+<span class="cov">	iput-object v1, v0, Lcom/dm/hz/lockscreen/model/Offer;->url:Ljava/lang/String;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="cov">	invoke-static {v1, v0}, Lcom/dm/hz/lockscreen/ui/RewardDetailActivity;->a(Landroid/content/Context;Lcom/dm/hz/lockscreen/model/Offer;)V</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const/16 v0, 0x4c</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public onClick(Landroid/view/View;)V</span>
+<span class="">	.locals 2</span>
+
+<span class="exec">	invoke-static {}, Lcom/a/a/b/g;->a()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	invoke-virtual {p1}, Landroid/view/View;->getId()I</span>
+<span class="cov">	move-result v0</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:pswitch_1</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const/16 v0, 0x17</span>
+<span class="cov">	:goto_1</span>
+<span class="cov">	invoke-static {v1, v0}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="cov">	invoke-static {v0}, Lcom/dm/hz/setting/ui/SettingActivity;->a(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:pswitch_2</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/16 v0, 0x19</span>
+<span class="cov">	:goto_2</span>
+<span class="cov">	invoke-static {v1, v0}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="cov">	invoke-static {v0}, Lcom/dm/hz/gift/ui/GiftActivity;->a(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	const/16 v0, 0x1a</span>
+<span class="">	goto :goto_2</span>
+<span class="cov">	:cond_2</span>
+<span class="cov">	const/16 v0, 0x18</span>
+<span class="">	goto :goto_1</span>
+<span class="cov">	:pswitch_3</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/HZApplication;->j()Lcom/dm/hz/HZApplication;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Lcom/dm/hz/HZApplication;->c()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const/16 v0, 0x15</span>
+<span class="cov">	:goto_3</span>
+<span class="cov">	invoke-static {v1, v0}, Lcom/dm/hz/f/j;->a(Landroid/content/Context;I)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="cov">	invoke-static {v0}, Lcom/dm/hz/balance/ui/BalanceActivity;->a(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_3</span>
+<span class="cov">	const/16 v0, 0x16</span>
+<span class="">	goto :goto_3</span>
+<span class="cov">	:pswitch_4</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/MainActivity;->i()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x7f0a0069</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_3</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_4</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+<span class="cov">.method protected onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-super {p0, p1}, Lcom/dm/hz/other/ui/BaseActivity;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="cov">	const v0, 0x7f030019</span>
+<span class="cov">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/MainActivity;->setContentView(I)V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/MainActivity;->a()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/MainActivity;->e()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/MainActivity;->d()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected onDestroy()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-super {p0}, Lcom/dm/hz/other/ui/BaseActivity;->onDestroy()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->a:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/view/ProgressNumberTextView;->a()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->f:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/view/ProgressNumberTextView;->a()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->g:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/view/ProgressNumberTextView;->a()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->i:Landroid/graphics/Bitmap;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->i:Landroid/graphics/Bitmap;</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->i:Landroid/graphics/Bitmap;</span>
+<span class="cov">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/other/ui/MainActivity;->i:Landroid/graphics/Bitmap;</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected onResume()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-super {p0}, Lcom/dm/hz/other/ui/BaseActivity;->onResume()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/MainActivity;->f()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/MainActivity;->h()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/other/ui/MainActivity;->g()V</span>
+<span class="exec">	invoke-static {}, Lcom/dm/hz/user/a;->a()Lcom/dm/hz/user/a;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/user/a;->b()V</span>
+<span class="exec">	return-void</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

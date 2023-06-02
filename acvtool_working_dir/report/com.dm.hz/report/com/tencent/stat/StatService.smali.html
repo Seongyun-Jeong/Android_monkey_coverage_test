@@ -1,0 +1,1516 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.stat</a></li>
+        <li><i class="ico ico-class"></i> StatService.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/stat/StatService;
+.super Ljava/lang/Object;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/stat/StatService$1;,
+Lcom/tencent/stat/StatService$a;
+}
+.end annotation
+
+.field private static firstSession:Z
+.field private static handler:Landroid/os/Handler;
+.field private static volatile lastActivityTimestamp:J
+.field private static volatile lastReferPageId:Ljava/lang/String;
+.field private static volatile last_pageId:Ljava/lang/String;
+.field private static logger:Lcom/tencent/stat/common/StatLogger;
+.field private static volatile nextDayStartTimestamp:J
+.field private static originalExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
+.field private static volatile sessionId:I
+.field private static timedEventMap:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Lcom/tencent/stat/event/CustomEvent$Key;",
+"Ljava/lang/Long;",
+">;"
+}
+.end annotation
+.end field
+.field private static timedPageEventMap:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Ljava/lang/Long;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 3</span>
+
+<span class="">	const-wide/16 v1, 0x0</span>
+<span class="">	new-instance v0, Ljava/util/WeakHashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	sput-wide v1, Lcom/tencent/stat/StatService;->lastActivityTimestamp:J</span>
+<span class="">	sput-wide v1, Lcom/tencent/stat/StatService;->nextDayStartTimestamp:J</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatService;->sessionId:I</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->last_pageId:Ljava/lang/String;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->lastReferPageId:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Ljava/util/WeakHashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->timedPageEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/common/StatCommonHelper;->getLogger()Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->originalExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	sput-boolean v0, Lcom/tencent/stat/StatService;->firstSession:Z</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method static synthetic access$000()Lcom/tencent/stat/common/StatLogger;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+.end method
+
+.method static synthetic access$100()Ljava/lang/Thread$UncaughtExceptionHandler;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->originalExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;</span>
+.end method
+
+.method public static commitEvents(Landroid/content/Context;I)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.commitEvents() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	if-lt p1, v0, :cond_2</span>
+<span class="">	if-nez p1, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "The maxNumber of StatService.commitEvents() should be -1 or bigger than 0."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatStore;->getInstance(Landroid/content/Context;)Lcom/tencent/stat/StatStore;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/tencent/stat/StatStore;->loadEvents(I)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static getEncodeConfig()Lorg/json/JSONObject;
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v1, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v2, v2, Lcom/tencent/stat/StatConfig$a;->d:I</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	const-string v2, "v"</span>
+<span class="">	sget-object v3, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v3, v3, Lcom/tencent/stat/StatConfig$a;->d:I</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v2, v2, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v2, v2, Lcom/tencent/stat/StatConfig$a;->d:I</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	const-string v2, "v"</span>
+<span class="">	sget-object v3, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v3, v3, Lcom/tencent/stat/StatConfig$a;->d:I</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v2, v2, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v2, v0}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Exception;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static getHandler(Landroid/content/Context;)Landroid/os/Handler;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->init(Landroid/content/Context;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->handler:Landroid/os/Handler;</span>
+.end method
+
+.method static getSessionID(Landroid/content/Context;Z)I
+<span class="">	.locals 9</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	if-eqz p1, :cond_7</span>
+<span class="">	sget-wide v5, Lcom/tencent/stat/StatService;->lastActivityTimestamp:J</span>
+<span class="">	sub-long v5, v3, v5</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getSessionTimoutMillis()I</span>
+<span class="">	move-result v0</span>
+<span class="">	int-to-long v7, v0</span>
+<span class="">	cmp-long v0, v5, v7</span>
+<span class="">	if-ltz v0, :cond_7</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	sput-wide v3, Lcom/tencent/stat/StatService;->lastActivityTimestamp:J</span>
+<span class="">	sget-wide v5, Lcom/tencent/stat/StatService;->nextDayStartTimestamp:J</span>
+<span class="">	const-wide/16 v7, 0x0</span>
+<span class="">	cmp-long v5, v5, v7</span>
+<span class="">	if-nez v5, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/common/StatCommonHelper;->getTomorrowStartMilliseconds()J</span>
+<span class="">	move-result-wide v5</span>
+<span class="">	sput-wide v5, Lcom/tencent/stat/StatService;->nextDayStartTimestamp:J</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-wide v5, Lcom/tencent/stat/StatService;->nextDayStartTimestamp:J</span>
+<span class="">	cmp-long v3, v3, v5</span>
+<span class="">	if-ltz v3, :cond_2</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/common/StatCommonHelper;->getTomorrowStartMilliseconds()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	sput-wide v3, Lcom/tencent/stat/StatService;->nextDayStartTimestamp:J</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatStore;->getInstance(Landroid/content/Context;)Lcom/tencent/stat/StatStore;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/tencent/stat/StatStore;->getUser(Landroid/content/Context;)Lcom/tencent/stat/common/User;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/common/User;->getType()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eq v0, v1, :cond_1</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatStore;->getInstance(Landroid/content/Context;)Lcom/tencent/stat/StatStore;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/tencent/stat/StatStore;->getUser(Landroid/content/Context;)Lcom/tencent/stat/common/User;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/User;->setType(I)V</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v2}, Lcom/tencent/stat/StatConfig;->setCurrentDaySessionNumbers(I)V</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	sget-boolean v3, Lcom/tencent/stat/StatService;->firstSession:Z</span>
+<span class="">	if-eqz v3, :cond_6</span>
+<span class="">	:goto_1</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getCurrentDaySessionNumbers()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getMaxDaySessionNumbers()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ge v0, v1, :cond_5</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->sendNewSessionEnv(Landroid/content/Context;)V</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_3</span>
+<span class="">	sget-boolean v0, Lcom/tencent/stat/StatService;->firstSession:Z</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/SdkProtection;->endCheck(Landroid/content/Context;)V</span>
+<span class="">	sput-boolean v2, Lcom/tencent/stat/StatService;->firstSession:Z</span>
+<span class="">	:cond_4</span>
+<span class="">	sget v0, Lcom/tencent/stat/StatService;->sessionId:I</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_5</span>
+<span class="">	const-string v1, "Exceed StatConfig.getMaxDaySessionNumbers()."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move v1, v0</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_7</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static init(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->handler:Landroid/os/Handler;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->isServiceStatActive(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/SdkProtection;->beginCheck(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "ooh, Compatibility problem was found in this device!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "If you are on debug mode, please delete apk and try again."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->setEnableStatService(Z)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatStore;->getInstance(Landroid/content/Context;)Lcom/tencent/stat/StatStore;</span>
+<span class="">	:cond_2</span>
+<span class="">	new-instance v0, Landroid/os/HandlerThread;</span>
+<span class="">	const-string v1, "StatService"</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/b;->a(Landroid/content/Context;)V</span>
+<span class="">	new-instance v1, Landroid/os/Handler;</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V</span>
+<span class="">	sput-object v1, Lcom/tencent/stat/StatService;->handler:Landroid/os/Handler;</span>
+<span class="">	invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->originalExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isAutoExceptionCaught()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/tencent/stat/e;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/tencent/stat/e;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getStatSendStrategy()Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatReportStrategy;->APP_LAUNCH:Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	if-ne v0, v1, :cond_3</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/StatCommonHelper;->isNetworkAvailable(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatStore;->getInstance(Landroid/content/Context;)Lcom/tencent/stat/StatStore;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/StatStore;->loadEvents(I)V</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_3</span>
+<span class="">	const-string v1, "Init MTA StatService success."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_4</span>
+<span class="">	const-string v1, "MTA SDK AutoExceptionCaught is disable"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->warn(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method static isEmpty(Ljava/lang/String;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static isServiceStatActive(Landroid/content/Context;)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->HIBERNATE:Ljava/lang/String;</span>
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	invoke-static {p0, v1, v2, v3}, Lcom/tencent/stat/common/StatPreferences;->getLong(Landroid/content/Context;Ljava/lang/String;J)J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	const-string v3, "1.0.0"</span>
+<span class="">	invoke-static {v3}, Lcom/tencent/stat/common/StatCommonHelper;->getSDKLongVersion(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	cmp-long v1, v3, v1</span>
+<span class="">	if-gtz v1, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->setEnableStatService(Z)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static onPause(Landroid/content/Context;)V
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.onPause() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/StatCommonHelper;->getActivityName(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->timedPageEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Long;</span>
+<span class="">	if-eqz v0, :cond_6</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	sub-long/2addr v2, v4</span>
+<span class="">	const-wide/16 v4, 0x3e8</span>
+<span class="">	div-long/2addr v2, v4</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	const-wide/16 v4, 0x0</span>
+<span class="">	cmp-long v2, v2, v4</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	const-wide/16 v2, 0x1</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatService;->lastReferPageId:Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	if-ne v2, v3, :cond_3</span>
+<span class="">	const-string v2, "-"</span>
+<span class="">	sput-object v2, Lcom/tencent/stat/StatService;->lastReferPageId:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/event/PageView;</span>
+<span class="">	:cond_3</span>
+<span class="">	sget-object v3, Lcom/tencent/stat/StatService;->lastReferPageId:Ljava/lang/String;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-static {p0, v4}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-direct {v2, p0, v3, v4, v0}, Lcom/tencent/stat/event/PageView;-><init>(Landroid/content/Context;Ljava/lang/String;ILjava/lang/Long;)V</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/stat/event/PageView;->getPageId()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v3, Lcom/tencent/stat/StatService;->last_pageId:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v3, "Invalid invocation since previous onResume on diff page."</span>
+<span class="">	invoke-virtual {v0, v3}, Lcom/tencent/stat/common/StatLogger;->warn(Ljava/lang/Object;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v3, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v3, v2}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	sput-object v1, Lcom/tencent/stat/StatService;->lastReferPageId:Ljava/lang/String;</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_6</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "Starttime for PageID:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, " not found, lost onResume()?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public static onResume(Landroid/content/Context;)V
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.onResume() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->timedPageEventMap:Ljava/util/Map;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getMaxParallelTimmingEvents()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lt v0, v1, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "The number of page events exceeds the maximum value "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getMaxParallelTimmingEvents()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/StatCommonHelper;->getActivityName(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatService;->last_pageId:Ljava/lang/String;</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->last_pageId:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->timedPageEventMap:Ljava/util/Map;</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->last_pageId:Ljava/lang/String;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "Duplicate PageID : "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatService;->last_pageId:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ", onResume() repeated?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->timedPageEventMap:Ljava/util/Map;</span>
+<span class="">	:cond_4</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->last_pageId:Ljava/lang/String;</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public static reportAppMonitorStat(Landroid/content/Context;Lcom/tencent/stat/StatAppMonitor;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.reportAppMonitorStat() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez p1, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The StatAppMonitor of StatService.reportAppMonitorStat() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/tencent/stat/StatAppMonitor;->getInterfaceName()Ljava/lang/String;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The interfaceName of StatAppMonitor on StatService.reportAppMonitorStat() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/MonitorStatEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_4</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, p0, v1, p1}, Lcom/tencent/stat/event/MonitorStatEvent;-><init>(Landroid/content/Context;ILcom/tencent/stat/StatAppMonitor;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static reportError(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.reportError() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatService;->isEmpty(Ljava/lang/String;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "Error message in StatService.reportError() is empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/ErrorEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, p0, v1, p1}, Lcom/tencent/stat/event/ErrorEvent;-><init>(Landroid/content/Context;ILjava/lang/String;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static reportException(Landroid/content/Context;Ljava/lang/Throwable;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.reportException() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez p1, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Throwable error message of StatService.reportException() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/ErrorEvent;</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-direct {v0, p0, v1, v2, p1}, Lcom/tencent/stat/event/ErrorEvent;-><init>(Landroid/content/Context;IILjava/lang/Throwable;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static reportQQ(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	const-string p1, ""</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->qq:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	sput-object p1, Lcom/tencent/stat/StatConfig;->qq:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->sendAdditionEvent(Landroid/content/Context;Ljava/util/Map;)V</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method static reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.reportSdkSelfException() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "reportSdkSelfException error: "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/ErrorEvent;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/16 v2, 0x63</span>
+<span class="">	invoke-direct {v0, p0, v1, v2, p1}, Lcom/tencent/stat/event/ErrorEvent;-><init>(Landroid/content/Context;IILjava/lang/Throwable;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method static sendAdditionEvent(Landroid/content/Context;Ljava/util/Map;)V
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/content/Context;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"*>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.sendAdditionEvent() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/AdditionEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, p0, v1, p1}, Lcom/tencent/stat/event/AdditionEvent;-><init>(Landroid/content/Context;ILjava/util/Map;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static sendNewSessionEnv(Landroid/content/Context;)V
+<span class="">	.locals 5</span>
+
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "start new session."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/common/StatCommonHelper;->getNextSessionID()I</span>
+<span class="">	move-result v0</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatService;->sessionId:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->setCurSessionStatReportCount(I)V</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->incCurrentDaySessionNumbers()V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/event/SessionEnv;</span>
+<span class="">	sget v3, Lcom/tencent/stat/StatService;->sessionId:I</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatService;->getEncodeConfig()Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-direct {v2, p0, v3, v4}, Lcom/tencent/stat/event/SessionEnv;-><init>(Landroid/content/Context;ILorg/json/JSONObject;)V</span>
+<span class="">	invoke-direct {v1, v2}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public static setEnvAttributes(Landroid/content/Context;Ljava/util/Map;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/content/Context;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v1, 0x200</span>
+<span class="">	if-le v0, v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The map in setEnvAttributes can\'t be null or its size can\'t exceed 512."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p0, p1}, Lcom/tencent/stat/common/Env;->appendEnvAttr(Landroid/content/Context;Ljava/util/Map;)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Exception;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static startNewSession(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.startNewSession() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatService;->stopSession()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static startStatService(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/tencent/stat/MtaSDkException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v2, "MTA StatService is disable."</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v1, "1.0.0"</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "MTA SDK version, current: "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, " ,required: "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	if-eqz p0, :cond_1</span>
+<span class="">	if-nez p2, :cond_2</span>
+<span class="">	const-string v1, "Context or mtaSdkVersion in StatService.startStatService() is null, please check it!"</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v2, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->setEnableStatService(Z)V</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/MtaSDkException;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/tencent/stat/MtaSDkException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/stat/common/StatCommonHelper;->getSDKLongVersion(Ljava/lang/String;)J</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-static {p2}, Lcom/tencent/stat/common/StatCommonHelper;->getSDKLongVersion(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	cmp-long v2, v2, v4</span>
+<span class="">	if-gez v2, :cond_3</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "MTA SDK version conflicted, current: "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ",required: "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ". please delete the current SDK and download the latest one. official website: http://mta.qq.com/ or http://mta.oa.com/"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v2, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->setEnableStatService(Z)V</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/MtaSDkException;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/tencent/stat/MtaSDkException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatConfig;->getInstallChannel(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_4</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_5</span>
+<span class="">	const-string v1, "-"</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/stat/StatConfig;->setInstallChannel(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {p0, p1}, Lcom/tencent/stat/StatConfig;->setAppKey(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v2, v1}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method public static stopSession()V
+<span class="">	.locals 2</span>
+
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	sput-wide v0, Lcom/tencent/stat/StatService;->lastActivityTimestamp:J</span>
+.end method
+
+.method public static varargs trackCustomBeginEvent(Landroid/content/Context;Ljava/lang/String;[Ljava/lang/String;)V
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.trackCustomBeginEvent() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatService;->isEmpty(Ljava/lang/String;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The event_id of StatService.trackCustomBeginEvent() can not be null or empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/CustomEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, p0, v1, p1}, Lcom/tencent/stat/event/CustomEvent;-><init>(Landroid/content/Context;ILjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/tencent/stat/event/CustomEvent;->setArgs([Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/event/CustomEvent;->getKey()Lcom/tencent/stat/event/CustomEvent$Key;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "Duplicate CustomEvent key: "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/event/CustomEvent$Key;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, ", trackCustomBeginEvent() repeated?"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getMaxParallelTimmingEvents()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-gt v1, v2, :cond_4</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_4</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "The number of timedEvent exceeds the maximum value "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getMaxParallelTimmingEvents()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public static trackCustomBeginKVEvent(Landroid/content/Context;Ljava/lang/String;Ljava/util/Properties;)V
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.trackCustomBeginEvent() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatService;->isEmpty(Ljava/lang/String;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The event_id of StatService.trackCustomBeginEvent() can not be null or empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/CustomEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, p0, v1, p1}, Lcom/tencent/stat/event/CustomEvent;-><init>(Landroid/content/Context;ILjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/tencent/stat/event/CustomEvent;->setProperties(Ljava/util/Properties;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/event/CustomEvent;->getKey()Lcom/tencent/stat/event/CustomEvent$Key;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "Duplicate CustomEvent key: "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/event/CustomEvent$Key;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, ", trackCustomBeginKVEvent() repeated?"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getMaxParallelTimmingEvents()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-gt v1, v2, :cond_4</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_4</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "The number of timedEvent exceeds the maximum value "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->getMaxParallelTimmingEvents()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public static varargs trackCustomEndEvent(Landroid/content/Context;Ljava/lang/String;[Ljava/lang/String;)V
+<span class="">	.locals 7</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.trackCustomEndEvent() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatService;->isEmpty(Ljava/lang/String;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The event_id of StatService.trackCustomEndEvent() can not be null or empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/event/CustomEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-direct {v2, p0, v0, p1}, Lcom/tencent/stat/event/CustomEvent;-><init>(Landroid/content/Context;ILjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, p2}, Lcom/tencent/stat/event/CustomEvent;->setArgs([Ljava/lang/String;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/stat/event/CustomEvent;->getKey()Lcom/tencent/stat/event/CustomEvent$Key;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Long;</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	sub-long v0, v3, v0</span>
+<span class="">	const-wide/16 v3, 0x3e8</span>
+<span class="">	div-long/2addr v0, v3</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	const-wide/16 v5, 0x0</span>
+<span class="">	cmp-long v1, v3, v5</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	const-wide/16 v0, 0x1</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Lcom/tencent/stat/event/CustomEvent;->setDuration(J)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v1, v2}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_5</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "No start time found for custom event: "</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/stat/event/CustomEvent;->getKey()Lcom/tencent/stat/event/CustomEvent$Key;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/stat/event/CustomEvent$Key;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ", lost trackCustomBeginEvent()?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public static trackCustomEndKVEvent(Landroid/content/Context;Ljava/lang/String;Ljava/util/Properties;)V
+<span class="">	.locals 7</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.trackCustomEndEvent() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatService;->isEmpty(Ljava/lang/String;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The event_id of StatService.trackCustomEndEvent() can not be null or empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/event/CustomEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-direct {v2, p0, v0, p1}, Lcom/tencent/stat/event/CustomEvent;-><init>(Landroid/content/Context;ILjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, p2}, Lcom/tencent/stat/event/CustomEvent;->setProperties(Ljava/util/Properties;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->timedEventMap:Ljava/util/Map;</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/stat/event/CustomEvent;->getKey()Lcom/tencent/stat/event/CustomEvent$Key;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Long;</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	sub-long v0, v3, v0</span>
+<span class="">	const-wide/16 v3, 0x3e8</span>
+<span class="">	div-long/2addr v0, v3</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	const-wide/16 v5, 0x0</span>
+<span class="">	cmp-long v1, v3, v5</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	const-wide/16 v0, 0x1</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Lcom/tencent/stat/event/CustomEvent;->setDuration(J)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v1, v2}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_5</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "No start time found for custom event: "</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/stat/event/CustomEvent;->getKey()Lcom/tencent/stat/event/CustomEvent$Key;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Lcom/tencent/stat/event/CustomEvent$Key;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ", lost trackCustomBeginKVEvent()?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public static varargs trackCustomEvent(Landroid/content/Context;Ljava/lang/String;[Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.trackCustomEvent() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatService;->isEmpty(Ljava/lang/String;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The event_id of StatService.trackCustomEvent() can not be null or empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/CustomEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, p0, v1, p1}, Lcom/tencent/stat/event/CustomEvent;-><init>(Landroid/content/Context;ILjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/tencent/stat/event/CustomEvent;->setArgs([Ljava/lang/String;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static trackCustomKVEvent(Landroid/content/Context;Ljava/lang/String;Ljava/util/Properties;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/StatConfig;->isEnableStatService()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The Context of StatService.trackCustomEvent() can not be null!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatService;->isEmpty(Ljava/lang/String;)Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatService;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The event_id of StatService.trackCustomEvent() can not be null or empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/event/CustomEvent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v1}, Lcom/tencent/stat/StatService;->getSessionID(Landroid/content/Context;Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, p0, v1, p1}, Lcom/tencent/stat/event/CustomEvent;-><init>(Landroid/content/Context;ILjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/tencent/stat/event/CustomEvent;->setProperties(Ljava/util/Properties;)V</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatService;->getHandler(Landroid/content/Context;)Landroid/os/Handler;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/tencent/stat/StatService$a;</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/tencent/stat/StatService$a;-><init>(Lcom/tencent/stat/event/Event;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatService;->reportSdkSelfException(Landroid/content/Context;Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

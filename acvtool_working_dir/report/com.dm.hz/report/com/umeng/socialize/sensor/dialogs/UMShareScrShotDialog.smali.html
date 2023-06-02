@@ -1,0 +1,1593 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.sensor.dialogs</a></li>
+        <li><i class="ico ico-class"></i> UMShareScrShotDialog.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;
+.super Landroid/app/Dialog;
+.source "SourceFile"
+.implements Landroid/view/View$OnClickListener;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;
+}
+.end annotation
+
+.field private static A:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;
+.field private static K:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;
+.field protected static a:Lcom/umeng/socialize/controller/UMSocialService;
+.field private B:Landroid/view/animation/Animation;
+.field private C:Landroid/view/animation/Animation;
+.field private D:Landroid/view/animation/Animation;
+.field private E:Landroid/widget/TextView;
+.field private final F:Ljava/lang/String;
+.field private final G:Ljava/lang/String;
+.field private final H:Ljava/lang/String;
+.field private I:Lcom/umeng/socialize/sensor/beans/ShakeConfig;
+.field private J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;
+.field final b:I
+.field private c:Landroid/widget/ImageView;
+.field private d:Landroid/widget/ImageButton;
+.field private e:Landroid/widget/ImageButton;
+.field private f:Landroid/widget/ImageButton;
+.field private g:Landroid/widget/ImageButton;
+.field private h:Landroid/widget/ImageButton;
+.field private i:Landroid/widget/ImageButton;
+.field private j:Landroid/widget/Button;
+.field private k:Landroid/widget/EditText;
+.field private l:Landroid/view/View;
+.field private m:Landroid/view/View;
+.field private n:Landroid/graphics/Bitmap;
+.field private o:Landroid/content/Context;
+.field private p:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/umeng/socialize/bean/g;",
+">;"
+}
+.end annotation
+.end field
+.field private final q:I
+.field private r:Lcom/umeng/socialize/bean/l;
+.field private s:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/umeng/socialize/bean/k;",
+">;"
+}
+.end annotation
+.end field
+.field private t:Lcom/umeng/socialize/media/UMImage;
+.field private u:Lcom/umeng/socialize/bean/g;
+.field private v:Lcom/umeng/socialize/bean/g;
+.field private w:Landroid/widget/ImageButton;
+.field private x:Landroid/widget/ImageButton;
+.field private y:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Landroid/widget/ImageButton;",
+">;"
+}
+.end annotation
+.end field
+.field private z:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Lcom/umeng/socialize/bean/g;",
+"Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->A:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$1;</span>
+<span class="">	invoke-direct {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$1;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->K:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/common/b$a;->d:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v1, "Notitle_Fullscreen"</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;-><init>(Landroid/content/Context;I)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->c:Landroid/widget/ImageView;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->d:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->j:Landroid/widget/Button;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->m:Landroid/view/View;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->n:Landroid/graphics/Bitmap;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	const/4 v0, 0x5</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->q:I</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/bean/l;->b()Lcom/umeng/socialize/bean/l;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->r:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->s:Ljava/util/List;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->B:Landroid/view/animation/Animation;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->C:Landroid/view/animation/Animation;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->D:Landroid/view/animation/Animation;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->E:Landroid/widget/TextView;</span>
+<span class="">	const/16 v0, 0x8c</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->b:I</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->F:Ljava/lang/String;</span>
+<span class="">	const-string v0, "platform_file"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->G:Ljava/lang/String;</span>
+<span class="">	const-string v0, "prev_selected"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->H:Ljava/lang/String;</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/sensor/beans/ShakeConfig;->a()Lcom/umeng/socialize/sensor/beans/ShakeConfig;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->I:Lcom/umeng/socialize/sensor/beans/ShakeConfig;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->I:Lcom/umeng/socialize/sensor/beans/ShakeConfig;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/beans/ShakeConfig;->b()Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->I:Lcom/umeng/socialize/sensor/beans/ShakeConfig;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/beans/ShakeConfig;->b()Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a(Landroid/content/Context;)V</span>
+.end method
+
+.method private a(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/SimpleShareContent;
+<span class="">	.locals 1</span>
+
+<span class="">	instance-of v0, p1, Lcom/umeng/socialize/media/SimpleShareContent;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/SimpleShareContent;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/SimpleShareContent;->clone()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/SimpleShareContent;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/CloneNotSupportedException;->printStackTrace()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Landroid/content/Context;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/common/b$a;->a:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v1, "shake_umeng_socialize_share_dlg"</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p1, v0, v1}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->setContentView(Landroid/view/View;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "contentLayout"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->m:Landroid/view/View;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "scrshot_previewImg"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->c:Landroid/widget/ImageView;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->c:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "cancelBtn"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->d:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->d:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "sendBtn"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/Button;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->j:Landroid/widget/Button;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->j:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->i:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "shake_umeng_socialize_edit_anim"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->D:Landroid/view/animation/Animation;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "contentEdit"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/EditText;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$2;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$2;-><init>(Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "platform_btn1"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "platform_btn2"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "platform_btn3"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "platform_btn4"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "platform_btn5"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->setCanceledOnTouchOutside(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->i:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "shake_umeng_socialize_imageview_rotate"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->B:Landroid/view/animation/Animation;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->B:Landroid/view/animation/Animation;</span>
+<span class="">	new-instance v1, Landroid/view/animation/LinearInterpolator;</span>
+<span class="">	invoke-direct {v1}, Landroid/view/animation/LinearInterpolator;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->B:Landroid/view/animation/Animation;</span>
+<span class="">	invoke-virtual {v0, v4}, Landroid/view/animation/Animation;->setFillAfter(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->i:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "shake_umeng_socialize_dlg_scale"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->C:Landroid/view/animation/Animation;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "half_textview"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->E:Landroid/widget/TextView;</span>
+.end method
+
+.method private a(Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	move v2, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lt v2, v0, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/umeng/socialize/bean/g;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	add-int/lit8 v0, v2, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	move v2, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method static synthetic b(Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;)Landroid/widget/EditText;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+.end method
+
+.method private b(Landroid/content/Context;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/utils/b;->f(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method private b(Lcom/umeng/socialize/bean/g;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->s:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/k;</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/k;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic c(Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;)Landroid/view/animation/Animation;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->D:Landroid/view/animation/Animation;</span>
+.end method
+
+.method static synthetic d(Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;)Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+.end method
+
+.method static synthetic g()Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->A:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+.end method
+
+.method private h()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+.end method
+
+.method private i()V
+<span class="">	.locals 7</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->s:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_sms_on"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_sms_off"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;-><init>(II)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->c:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_gmail_on"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_gmail_off"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;-><init>(II)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->d:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_sina_on"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_sina_off"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;-><init>(II)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->e:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_douban_on"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_douban_off"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;-><init>(II)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->l:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_tx_on"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_tx_off"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;-><init>(II)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->k:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_renren_on"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_renren_off"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;-><init>(II)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/k;</span>
+<span class="">	iget-object v2, v0, Lcom/umeng/socialize/bean/k;->a:Ljava/lang/String;</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/bean/g;->a(Ljava/lang/String;)Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v3, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/bean/k;->c:I</span>
+<span class="">	invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/bean/k;->d:I</span>
+<span class="">	invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	new-instance v3, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/bean/k;->c:I</span>
+<span class="">	iget v5, v0, Lcom/umeng/socialize/bean/k;->d:I</span>
+<span class="">	invoke-direct {v3, v4, v5}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;-><init>(II)V</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->F:Ljava/lang/String;</span>
+<span class="">	new-instance v5, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v6, "### SDK \u5df2\u914d\u7f6e  "</span>
+<span class="">	invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/k;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v5, " \u5e73\u53f0."</span>
+<span class="">	invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method private j()V
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->I:Lcom/umeng/socialize/sensor/beans/ShakeConfig;</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/sensor/beans/ShakeConfig;->b()Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sensor/beans/ShakeMsgType;->a:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	if-eq v1, v2, :cond_1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-interface {v1}, Lcom/umeng/socialize/controller/UMSocialService;->f()Lcom/umeng/socialize/bean/m;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/umeng/socialize/bean/m;->a(Lcom/umeng/socialize/bean/g;)Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {p0, v1}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/SimpleShareContent;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/media/SimpleShareContent;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->F:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "#### \u6062\u590d\u7684\u5e73\u53f0\u7684\u5206\u4eab\u5185\u5bb9\u4e3a : "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->I:Lcom/umeng/socialize/sensor/beans/ShakeConfig;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/beans/ShakeConfig;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private k()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->c:Landroid/widget/ImageView;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->n:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->c:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->c:Landroid/widget/ImageView;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->B:Landroid/view/animation/Animation;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->m:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->m:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->C:Landroid/view/animation/Animation;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V</span>
+.end method
+
+.method private l()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->m()V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->s()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->n()V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o()V</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private m()V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/util/HashSet;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v1}, Ljava/util/HashSet;-><init>()V</span>
+<span class="">	new-instance v2, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->clear()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v0, v4, :cond_2</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_2</span>
+<span class="">	invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private n()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->e:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->c:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->k:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->l:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p()Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->e:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->c:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->k:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->h:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->l:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->e:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private o()V
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v0, 0x5</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lt v1, v0, :cond_5</span>
+<span class="">	const-string v1, "UMScrShotLanDialog"</span>
+<span class="">	const-string v2, "### \u6447\u4e00\u6447\u5206\u4eab,\u6700\u591a\u53ef\u6dfb\u52a05\u4e2a\u5e73\u53f0."</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	move v3, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p()Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	if-eqz v6, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v6, v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v6}, Ljava/util/List;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	check-cast v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v2}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->a()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setVisibility(I)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	move v5, v0</span>
+<span class="">	:goto_2</span>
+<span class="">	if-lt v5, v3, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	add-int/lit8 v0, v5, 0x1</span>
+<span class="">	:goto_3</span>
+<span class="">	move v5, v0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Landroid/widget/ImageButton;</span>
+<span class="">	invoke-virtual {v1, v4}, Landroid/widget/ImageButton;->setVisibility(I)V</span>
+<span class="">	if-ne v0, v6, :cond_3</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	check-cast v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v2}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->a()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->y:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "#### \u6062\u590d\u9009\u62e9\u7684\u5e73\u53f0\u4e3a: "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_3</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move v0, v4</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v3, v1</span>
+<span class="">	:cond_5</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method private p()Lcom/umeng/socialize/bean/g;
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "platform_file"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "prev_selected"</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "#### --- restorePlatform \u4e0a\u6b21\u5e73\u53f0\u4e3a : "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/bean/g;->a(Ljava/lang/String;)Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private q()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	const-string v1, "platform_file"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "prev_selected"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v2}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;</span>
+<span class="">	invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private r()V
+<span class="">	.locals 3</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/controller/UMSocialService;->f()Lcom/umeng/socialize/bean/m;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/bean/m;->a(Lcom/umeng/socialize/bean/g;)Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	instance-of v1, v0, Lcom/umeng/socialize/media/SimpleShareContent;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sensor/beans/ShakeMsgType;->b:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	if-ne v1, v2, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/SimpleShareContent;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/SimpleShareContent;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/sensor/beans/ShakeMsgType;->a:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->I:Lcom/umeng/socialize/sensor/beans/ShakeConfig;</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/sensor/beans/ShakeConfig;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private s()V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:cond_2</span>
+<span class="">	:goto_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v0, v2, :cond_3</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->b(Lcom/umeng/socialize/bean/g;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->F:Ljava/lang/String;</span>
+<span class="">	:cond_3</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "## "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, " \u5e73\u53f0\u6ca1\u6709\u5728SDK\u4e2d\u914d\u7f6e,\u81ea\u52a8\u79fb\u9664!!"</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->remove()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private t()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/bean/g;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->b:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v0, v1, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->z:Ljava/util/Map;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog$IconResPair;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setImageResource(I)V</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method private u()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->F:Ljava/lang/String;</span>
+<span class="">	const-string v1, "mContext \u4e3a\u7a7a, \u4e0d\u80fd\u8bbe\u7f6e\u7a97\u53e3\u53c2\u6570."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget v0, v0, Landroid/content/res/Configuration;->orientation:I</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	if-ne v0, v2, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->E:Landroid/widget/TextView;</span>
+<span class="">	const/16 v2, 0x8</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:goto_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->E:Landroid/widget/TextView;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+.end method
+
+.method private v()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Landroid/text/Editable;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/m;->c(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v1, 0x8c</span>
+<span class="">	if-gt v1, v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private w()Lcom/umeng/socialize/bean/UMShareMsg;
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v0, Lcom/umeng/socialize/bean/UMShareMsg;</span>
+<span class="">	invoke-direct {v0}, Lcom/umeng/socialize/bean/UMShareMsg;-><init>()V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k:Landroid/widget/EditText;</span>
+<span class="">	invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1}, Landroid/text/Editable;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/sensor/beans/ShakeMsgType;->a:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	if-eq v2, v3, :cond_1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-interface {v2}, Lcom/umeng/socialize/controller/UMSocialService;->f()Lcom/umeng/socialize/bean/m;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v2, v3}, Lcom/umeng/socialize/bean/m;->a(Lcom/umeng/socialize/bean/g;)Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {p0, v2}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/SimpleShareContent;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	invoke-virtual {v2, v3}, Lcom/umeng/socialize/media/SimpleShareContent;->a(Lcom/umeng/socialize/media/UMImage;)V</span>
+<span class="">	invoke-virtual {v2, v1}, Lcom/umeng/socialize/media/SimpleShareContent;->e(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/umeng/socialize/bean/UMShareMsg;->a(Lcom/umeng/socialize/media/UMediaObject;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iput-object v1, v0, Lcom/umeng/socialize/bean/UMShareMsg;->a:Ljava/lang/String;</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->F:Ljava/lang/String;</span>
+<span class="">	const-string v2, "### \u8fd4\u56de\u6447\u4e00\u6447\u5206\u4eab\u5185\u5bb9"</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/umeng/socialize/bean/UMShareMsg;->a(Lcom/umeng/socialize/media/UMediaObject;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/bean/g;->i:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eq v2, v3, :cond_2</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/bean/g;->j:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-ne v2, v3, :cond_4</span>
+<span class="">	const-string v2, ""</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object v2, v0, Lcom/umeng/socialize/bean/UMShareMsg;->a:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_3</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	invoke-virtual {v2, v1}, Lcom/umeng/socialize/media/UMImage;->b(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/bean/UMShareMsg;->a(Lcom/umeng/socialize/media/UMediaObject;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iput-object v1, v0, Lcom/umeng/socialize/bean/UMShareMsg;->a:Ljava/lang/String;</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method public a()Landroid/graphics/Bitmap;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->n:Landroid/graphics/Bitmap;</span>
+.end method
+
+.method public a(Landroid/graphics/Bitmap;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->n:Landroid/graphics/Bitmap;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->n:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/umeng/socialize/media/UMImage;-><init>(Landroid/content/Context;Landroid/graphics/Bitmap;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/controller/UMSocialService;)V
+<span class="">	.locals 3</span>
+
+<span class="">	sput-object p1, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->r:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/umeng/socialize/bean/l;->a(Landroid/content/Context;Lcom/umeng/socialize/controller/UMSocialService;)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->s:Ljava/util/List;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i()V</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	sput-object p1, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->A:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+.end method
+
+.method public a(Ljava/util/List;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/umeng/socialize/bean/g;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->l()V</span>
+.end method
+
+.method public b()Ljava/util/List;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/umeng/socialize/bean/g;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+.end method
+
+.method public c()Lcom/umeng/socialize/bean/g;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+.end method
+
+.method protected d()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->b(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	const-string v1, "\u62b1\u6b49,\u8bf7\u68c0\u67e5\u60a8\u7684\u7f51\u7edc"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->dismiss()V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->K:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/sensor/UMSensor$WhitchButton;->b:Lcom/umeng/socialize/sensor/UMSensor$WhitchButton;</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;->a(Lcom/umeng/socialize/sensor/UMSensor$WhitchButton;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->f:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	if-ne v0, v1, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t:Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "\u5206\u4eab\u5230"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-virtual {v2}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/media/UMImage;->b(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w()Lcom/umeng/socialize/bean/UMShareMsg;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-interface {v1}, Lcom/umeng/socialize/controller/UMSocialService;->f()Lcom/umeng/socialize/bean/m;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/umeng/socialize/bean/m;->a(Lcom/umeng/socialize/bean/UMShareMsg;)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/i;->a:Lcom/umeng/socialize/bean/i;</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/umeng/socialize/controller/UMSocialService;->a(Lcom/umeng/socialize/bean/i;)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->K:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	invoke-interface {v0, v1, v2, v3}, Lcom/umeng/socialize/controller/UMSocialService;->b(Landroid/content/Context;Lcom/umeng/socialize/bean/g;Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public e()Lcom/umeng/socialize/controller/UMSocialService;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->a:Lcom/umeng/socialize/controller/UMSocialService;</span>
+.end method
+
+.method public f()Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->A:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+.end method
+
+.method public onAttachedToWindow()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->onAttachedToWindow()V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u()V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->k()V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->j()V</span>
+.end method
+
+.method public onClick(Landroid/view/View;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->o:Landroid/content/Context;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->u:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->d:Landroid/widget/ImageButton;</span>
+<span class="">	if-ne v0, p1, :cond_2</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->K:Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sensor/UMSensor$WhitchButton;->a:Lcom/umeng/socialize/sensor/UMSensor$WhitchButton;</span>
+<span class="">	invoke-interface {v0, v2}, Lcom/umeng/socialize/sensor/UMSensor$OnSensorListener;->a(Lcom/umeng/socialize/sensor/UMSensor$WhitchButton;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->dismiss()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->t()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->J:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/sensor/beans/ShakeMsgType;->a:Lcom/umeng/socialize/sensor/beans/ShakeMsgType;</span>
+<span class="">	if-eq v0, v2, :cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->r()V</span>
+<span class="">	:cond_1</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->j:Landroid/widget/Button;</span>
+<span class="">	:cond_2</span>
+<span class="">	if-ne v0, p1, :cond_3</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->d()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_3</span>
+<span class="">	if-ne p1, v0, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->e:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	:cond_4</span>
+<span class="">	if-ne p1, v0, :cond_5</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->f:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	:cond_5</span>
+<span class="">	if-ne p1, v0, :cond_6</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->g:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	:cond_6</span>
+<span class="">	if-ne p1, v0, :cond_7</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->h:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	:cond_7</span>
+<span class="">	if-ne p1, v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->w:Landroid/widget/ImageButton;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->p:Ljava/util/List;</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->v:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->i:Landroid/widget/ImageButton;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->x:Landroid/widget/ImageButton;</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+.end method
+
+.method public onDetachedFromWindow()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMShareScrShotDialog;->q()V</span>
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->onDetachedFromWindow()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

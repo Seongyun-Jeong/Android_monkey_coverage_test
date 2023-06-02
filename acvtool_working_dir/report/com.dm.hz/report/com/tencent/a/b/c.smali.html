@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.a.b</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/tencent/a/b/c;
+.super Ljava/lang/Object;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/a/b/c$b;,
+Lcom/tencent/a/b/c$a;
+}
+.end annotation
+
+.field private static a:Lcom/tencent/a/b/c;
+.field private b:J
+.field private c:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/tencent/a/b/c$a;",
+">;"
+}
+.end annotation
+.end field
+.field private d:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/tencent/a/b/c$b;",
+">;"
+}
+.end annotation
+.end field
+.field private e:Ljava/lang/String;
+
+
+.method public constructor <init>()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/c;->b:J</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/c;->c:Ljava/util/List;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+.end method
+
+.method public static a()Lcom/tencent/a/b/c;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/a/b/c;->a:Lcom/tencent/a/b/c;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/tencent/a/b/c;</span>
+<span class="">	invoke-direct {v0}, Lcom/tencent/a/b/c;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/tencent/a/b/c;->a:Lcom/tencent/a/b/c;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/c;->a:Lcom/tencent/a/b/c;</span>
+.end method
+
+.method private static a(Ljava/lang/StringBuffer;)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Lorg/json/JSONObject;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "location"</span>
+<span class="">	invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "accuracy"</span>
+<span class="">	invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getDouble(Ljava/lang/String;)D</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	const-wide v3, 0x40b3880000000000L    # 5000.0</span>
+<span class="">	cmpg-double v1, v1, v3</span>
+<span class="">	if-gez v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Ljava/util/List;)Z
+<span class="">	.locals 9</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Landroid/net/wifi/ScanResult;",</span>
+<span class="">	">;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v8, 0x6</span>
+<span class="">	const/4 v7, 0x2</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	move v1, v2</span>
+<span class="">	move v3, v2</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ge v1, v0, :cond_5</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/c$b;</span>
+<span class="">	iget-object v6, v0, Lcom/tencent/a/b/c$b;->a:Ljava/lang/String;</span>
+<span class="">	move v5, v2</span>
+<span class="">	if-eqz v6, :cond_2</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-interface {p1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ge v5, v0, :cond_2</span>
+<span class="">	invoke-interface {p1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/wifi/ScanResult;</span>
+<span class="">	iget-object v0, v0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	add-int/lit8 v3, v3, 0x1</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	add-int/lit8 v0, v5, 0x1</span>
+<span class="">	:cond_3</span>
+<span class="">	move v5, v0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move v3, v2</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-interface {p1}, Ljava/util/List;->size()I</span>
+<span class="">	:cond_5</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lt v0, v8, :cond_6</span>
+<span class="">	div-int/lit8 v1, v0, 0x2</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	if-lt v3, v1, :cond_6</span>
+<span class="">	move v2, v4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-ge v0, v8, :cond_7</span>
+<span class="">	:cond_6</span>
+<span class="">	if-lt v3, v7, :cond_7</span>
+<span class="">	move v2, v4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	:cond_7</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-gt v0, v7, :cond_0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-gt v0, v7, :cond_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iget-wide v5, p0, Lcom/tencent/a/b/c;->b:J</span>
+<span class="">	sub-long/2addr v0, v5</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Math;->abs(J)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	const-wide/16 v5, 0x7530</span>
+<span class="">	cmp-long v0, v0, v5</span>
+<span class="">	if-gtz v0, :cond_0</span>
+<span class="">	move v2, v4</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public final a(IIIILjava/util/List;)V
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(IIII",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Landroid/net/wifi/ScanResult;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/c;->b:J</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->c:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->clear()V</span>
+<span class="">	new-instance v0, Lcom/tencent/a/b/c$a;</span>
+<span class="">	invoke-direct {v0, v2}, Lcom/tencent/a/b/c$a;-><init>(B)V</span>
+<span class="">	iput p1, v0, Lcom/tencent/a/b/c$a;->a:I</span>
+<span class="">	iput p2, v0, Lcom/tencent/a/b/c$a;->b:I</span>
+<span class="">	iput p3, v0, Lcom/tencent/a/b/c$a;->c:I</span>
+<span class="">	iput p4, v0, Lcom/tencent/a/b/c$a;->d:I</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/c;->c:Ljava/util/List;</span>
+<span class="">	invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	if-eqz p5, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->clear()V</span>
+<span class="">	move v1, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {p5}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ge v1, v0, :cond_0</span>
+<span class="">	new-instance v3, Lcom/tencent/a/b/c$b;</span>
+<span class="">	invoke-direct {v3, v2}, Lcom/tencent/a/b/c$b;-><init>(B)V</span>
+<span class="">	invoke-interface {p5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/wifi/ScanResult;</span>
+<span class="">	iget-object v0, v0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;</span>
+<span class="">	iput-object v0, v3, Lcom/tencent/a/b/c$b;->a:Ljava/lang/String;</span>
+<span class="">	invoke-interface {p5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/net/wifi/ScanResult;</span>
+<span class="">	iget v0, v0, Landroid/net/wifi/ScanResult;->level:I</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public final a(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+.end method
+
+.method public final b(IIIILjava/util/List;)Ljava/lang/String;
+<span class="">	.locals 7</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(IIII",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Landroid/net/wifi/ScanResult;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Ljava/lang/String;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v6, 0x2</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v2, 0xa</span>
+<span class="">	if-ge v0, v2, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	if-nez p5, :cond_6</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->c:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_b</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->c:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lez v0, :cond_b</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->c:Ljava/util/List;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/tencent/a/b/c$a;</span>
+<span class="">	iget v2, v0, Lcom/tencent/a/b/c$a;->a:I</span>
+<span class="">	if-ne v2, p1, :cond_0</span>
+<span class="">	iget v2, v0, Lcom/tencent/a/b/c$a;->b:I</span>
+<span class="">	if-ne v2, p2, :cond_0</span>
+<span class="">	iget v2, v0, Lcom/tencent/a/b/c$a;->c:I</span>
+<span class="">	if-ne v2, p3, :cond_0</span>
+<span class="">	iget v0, v0, Lcom/tencent/a/b/c$a;->d:I</span>
+<span class="">	if-ne v0, p4, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/c;->d:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_a</span>
+<span class="">	if-eqz p5, :cond_5</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-interface {p5}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_a</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	iget-wide v4, p0, Lcom/tencent/a/b/c;->b:J</span>
+<span class="">	sub-long/2addr v2, v4</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Math;->abs(J)J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	const-wide/16 v4, 0x7530</span>
+<span class="">	cmp-long v4, v2, v4</span>
+<span class="">	if-lez v4, :cond_7</span>
+<span class="">	invoke-interface {p5}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v4</span>
+<span class="">	if-gt v4, v6, :cond_9</span>
+<span class="">	const-wide/32 v4, 0xafc8</span>
+<span class="">	:cond_7</span>
+<span class="">	cmp-long v2, v2, v4</span>
+<span class="">	if-lez v2, :cond_8</span>
+<span class="">	invoke-interface {p5}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-le v2, v6, :cond_9</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuffer;</span>
+<span class="">	:cond_8</span>
+<span class="">	invoke-direct {v2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v2}, Lcom/tencent/a/b/c;->a(Ljava/lang/StringBuffer;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_3</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_9</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-direct {p0, p5}, Lcom/tencent/a/b/c;->a(Ljava/util/List;)Z</span>
+<span class="">	:cond_a</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_b</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	invoke-direct {p0, p5}, Lcom/tencent/a/b/c;->a(Ljava/util/List;)Z</span>
+<span class="">	:cond_b</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+<span class="">	goto/16 :goto_0</span>
+.end method
+
+.method public final b()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/c;->e:Ljava/lang/String;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

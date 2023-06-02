@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">im.yixin.sdk.api</a></li>
+        <li><i class="ico ico-class"></i> j.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lim/yixin/sdk/api/j;
+.super Ljava/lang/Object;
+
+
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a(Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;)Lim/yixin/sdk/api/YXMessage;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v3, Lim/yixin/sdk/api/YXImageMessageData;</span>
+<span class="">	invoke-direct {v3}, Lim/yixin/sdk/api/YXImageMessageData;-><init>()V</span>
+<span class="">	new-instance v2, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	const/16 v4, 0x55</span>
+<span class="">	invoke-virtual {p0, v0, v4, v2}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, v3, Lim/yixin/sdk/api/YXImageMessageData;->imageData:[B</span>
+<span class="">	new-instance v0, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	invoke-direct {v0, v3}, Lim/yixin/sdk/api/YXMessage;-><init>(Lim/yixin/sdk/api/YXMessage$c;)V</span>
+<span class="">	iput-object p1, v0, Lim/yixin/sdk/api/YXMessage;->title:Ljava/lang/String;</span>
+<span class="">	iput-object p2, v0, Lim/yixin/sdk/api/YXMessage;->description:Ljava/lang/String;</span>
+<span class="">	const/16 v3, 0x96</span>
+<span class="">	const/16 v4, 0x96</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	invoke-static {p0, v3, v4, v5}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	invoke-static {v3, v4}, Lim/yixin/sdk/a/a;->a(Landroid/graphics/Bitmap;Z)[B</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iput-object v3, v0, Lim/yixin/sdk/api/YXMessage;->thumbData:[B</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_start_3</span>
+<span class="">	:goto_1</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_1</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_start_4</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_2</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	:goto_3</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_start_5</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3</span>
+<span class="">	:goto_4</span>
+<span class="">	:cond_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_3</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	goto :goto_4</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_4</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

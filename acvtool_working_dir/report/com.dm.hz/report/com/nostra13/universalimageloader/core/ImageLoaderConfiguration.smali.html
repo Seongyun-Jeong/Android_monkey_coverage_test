@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.core</a></li>
+        <li><i class="ico ico-class"></i> ImageLoaderConfiguration.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$1;,
+Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+}
+.end annotation
+
+.field final customExecutor:Z
+.field final customExecutorForCachedImages:Z
+.field final decoder:Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
+.field final defaultDisplayImageOptions:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+.field final discCache:Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;
+.field final downloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
+.field final imageCompressFormatForDiscCache:Landroid/graphics/Bitmap$CompressFormat;
+.field final imageQualityForDiscCache:I
+.field final maxImageHeightForDiscCache:I
+.field final maxImageHeightForMemoryCache:I
+.field final maxImageWidthForDiscCache:I
+.field final maxImageWidthForMemoryCache:I
+.field final memoryCache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCacheAware;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/nostra13/universalimageloader/cache/memory/MemoryCacheAware",
+"<",
+"Ljava/lang/String;",
+"Landroid/graphics/Bitmap;",
+">;"
+}
+.end annotation
+.end field
+.field final networkDeniedDownloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
+.field final processorForDiscCache:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
+.field final reserveDiscCache:Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;
+.field final resources:Landroid/content/res/Resources;
+.field final slowNetworkDownloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
+.field final taskExecutor:Ljava/util/concurrent/Executor;
+.field final taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
+.field final tasksProcessingType:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
+.field final threadPoolSize:I
+.field final threadPriority:I
+.field final writeLogs:Z
+
+
+.method private constructor <init>(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$000(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->resources:Landroid/content/res/Resources;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$100(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->maxImageWidthForMemoryCache:I</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$200(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->maxImageHeightForMemoryCache:I</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$300(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->maxImageWidthForDiscCache:I</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$400(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->maxImageHeightForDiscCache:I</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$500(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->imageCompressFormatForDiscCache:Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$600(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->imageQualityForDiscCache:I</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$700(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->processorForDiscCache:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$800(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Ljava/util/concurrent/Executor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->taskExecutor:Ljava/util/concurrent/Executor;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$900(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Ljava/util/concurrent/Executor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1000(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->threadPoolSize:I</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1100(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->threadPriority:I</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1200(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->tasksProcessingType:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1300(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->discCache:Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1400(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/cache/memory/MemoryCacheAware;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->memoryCache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCacheAware;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1500(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/DisplayImageOptions;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->defaultDisplayImageOptions:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1600(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->writeLogs:Z</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1700(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/download/ImageDownloader;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->downloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1800(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->decoder:Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$1900(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->customExecutor:Z</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$2000(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->customExecutorForCachedImages:Z</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/core/download/NetworkDeniedImageDownloader;</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->downloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/nostra13/universalimageloader/core/download/NetworkDeniedImageDownloader;-><init>(Lcom/nostra13/universalimageloader/core/download/ImageDownloader;)V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->networkDeniedDownloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;</span>
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/core/download/SlowNetworkImageDownloader;</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->downloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/nostra13/universalimageloader/core/download/SlowNetworkImageDownloader;-><init>(Lcom/nostra13/universalimageloader/core/download/ImageDownloader;)V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->slowNetworkDownloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;</span>
+<span class="">	invoke-static {p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->access$000(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/nostra13/universalimageloader/utils/StorageUtils;->getCacheDirectory(Landroid/content/Context;Z)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createReserveDiscCache(Ljava/io/File;)Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->reserveDiscCache:Lcom/nostra13/universalimageloader/cache/disc/DiscCacheAware;</span>
+.end method
+
+.method synthetic constructor <init>(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$1;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;-><init>(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)V</span>
+.end method
+
+.method public static createDefault(Landroid/content/Context;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->build()Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method  getMaxImageSize()Lcom/nostra13/universalimageloader/core/assist/ImageSize;
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->resources:Landroid/content/res/Resources;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->maxImageWidthForMemoryCache:I</span>
+<span class="">	if-gtz v0, :cond_0</span>
+<span class="">	iget v0, v2, Landroid/util/DisplayMetrics;->widthPixels:I</span>
+<span class="">	:cond_0</span>
+<span class="">	iget v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->maxImageHeightForMemoryCache:I</span>
+<span class="">	if-gtz v1, :cond_1</span>
+<span class="">	iget v1, v2, Landroid/util/DisplayMetrics;->heightPixels:I</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v2, Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;-><init>(II)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

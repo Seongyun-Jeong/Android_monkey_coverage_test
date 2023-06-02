@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.b</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/b/a;
+.super Lcom/umeng/socialize/b/a/b;
+.source "SourceFile"
+
+
+.field private static final f:Ljava/lang/String; = "/comment/add/"
+.field private static final j:I = 0x5
+.field private k:Lcom/umeng/socialize/bean/UMComment;
+.field private l:[Lcom/umeng/socialize/bean/h;
+
+
+.method public constructor <init>(Landroid/content/Context;Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/bean/UMComment;[Lcom/umeng/socialize/bean/h;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const-string v2, ""</span>
+<span class="">	const-class v3, Lcom/umeng/socialize/b/a/e;</span>
+<span class="">	const/4 v5, 0x5</span>
+<span class="">	sget-object v6, Lcom/umeng/socialize/b/a/b$b;->b:Lcom/umeng/socialize/b/a/b$b;</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/umeng/socialize/b/a/b;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Lcom/umeng/socialize/bean/m;ILcom/umeng/socialize/b/a/b$b;)V</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/b/a;->d:Landroid/content/Context;</span>
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/b/a;->k:Lcom/umeng/socialize/bean/UMComment;</span>
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/b/a;->e:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iput-object p4, p0, Lcom/umeng/socialize/b/a;->l:[Lcom/umeng/socialize/bean/h;</span>
+.end method
+
+.method protected a()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "/comment/add/"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/b/a;->d:Landroid/content/Context;</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/utils/m;->a(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "/"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/b/a;->e:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v1, v1, Lcom/umeng/socialize/bean/m;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "/"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected a(Ljava/util/Map;)Ljava/util/Map;
+<span class="">	.locals 7</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v1, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/b/b/e;->s:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/b/a;->k:Lcom/umeng/socialize/bean/UMComment;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/UMComment;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/a;->k:Lcom/umeng/socialize/bean/UMComment;</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/UMComment;->b:Lcom/umeng/socialize/bean/UMLocation;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/b/b/e;->t:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/b/a;->k:Lcom/umeng/socialize/bean/UMComment;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/UMComment;->b:Lcom/umeng/socialize/bean/UMLocation;</span>
+<span class="">	invoke-virtual {v2}, Lcom/umeng/socialize/bean/UMLocation;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/a;->k:Lcom/umeng/socialize/bean/UMComment;</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/UMComment;->g:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/b/b/e;->x:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/b/a;->k:Lcom/umeng/socialize/bean/UMComment;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/UMComment;->g:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/a;->e:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/m;->g:Lcom/umeng/socialize/bean/j;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const-string v0, "name"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/b/a;->e:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/m;->g:Lcom/umeng/socialize/bean/j;</span>
+<span class="">	invoke-virtual {v2}, Lcom/umeng/socialize/bean/j;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	const-string v0, "icon"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/b/a;->e:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/m;->g:Lcom/umeng/socialize/bean/j;</span>
+<span class="">	invoke-virtual {v2}, Lcom/umeng/socialize/bean/j;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/b/a;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "### \u8bc4\u8bba\u7528\u6237\u540d : "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/b/a;->e:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v3, v3, Lcom/umeng/socialize/bean/m;->g:Lcom/umeng/socialize/bean/j;</span>
+<span class="">	invoke-virtual {v3}, Lcom/umeng/socialize/bean/j;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, ", \u5934\u50cfurl : "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/b/a;->e:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v3, v3, Lcom/umeng/socialize/bean/m;->g:Lcom/umeng/socialize/bean/j;</span>
+<span class="">	invoke-virtual {v3}, Lcom/umeng/socialize/bean/j;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/b/a;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "### \u8bc4\u8bba\u53c2\u6570 \uff1a"</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/a;->l:[Lcom/umeng/socialize/bean/h;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/a;->l:[Lcom/umeng/socialize/bean/h;</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	if-lez v0, :cond_3</span>
+<span class="">	new-instance v2, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/b/a;->l:[Lcom/umeng/socialize/bean/h;</span>
+<span class="">	array-length v4, v3</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v0, v4, :cond_5</span>
+<span class="">	invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	if-le v0, v3, :cond_3</span>
+<span class="">	const-string v0, "sns"</span>
+<span class="">	invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {p0, v1, p1}, Lcom/umeng/socialize/b/a;->a(Lorg/json/JSONObject;Ljava/util/Map;)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/b/a;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/umeng/socialize/b/a;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/b/a;->k:Lcom/umeng/socialize/bean/UMComment;</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/bean/UMComment;->a()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_4</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/umeng/socialize/b/a;->a(Lcom/umeng/socialize/media/UMediaObject;Ljava/util/Map;)V</span>
+<span class="">	:cond_4</span>
+<span class="">	aget-object v5, v3, v0</span>
+<span class="">	:try_start_2</span>
+<span class="">	:cond_5</span>
+<span class="">	if-eqz v5, :cond_6</span>
+<span class="">	iget-object v6, v5, Lcom/umeng/socialize/bean/h;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v6}, Ljava/lang/String;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	iget-object v5, v5, Lcom/umeng/socialize/bean/h;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v6, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_2 .. :try_end_2} :catch_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/b/a;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "\u6570\u636e\u6253\u5305\u5931\u8d25 :"</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,1221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.media</a></li>
+        <li><i class="ico ico-class"></i> UMImage.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/media/UMImage;
+.super Lcom/umeng/socialize/media/BaseMediaObject;
+.source "SourceFile"
+
+
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Landroid/os/Parcelable$Creator",
+"<",
+"Lcom/umeng/socialize/media/UMImage;",
+">;"
+}
+.end annotation
+.end field
+.field public static h:I = 0x0
+.field public static i:I = 0x0
+.field private static final j:Ljava/lang/String;
+.field private static final k:Ljava/lang/String; = "/umeng_cache/"
+.field private l:Ljava/io/File;
+.field private m:Ljava/lang/String;
+.field private n:Z
+.field private o:Ljava/lang/ref/SoftReference;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/ref/SoftReference",
+"<[B>;"
+}
+.end annotation
+.end field
+.field private p:F
+.field private q:Ljava/util/concurrent/locks/Lock;
+.field private r:Ljava/util/concurrent/locks/Condition;
+
+
+<span class="cov">.method static constructor &lt;clinit&gt;()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const-class v0, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	sput-object v0, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="cov">	const/16 v0, 0x300</span>
+<span class="cov">	sput v0, Lcom/umeng/socialize/media/UMImage;->h:I</span>
+<span class="cov">	const/16 v0, 0x400</span>
+<span class="cov">	sput v0, Lcom/umeng/socialize/media/UMImage;->i:I</span>
+<span class="cov">	new-instance v0, Lcom/umeng/socialize/media/k;</span>
+<span class="cov">	invoke-direct {v0}, Lcom/umeng/socialize/media/k;-><init>()V</span>
+<span class="cov">	sput-object v0, Lcom/umeng/socialize/media/UMImage;->CREATOR:Landroid/os/Parcelable$Creator;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/media/BaseMediaObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	const/high16 v0, 0x45000000    # 2048.0f</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a(Landroid/content/Context;)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p2}, Landroid/content/res/Resources;->openRawResourceFd(I)Landroid/content/res/AssetFileDescriptor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/AssetFileDescriptor;->createInputStream()Ljava/io/FileInputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/Object;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/media/UMImage;->q()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/graphics/Bitmap;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/media/BaseMediaObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	const/high16 v0, 0x45000000    # 2048.0f</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/Object;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/io/File;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/media/BaseMediaObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	const/high16 v0, 0x45000000    # 2048.0f</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a(Landroid/content/Context;)V</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-virtual {p2}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v1, "/data/data"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {v0}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/Object;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public constructor &lt;init&gt;(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="cov">	invoke-direct {p0, p2}, Lcom/umeng/socialize/media/BaseMediaObject;-><init>(Ljava/lang/String;)V</span>
+<span class="cov">	const-string v0, ""</span>
+<span class="cov">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="cov">	iput-object v1, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="cov">	const/high16 v0, 0x45000000    # 2048.0f</span>
+<span class="cov">	iput v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+<span class="cov">	new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="cov">	invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V</span>
+<span class="cov">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="cov">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="cov">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a(Landroid/content/Context;)V</span>
+<span class="exec">	invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="exec">	invoke-static {p2}, Lcom/umeng/socialize/b/b/d;->b(Ljava/lang/String;)Z</span>
+<span class="cov">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-direct {v0, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/Object;)V</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;[B)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/media/BaseMediaObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	const/high16 v0, 0x45000000    # 2048.0f</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/lang/Object;)V</span>
+.end method
+
+.method protected constructor <init>(Landroid/os/Parcel;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/media/BaseMediaObject;-><init>(Landroid/os/Parcel;)V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	const/high16 v0, 0x45000000    # 2048.0f</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/media/UMImage;Ljava/lang/String;)Ljava/io/File;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/media/UMImage;->e(Ljava/lang/String;)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static synthetic a([BLjava/io/File;)Ljava/io/File;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/umeng/socialize/media/UMImage;->b([BLjava/io/File;)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private a(Landroid/graphics/Bitmap;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Ljava/lang/Thread;</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/media/n;</span>
+<span class="">	invoke-direct {v1, p0, p1}, Lcom/umeng/socialize/media/n;-><init>(Lcom/umeng/socialize/media/UMImage;Landroid/graphics/Bitmap;)V</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->start()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/media/UMImage;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/media/UMImage;->q()V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/media/UMImage;Ljava/io/File;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+.end method
+
+.method private a(Ljava/io/InputStream;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/media/l;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0, p0, p1}, Lcom/umeng/socialize/media/l;-><init>(Lcom/umeng/socialize/media/UMImage;Ljava/io/InputStream;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/l;->start()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a([B)V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/Thread;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/media/m;</span>
+<span class="">	invoke-direct {v1, p0, p1}, Lcom/umeng/socialize/media/m;-><init>(Lcom/umeng/socialize/media/UMImage;[B)V</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->start()V</span>
+.end method
+
+.method private a(Ljava/io/File;)[B
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/media/UMImage;->b(Ljava/io/File;)[B</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	array-length v2, v0</span>
+<span class="">	if-lez v2, :cond_3</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/common/a;->a([B)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/a;->m:[Ljava/lang/String;</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	aget-object v2, v2, v3</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/media/UMImage;->b([B)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic b(Lcom/umeng/socialize/media/UMImage;)F
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+.end method
+
+.method private static b([BLjava/io/File;)Ljava/io/File;
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/io/FileOutputStream;</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	new-instance v1, Ljava/io/BufferedOutputStream;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	invoke-virtual {v1, p0}, Ljava/io/BufferedOutputStream;->write([B)V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedOutputStream;->close()V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_start_3</span>
+<span class="">	:goto_1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedOutputStream;->close()V</span>
+<span class="">	:try_start_4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/BufferedOutputStream;->close()V</span>
+<span class="">	:try_start_5</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_4</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static b(Ljava/io/File;)[B
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v3, Ljava/io/FileInputStream;</span>
+<span class="">	invoke-direct {v3, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_4</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	new-instance v2, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_5</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	const/16 v1, 0x1000</span>
+<span class="">	:try_start_2</span>
+<span class="">	new-array v1, v1, [B</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/io/InputStream;->read([B)I</span>
+<span class="">	move-result v4</span>
+<span class="">	const/4 v5, -0x1</span>
+<span class="">	if-ne v4, v5, :cond_2</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_2</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	:try_start_3</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/InputStream;->close()V</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v2, v1, v5, v4}, Ljava/io/ByteArrayOutputStream;->write([BII)V</span>
+<span class="">	:try_start_4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="">	:try_start_5</span>
+<span class="">	:goto_2</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-static {v4, v5, v1}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V</span>
+<span class="">	if-eqz v3, :cond_3</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catchall {:try_start_5 .. :try_end_5} :catchall_2</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/InputStream;->close()V</span>
+<span class="">	:try_start_6</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_6</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	move-object v3, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	if-eqz v3, :cond_4</span>
+<span class="">	:goto_3</span>
+<span class="">	invoke-virtual {v3}, Ljava/io/InputStream;->close()V</span>
+<span class="">	:try_start_7</span>
+<span class="">	if-eqz v2, :cond_5</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_7</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_3</span>
+<span class="">	:goto_4</span>
+<span class="">	:cond_5</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_3</span>
+<span class="">	goto :goto_4</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_1</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_2</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_4</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	move-object v3, v0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_5</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method private static b([B)[B
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->a([B)Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	array-length v3, p0</span>
+<span class="">	invoke-static {p0, v2, v3, v1}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v1, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	sget-object v3, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	const/16 v4, 0x64</span>
+<span class="">	invoke-virtual {v2, v3, v4, v1}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z</span>
+<span class="">	invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->gc()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_start_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v5, v1</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	move-object v0, v5</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_start_4</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catch_4</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method static synthetic c(Lcom/umeng/socialize/media/UMImage;)[B
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/media/UMImage;->s()[B</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private e(Ljava/lang/String;)Ljava/io/File;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Lcom/umeng/socialize/utils/a;->b()V</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/media/UMImage;->j()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->delete()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z</span>
+.end method
+
+.method static synthetic p()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+.end method
+
+.method private q()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/media/UMImage;->r()V</span>
+.end method
+
+.method private r()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->signal()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="">	const-string v1, "*********  UMImage\u5e8f\u5217\u5316\u5b8c\u6210"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method private s()[B
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, [B</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	if-lez v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### \u4ece\u7f13\u5b58\u4e2d\u83b7\u53d6\u56fe\u7247\u6570\u636e "</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, [B</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-array v0, v1, [B</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/media/UMImage;->b_()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_4</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/media/UMImage;->c_()Ljava/lang/String;</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	const-string v1, ".png"</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	const-string v1, "jpeg"</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	const-string v1, "jpg"</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	const-string v1, "gif"</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const/16 v1, 0x96</span>
+<span class="">	:cond_2</span>
+<span class="">	const/16 v3, 0x96</span>
+<span class="">	invoke-static {v2, v1, v3}, Lcom/umeng/socialize/utils/a;->a(Ljava/lang/String;II)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/utils/a;->a(Landroid/graphics/Bitmap;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_1</span>
+<span class="">	array-length v1, v0</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	new-instance v1, Ljava/lang/ref/SoftReference;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="">	const-string v2, "### \u9996\u6b21\u751f\u6210\u56fe\u7247\u4e8c\u8fdb\u5236\u6570\u636e"</span>
+<span class="">	invoke-static {v1, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/b/b/d;->a(Ljava/lang/String;)[B</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	array-length v3, v1</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-static {v1, v0, v3}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Lcom/umeng/socialize/utils/a;->a(Ljava/lang/String;Landroid/graphics/Bitmap;)V</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v4, v1</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	move-object v0, v4</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="">	:goto_2</span>
+<span class="">	const-string v3, "get image data from network failed."</span>
+<span class="">	invoke-static {v2, v3, v0}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget-boolean v2, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	:cond_4</span>
+<span class="">	if-eqz v2, :cond_6</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	if-eqz v2, :cond_6</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/io/File;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget-boolean v2, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	:cond_5</span>
+<span class="">	if-eqz v2, :cond_7</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	if-eqz v2, :cond_7</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/io/File;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	:goto_3</span>
+<span class="">	const/16 v2, 0x1e</span>
+<span class="">	:cond_6</span>
+<span class="">	if-lt v1, v2, :cond_5</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const-wide/16 v2, 0x64</span>
+<span class="">	:cond_7</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V</span>
+<span class="">	:try_start_3</span>
+<span class="">	goto :goto_3</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_1</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catch_1</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/InterruptedException;->printStackTrace()V</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method public a(F)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+.end method
+
+<span class="cov">.method protected a(Landroid/content/Context;)V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="exec">	invoke-virtual {p1}, Landroid/content/Context;->getCacheDir()Ljava/io/File;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-void</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/media/UMediaObject$FetchMediaDataListener;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {p1}, Lcom/umeng/socialize/media/UMediaObject$FetchMediaDataListener;->a()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/media/o;</span>
+<span class="">	invoke-direct {v0, p0, p1}, Lcom/umeng/socialize/media/o;-><init>(Lcom/umeng/socialize/media/UMImage;Lcom/umeng/socialize/media/UMediaObject$FetchMediaDataListener;)V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-array v1, v1, [Ljava/lang/Void;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/media/o;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/media/UMImage;->s()[B</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p1, v0}, Lcom/umeng/socialize/media/UMediaObject$FetchMediaDataListener;->a([B)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected a(Ljava/lang/Object;)V</span>
+<span class="">	.locals 4</span>
+
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="cov">	instance-of v0, p1, Landroid/graphics/Bitmap;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	check-cast p1, Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a(Landroid/graphics/Bitmap;)V</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	instance-of v0, p1, [B</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	check-cast p1, [B</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a([B)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_2</span>
+<span class="cov">	instance-of v0, p1, Ljava/io/File;</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	check-cast p1, Ljava/io/File;</span>
+<span class="">	if-eqz p1, :cond_3</span>
+<span class="">	invoke-virtual {p1}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="">	const-string v1, "the image file is no exist.."</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_4</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/media/UMImage;->q()V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_5</span>
+<span class="cov">	instance-of v0, p1, Landroid/graphics/drawable/BitmapDrawable;</span>
+<span class="">	if-eqz v0, :cond_6</span>
+<span class="">	:try_start_0</span>
+<span class="">	check-cast p1, Landroid/graphics/drawable/BitmapDrawable;</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/media/UMImage;->a(Landroid/graphics/Bitmap;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/media/UMImage;->j:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "Sorry cannot setImage..["</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "]"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v0}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_6</span>
+<span class="cov">	instance-of v0, p1, Ljava/io/InputStream;</span>
+<span class="">	if-eqz v0, :cond_7</span>
+<span class="">	check-cast p1, Ljava/io/InputStream;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/media/UMImage;->a(Ljava/io/InputStream;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_7</span>
+<span class="cov">	instance-of v0, p1, Ljava/lang/String;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	iput-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public clone()Ljava/lang/Object;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/lang/CloneNotSupportedException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-super {p0}, Lcom/umeng/socialize/media/BaseMediaObject;->clone()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	new-instance v2, Ljava/lang/ref/SoftReference;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, [B</span>
+<span class="">	invoke-direct {v2, v1}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	iput-object v2, v0, Lcom/umeng/socialize/media/UMImage;->o:Ljava/lang/ref/SoftReference;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-super {p0}, Lcom/umeng/socialize/media/BaseMediaObject;->clone()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public final d_()Ljava/util/Map;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/media/UMImage;->b_()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/b/b/e;->y:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/media/UMImage;->a:Ljava/lang/String;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/b/b/e;->z:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/media/UMImage;->g()Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public e_()[B
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/media/UMImage;->s()[B</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public g()Lcom/umeng/socialize/media/UMediaObject$a;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/media/UMediaObject$a;->a:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+.end method
+
+.method public h()Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+.end method
+
+.method public i()Ljava/io/File;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+.end method
+
+.method public j()Ljava/io/File;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {}, Lcom/umeng/socialize/utils/b;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "/umeng_cache/"</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Ljava/io/IOException;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "dirpath is unknow"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public k()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	instance-of v0, v0, Ljava/io/File;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public l()F
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/media/UMImage;->p:F</span>
+.end method
+
+.method public m()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/b/b/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public n()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+.end method
+
+.method public o()V
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->r:Ljava/util/concurrent/locks/Condition;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const-wide/16 v1, 0x2</span>
+<span class="">	sget-object v3, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;</span>
+<span class="">	invoke-interface {v0, v1, v2, v3}, Ljava/util/concurrent/locks/Condition;->await(JLjava/util/concurrent/TimeUnit;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V</span>
+<span class="">	:try_start_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->q:Ljava/util/concurrent/locks/Lock;</span>
+<span class="">	invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public toString()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "UMImage [fileObj="</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ", sandCache="</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ", isSerialized="</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-boolean v1, p0, Lcom/umeng/socialize/media/UMImage;->n:Z</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "media_url="</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ", qzone_title="</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ", qzone_thumb="</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/media/UMImage;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "]"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public writeToParcel(Landroid/os/Parcel;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1, p2}, Lcom/umeng/socialize/media/BaseMediaObject;->writeToParcel(Landroid/os/Parcel;I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->l:Ljava/io/File;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/media/UMImage;->m:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

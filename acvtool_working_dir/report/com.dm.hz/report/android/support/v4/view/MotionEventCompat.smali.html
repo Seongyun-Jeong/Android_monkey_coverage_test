@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.view</a></li>
+        <li><i class="ico ico-class"></i> MotionEventCompat.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Landroid/support/v4/view/MotionEventCompat;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Landroid/support/v4/view/MotionEventCompat$EclairMotionEventVersionImpl;,
+Landroid/support/v4/view/MotionEventCompat$BaseMotionEventVersionImpl;,
+Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;
+}
+.end annotation
+
+.field public static final ACTION_HOVER_ENTER:I = 0x9
+.field public static final ACTION_HOVER_EXIT:I = 0xa
+.field public static final ACTION_HOVER_MOVE:I = 0x7
+.field public static final ACTION_MASK:I = 0xff
+.field public static final ACTION_POINTER_DOWN:I = 0x5
+.field public static final ACTION_POINTER_INDEX_MASK:I = 0xff00
+.field public static final ACTION_POINTER_INDEX_SHIFT:I = 0x8
+.field public static final ACTION_POINTER_UP:I = 0x6
+.field public static final ACTION_SCROLL:I = 0x8
+.field static final IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 2</span>
+
+<span class="">	sget v0, Landroid/os/Build$VERSION;->SDK_INT:I</span>
+<span class="">	const/4 v1, 0x5</span>
+<span class="">	if-lt v0, v1, :cond_0</span>
+<span class="">	new-instance v0, Landroid/support/v4/view/MotionEventCompat$EclairMotionEventVersionImpl;</span>
+<span class="">	invoke-direct {v0}, Landroid/support/v4/view/MotionEventCompat$EclairMotionEventVersionImpl;-><init>()V</span>
+<span class="">	sput-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Landroid/support/v4/view/MotionEventCompat$BaseMotionEventVersionImpl;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0}, Landroid/support/v4/view/MotionEventCompat$BaseMotionEventVersionImpl;-><init>()V</span>
+<span class="">	sput-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static findPointerIndex(Landroid/view/MotionEvent;I)I
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;</span>
+<span class="">	invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;->findPointerIndex(Landroid/view/MotionEvent;I)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static getActionIndex(Landroid/view/MotionEvent;)I
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Landroid/view/MotionEvent;->getAction()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const v1, 0xff00</span>
+<span class="">	and-int/2addr v0, v1</span>
+<span class="">	shr-int/lit8 v0, v0, 0x8</span>
+.end method
+
+.method public static getActionMasked(Landroid/view/MotionEvent;)I
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Landroid/view/MotionEvent;->getAction()I</span>
+<span class="">	move-result v0</span>
+<span class="">	and-int/lit16 v0, v0, 0xff</span>
+.end method
+
+.method public static getPointerCount(Landroid/view/MotionEvent;)I
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;</span>
+<span class="">	invoke-interface {v0, p0}, Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;->getPointerCount(Landroid/view/MotionEvent;)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static getPointerId(Landroid/view/MotionEvent;I)I
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;</span>
+<span class="">	invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;->getPointerId(Landroid/view/MotionEvent;I)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static getX(Landroid/view/MotionEvent;I)F
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;</span>
+<span class="">	invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;->getX(Landroid/view/MotionEvent;I)F</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static getY(Landroid/view/MotionEvent;I)F
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;</span>
+<span class="">	invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;->getY(Landroid/view/MotionEvent;I)F</span>
+<span class="">	move-result v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

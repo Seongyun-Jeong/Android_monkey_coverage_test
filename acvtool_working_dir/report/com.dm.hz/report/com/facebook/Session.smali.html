@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook</a></li>
+        <li><i class="ico ico-class"></i> Session.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/Session;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Ljava/io/Serializable;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/Session$AuthorizationRequest;,
+Lcom/facebook/Session$AutoPublishAsyncTask;,
+Lcom/facebook/Session$Builder;,
+Lcom/facebook/Session$NewPermissionsRequest;,
+Lcom/facebook/Session$OpenRequest;,
+Lcom/facebook/Session$SerializationProxyV1;,
+Lcom/facebook/Session$StartActivityDelegate;,
+Lcom/facebook/Session$StatusCallback;,
+Lcom/facebook/Session$TokenRefreshRequest;,
+Lcom/facebook/Session$TokenRefreshRequestHandler;
+}
+.end annotation
+
+.field private static synthetic I:[I = null
+.field public static final a:Ljava/lang/String;
+.field public static final b:I = 0xface
+.field public static final c:Ljava/lang/String; = "com.facebook.sdk.WebViewErrorCode"
+.field public static final d:Ljava/lang/String; = "com.facebook.sdk.FailingUrl"
+.field public static final e:Ljava/lang/String; = "com.facebook.sdk.ACTIVE_SESSION_SET"
+.field public static final f:Ljava/lang/String; = "com.facebook.sdk.ACTIVE_SESSION_UNSET"
+.field public static final g:Ljava/lang/String; = "com.facebook.sdk.ACTIVE_SESSION_OPENED"
+.field public static final h:Ljava/lang/String; = "com.facebook.sdk.ACTIVE_SESSION_CLOSED"
+.field public static final i:Ljava/lang/String; = "com.facebook.sdk.ApplicationId"
+.field private static final j:J = 0x1L
+.field private static final k:Ljava/lang/Object;
+.field private static l:Lcom/facebook/Session; = null
+.field private static volatile m:Landroid/content/Context; = null
+.field private static final n:I = 0x15180
+.field private static final o:I = 0xe10
+.field private static final p:Ljava/lang/String; = "com.facebook.sdk.Session.saveSessionKey"
+.field private static final q:Ljava/lang/String; = "com.facebook.sdk.Session.authBundleKey"
+.field private static final r:Ljava/lang/String; = "publish"
+.field private static final s:Ljava/lang/String; = "manage"
+.field private static final t:Ljava/util/Set;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Set",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field private volatile A:Landroid/os/Bundle;
+.field private final B:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/facebook/Session$StatusCallback;",
+">;"
+}
+.end annotation
+.end field
+.field private C:Landroid/os/Handler;
+.field private D:Lcom/facebook/Session$AutoPublishAsyncTask;
+.field private final E:Ljava/lang/Object;
+.field private F:Lcom/facebook/TokenCachingStrategy;
+.field private volatile G:Lcom/facebook/Session$TokenRefreshRequest;
+.field private H:Lcom/facebook/AppEventsLogger;
+.field private u:Ljava/lang/String;
+.field private v:Lcom/facebook/SessionState;
+.field private w:Lcom/facebook/AccessToken;
+.field private x:Ljava/util/Date;
+.field private y:Lcom/facebook/Session$AuthorizationRequest;
+.field private z:Lcom/facebook/AuthorizationClient;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/Session;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/facebook/Session;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Ljava/lang/Object;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/facebook/Session;->k:Ljava/lang/Object;</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$1;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/Session$1;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/facebook/Session;->t:Ljava/util/Set;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-direct {p0, p1, v1, v1, v0}, Lcom/facebook/Session;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/TokenCachingStrategy;Z)V</span>
+.end method
+
+.method constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/TokenCachingStrategy;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-direct {p0, p1, p2, p3, v0}, Lcom/facebook/Session;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/TokenCachingStrategy;Z)V</span>
+.end method
+
+.method constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/TokenCachingStrategy;Z)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	new-instance v1, Ljava/util/Date;</span>
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	invoke-direct {v1, v2, v3}, Ljava/util/Date;-><init>(J)V</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->x:Ljava/util/Date;</span>
+<span class="">	new-instance v1, Ljava/lang/Object;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	if-nez p2, :cond_0</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/internal/Utility;->a(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object p2</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v1, Lcom/facebook/Session;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "### facebook applicationId = "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	const-string v1, "applicationId"</span>
+<span class="">	invoke-static {p2, v1}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/Session;->b(Landroid/content/Context;)V</span>
+<span class="">	if-nez p3, :cond_1</span>
+<span class="">	new-instance p3, Lcom/facebook/SharedPreferencesTokenCachingStrategy;</span>
+<span class="">	sget-object v1, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+<span class="">	invoke-direct {p3, v1}, Lcom/facebook/SharedPreferencesTokenCachingStrategy;-><init>(Landroid/content/Context;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-object p2, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	iput-object p3, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->a:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	new-instance v1, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+<span class="">	new-instance v1, Landroid/os/Handler;</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->C:Landroid/os/Handler;</span>
+<span class="">	if-eqz p4, :cond_2</span>
+<span class="">	invoke-virtual {p3}, Lcom/facebook/TokenCachingStrategy;->a()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/TokenCachingStrategy;->b(Landroid/os/Bundle;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_5</span>
+<span class="">	const-string v1, "com.facebook.TokenCachingStrategy.ExpirationDate"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/facebook/TokenCachingStrategy;->b(Landroid/os/Bundle;Ljava/lang/String;)Ljava/util/Date;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Ljava/util/Date;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/Date;-><init>()V</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/util/Date;->before(Ljava/util/Date;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {p3}, Lcom/facebook/TokenCachingStrategy;->b()V</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AccessToken;->a(Ljava/util/List;)Lcom/facebook/AccessToken;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AccessToken;->a(Landroid/os/Bundle;)Lcom/facebook/AccessToken;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionState;->b:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;</span>
+<span class="">	:cond_5</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AccessToken;->a(Ljava/util/List;)Lcom/facebook/AccessToken;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private constructor <init>(Ljava/lang/String;Lcom/facebook/SessionState;Lcom/facebook/AccessToken;Ljava/util/Date;ZLcom/facebook/Session$AuthorizationRequest;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	new-instance v0, Ljava/util/Date;</span>
+<span class="">	const-wide/16 v1, 0x0</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/util/Date;-><init>(J)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->x:Ljava/util/Date;</span>
+<span class="">	new-instance v0, Ljava/lang/Object;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	iput-object p2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object p3, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	iput-object p4, p0, Lcom/facebook/Session;->x:Ljava/util/Date;</span>
+<span class="">	iput-object p6, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	new-instance v0, Landroid/os/Handler;</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->C:Landroid/os/Handler;</span>
+<span class="">	iput-object v3, p0, Lcom/facebook/Session;->G:Lcom/facebook/Session$TokenRefreshRequest;</span>
+<span class="">	iput-object v3, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+.end method
+
+.method synthetic constructor <init>(Ljava/lang/String;Lcom/facebook/SessionState;Lcom/facebook/AccessToken;Ljava/util/Date;ZLcom/facebook/Session$AuthorizationRequest;Lcom/facebook/Session;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct/range {p0 .. p6}, Lcom/facebook/Session;-><init>(Ljava/lang/String;Lcom/facebook/SessionState;Lcom/facebook/AccessToken;Ljava/util/Date;ZLcom/facebook/Session$AuthorizationRequest;)V</span>
+.end method
+
+.method public static a(Landroid/app/Activity;ZLcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/facebook/Session$OpenRequest;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/facebook/Session$OpenRequest;-><init>(Landroid/app/Activity;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/facebook/Session$OpenRequest;->b(Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session$OpenRequest;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, p1, v0}, Lcom/facebook/Session;->a(Landroid/content/Context;ZLcom/facebook/Session$OpenRequest;)Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static a(Landroid/content/Context;)Lcom/facebook/Session;
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/facebook/Session;->a(Landroid/content/Context;ZLcom/facebook/Session$OpenRequest;)Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static a(Landroid/content/Context;Landroid/support/v4/app/Fragment;ZLcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/facebook/Session$OpenRequest;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/facebook/Session$OpenRequest;-><init>(Landroid/support/v4/app/Fragment;)V</span>
+<span class="">	invoke-virtual {v0, p3}, Lcom/facebook/Session$OpenRequest;->b(Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session$OpenRequest;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, p2, v0}, Lcom/facebook/Session;->a(Landroid/content/Context;ZLcom/facebook/Session$OpenRequest;)Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/facebook/AccessToken;Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-instance v0, Lcom/facebook/Session;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {v0, p0, v2, v2, v1}, Lcom/facebook/Session;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/TokenCachingStrategy;Z)V</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->a(Lcom/facebook/Session;)V</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Lcom/facebook/Session;->a(Lcom/facebook/AccessToken;Lcom/facebook/Session$StatusCallback;)V</span>
+.end method
+
+.method public static final a(Landroid/content/Context;Lcom/facebook/TokenCachingStrategy;Lcom/facebook/Session$StatusCallback;Landroid/os/Bundle;)Lcom/facebook/Session;
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	if-nez p3, :cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "com.facebook.sdk.Session.saveSessionKey"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p3, v0}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	new-instance v2, Ljava/io/ByteArrayInputStream;</span>
+<span class="">	invoke-direct {v2, v0}, Ljava/io/ByteArrayInputStream;-><init>([B)V</span>
+<span class="">	new-instance v0, Ljava/io/ObjectInputStream;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/Session;</span>
+<span class="">	invoke-static {p0}, Lcom/facebook/Session;->b(Landroid/content/Context;)V</span>
+<span class="">	if-eqz p1, :cond_3</span>
+<span class="">	iput-object p1, v0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	if-eqz p2, :cond_1</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/facebook/Session;->a(Lcom/facebook/Session$StatusCallback;)V</span>
+<span class="">	const-string v2, "com.facebook.sdk.Session.authBundleKey"</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p3, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, v0, Lcom/facebook/Session;->A:Landroid/os/Bundle;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v2, Lcom/facebook/Session;->a:Ljava/lang/String;</span>
+<span class="">	const-string v3, "Unable to restore session"</span>
+<span class="">	invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v2, Lcom/facebook/SharedPreferencesTokenCachingStrategy;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/facebook/SharedPreferencesTokenCachingStrategy;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v2, v0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	sget-object v2, Lcom/facebook/Session;->a:Ljava/lang/String;</span>
+<span class="">	const-string v3, "Unable to restore session."</span>
+<span class="">	invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method private static a(Landroid/content/Context;ZLcom/facebook/Session$OpenRequest;)Lcom/facebook/Session;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Lcom/facebook/Session$Builder;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/facebook/Session$Builder;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session$Builder;->a()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->b:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->d()Lcom/facebook/SessionState;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/facebook/SessionState;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->a(Lcom/facebook/Session;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/facebook/Session;->a(Lcom/facebook/Session$OpenRequest;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(ILcom/facebook/AuthorizationClient$Result;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	if-ne p1, v0, :cond_1</span>
+<span class="">	iget-object v0, p2, Lcom/facebook/AuthorizationClient$Result;->a:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	sget-object v2, Lcom/facebook/AuthorizationClient$Result$Code;->a:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	if-ne v0, v2, :cond_0</span>
+<span class="">	iget-object v0, p2, Lcom/facebook/AuthorizationClient$Result;->b:Lcom/facebook/AccessToken;</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v3, p2, Lcom/facebook/AuthorizationClient$Result;->a:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	iget-object v4, p2, Lcom/facebook/AuthorizationClient$Result;->f:Ljava/util/Map;</span>
+<span class="">	invoke-direct {p0, v3, v4, v0}, Lcom/facebook/Session;->a(Lcom/facebook/AuthorizationClient$Result$Code;Ljava/util/Map;Ljava/lang/Exception;)V</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->z:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {p0, v2, v0}, Lcom/facebook/Session;->a(Lcom/facebook/AccessToken;Ljava/lang/Exception;)V</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookAuthorizationException;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p2, Lcom/facebook/AuthorizationClient$Result;->c:Ljava/lang/String;</span>
+<span class="">	invoke-direct {v0, v2}, Lcom/facebook/FacebookAuthorizationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez p1, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookOperationCanceledException;</span>
+<span class="">	iget-object v2, p2, Lcom/facebook/AuthorizationClient$Result;->c:Ljava/lang/String;</span>
+<span class="">	invoke-direct {v0, v2}, Lcom/facebook/FacebookOperationCanceledException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Landroid/os/Handler;Ljava/lang/Runnable;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/facebook/Session;->b(Landroid/os/Handler;Ljava/lang/Runnable;)V</span>
+.end method
+
+.method private a(Lcom/facebook/AuthorizationClient$Result$Code;Ljava/util/Map;Ljava/lang/Exception;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/AuthorizationClient$Result$Code;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;",</span>
+<span class="">	"Ljava/lang/Exception;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AuthorizationClient;->d(Ljava/lang/String;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "2_result"</span>
+<span class="">	sget-object v2, Lcom/facebook/AuthorizationClient$Result$Code;->c:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/AuthorizationClient$Result$Code;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "5_error_message"</span>
+<span class="">	const-string v2, "Unexpected call to logAuthorizationComplete with null pendingAuthorizationRequest."</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v1, "1_timestamp_ms"</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/Session;->v()Lcom/facebook/AppEventsLogger;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "fb_mobile_login_complete"</span>
+<span class="">	invoke-virtual {v1, v2, v4, v0}, Lcom/facebook/AppEventsLogger;->a(Ljava/lang/String;Ljava/lang/Double;Landroid/os/Bundle;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session$AuthorizationRequest;->j()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AuthorizationClient;->d(Ljava/lang/String;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	const-string v0, "2_result"</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AuthorizationClient$Result$Code;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	if-eqz p3, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p3}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const-string v0, "5_error_message"</span>
+<span class="">	invoke-virtual {p3}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session$AuthorizationRequest;->b(Lcom/facebook/Session$AuthorizationRequest;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_7</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/Session$AuthorizationRequest;->b(Lcom/facebook/Session$AuthorizationRequest;)Ljava/util/Map;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V</span>
+<span class="">	if-eqz p2, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	if-nez v0, :cond_6</span>
+<span class="">	new-instance v3, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_3</span>
+<span class="">	move-result v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	if-nez v0, :cond_5</span>
+<span class="">	move-object v0, v3</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	:goto_4</span>
+<span class="">	:cond_3</span>
+<span class="">	const-string v1, "6_extras"</span>
+<span class="">	invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_5</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v3, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	goto :goto_3</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v0, v3</span>
+<span class="">	goto :goto_4</span>
+<span class="">	move-object v3, v0</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-object v0, v4</span>
+<span class="">	:cond_7</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private a(Lcom/facebook/Session$AuthorizationRequest;Lcom/facebook/internal/SessionAuthorizationType;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->e()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->a(Ljava/util/Collection;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/internal/SessionAuthorizationType;->b:Lcom/facebook/internal/SessionAuthorizationType;</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/facebook/internal/SessionAuthorizationType;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v1, "Cannot request publish or manage authorization with no permissions."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->e()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_5</span>
+<span class="">	sget-object v2, Lcom/facebook/internal/SessionAuthorizationType;->a:Lcom/facebook/internal/SessionAuthorizationType;</span>
+<span class="">	invoke-virtual {v2, p2}, Lcom/facebook/internal/SessionAuthorizationType;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	new-instance v1, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v2, "Cannot pass a publish or manage permission (%s) to a request for read authorization"</span>
+<span class="">	new-array v3, v6, [Ljava/lang/Object;</span>
+<span class="">	aput-object v0, v3, v5</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v1</span>
+<span class="">	sget-object v2, Lcom/facebook/internal/SessionAuthorizationType;->b:Lcom/facebook/internal/SessionAuthorizationType;</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-virtual {v2, p2}, Lcom/facebook/internal/SessionAuthorizationType;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	sget-object v2, Lcom/facebook/Session;->a:Ljava/lang/String;</span>
+<span class="">	const-string v3, "Should not pass a read permission (%s) to a request for publish or manage authorization"</span>
+<span class="">	new-array v4, v6, [Ljava/lang/Object;</span>
+<span class="">	aput-object v0, v4, v5</span>
+<span class="">	invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Lcom/facebook/Session$NewPermissionsRequest;Lcom/facebook/internal/SessionAuthorizationType;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/facebook/Session;->a(Lcom/facebook/Session$AuthorizationRequest;Lcom/facebook/internal/SessionAuthorizationType;)V</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/Session;->b(Lcom/facebook/Session$AuthorizationRequest;)V</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v2, "Session: an attempt was made to request new permissions for a session that has a pending request."</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/SessionState;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/Session;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/facebook/Session$NewPermissionsRequest;->b(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/Session;->a(Lcom/facebook/Session$AuthorizationRequest;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/SessionState;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v2, "Session: an attempt was made to request new permissions for a session that has been closed."</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	:cond_3</span>
+<span class="">	const-string v2, "Session: an attempt was made to request new permissions for a session that is not currently open."</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+.end method
+
+.method private a(Lcom/facebook/Session$OpenRequest;Lcom/facebook/internal/SessionAuthorizationType;)V
+<span class="">	.locals 5</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/facebook/Session;->a(Lcom/facebook/Session$AuthorizationRequest;Lcom/facebook/internal/SessionAuthorizationType;)V</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/Session;->b(Lcom/facebook/Session$AuthorizationRequest;)V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	new-instance v3, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v4, "Session: an attempt was made to open a session that has a pending request."</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, v0, v2, v3}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->s()[I</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v3</span>
+<span class="">	aget v0, v0, v3</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v2, "Session: an attempt was made to open an already opened session."</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionState;->c:Lcom/facebook/SessionState;</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	if-nez p1, :cond_2</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	const-string v2, "openRequest cannot be null when opening a new Session"</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz p1, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$OpenRequest;->b()Lcom/facebook/Session$StatusCallback;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {p0, v3}, Lcom/facebook/Session;->a(Lcom/facebook/Session$StatusCallback;)V</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {p0, v2, v0, v3}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->c:Lcom/facebook/SessionState;</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/Session;->a(Lcom/facebook/Session$AuthorizationRequest;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-eqz p1, :cond_4</span>
+<span class="">	:pswitch_1</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$OpenRequest;->e()Ljava/util/List;</span>
+<span class="">	:try_start_2</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->a(Ljava/util/Collection;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$OpenRequest;->e()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/Session;->h()Ljava/util/List;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v0, v3}, Lcom/facebook/internal/Utility;->a(Ljava/util/Collection;Ljava/util/Collection;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	:cond_4</span>
+<span class="">	if-nez v0, :cond_5</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionState;->d:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionState;->c:Lcom/facebook/SessionState;</span>
+<span class="">	:cond_5</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public static final a(Lcom/facebook/Session;)V
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v1, Lcom/facebook/Session;->k:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->l:Lcom/facebook/Session;</span>
+<span class="">	if-eq p0, v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->l:Lcom/facebook/Session;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->i()V</span>
+<span class="">	:cond_0</span>
+<span class="">	sput-object p0, Lcom/facebook/Session;->l:Lcom/facebook/Session;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string v0, "com.facebook.sdk.ACTIVE_SESSION_UNSET"</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->b(Ljava/lang/String;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz p0, :cond_2</span>
+<span class="">	const-string v0, "com.facebook.sdk.ACTIVE_SESSION_SET"</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->b(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/Session;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const-string v0, "com.facebook.sdk.ACTIVE_SESSION_OPENED"</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->b(Ljava/lang/String;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/Session;ILcom/facebook/AuthorizationClient$Result;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/facebook/Session;->a(ILcom/facebook/AuthorizationClient$Result;)V</span>
+.end method
+
+.method public static final a(Lcom/facebook/Session;Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	const-string v0, "com.facebook.sdk.Session.saveSessionKey"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Ljava/io/ObjectOutputStream;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/ObjectOutputStream;-><init>(Ljava/io/OutputStream;)V</span>
+<span class="">	invoke-virtual {v1, p0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	const-string v1, "com.facebook.sdk.Session.saveSessionKey"</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V</span>
+<span class="">	const-string v0, "com.facebook.sdk.Session.authBundleKey"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->A:Landroid/os/Bundle;</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v2, "Unable to save session."</span>
+<span class="">	invoke-direct {v1, v2, v0}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/Session;Lcom/facebook/Session$AutoPublishAsyncTask;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->D:Lcom/facebook/Session$AutoPublishAsyncTask;</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/Session;Lcom/facebook/Session$TokenRefreshRequest;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->G:Lcom/facebook/Session$TokenRefreshRequest;</span>
+.end method
+
+.method private a(Ljava/io/ObjectInputStream;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/InvalidObjectException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/io/InvalidObjectException;</span>
+<span class="">	const-string v1, "Cannot readObject, serialization proxy required"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method private a(Landroid/content/Intent;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->l()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p1, v0}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static a(Ljava/lang/Object;Ljava/lang/Object;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_1</span>
+<span class="">	const-string v0, "publish"</span>
+<span class="">	invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "manage"</span>
+<span class="">	invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->t:Ljava/util/Set;</span>
+<span class="">	invoke-interface {v0, p0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic b(Lcom/facebook/Session;)Lcom/facebook/Session$TokenRefreshRequest;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->G:Lcom/facebook/Session$TokenRefreshRequest;</span>
+.end method
+
+.method static b(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	move-object p0, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	sput-object p0, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method private static b(Landroid/os/Handler;Ljava/lang/Runnable;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-virtual {p0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Settings;->c()Ljava/util/concurrent/Executor;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private b(Lcom/facebook/AccessToken;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AccessToken;->f()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/TokenCachingStrategy;->a(Landroid/os/Bundle;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private b(Lcom/facebook/AccessToken;Ljava/lang/Exception;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/Session;->b(Lcom/facebook/AccessToken;)V</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->d:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {p0, v0, v1, p2}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->f:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private b(Lcom/facebook/Session$AuthorizationRequest;)V
+<span class="">	.locals 5</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/Session$AuthorizationRequest;->c(Lcom/facebook/Session$AuthorizationRequest;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v0}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->l()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-class v2, Lcom/facebook/LoginActivity;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/Session;->a(Landroid/content/Intent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v1, "Cannot use SessionLoginBehavior %s when %s is not declared as an activity in AndroidManifest.xml"</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Object;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->c()Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const-class v4, Lcom/facebook/LoginActivity;</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method static b(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v0, p0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->l()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Landroid/support/v4/content/LocalBroadcastManager;->getInstance(Landroid/content/Context;)Landroid/support/v4/content/LocalBroadcastManager;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/support/v4/content/LocalBroadcastManager;->sendBroadcast(Landroid/content/Intent;)Z</span>
+.end method
+
+.method static synthetic c(Lcom/facebook/Session;)Ljava/util/List;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+.end method
+
+.method private c(Lcom/facebook/AccessToken;Ljava/lang/Exception;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/Session;->b(Lcom/facebook/AccessToken;)V</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->e:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {p0, v0, v1, p2}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+.end method
+
+.method private c(Lcom/facebook/Session$AuthorizationRequest;)Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/Session;->d(Lcom/facebook/Session$AuthorizationRequest;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {p0, v1}, Lcom/facebook/Session;->a(Landroid/content/Intent;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->g()Lcom/facebook/Session$StartActivityDelegate;</span>
+<span class="">	:cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->d()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-interface {v2, v1, v3}, Lcom/facebook/Session$StartActivityDelegate;->a(Landroid/content/Intent;I)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private d(Lcom/facebook/Session$AuthorizationRequest;)Landroid/content/Intent;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v0}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->l()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-class v2, Lcom/facebook/LoginActivity;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->c()Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionLoginBehavior;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->k()Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/LoginActivity;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;</span>
+.end method
+
+.method static synthetic d(Lcom/facebook/Session;)Landroid/os/Handler;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->C:Landroid/os/Handler;</span>
+.end method
+
+.method private e(Lcom/facebook/Session$AuthorizationRequest;)V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/AuthorizationClient;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->z:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->z:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	new-instance v1, Lcom/facebook/Session$2;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/Session$2;-><init>(Lcom/facebook/Session;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/AuthorizationClient;->a(Lcom/facebook/AuthorizationClient$OnCompletedListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->z:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->l()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/AuthorizationClient;->a(Landroid/content/Context;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->z:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session$AuthorizationRequest;->k()Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/AuthorizationClient;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;)V</span>
+.end method
+
+.method public static final k()Lcom/facebook/Session;
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v1, Lcom/facebook/Session;->k:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->l:Lcom/facebook/Session;</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method static l()Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+.end method
+
+.method static synthetic r()Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+.end method
+
+.method static synthetic s()[I
+<span class="">	.locals 3</span>
+
+<span class="">	sget-object v0, Lcom/facebook/Session;->I:[I</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/SessionState;->values()[Lcom/facebook/SessionState;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->g:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x7</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->f:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_6</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x6</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->a:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_5</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->b:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_3</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_4</span>
+<span class="">	:goto_3</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->d:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_4</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3</span>
+<span class="">	:goto_4</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->e:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_5</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_2</span>
+<span class="">	:goto_5</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x5</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/facebook/SessionState;->c:Lcom/facebook/SessionState;</span>
+<span class="">	:try_start_6</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_1</span>
+<span class="">	:goto_6</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sput-object v0, Lcom/facebook/Session;->I:[I</span>
+<span class="">	:try_end_6</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_0</span>
+<span class="">	:goto_7</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_7</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_6</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_5</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_3</span>
+<span class="">	goto :goto_4</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_4</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_5</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_6</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private t()Ljava/lang/Object;
+<span class="">	.locals 7</span>
+
+<span class="">	new-instance v0, Lcom/facebook/Session$SerializationProxyV1;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	iget-object v4, p0, Lcom/facebook/Session;->x:Ljava/util/Date;</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	iget-object v6, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/facebook/Session$SerializationProxyV1;-><init>(Ljava/lang/String;Lcom/facebook/SessionState;Lcom/facebook/AccessToken;Ljava/util/Date;ZLcom/facebook/Session$AuthorizationRequest;)V</span>
+.end method
+
+.method private u()V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session$AuthorizationRequest;->j()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AuthorizationClient;->d(Ljava/lang/String;)Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "1_timestamp_ms"</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	const-string v2, "login_behavior"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v3}, Lcom/facebook/Session$AuthorizationRequest;->d(Lcom/facebook/Session$AuthorizationRequest;)Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/SessionLoginBehavior;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	const-string v2, "request_code"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v3}, Lcom/facebook/Session$AuthorizationRequest;->e(Lcom/facebook/Session$AuthorizationRequest;)I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;</span>
+<span class="">	const-string v2, "is_legacy"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v3}, Lcom/facebook/Session$AuthorizationRequest;->c(Lcom/facebook/Session$AuthorizationRequest;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;</span>
+<span class="">	const-string v2, "permissions"</span>
+<span class="">	const-string v3, ","</span>
+<span class="">	iget-object v4, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v4}, Lcom/facebook/Session$AuthorizationRequest;->f(Lcom/facebook/Session$AuthorizationRequest;)Ljava/util/List;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v3, v4}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	const-string v2, "default_audience"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v3}, Lcom/facebook/Session$AuthorizationRequest;->g(Lcom/facebook/Session$AuthorizationRequest;)Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/SessionDefaultAudience;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	const-string v2, "6_extras"</span>
+<span class="">	invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/Session;->v()Lcom/facebook/AppEventsLogger;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "fb_mobile_login_start"</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {v1, v2, v3, v0}, Lcom/facebook/AppEventsLogger;->a(Ljava/lang/String;Ljava/lang/Double;Landroid/os/Bundle;)V</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private v()Lcom/facebook/AppEventsLogger;
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->H:Lcom/facebook/AppEventsLogger;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0, v2}, Lcom/facebook/AppEventsLogger;->b(Landroid/content/Context;Ljava/lang/String;)Lcom/facebook/AppEventsLogger;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->H:Lcom/facebook/AppEventsLogger;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->H:Lcom/facebook/AppEventsLogger;</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method private w()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->D:Lcom/facebook/Session$AutoPublishAsyncTask;</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Settings;->e()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$AutoPublishAsyncTask;</span>
+<span class="">	sget-object v2, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+<span class="">	invoke-direct {v0, p0, v1, v2}, Lcom/facebook/Session$AutoPublishAsyncTask;-><init>(Lcom/facebook/Session;Ljava/lang/String;Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->D:Lcom/facebook/Session$AutoPublishAsyncTask;</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-array v1, v1, [Ljava/lang/Void;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/Session$AutoPublishAsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	:try_start_1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+.end method
+
+.method public final a()Landroid/os/Bundle;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->A:Landroid/os/Bundle;</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method  a(Landroid/os/Bundle;)V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->s()[I</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v3</span>
+<span class="">	aget v2, v2, v3</span>
+<span class="">	packed-switch v2, :pswitch_data_0</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "refreshToken ignored in state "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v2, Lcom/facebook/SessionState;->e:Lcom/facebook/SessionState;</span>
+<span class="">	:pswitch_0</span>
+<span class="">	iput-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v2, v3}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	:pswitch_1</span>
+<span class="">	invoke-static {v0, p1}, Lcom/facebook/AccessToken;->a(Lcom/facebook/AccessToken;Landroid/os/Bundle;)Lcom/facebook/AccessToken;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/AccessToken;->f()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/facebook/TokenCachingStrategy;->a(Landroid/os/Bundle;)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x4</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method  a(Lcom/facebook/AccessToken;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+.end method
+
+.method public final a(Lcom/facebook/AccessToken;Lcom/facebook/Session$StatusCallback;)V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v2, "Session: an attempt was made to open a session that has a pending request."</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/SessionState;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v2, "Session: an attempt was made to open a previously-closed session."</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	sget-object v2, Lcom/facebook/SessionState;->a:Lcom/facebook/SessionState;</span>
+<span class="">	if-eq v0, v2, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	sget-object v2, Lcom/facebook/SessionState;->b:Lcom/facebook/SessionState;</span>
+<span class="">	if-eq v0, v2, :cond_2</span>
+<span class="">	new-instance v0, Ljava/lang/UnsupportedOperationException;</span>
+<span class="">	const-string v2, "Session: an attempt was made to open an already opened session."</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz p2, :cond_3</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/facebook/Session;->a(Lcom/facebook/Session$StatusCallback;)V</span>
+<span class="">	:cond_3</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AccessToken;->f()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/facebook/TokenCachingStrategy;->a(Landroid/os/Bundle;)V</span>
+<span class="">	:cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	sget-object v2, Lcom/facebook/SessionState;->d:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v2, v3}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/Session;->w()V</span>
+.end method
+
+.method  a(Lcom/facebook/AccessToken;Ljava/lang/Exception;)V
+<span class="">	.locals 4</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AccessToken;->g()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 p1, 0x0</span>
+<span class="">	new-instance p2, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v0, "Invalid access token."</span>
+<span class="">	invoke-direct {p2, v0}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->s()[I</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v2</span>
+<span class="">	aget v0, v0, v2</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/facebook/Session;->b(Lcom/facebook/AccessToken;Ljava/lang/Exception;)V</span>
+<span class="">	:pswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/facebook/Session;->c(Lcom/facebook/AccessToken;Ljava/lang/Exception;)V</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->a:Ljava/lang/String;</span>
+<span class="">	:pswitch_2</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "Unexpected call to finishAuthOrReauth in state "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_2</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method  a(Lcom/facebook/Session$AuthorizationRequest;)V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/facebook/Session$AuthorizationRequest;->a(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/Session;->w()V</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/Session;->u()V</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/Session;->c(Lcom/facebook/Session$AuthorizationRequest;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session$AuthorizationRequest;->b(Lcom/facebook/Session$AuthorizationRequest;)Ljava/util/Map;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "try_login_activity"</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const-string v0, "1"</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v2, v3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/Session$AuthorizationRequest;->c(Lcom/facebook/Session$AuthorizationRequest;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session$AuthorizationRequest;->b(Lcom/facebook/Session$AuthorizationRequest;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "try_legacy"</span>
+<span class="">	const-string v2, "1"</span>
+<span class="">	invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/Session;->e(Lcom/facebook/Session$AuthorizationRequest;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->s()[I</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v3</span>
+<span class="">	aget v2, v2, v3</span>
+<span class="">	packed-switch v2, :pswitch_data_0</span>
+<span class="">	sget-object v2, Lcom/facebook/SessionState;->f:Lcom/facebook/SessionState;</span>
+<span class="">	iput-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	new-instance v2, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v3, "Log in attempt failed: LoginActivity could not be started, and not legacy request"</span>
+<span class="">	invoke-direct {v2, v3}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	sget-object v3, Lcom/facebook/AuthorizationClient$Result$Code;->c:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-direct {p0, v3, v4, v2}, Lcom/facebook/Session;->a(Lcom/facebook/AuthorizationClient$Result$Code;Ljava/util/Map;Ljava/lang/Exception;)V</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {p0, v0, v3, v2}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "0"</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x6</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public final a(Lcom/facebook/Session$NewPermissionsRequest;)V
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/internal/SessionAuthorizationType;->a:Lcom/facebook/internal/SessionAuthorizationType;</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/facebook/Session;->a(Lcom/facebook/Session$NewPermissionsRequest;Lcom/facebook/internal/SessionAuthorizationType;)V</span>
+.end method
+
+.method public final a(Lcom/facebook/Session$OpenRequest;)V
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/internal/SessionAuthorizationType;->a:Lcom/facebook/internal/SessionAuthorizationType;</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/facebook/Session;->a(Lcom/facebook/Session$OpenRequest;Lcom/facebook/internal/SessionAuthorizationType;)V</span>
+.end method
+
+.method public final a(Lcom/facebook/Session$StatusCallback;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method  a(Lcom/facebook/Session$TokenRefreshRequest;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->G:Lcom/facebook/Session$TokenRefreshRequest;</span>
+.end method
+
+.method  a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V
+<span class="">	.locals 3</span>
+
+<span class="">	if-ne p1, p2, :cond_1</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionState;->e:Lcom/facebook/SessionState;</span>
+<span class="">	if-eq p1, v0, :cond_1</span>
+<span class="">	if-nez p3, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p2}, Lcom/facebook/SessionState;->b()Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AccessToken;->a(Ljava/util/List;)Lcom/facebook/AccessToken;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+<span class="">	:cond_2</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$3;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-direct {v0, p0, p2, p3}, Lcom/facebook/Session$3;-><init>(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->C:Landroid/os/Handler;</span>
+<span class="">	invoke-static {v2, v0}, Lcom/facebook/Session;->b(Landroid/os/Handler;Ljava/lang/Runnable;)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->l:Lcom/facebook/Session;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-ne p0, v0, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/SessionState;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p2}, Lcom/facebook/SessionState;->a()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	invoke-virtual {p2}, Lcom/facebook/SessionState;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const-string v0, "com.facebook.sdk.ACTIVE_SESSION_OPENED"</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->b(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_start_1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	const-string v0, "com.facebook.sdk.ACTIVE_SESSION_CLOSED"</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/Session;->b(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  a(Ljava/util/Date;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session;->x:Ljava/util/Date;</span>
+.end method
+
+.method public final a(Landroid/app/Activity;IILandroid/content/Intent;)Z
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const-string v0, "currentActivity"</span>
+<span class="">	invoke-static {p1, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/Session;->b(Landroid/content/Context;)V</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v2</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->y:Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session$AuthorizationRequest;->d()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eq p2, v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v2, Lcom/facebook/AuthorizationClient$Result$Code;->c:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz p4, :cond_3</span>
+<span class="">	const-string v0, "com.facebook.LoginActivity:Result"</span>
+<span class="">	invoke-virtual {p4, v0}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-direct {p0, p3, v0}, Lcom/facebook/Session;->a(ILcom/facebook/AuthorizationClient$Result;)V</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v2</span>
+<span class="">	:try_start_1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->z:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->z:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {v0, p2, p3, p4}, Lcom/facebook/AuthorizationClient;->a(IILandroid/content/Intent;)Z</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez p3, :cond_5</span>
+<span class="">	:cond_3</span>
+<span class="">	new-instance v2, Lcom/facebook/FacebookOperationCanceledException;</span>
+<span class="">	const-string v0, "User canceled operation."</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/facebook/FacebookOperationCanceledException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	sget-object v0, Lcom/facebook/AuthorizationClient$Result$Code;->b:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	move-object v5, v0</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	move-object v2, v5</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	:goto_1</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v4, "Unexpected call to Session.onActivityResult"</span>
+<span class="">	invoke-direct {v0, v4}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {p0, v2, v3, v0}, Lcom/facebook/Session;->a(Lcom/facebook/AuthorizationClient$Result$Code;Ljava/util/Map;Ljava/lang/Exception;)V</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {p0, v3, v0}, Lcom/facebook/Session;->a(Lcom/facebook/AccessToken;Ljava/lang/Exception;)V</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object v0, v3</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public final b(Lcom/facebook/Session$NewPermissionsRequest;)V
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/internal/SessionAuthorizationType;->b:Lcom/facebook/internal/SessionAuthorizationType;</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/facebook/Session;->a(Lcom/facebook/Session$NewPermissionsRequest;Lcom/facebook/internal/SessionAuthorizationType;)V</span>
+.end method
+
+.method public final b(Lcom/facebook/Session$OpenRequest;)V
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/internal/SessionAuthorizationType;->b:Lcom/facebook/internal/SessionAuthorizationType;</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/facebook/Session;->a(Lcom/facebook/Session$OpenRequest;Lcom/facebook/internal/SessionAuthorizationType;)V</span>
+.end method
+
+.method public final b(Lcom/facebook/Session$StatusCallback;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->B:Ljava/util/List;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public final b()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/SessionState;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public final c()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/SessionState;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public final d()Lcom/facebook/SessionState;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public final e()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	instance-of v1, p1, Lcom/facebook/Session;</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	check-cast p1, Lcom/facebook/Session;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v1, p1, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1, v2}, Lcom/facebook/Session;->a(Ljava/lang/Object;Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p1, Lcom/facebook/Session;->A:Landroid/os/Bundle;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->A:Landroid/os/Bundle;</span>
+<span class="">	invoke-static {v1, v2}, Lcom/facebook/Session;->a(Ljava/lang/Object;Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p1, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-static {v1, v2}, Lcom/facebook/Session;->a(Ljava/lang/Object;Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->g()Ljava/util/Date;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/Session;->g()Ljava/util/Date;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Lcom/facebook/Session;->a(Ljava/lang/Object;Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public final f()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/AccessToken;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public final g()Ljava/util/Date;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/AccessToken;->b()Ljava/util/Date;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public final h()Ljava/util/List;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/AccessToken;->c()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method public hashCode()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public final i()V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->s()[I</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/SessionState;->ordinal()I</span>
+<span class="">	move-result v3</span>
+<span class="">	aget v2, v2, v3</span>
+<span class="">	packed-switch v2, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	sget-object v2, Lcom/facebook/SessionState;->f:Lcom/facebook/SessionState;</span>
+<span class="">	:pswitch_0</span>
+<span class="">	iput-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	new-instance v3, Lcom/facebook/FacebookException;</span>
+<span class="">	const-string v4, "Log in attempt aborted."</span>
+<span class="">	invoke-direct {v3, v4}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, v0, v2, v3}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	sget-object v2, Lcom/facebook/SessionState;->g:Lcom/facebook/SessionState;</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	iput-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v2, v3}, Lcom/facebook/Session;->a(Lcom/facebook/SessionState;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public final j()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->F:Lcom/facebook/TokenCachingStrategy;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/TokenCachingStrategy;->b()V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->b(Landroid/content/Context;)V</span>
+<span class="">	sget-object v0, Lcom/facebook/Session;->m:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->c(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/Session;->i()V</span>
+.end method
+
+.method  m()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/facebook/Session;->o()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/Session;->n()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  n()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->E:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->G:Lcom/facebook/Session$TokenRefreshRequest;</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$TokenRefreshRequest;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/facebook/Session$TokenRefreshRequest;-><init>(Lcom/facebook/Session;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session;->G:Lcom/facebook/Session$TokenRefreshRequest;</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session$TokenRefreshRequest;->a()V</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:try_start_1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+.end method
+
+.method  o()Z
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->G:Lcom/facebook/Session$TokenRefreshRequest;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/util/Date;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v1}, Ljava/util/Date;-><init>()V</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/SessionState;->a()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/AccessToken;->d()Lcom/facebook/AccessTokenSource;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/AccessTokenSource;->a()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/Date;->getTime()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	iget-object v4, p0, Lcom/facebook/Session;->x:Ljava/util/Date;</span>
+<span class="">	invoke-virtual {v4}, Ljava/util/Date;->getTime()J</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	sub-long/2addr v2, v4</span>
+<span class="">	const-wide/32 v4, 0x36ee80</span>
+<span class="">	cmp-long v2, v2, v4</span>
+<span class="">	if-lez v2, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/util/Date;->getTime()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/AccessToken;->e()Ljava/util/Date;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/util/Date;->getTime()J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	sub-long/2addr v1, v3</span>
+<span class="">	const-wide/32 v3, 0x5265c00</span>
+<span class="">	cmp-long v1, v1, v3</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  p()Lcom/facebook/AccessToken;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+.end method
+
+.method  q()Ljava/util/Date;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->x:Ljava/util/Date;</span>
+.end method
+
+.method public toString()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v1, "{Session"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, " state:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session;->v:Lcom/facebook/SessionState;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ", token:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "null"</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ", appId:"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const-string v0, "null"</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "}"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->w:Lcom/facebook/AccessToken;</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/Session;->u:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../.resources/report.js"></script>
+</body>
+</html>

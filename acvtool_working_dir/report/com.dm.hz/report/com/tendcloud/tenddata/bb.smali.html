@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tendcloud.tenddata</a></li>
+        <li><i class="ico ico-class"></i> bb.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tendcloud/tenddata/bb;
+.super Ljava/lang/Object;
+.implements Ljava/lang/Runnable;
+
+
+.field final synthetic a:Landroid/content/Context;
+.field final synthetic b:Lcom/tendcloud/tenddata/o;
+
+
+<span class="cov">.method constructor &lt;init&gt;(Lcom/tendcloud/tenddata/o;Landroid/content/Context;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput-object p1, p0, Lcom/tendcloud/tenddata/bb;->b:Lcom/tendcloud/tenddata/o;</span>
+<span class="cov">	iput-object p2, p0, Lcom/tendcloud/tenddata/bb;->a:Landroid/content/Context;</span>
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public run()V</span>
+<span class="">	.locals 6</span>
+
+<span class="cov">	const/4 v5, 0x2</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	:try_start_0</span>
+<span class="cov">	new-instance v1, Ljava/io/File;</span>
+<span class="cov">	iget-object v2, p0, Lcom/tendcloud/tenddata/bb;->a:Landroid/content/Context;</span>
+<span class="exec">	invoke-virtual {v2}, Landroid/content/Context;->getFilesDir()Ljava/io/File;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	const-string v3, "td.lock"</span>
+<span class="cov">	invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {v1}, Ljava/io/File;->exists()Z</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	if-nez v2, :cond_0</span>
+<span class="cov">	invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	new-instance v2, Ljava/io/RandomAccessFile;</span>
+<span class="cov">	const-string v3, "rw"</span>
+<span class="cov">	invoke-direct {v2, v1, v3}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {v2}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	sput-object v1, Lcom/tendcloud/tenddata/o;->l:Ljava/nio/channels/FileChannel;</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="exec">	invoke-static {}, Lcom/tendcloud/tenddata/o;->o()J</span>
+<span class="cov">	move-result-wide v1</span>
+<span class="cov">	const-wide/16 v3, 0x0</span>
+<span class="cov">	cmp-long v1, v1, v3</span>
+<span class="cov">	if-nez v1, :cond_1</span>
+<span class="exec">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="cov">	move-result-wide v1</span>
+<span class="cov">	invoke-static {v1, v2}, Lcom/tendcloud/tenddata/o;->b(J)V</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	iget-object v1, p0, Lcom/tendcloud/tenddata/bb;->a:Landroid/content/Context;</span>
+<span class="exec">	invoke-static {v1}, Lcom/tendcloud/tenddata/o;->c(Landroid/content/Context;)Z</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	sput-boolean v1, Lcom/tendcloud/tenddata/o;->i:Z</span>
+<span class="cov">	iget-object v1, p0, Lcom/tendcloud/tenddata/bb;->b:Lcom/tendcloud/tenddata/o;</span>
+<span class="cov">	iget-object v2, p0, Lcom/tendcloud/tenddata/bb;->a:Landroid/content/Context;</span>
+<span class="cov">	invoke-static {v1, v2}, Lcom/tendcloud/tenddata/o;->a(Lcom/tendcloud/tenddata/o;Landroid/content/Context;)V</span>
+<span class="exec">	invoke-static {}, Lcom/tendcloud/tenddata/o;->g()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	if-lez v1, :cond_2</span>
+<span class="cov">	iget-object v2, p0, Lcom/tendcloud/tenddata/bb;->a:Landroid/content/Context;</span>
+<span class="exec">	invoke-static {v2}, Lcom/tendcloud/tenddata/au;->f(Landroid/content/Context;)[[Ljava/lang/Long;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	sput-object v2, Lcom/tendcloud/tenddata/o;->e:[[Ljava/lang/Long;</span>
+<span class="">	if-ge v1, v5, :cond_2</span>
+<span class="">	sget-object v1, Lcom/tendcloud/tenddata/o;->e:[[Ljava/lang/Long;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	aput-object v2, v1, v5</span>
+<span class="cov">	:cond_2</span>
+<span class="exec">	invoke-static {}, Lcom/tendcloud/tenddata/c;->a()Landroid/os/Handler;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="exec">	invoke-static {v1, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	sget-boolean v3, Lcom/tendcloud/tenddata/o;->i:Z</span>
+<span class="">	if-nez v3, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tendcloud/tenddata/o;->q:Ljava/util/Random;</span>
+<span class="">	const/16 v3, 0x7530</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit16 v0, v0, 0x7530</span>
+<span class="cov">	:cond_3</span>
+<span class="cov">	int-to-long v3, v0</span>
+<span class="cov">	invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z</span>
+<span class="exec">	return-void</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

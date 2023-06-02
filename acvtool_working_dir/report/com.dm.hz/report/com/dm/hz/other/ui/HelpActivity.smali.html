@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.other.ui</a></li>
+        <li><i class="ico ico-class"></i> HelpActivity.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/other/ui/HelpActivity;
+.super Lcom/dm/hz/other/ui/BaseActivity;
+.source "SourceFile"
+
+
+.field private a:Lcom/dm/hz/view/CustomWebView;
+.field private f:Lcom/dm/hz/view/CustomListEmptyView;
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/other/ui/BaseActivity;-><init>()V</span>
+.end method
+
+.method private a()V
+<span class="">	.locals 2</span>
+
+<span class="">	const v0, 0x7f0a0062</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/other/ui/HelpActivity;->f:Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/other/ui/HelpActivity;->f:Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="">	const v1, 0x7f0800e4</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/dm/hz/view/CustomListEmptyView;->a(I)V</span>
+<span class="">	const v0, 0x7f0a0061</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/dm/hz/view/CustomWebView;</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/other/ui/HelpActivity;->a:Lcom/dm/hz/view/CustomWebView;</span>
+.end method
+
+.method public static a(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-static {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->a(Landroid/content/Context;I)V</span>
+.end method
+
+.method private static a(Landroid/content/Context;I)V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Landroid/content/Intent;</span>
+<span class="">	const-class v1, Lcom/dm/hz/other/ui/HelpActivity;</span>
+<span class="">	invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V</span>
+<span class="">	const-string v1, "type"</span>
+<span class="">	invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+.end method
+
+.method public static b(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->a(Landroid/content/Context;I)V</span>
+.end method
+
+.method private b(Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/other/ui/HelpActivity;->c:Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	invoke-static {v0}, Lcn/a/b/l;->a(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/other/ui/HelpActivity;->f:Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/view/CustomListEmptyView;->b()V</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/other/ui/HelpActivity;->a:Lcom/dm/hz/view/CustomWebView;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/dm/hz/view/CustomWebView;->loadUrl(Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/dm/hz/other/ui/HelpActivity;->f:Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/dm/hz/view/CustomListEmptyView;->a()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/other/ui/HelpActivity;->getIntent()Landroid/content/Intent;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "type"</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const v0, 0x7f0800c5</span>
+<span class="">	:pswitch_0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->setTitle(I)V</span>
+<span class="">	sget-object v0, Lcom/dm/hz/d/a;->n:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->b(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const v0, 0x7f0800c6</span>
+<span class="">	:pswitch_1</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->setTitle(I)V</span>
+<span class="">	sget-object v0, Lcom/dm/hz/d/a;->m:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->b(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/dm/hz/other/ui/BaseActivity;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	const v0, 0x7f030017</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/dm/hz/other/ui/HelpActivity;->setContentView(I)V</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/other/ui/HelpActivity;->a()V</span>
+<span class="">	invoke-direct {p0}, Lcom/dm/hz/other/ui/HelpActivity;->d()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/dm/hz/other/ui/HelpActivity;->b()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

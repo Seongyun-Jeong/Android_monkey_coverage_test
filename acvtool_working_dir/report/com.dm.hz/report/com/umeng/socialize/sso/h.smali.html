@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.sso</a></li>
+        <li><i class="ico ico-class"></i> h.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/umeng/socialize/sso/h;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/tencent/tauth/IUiListener;
+
+
+.field final synthetic a:Lcom/umeng/socialize/sso/e;
+
+
+.method constructor <init>(Lcom/umeng/socialize/sso/e;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public onCancel()V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/sso/e;->a:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	const-class v1, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->f:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	const v3, 0x9c40</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/sso/e;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3, v4}, Lcom/umeng/socialize/bean/l;->a(Ljava/lang/Class;Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/sso/e;->a(Z)V</span>
+.end method
+
+.method public onComplete(Ljava/lang/Object;)V
+<span class="">	.locals 5</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/umeng/socialize/sso/e;->c(Ljava/lang/Object;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const v0, 0x9c42</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	iget-object v1, v1, Lcom/umeng/socialize/sso/e;->a:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	const-class v2, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/bean/g;->f:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/sso/e;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v1, v2, v3, v0, v4}, Lcom/umeng/socialize/bean/l;->a(Ljava/lang/Class;Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/sso/e;->a(Z)V</span>
+.end method
+
+.method public onError(Lcom/tencent/tauth/UiError;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const-string v0, "IUiListener"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "error code : "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget v2, p1, Lcom/tencent/tauth/UiError;->errorCode:I</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "       error message:"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p1, Lcom/tencent/tauth/UiError;->errorMessage:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/sso/e;->a:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	const-class v1, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->f:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	const v3, 0x9c42</span>
+<span class="">	sget-object v4, Lcom/umeng/socialize/sso/e;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3, v4}, Lcom/umeng/socialize/bean/l;->a(Ljava/lang/Class;Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sso/h;->a:Lcom/umeng/socialize/sso/e;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/sso/e;->a(Z)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

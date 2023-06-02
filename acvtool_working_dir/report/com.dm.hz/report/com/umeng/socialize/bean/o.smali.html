@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.bean</a></li>
+        <li><i class="ico ico-class"></i> o.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/bean/o;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field public static final a:I = 0xc8
+.field public static final b:I = 0x13a3
+.field public static final c:I = 0x13a4
+.field public static final d:I = 0x1396
+.field public static final e:I = 0x13ad
+.field public static final f:I = 0x13a5
+.field public static final g:I = 0x1398
+.field public static final h:I = 0x1f9
+.field public static final i:I = 0x9c40
+.field public static final j:I = 0x9c41
+.field public static final k:I = 0x9c42
+.field public static final l:I = 0x2766
+.field public static final m:I = -0x65
+.field public static final n:I = -0x66
+.field public static final o:I = -0x67
+.field public static final p:I = -0x68
+.field public static final q:I = -0x69
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a(Landroid/content/Context;ILjava/lang/String;)I
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	if-ne p1, v0, :cond_1</span>
+<span class="">	const-string v0, "com.umeng.socialize"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "call show error msg but error_code is "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->e(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/16 v0, 0x1f9</span>
+<span class="">	:cond_1</span>
+<span class="">	if-ne p1, v0, :cond_3</span>
+<span class="">	sget-boolean v0, Lcom/umeng/socialize/common/n;->t:Z</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, " ["</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "]"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	:goto_1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->e:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_tip_blacklist"</span>
+<span class="">	invoke-static {p0, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, v0, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const/16 v0, 0x13a3</span>
+<span class="">	:cond_3</span>
+<span class="">	if-eq p1, v0, :cond_4</span>
+<span class="">	const/16 v0, 0x13a4</span>
+<span class="">	if-ne v0, p1, :cond_5</span>
+<span class="">	const-string v0, "\u6388\u6743\u5931\u6548\uff0c\u8bf7\u91cd\u65b0\u6388\u6743..."</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/16 v0, 0x1398</span>
+<span class="">	:cond_5</span>
+<span class="">	if-ne p1, v0, :cond_6</span>
+<span class="">	const-string v0, "\u5206\u4eab\u5185\u5bb9\u91cd\u590d..."</span>
+<span class="">	invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, " ["</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "]"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, v0, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/Toast;->show()V</span>
+<span class="">	goto/16 :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

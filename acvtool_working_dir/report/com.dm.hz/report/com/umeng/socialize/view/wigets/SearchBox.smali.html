@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view.wigets</a></li>
+        <li><i class="ico ico-class"></i> SearchBox.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/view/wigets/SearchBox;
+.super Landroid/widget/EditText;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/view/wigets/SearchBox$SearchResultListener;
+}
+.end annotation
+
+.field private a:Landroid/widget/ListView;
+.field private b:Lcom/umeng/socialize/view/wigets/SearchBox$SearchResultListener;
+.field private c:Landroid/text/TextWatcher;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/wigets/d;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/view/wigets/d;-><init>(Lcom/umeng/socialize/view/wigets/SearchBox;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->c:Landroid/text/TextWatcher;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->c:Landroid/text/TextWatcher;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/view/wigets/SearchBox;->addTextChangedListener(Landroid/text/TextWatcher;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/widget/EditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/wigets/d;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/view/wigets/d;-><init>(Lcom/umeng/socialize/view/wigets/SearchBox;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->c:Landroid/text/TextWatcher;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->c:Landroid/text/TextWatcher;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/view/wigets/SearchBox;->addTextChangedListener(Landroid/text/TextWatcher;)V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/view/wigets/SearchBox;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/view/wigets/SearchBox;->a(Ljava/lang/String;)V</span>
+.end method
+
+.method private a(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->a:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ListView;->getAdapter()Landroid/widget/ListAdapter;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/view/wigets/a;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/view/wigets/SearchBox;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Lcom/umeng/socialize/view/wigets/a;->a(Ljava/lang/String;Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->b:Lcom/umeng/socialize/view/wigets/SearchBox$SearchResultListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->b:Lcom/umeng/socialize/view/wigets/SearchBox$SearchResultListener;</span>
+<span class="">	invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v1, v0}, Lcom/umeng/socialize/view/wigets/SearchBox$SearchResultListener;->a(Z)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private b(Ljava/lang/String;)Z
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C</span>
+<span class="">	move-result-object v1</span>
+<span class="">	array-length v0, v1</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-gez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-char v2, v1, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/16 v3, 0x80</span>
+<span class="">	if-gt v2, v3, :cond_1</span>
+<span class="">	aget-char v2, v1, v0</span>
+<span class="">	if-gez v2, :cond_2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Landroid/widget/ListView;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->a:Landroid/widget/ListView;</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/view/wigets/SearchBox$SearchResultListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/SearchBox;->b:Lcom/umeng/socialize/view/wigets/SearchBox$SearchResultListener;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

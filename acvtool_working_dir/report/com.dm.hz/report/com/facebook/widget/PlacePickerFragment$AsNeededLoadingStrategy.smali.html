@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> PlacePickerFragment$AsNeededLoadingStrategy.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy;
+.super Lcom/facebook/widget/PickerFragment$LoadingStrategy;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/widget/PlacePickerFragment;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x2
+name = "AsNeededLoadingStrategy"
+.end annotation
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/PickerFragment",
+"<",
+"Lcom/facebook/model/GraphPlace;",
+">.",
+"LoadingStrategy;"
+}
+.end annotation
+
+.field final synthetic a:Lcom/facebook/widget/PlacePickerFragment;
+
+
+.method private constructor <init>(Lcom/facebook/widget/PlacePickerFragment;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy;->a:Lcom/facebook/widget/PlacePickerFragment;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;-><init>(Lcom/facebook/widget/PickerFragment;)V</span>
+.end method
+
+.method synthetic constructor <init>(Lcom/facebook/widget/PlacePickerFragment;Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy;-><init>(Lcom/facebook/widget/PlacePickerFragment;)V</span>
+.end method
+
+.method public a(Lcom/facebook/widget/GraphObjectAdapter;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectAdapter",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/facebook/model/GraphPlace;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->a(Lcom/facebook/widget/GraphObjectAdapter;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy;->d:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy$1;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy$1;-><init>(Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectAdapter$DataNeededListener;)V</span>
+.end method
+
+.method protected a(Lcom/facebook/widget/GraphObjectPagingLoader;Lcom/facebook/widget/SimpleGraphObjectCursor;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/GraphObjectPagingLoader",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/facebook/model/GraphPlace;",</span>
+<span class="">	">;",</span>
+<span class="">	"Lcom/facebook/widget/SimpleGraphObjectCursor",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/facebook/model/GraphPlace;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-super {p0, p1, p2}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->a(Lcom/facebook/widget/GraphObjectPagingLoader;Lcom/facebook/widget/SimpleGraphObjectCursor;)V</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/widget/GraphObjectPagingLoader;->d()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy;->a:Lcom/facebook/widget/PlacePickerFragment;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/PlacePickerFragment;->x()V</span>
+<span class="">	invoke-virtual {p2}, Lcom/facebook/widget/SimpleGraphObjectCursor;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p2}, Lcom/facebook/widget/SimpleGraphObjectCursor;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const/16 v0, 0x7d0</span>
+<span class="">	int-to-long v0, v0</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Lcom/facebook/widget/GraphObjectPagingLoader;->a(J)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

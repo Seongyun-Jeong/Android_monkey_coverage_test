@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook</a></li>
+        <li><i class="ico ico-class"></i> LoginActivity.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/LoginActivity;
+.super Landroid/app/Activity;
+.source "SourceFile"
+
+
+.field static final a:Ljava/lang/String; = "com.facebook.LoginActivity:Result"
+.field private static final b:Ljava/lang/String;
+.field private static final c:Ljava/lang/String; = "Cannot call LoginActivity with a null calling package. This can occur if the launchMode of the caller is singleInstance."
+.field private static final d:Ljava/lang/String; = "callingPackage"
+.field private static final e:Ljava/lang/String; = "authorizationClient"
+.field private static final f:Ljava/lang/String; = "request"
+.field private g:Ljava/lang/String;
+.field private h:Lcom/facebook/AuthorizationClient;
+.field private i:Lcom/facebook/AuthorizationClient$AuthorizationRequest;
+.field private j:Lcom/facebook/ResContainer;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/LoginActivity;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/facebook/LoginActivity;->b:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Landroid/app/Activity;-><init>()V</span>
+<span class="">	invoke-static {}, Lcom/facebook/ResContainer;->b()Lcom/facebook/ResContainer;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/LoginActivity;->j:Lcom/facebook/ResContainer;</span>
+.end method
+
+.method static a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;)Landroid/os/Bundle;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v1, "request"</span>
+<span class="">	invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/LoginActivity;)Lcom/facebook/ResContainer;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->j:Lcom/facebook/ResContainer;</span>
+.end method
+
+.method private a(Lcom/facebook/AuthorizationClient$Result;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/LoginActivity;->i:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	iget-object v0, p1, Lcom/facebook/AuthorizationClient$Result;->a:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	sget-object v1, Lcom/facebook/AuthorizationClient$Result$Code;->b:Lcom/facebook/AuthorizationClient$Result$Code;</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v1, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v1}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v2, "com.facebook.LoginActivity:Result"</span>
+<span class="">	invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V</span>
+<span class="">	new-instance v2, Landroid/content/Intent;</span>
+<span class="">	invoke-direct {v2}, Landroid/content/Intent;-><init>()V</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;</span>
+<span class="">	invoke-virtual {p0, v0, v2}, Lcom/facebook/LoginActivity;->setResult(ILandroid/content/Intent;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/LoginActivity;->finish()V</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/LoginActivity;Lcom/facebook/AuthorizationClient$Result;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/LoginActivity;->a(Lcom/facebook/AuthorizationClient$Result;)V</span>
+.end method
+
+.method protected onActivityResult(IILandroid/content/Intent;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3}, Lcom/facebook/AuthorizationClient;->a(IILandroid/content/Intent;)Z</span>
+.end method
+
+.method public onCreate(Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->j:Lcom/facebook/ResContainer;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->j:Lcom/facebook/ResContainer;</span>
+<span class="">	sget-object v1, Lcom/facebook/ResContainer$ResType;->a:Lcom/facebook/ResContainer$ResType;</span>
+<span class="">	const-string v2, "umeng_socialize_facebook_login_activity_layout"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/facebook/ResContainer;->a(Lcom/facebook/ResContainer$ResType;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/LoginActivity;->setContentView(I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	const-string v0, "callingPackage"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/LoginActivity;->g:Ljava/lang/String;</span>
+<span class="">	const-string v0, "authorizationClient"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/facebook/AuthorizationClient;->a(Landroid/app/Activity;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	new-instance v1, Lcom/facebook/LoginActivity$1;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/LoginActivity$1;-><init>(Lcom/facebook/LoginActivity;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/AuthorizationClient;->a(Lcom/facebook/AuthorizationClient$OnCompletedListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	new-instance v1, Lcom/facebook/LoginActivity$2;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/LoginActivity$2;-><init>(Lcom/facebook/LoginActivity;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/AuthorizationClient;->a(Lcom/facebook/AuthorizationClient$BackgroundProcessingListener;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/LoginActivity;->finish()V</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/LoginActivity;->getCallingPackage()Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/LoginActivity;->g:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/AuthorizationClient;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/LoginActivity;->getIntent()Landroid/content/Intent;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "request"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/LoginActivity;->i:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public onPause()V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0}, Landroid/app/Activity;->onPause()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/AuthorizationClient;->c()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->j:Lcom/facebook/ResContainer;</span>
+<span class="">	sget-object v1, Lcom/facebook/ResContainer$ResType;->b:Lcom/facebook/ResContainer$ResType;</span>
+<span class="">	const-string v2, "com_facebook_login_activity_progress_bar"</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/facebook/ResContainer;->a(Lcom/facebook/ResContainer$ResType;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/LoginActivity;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x8</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V</span>
+.end method
+
+.method public onResume()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-super {p0}, Landroid/app/Activity;->onResume()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->g:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/LoginActivity;->b:Ljava/lang/String;</span>
+<span class="">	const-string v1, "Cannot call LoginActivity with a null calling package. This can occur if the launchMode of the caller is singleInstance."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/LoginActivity;->finish()V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/LoginActivity;->i:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/AuthorizationClient;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onSaveInstanceState(Landroid/os/Bundle;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V</span>
+<span class="">	const-string v0, "callingPackage"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/LoginActivity;->g:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "authorizationClient"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/LoginActivity;->h:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> FacebookDialog.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/widget/FacebookDialog;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/widget/FacebookDialog$Builder;,
+Lcom/facebook/widget/FacebookDialog$Callback;,
+Lcom/facebook/widget/FacebookDialog$DialogFeature;,
+Lcom/facebook/widget/FacebookDialog$OnPresentCallback;,
+Lcom/facebook/widget/FacebookDialog$OpenGraphActionDialogBuilder;,
+Lcom/facebook/widget/FacebookDialog$OpenGraphActionDialogFeature;,
+Lcom/facebook/widget/FacebookDialog$PendingCall;,
+Lcom/facebook/widget/FacebookDialog$ShareDialogBuilder;,
+Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;
+}
+.end annotation
+
+.field public static final a:Ljava/lang/String; = "cancel"
+.field private static final b:Ljava/lang/String; = "com.facebook.platform.extra.DID_COMPLETE"
+.field private static final c:Ljava/lang/String; = "com.facebook.platform.extra.COMPLETION_GESTURE"
+.field private static final d:Ljava/lang/String; = "com.facebook.platform.extra.POST_ID"
+.field private static final e:I = 0x1332b3a
+.field private static f:Lcom/facebook/NativeAppCallAttachmentStore;
+.field private g:Landroid/app/Activity;
+.field private h:Landroid/support/v4/app/Fragment;
+.field private i:Lcom/facebook/widget/FacebookDialog$PendingCall;
+.field private j:Lcom/facebook/widget/FacebookDialog$OnPresentCallback;
+
+
+.method private constructor <init>(Landroid/app/Activity;Landroid/support/v4/app/Fragment;Lcom/facebook/widget/FacebookDialog$PendingCall;Lcom/facebook/widget/FacebookDialog$OnPresentCallback;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/FacebookDialog;->g:Landroid/app/Activity;</span>
+<span class="">	iput-object p2, p0, Lcom/facebook/widget/FacebookDialog;->h:Landroid/support/v4/app/Fragment;</span>
+<span class="">	iput-object p3, p0, Lcom/facebook/widget/FacebookDialog;->i:Lcom/facebook/widget/FacebookDialog$PendingCall;</span>
+<span class="">	iput-object p4, p0, Lcom/facebook/widget/FacebookDialog;->j:Lcom/facebook/widget/FacebookDialog$OnPresentCallback;</span>
+.end method
+
+.method synthetic constructor <init>(Landroid/app/Activity;Landroid/support/v4/app/Fragment;Lcom/facebook/widget/FacebookDialog$PendingCall;Lcom/facebook/widget/FacebookDialog$OnPresentCallback;Lcom/facebook/widget/FacebookDialog;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3, p4}, Lcom/facebook/widget/FacebookDialog;-><init>(Landroid/app/Activity;Landroid/support/v4/app/Fragment;Lcom/facebook/widget/FacebookDialog$PendingCall;Lcom/facebook/widget/FacebookDialog$OnPresentCallback;)V</span>
+.end method
+
+.method static synthetic a(Landroid/content/Context;Ljava/lang/Integer;)I
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/facebook/widget/FacebookDialog;->b(Landroid/content/Context;Ljava/lang/Integer;)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method private static a(Ljava/lang/Iterable;)I
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/Iterable",</span>
+<span class="">	"<+",</span>
+<span class="">	"Lcom/facebook/widget/FacebookDialog$DialogFeature;",</span>
+<span class="">	">;)I"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/high16 v0, -0x80000000</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/widget/FacebookDialog$DialogFeature;</span>
+<span class="">	invoke-interface {v0}, Lcom/facebook/widget/FacebookDialog$DialogFeature;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/facebook/widget/FacebookDialog$PendingCall;ILandroid/content/Intent;Lcom/facebook/widget/FacebookDialog$Callback;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p1}, Lcom/facebook/widget/FacebookDialog$PendingCall;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eq p2, v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v0, Lcom/facebook/widget/FacebookDialog;->f:Lcom/facebook/NativeAppCallAttachmentStore;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/facebook/widget/FacebookDialog;->f:Lcom/facebook/NativeAppCallAttachmentStore;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/widget/FacebookDialog$PendingCall;->b()Ljava/util/UUID;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, p0, v1}, Lcom/facebook/NativeAppCallAttachmentStore;->a(Landroid/content/Context;Ljava/util/UUID;)V</span>
+<span class="">	if-eqz p4, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {p3}, Lcom/facebook/internal/NativeProtocol;->a(Landroid/content/Intent;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-static {p3}, Lcom/facebook/internal/NativeProtocol;->b(Landroid/content/Intent;)Ljava/lang/Exception;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {p4, p1, v0, v1}, Lcom/facebook/widget/FacebookDialog$Callback;->a(Lcom/facebook/widget/FacebookDialog$PendingCall;Ljava/lang/Exception;Landroid/os/Bundle;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p4, p1, v0}, Lcom/facebook/widget/FacebookDialog$Callback;->a(Lcom/facebook/widget/FacebookDialog$PendingCall;Landroid/os/Bundle;)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static a(Landroid/content/Context;Ljava/lang/Iterable;)Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/content/Context;",</span>
+<span class="">	"Ljava/lang/Iterable",</span>
+<span class="">	"<+",</span>
+<span class="">	"Lcom/facebook/widget/FacebookDialog$DialogFeature;",</span>
+<span class="">	">;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p1}, Lcom/facebook/widget/FacebookDialog;->a(Ljava/lang/Iterable;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/widget/FacebookDialog;->b(Landroid/content/Context;Ljava/lang/Integer;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static varargs a(Landroid/content/Context;[Lcom/facebook/widget/FacebookDialog$OpenGraphActionDialogFeature;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/widget/FacebookDialog$OpenGraphActionDialogFeature;->a:Lcom/facebook/widget/FacebookDialog$OpenGraphActionDialogFeature;</span>
+<span class="">	invoke-static {v0, p1}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;[Ljava/lang/Enum;)Ljava/util/EnumSet;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/widget/FacebookDialog;->a(Landroid/content/Context;Ljava/lang/Iterable;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static varargs a(Landroid/content/Context;[Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;->a:Lcom/facebook/widget/FacebookDialog$ShareDialogFeature;</span>
+<span class="">	invoke-static {v0, p1}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;[Ljava/lang/Enum;)Ljava/util/EnumSet;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/widget/FacebookDialog;->a(Landroid/content/Context;Ljava/lang/Iterable;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static a(Landroid/os/Bundle;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "com.facebook.platform.extra.DID_COMPLETE"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method private static b(Landroid/content/Context;Ljava/lang/Integer;)I
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/NativeProtocol;->a(Landroid/content/Context;I)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method static synthetic b()Lcom/facebook/NativeAppCallAttachmentStore;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Lcom/facebook/widget/FacebookDialog;->c()Lcom/facebook/NativeAppCallAttachmentStore;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static b(Landroid/os/Bundle;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "com.facebook.platform.extra.COMPLETION_GESTURE"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private static c()Lcom/facebook/NativeAppCallAttachmentStore;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/facebook/widget/FacebookDialog;->f:Lcom/facebook/NativeAppCallAttachmentStore;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/facebook/NativeAppCallAttachmentStore;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/NativeAppCallAttachmentStore;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/facebook/widget/FacebookDialog;->f:Lcom/facebook/NativeAppCallAttachmentStore;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/widget/FacebookDialog;->f:Lcom/facebook/NativeAppCallAttachmentStore;</span>
+.end method
+
+.method public static c(Landroid/os/Bundle;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "com.facebook.platform.extra.POST_ID"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a()Lcom/facebook/widget/FacebookDialog$PendingCall;
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog;->j:Lcom/facebook/widget/FacebookDialog$OnPresentCallback;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog;->j:Lcom/facebook/widget/FacebookDialog$OnPresentCallback;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog;->g:Landroid/app/Activity;</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/facebook/widget/FacebookDialog$OnPresentCallback;->a(Landroid/content/Context;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog;->h:Landroid/support/v4/app/Fragment;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog;->h:Landroid/support/v4/app/Fragment;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog;->i:Lcom/facebook/widget/FacebookDialog$PendingCall;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/FacebookDialog$PendingCall;->a()Landroid/content/Intent;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/FacebookDialog;->i:Lcom/facebook/widget/FacebookDialog$PendingCall;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/widget/FacebookDialog$PendingCall;->c()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog;->i:Lcom/facebook/widget/FacebookDialog$PendingCall;</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/facebook/FacebookException;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	throw v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/FacebookDialog;->g:Landroid/app/Activity;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/FacebookDialog;->i:Lcom/facebook/widget/FacebookDialog$PendingCall;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/FacebookDialog$PendingCall;->a()Landroid/content/Intent;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/FacebookDialog;->i:Lcom/facebook/widget/FacebookDialog$PendingCall;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/widget/FacebookDialog$PendingCall;->c()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

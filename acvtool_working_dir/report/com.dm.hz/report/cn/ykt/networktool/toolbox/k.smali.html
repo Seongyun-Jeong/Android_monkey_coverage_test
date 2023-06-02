@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool.toolbox</a></li>
+        <li><i class="ico ico-class"></i> k.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/ykt/networktool/toolbox/k;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+<span class="cov">.method public static a(Ljava/lang/String;)J</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	:try_start_0</span>
+<span class="exec">	invoke-static {p0}, Lorg/apache/http/impl/cookie/DateUtils;->parseDate(Ljava/lang/String;)Ljava/util/Date;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/util/Date;->getTime()J</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/apache/http/impl/cookie/DateParseException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="cov">	move-result-wide v0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-wide v0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public static a(Lcn/ykt/networktool/k;)Lcn/ykt/networktool/b$a;</span>
+<span class="">	.locals 20</span>
+
+<span class="exec">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="cov">	move-result-wide v11</span>
+<span class="cov">	move-object/from16 v0, p0</span>
+<span class="cov">	iget-object v13, v0, Lcn/ykt/networktool/k;->c:Ljava/util/Map;</span>
+<span class="cov">	const-wide/16 v2, 0x0</span>
+<span class="cov">	const-wide/16 v7, 0x0</span>
+<span class="cov">	const-wide/16 v9, 0x0</span>
+<span class="cov">	const-wide/16 v4, 0x0</span>
+<span class="cov">	const/4 v6, 0x0</span>
+<span class="cov">	const-string v1, "Date"</span>
+<span class="exec">	invoke-interface {v13, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	check-cast v1, Ljava/lang/String;</span>
+<span class="cov">	if-eqz v1, :cond_0</span>
+<span class="exec">	invoke-static {v1}, Lcn/ykt/networktool/toolbox/k;->a(Ljava/lang/String;)J</span>
+<span class="cov">	move-result-wide v1</span>
+<span class="cov">	move-wide v2, v1</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const-string v1, "Cache-Control"</span>
+<span class="exec">	invoke-interface {v13, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	const-string v14, ","</span>
+<span class="">	invoke-virtual {v1, v14}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v14</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	array-length v15, v14</span>
+<span class="">	if-lt v1, v15, :cond_3</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	move/from16 v17, v6</span>
+<span class="cov">	move-wide/from16 v18, v4</span>
+<span class="cov">	move-wide/from16 v5, v18</span>
+<span class="cov">	move/from16 v4, v17</span>
+<span class="cov">	const-string v1, "Expires"</span>
+<span class="exec">	invoke-interface {v13, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	invoke-static {v1}, Lcn/ykt/networktool/toolbox/k;->a(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v7</span>
+<span class="cov">	:cond_2</span>
+<span class="cov">	const-string v1, "ETag"</span>
+<span class="exec">	invoke-interface {v13, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	if-eqz v4, :cond_9</span>
+<span class="">	const-wide/16 v7, 0x3e8</span>
+<span class="">	mul-long v4, v5, v7</span>
+<span class="">	add-long/2addr v4, v11</span>
+<span class="cov">	:goto_1</span>
+<span class="cov">	new-instance v6, Lcn/ykt/networktool/b$a;</span>
+<span class="cov">	invoke-direct {v6}, Lcn/ykt/networktool/b$a;-><init>()V</span>
+<span class="cov">	move-object/from16 v0, p0</span>
+<span class="cov">	iget-object v7, v0, Lcn/ykt/networktool/k;->b:[B</span>
+<span class="cov">	iput-object v7, v6, Lcn/ykt/networktool/b$a;->a:[B</span>
+<span class="cov">	iput-object v1, v6, Lcn/ykt/networktool/b$a;->b:Ljava/lang/String;</span>
+<span class="cov">	iput-wide v4, v6, Lcn/ykt/networktool/b$a;->e:J</span>
+<span class="cov">	iget-wide v4, v6, Lcn/ykt/networktool/b$a;->e:J</span>
+<span class="cov">	iput-wide v4, v6, Lcn/ykt/networktool/b$a;->d:J</span>
+<span class="cov">	iput-wide v2, v6, Lcn/ykt/networktool/b$a;->c:J</span>
+<span class="cov">	iput-object v13, v6, Lcn/ykt/networktool/b$a;->f:Ljava/util/Map;</span>
+<span class="cov">	move-object v1, v6</span>
+<span class="cov">	:goto_2</span>
+<span class="exec">	return-object v1</span>
+<span class="">	:cond_3</span>
+<span class="">	aget-object v15, v14, v1</span>
+<span class="">	invoke-virtual {v15}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v15</span>
+<span class="">	const-string v16, "no-cache"</span>
+<span class="">	invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v16</span>
+<span class="">	if-nez v16, :cond_4</span>
+<span class="">	const-string v16, "no-store"</span>
+<span class="">	invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v16</span>
+<span class="">	if-eqz v16, :cond_5</span>
+<span class="">	:cond_4</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	:cond_5</span>
+<span class="">	const-string v16, "max-age="</span>
+<span class="">	invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v16</span>
+<span class="">	if-eqz v16, :cond_7</span>
+<span class="">	const/16 v16, 0x8</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->substring(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v15</span>
+<span class="">	invoke-static {v15}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_6</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_7</span>
+<span class="">	const-string v16, "must-revalidate"</span>
+<span class="">	invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v16</span>
+<span class="">	if-nez v16, :cond_8</span>
+<span class="">	const-string v16, "proxy-revalidate"</span>
+<span class="">	invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v15</span>
+<span class="">	if-eqz v15, :cond_6</span>
+<span class="">	:cond_8</span>
+<span class="">	const-wide/16 v4, 0x0</span>
+<span class="">	goto :goto_3</span>
+<span class="cov">	:cond_9</span>
+<span class="cov">	const-wide/16 v4, 0x0</span>
+<span class="cov">	cmp-long v4, v2, v4</span>
+<span class="cov">	if-lez v4, :cond_a</span>
+<span class="cov">	cmp-long v4, v7, v2</span>
+<span class="">	if-ltz v4, :cond_a</span>
+<span class="">	sub-long v4, v7, v2</span>
+<span class="">	add-long/2addr v4, v11</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v15</span>
+<span class="">	goto :goto_3</span>
+<span class="cov">	:cond_a</span>
+<span class="cov">	move-wide v4, v9</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+<span class="cov">.method public static a(Ljava/util/Map;)Ljava/lang/String;</span>
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Ljava/lang/String;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="cov">	const/4 v1, 0x1</span>
+<span class="cov">	const-string v0, "Content-Type"</span>
+<span class="exec">	invoke-interface {p0, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Ljava/lang/String;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	const-string v2, ";"</span>
+<span class="exec">	invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	move v0, v1</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	array-length v3, v2</span>
+<span class="">	if-lt v0, v3, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "ISO-8859-1"</span>
+<span class="cov">	:goto_1</span>
+<span class="exec">	return-object v0</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	aget-object v3, v2, v0</span>
+<span class="exec">	invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v3</span>
+<span class="cov">	const-string v4, "="</span>
+<span class="exec">	invoke-virtual {v3, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="cov">	move-result-object v3</span>
+<span class="cov">	array-length v4, v3</span>
+<span class="cov">	const/4 v5, 0x2</span>
+<span class="cov">	if-ne v4, v5, :cond_2</span>
+<span class="cov">	const/4 v4, 0x0</span>
+<span class="cov">	aget-object v4, v3, v4</span>
+<span class="cov">	const-string v5, "charset"</span>
+<span class="exec">	invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="cov">	if-eqz v4, :cond_2</span>
+<span class="cov">	aget-object v0, v3, v1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

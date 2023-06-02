@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.weiyun</a></li>
+        <li><i class="ico ico-class"></i> FileManager.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/weiyun/FileManager;
+.super Lcom/tencent/connect/common/BaseApi;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/weiyun/FileManager$a;,
+Lcom/tencent/weiyun/FileManager$c;,
+Lcom/tencent/weiyun/FileManager$b;,
+Lcom/tencent/weiyun/FileManager$WeiyunFileType;
+}
+.end annotation
+
+.field private static final a:[Ljava/lang/String;
+.field private static final b:[Ljava/lang/String;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v5, 0x3</span>
+<span class="">	const/4 v4, 0x2</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-array v0, v5, [Ljava/lang/String;</span>
+<span class="">	const-string v1, "https://graph.qq.com/weiyun/get_photo_list"</span>
+<span class="">	aput-object v1, v0, v2</span>
+<span class="">	const-string v1, "https://graph.qq.com/weiyun/get_music_list"</span>
+<span class="">	aput-object v1, v0, v3</span>
+<span class="">	const-string v1, "https://graph.qq.com/weiyun/get_video_list"</span>
+<span class="">	aput-object v1, v0, v4</span>
+<span class="">	sput-object v0, Lcom/tencent/weiyun/FileManager;->a:[Ljava/lang/String;</span>
+<span class="">	new-array v0, v5, [Ljava/lang/String;</span>
+<span class="">	const-string v1, "https://graph.qq.com/weiyun/delete_photo"</span>
+<span class="">	aput-object v1, v0, v2</span>
+<span class="">	const-string v1, "https://graph.qq.com/weiyun/delete_music"</span>
+<span class="">	aput-object v1, v0, v3</span>
+<span class="">	const-string v1, "https://graph.qq.com/weiyun/delete_video"</span>
+<span class="">	aput-object v1, v0, v4</span>
+<span class="">	sput-object v0, Lcom/tencent/weiyun/FileManager;->b:[Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/tencent/connect/auth/QQAuth;Lcom/tencent/connect/auth/QQToken;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3}, Lcom/tencent/connect/common/BaseApi;-><init>(Landroid/content/Context;Lcom/tencent/connect/auth/QQAuth;Lcom/tencent/connect/auth/QQToken;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/tencent/connect/auth/QQToken;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/tencent/connect/common/BaseApi;-><init>(Landroid/content/Context;Lcom/tencent/connect/auth/QQToken;)V</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/weiyun/FileManager;)Landroid/os/Bundle;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/weiyun/FileManager;->composeCGIParams()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static synthetic b(Lcom/tencent/weiyun/FileManager;)Lcom/tencent/connect/auth/QQToken;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/weiyun/FileManager;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+.end method
+
+.method static synthetic c(Lcom/tencent/weiyun/FileManager;)Landroid/os/Bundle;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/weiyun/FileManager;->composeCGIParams()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static synthetic d(Lcom/tencent/weiyun/FileManager;)Lcom/tencent/connect/auth/QQToken;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/weiyun/FileManager;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+.end method
+
+.method public deleteFile(Lcom/tencent/weiyun/FileManager$WeiyunFileType;Ljava/lang/String;Lcom/tencent/tauth/IUiListener;)V
+<span class="">	.locals 6</span>
+
+<span class="">	sget-object v0, Lcom/tencent/weiyun/FileManager;->b:[Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1}, Lcom/tencent/weiyun/FileManager$WeiyunFileType;->value()I</span>
+<span class="">	move-result v1</span>
+<span class="">	aget-object v2, v0, v1</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/weiyun/FileManager;->composeCGIParams()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v0, "file_id"</span>
+<span class="">	invoke-virtual {v3, v0, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v5, Lcom/tencent/connect/common/BaseApi$TempRequestListener;</span>
+<span class="">	invoke-direct {v5, p0, p3}, Lcom/tencent/connect/common/BaseApi$TempRequestListener;-><init>(Lcom/tencent/connect/common/BaseApi;Lcom/tencent/tauth/IUiListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/weiyun/FileManager;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/weiyun/FileManager;->mContext:Landroid/content/Context;</span>
+<span class="">	const-string v4, "GET"</span>
+<span class="">	invoke-static/range {v0 .. v5}, Lcom/tencent/utils/HttpUtils;->requestAsync(Lcom/tencent/connect/auth/QQToken;Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/tencent/tauth/IRequestListener;)V</span>
+.end method
+
+.method public downLoadFile(Lcom/tencent/weiyun/FileManager$WeiyunFileType;Lcom/tencent/weiyun/WeiyunFile;Ljava/lang/String;Lcom/tencent/weiyun/IDownLoadFileCallBack;)V
+<span class="">	.locals 7</span>
+
+<span class="">	new-instance v0, Lcom/tencent/weiyun/FileManager$a;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/weiyun/FileManager;->mContext:Landroid/content/Context;</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v3, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	move-object v5, p3</span>
+<span class="">	move-object v6, p4</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/tencent/weiyun/FileManager$a;-><init>(Lcom/tencent/weiyun/FileManager;Landroid/content/Context;Lcom/tencent/weiyun/FileManager$WeiyunFileType;Lcom/tencent/weiyun/WeiyunFile;Ljava/lang/String;Lcom/tencent/weiyun/IDownLoadFileCallBack;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/weiyun/FileManager$a;->a()V</span>
+.end method
+
+.method public downLoadThumb(Lcom/tencent/weiyun/WeiyunFile;Ljava/lang/String;Ljava/lang/String;Lcom/tencent/weiyun/IDownLoadFileCallBack;)V
+<span class="">	.locals 7</span>
+
+<span class="">	new-instance v0, Lcom/tencent/weiyun/FileManager$a;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/weiyun/FileManager;->mContext:Landroid/content/Context;</span>
+<span class="">	sget-object v3, Lcom/tencent/weiyun/FileManager$WeiyunFileType;->ImageFile:Lcom/tencent/weiyun/FileManager$WeiyunFileType;</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v4, p1</span>
+<span class="">	move-object v5, p2</span>
+<span class="">	move-object v6, p4</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/tencent/weiyun/FileManager$a;-><init>(Lcom/tencent/weiyun/FileManager;Landroid/content/Context;Lcom/tencent/weiyun/FileManager$WeiyunFileType;Lcom/tencent/weiyun/WeiyunFile;Ljava/lang/String;Lcom/tencent/weiyun/IDownLoadFileCallBack;)V</span>
+<span class="">	invoke-virtual {v0, p3}, Lcom/tencent/weiyun/FileManager$a;->a(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/weiyun/FileManager$a;->a()V</span>
+.end method
+
+.method public getFileList(Lcom/tencent/weiyun/FileManager$WeiyunFileType;Lcom/tencent/weiyun/IGetFileListListener;)V
+<span class="">	.locals 6</span>
+
+<span class="">	sget-object v0, Lcom/tencent/weiyun/FileManager;->a:[Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1}, Lcom/tencent/weiyun/FileManager$WeiyunFileType;->value()I</span>
+<span class="">	move-result v1</span>
+<span class="">	aget-object v2, v0, v1</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/weiyun/FileManager;->composeCGIParams()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v0, "offset"</span>
+<span class="">	const-string v1, "0"</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "number"</span>
+<span class="">	const-string v1, "100"</span>
+<span class="">	invoke-virtual {v3, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Lcom/tencent/weiyun/FileManager$b;</span>
+<span class="">	invoke-direct {v0, p0, p2}, Lcom/tencent/weiyun/FileManager$b;-><init>(Lcom/tencent/weiyun/FileManager;Lcom/tencent/weiyun/IGetFileListListener;)V</span>
+<span class="">	new-instance v5, Lcom/tencent/connect/common/BaseApi$TempRequestListener;</span>
+<span class="">	invoke-direct {v5, p0, v0}, Lcom/tencent/connect/common/BaseApi$TempRequestListener;-><init>(Lcom/tencent/connect/common/BaseApi;Lcom/tencent/tauth/IUiListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/weiyun/FileManager;->mToken:Lcom/tencent/connect/auth/QQToken;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/weiyun/FileManager;->mContext:Landroid/content/Context;</span>
+<span class="">	const-string v4, "GET"</span>
+<span class="">	invoke-static/range {v0 .. v5}, Lcom/tencent/utils/HttpUtils;->requestAsync(Lcom/tencent/connect/auth/QQToken;Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/tencent/tauth/IRequestListener;)V</span>
+.end method
+
+.method public uploadFile(Lcom/tencent/weiyun/FileManager$WeiyunFileType;Ljava/lang/String;Lcom/tencent/weiyun/IUploadFileCallBack;)V
+<span class="">	.locals 6</span>
+
+<span class="">	new-instance v0, Lcom/tencent/weiyun/FileManager$c;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/weiyun/FileManager;->mContext:Landroid/content/Context;</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v3, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	move-object v5, p3</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/tencent/weiyun/FileManager$c;-><init>(Lcom/tencent/weiyun/FileManager;Landroid/content/Context;Lcom/tencent/weiyun/FileManager$WeiyunFileType;Ljava/lang/String;Lcom/tencent/weiyun/IUploadFileCallBack;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/weiyun/FileManager$c;->a()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

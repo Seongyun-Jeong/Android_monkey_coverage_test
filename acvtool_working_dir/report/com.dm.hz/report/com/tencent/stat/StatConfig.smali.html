@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.stat</a></li>
+        <li><i class="ico ico-class"></i> StatConfig.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/stat/StatConfig;
+.super Ljava/lang/Object;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/stat/StatConfig$a;
+}
+.end annotation
+
+.field static HIBERNATE:Ljava/lang/String;
+.field private static appkey:Ljava/lang/String;
+.field private static volatile curSessionStatReportCount:I
+.field private static currentDaySessionNumbers:I
+.field private static enableSmartReporting:Z
+.field private static enableStatService:Z
+.field private static installChannel:Ljava/lang/String;
+.field public static isAutoExceptionCaught:Z
+.field private static lastReportStrategyCheckTime:J
+.field private static logger:Lcom/tencent/stat/common/StatLogger;
+.field private static maxBatchReportCount:I
+.field private static maxDaySessionNumbers:I
+.field private static maxLoadEventCount:I
+.field private static maxParallelTimmingEvents:I
+.field private static maxReportEventLength:I
+.field private static maxReportStrategyCheckTime:J
+.field private static maxSendRetryCount:I
+.field private static maxSessionStatReportCount:I
+.field private static maxStoreEventCount:I
+.field static qq:Ljava/lang/String;
+.field private static reportTrafficStat:Z
+.field static sdkCfg:Lcom/tencent/stat/StatConfig$a;
+.field private static sendPeriodMinutes:I
+.field private static sessionTimoutMillis:I
+.field private static statReportUrl:Ljava/lang/String;
+.field private static statSendStrategy:Lcom/tencent/stat/StatReportStrategy;
+.field private static ta_http_proxy:Ljava/lang/String;
+.field static userCfg:Lcom/tencent/stat/StatConfig$a;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 6</span>
+
+<span class="">	const/16 v5, 0x400</span>
+<span class="">	const/16 v4, 0x1e</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/common/StatCommonHelper;->getLogger()Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/tencent/stat/StatConfig$a;-><init>(I)V</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	new-instance v0, Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	invoke-direct {v0, v3}, Lcom/tencent/stat/StatConfig$a;-><init>(I)V</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatReportStrategy;->APP_LAUNCH:Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->statSendStrategy:Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	sput-boolean v3, Lcom/tencent/stat/StatConfig;->enableStatService:Z</span>
+<span class="">	const/16 v0, 0x7530</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatConfig;->sessionTimoutMillis:I</span>
+<span class="">	sput v5, Lcom/tencent/stat/StatConfig;->maxStoreEventCount:I</span>
+<span class="">	sput v4, Lcom/tencent/stat/StatConfig;->maxLoadEventCount:I</span>
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatConfig;->maxSendRetryCount:I</span>
+<span class="">	sput v4, Lcom/tencent/stat/StatConfig;->maxBatchReportCount:I</span>
+<span class="">	const-string v0, "__HIBERNATE__"</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->HIBERNATE:Ljava/lang/String;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->ta_http_proxy:Ljava/lang/String;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->qq:Ljava/lang/String;</span>
+<span class="">	const/16 v0, 0x5a0</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatConfig;->sendPeriodMinutes:I</span>
+<span class="">	sput v5, Lcom/tencent/stat/StatConfig;->maxParallelTimmingEvents:I</span>
+<span class="">	sput-boolean v3, Lcom/tencent/stat/StatConfig;->enableSmartReporting:Z</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	sput-wide v0, Lcom/tencent/stat/StatConfig;->lastReportStrategyCheckTime:J</span>
+<span class="">	const-wide/32 v0, 0x493e0</span>
+<span class="">	sput-wide v0, Lcom/tencent/stat/StatConfig;->maxReportStrategyCheckTime:J</span>
+<span class="">	sput-boolean v3, Lcom/tencent/stat/StatConfig;->isAutoExceptionCaught:Z</span>
+<span class="">	const-string v0, "http://pingma.qq.com:80/mstat/report"</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->statReportUrl:Ljava/lang/String;</span>
+<span class="">	sput v2, Lcom/tencent/stat/StatConfig;->maxSessionStatReportCount:I</span>
+<span class="">	sput v2, Lcom/tencent/stat/StatConfig;->curSessionStatReportCount:I</span>
+<span class="">	const/16 v0, 0x14</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatConfig;->maxDaySessionNumbers:I</span>
+<span class="">	sput v2, Lcom/tencent/stat/StatConfig;->currentDaySessionNumbers:I</span>
+<span class="">	sput-boolean v2, Lcom/tencent/stat/StatConfig;->reportTrafficStat:Z</span>
+<span class="">	const/16 v0, 0x1000</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatConfig;->maxReportEventLength:I</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method static checkHibernate(Lorg/json/JSONObject;)V
+<span class="">	.locals 5</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->HIBERNATE:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "hibernateVer:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, ", current version:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "1.0.0"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/common/StatCommonHelper;->getSDKLongVersion(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	const-string v3, "1.0.0"</span>
+<span class="">	invoke-static {v3}, Lcom/tencent/stat/common/StatCommonHelper;->getSDKLongVersion(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	cmp-long v3, v3, v1</span>
+<span class="">	if-gtz v3, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/b;->a()Landroid/content/Context;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	sget-object v4, Lcom/tencent/stat/StatConfig;->HIBERNATE:Ljava/lang/String;</span>
+<span class="">	invoke-static {v3, v4, v1, v2}, Lcom/tencent/stat/common/StatPreferences;->putLong(Landroid/content/Context;Ljava/lang/String;J)V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/stat/StatConfig;->setEnableStatService(Z)V</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "MTA has disable for SDK version of "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, " or lower."</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->warn(Ljava/lang/Object;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "__HIBERNATE__ not found."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static getAppKey(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/StatCommonHelper;->getAppKey(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "AppKey can not be null or empty, please read Developer\'s Guide first!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static getCurSessionStatReportCount()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->curSessionStatReportCount:I</span>
+.end method
+
+.method static getCurrentDaySessionNumbers()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->currentDaySessionNumbers:I</span>
+.end method
+
+.method public static getCustomProperty(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget-object v0, v0, Lcom/tencent/stat/StatConfig$a;->b:Lorg/json/JSONObject;</span>
+<span class="">	invoke-virtual {v0, p0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static getCustomProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget-object v0, v0, Lcom/tencent/stat/StatConfig$a;->b:Lorg/json/JSONObject;</span>
+<span class="">	invoke-virtual {v0, p0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	move-object p1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static getInstallChannel(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->installChannel:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->installChannel:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/StatCommonHelper;->getInstallChannel(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->installChannel:Ljava/lang/String;</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->installChannel:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->installChannel:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v1, "installChannel can not be null or empty, please read Developer\'s Guide first!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->installChannel:Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static getMaxBatchReportCount()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxBatchReportCount:I</span>
+.end method
+
+.method public static getMaxDaySessionNumbers()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxDaySessionNumbers:I</span>
+.end method
+
+.method static getMaxLoadEventCount()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxLoadEventCount:I</span>
+.end method
+
+.method public static getMaxParallelTimmingEvents()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxParallelTimmingEvents:I</span>
+.end method
+
+.method public static getMaxReportEventLength()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxReportEventLength:I</span>
+.end method
+
+.method public static getMaxSendRetryCount()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxSendRetryCount:I</span>
+.end method
+
+.method public static getMaxSessionStatReportCount()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxSessionStatReportCount:I</span>
+.end method
+
+.method public static getMaxStoreEventCount()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->maxStoreEventCount:I</span>
+.end method
+
+.method public static getQQ()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->qq:Ljava/lang/String;</span>
+.end method
+
+.method public static getSendPeriodMinutes()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->sendPeriodMinutes:I</span>
+.end method
+
+.method public static getSessionTimoutMillis()I
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->sessionTimoutMillis:I</span>
+.end method
+
+.method static getStatHttpProxy()Lorg/apache/http/HttpHost;
+<span class="">	.locals 5</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->ta_http_proxy:Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->ta_http_proxy:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lez v0, :cond_1</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->ta_http_proxy:Ljava/lang/String;</span>
+<span class="">	const-string v0, ":"</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/16 v0, 0x50</span>
+<span class="">	array-length v3, v2</span>
+<span class="">	const/4 v4, 0x2</span>
+<span class="">	if-ne v3, v4, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	aget-object v1, v2, v0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	aget-object v0, v2, v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v2, Lorg/apache/http/HttpHost;</span>
+<span class="">	invoke-direct {v2, v1, v0}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;I)V</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static getStatReportUrl()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->statReportUrl:Ljava/lang/String;</span>
+.end method
+
+.method public static getStatSendStrategy()Lcom/tencent/stat/StatReportStrategy;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->statSendStrategy:Lcom/tencent/stat/StatReportStrategy;</span>
+.end method
+
+.method static getStoredAppkeys(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "_mta_ky_tag_"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/tencent/stat/common/StatPreferences;->getString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/common/StatCommonHelper;->decode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static declared-synchronized incCurSessionStatReportCount()V
+<span class="">	.locals 2</span>
+
+<span class="">	const-class v1, Lcom/tencent/stat/StatConfig;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->curSessionStatReportCount:I</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatConfig;->curSessionStatReportCount:I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+.end method
+
+.method static incCurrentDaySessionNumbers()V
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/tencent/stat/StatConfig;->currentDaySessionNumbers:I</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	sput v0, Lcom/tencent/stat/StatConfig;->currentDaySessionNumbers:I</span>
+.end method
+
+.method public static isAutoExceptionCaught()Z
+<span class="">	.locals 1</span>
+
+<span class="">	sget-boolean v0, Lcom/tencent/stat/StatConfig;->isAutoExceptionCaught:Z</span>
+.end method
+
+.method static isBetween(III)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-lt p0, p1, :cond_0</span>
+<span class="">	if-gt p0, p2, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static isDebugEnable()Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/common/StatCommonHelper;->getLogger()Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/common/StatLogger;->isDebugEnable()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static isEnableSmartReporting()Z
+<span class="">	.locals 1</span>
+
+<span class="">	sget-boolean v0, Lcom/tencent/stat/StatConfig;->enableSmartReporting:Z</span>
+.end method
+
+.method public static isEnableStatService()Z
+<span class="">	.locals 1</span>
+
+<span class="">	sget-boolean v0, Lcom/tencent/stat/StatConfig;->enableStatService:Z</span>
+.end method
+
+.method public static setAppKey(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "ctx in StatConfig.setAppKey() is null"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz p1, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v1, 0x100</span>
+<span class="">	if-le v0, v1, :cond_3</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "appkey in StatConfig.setAppKey() is null or exceed 256 bytes"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	:cond_3</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/StatConfig;->getStoredAppkeys(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/StatConfig;->updateAppkeys(Ljava/lang/String;)Z</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {p0}, Lcom/tencent/stat/common/StatCommonHelper;->getAppKey(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Lcom/tencent/stat/StatConfig;->updateAppkeys(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	or-int/2addr v0, v1</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	invoke-static {p0, v0}, Lcom/tencent/stat/StatConfig;->storeAppkeys(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setAppKey(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "appkey in StatConfig.setAppKey() is null"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->length()I</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v1, 0x100</span>
+<span class="">	if-le v0, v1, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "The length of appkey cann\'t exceed 256 bytes."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sput-object p0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setAutoExceptionCaught(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	sput-boolean p0, Lcom/tencent/stat/StatConfig;->isAutoExceptionCaught:Z</span>
+.end method
+
+.method static setConfig(Lcom/tencent/stat/StatConfig$a;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lorg/json/JSONException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v1, v1, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	sput-object p0, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget-object v0, v0, Lcom/tencent/stat/StatConfig$a;->b:Lorg/json/JSONObject;</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->updateReportStrategy(Lorg/json/JSONObject;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget v0, p0, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v1, v1, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	sput-object p0, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static declared-synchronized setCurSessionStatReportCount(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const-class v0, Lcom/tencent/stat/StatConfig;</span>
+<span class="">	monitor-enter v0</span>
+<span class="">	:try_start_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->curSessionStatReportCount:I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	monitor-exit v0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v0</span>
+<span class="">	throw v1</span>
+.end method
+
+.method static setCurrentDaySessionNumbers(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	if-gez p0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->currentDaySessionNumbers:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setDebugEnable(Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/stat/common/StatCommonHelper;->getLogger()Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/tencent/stat/common/StatLogger;->setDebugEnable(Z)V</span>
+.end method
+
+.method public static setEnableSmartReporting(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	sput-boolean p0, Lcom/tencent/stat/StatConfig;->enableSmartReporting:Z</span>
+.end method
+
+.method public static setEnableStatService(Z)V
+<span class="">	.locals 2</span>
+
+<span class="">	sput-boolean p0, Lcom/tencent/stat/StatConfig;->enableStatService:Z</span>
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "!!!!!!MTA StatService has been disabled!!!!!!"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->warn(Ljava/lang/Object;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public static setInstallChannel(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v1, 0x80</span>
+<span class="">	if-le v0, v1, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "the length of installChannel can not exceed the range of 128 bytes."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput-object p0, Lcom/tencent/stat/StatConfig;->installChannel:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setMaxBatchReportCount(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	const/16 v1, 0x3e8</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/tencent/stat/StatConfig;->isBetween(III)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "setMaxBatchReportCount can not exceed the range of [2,1000]."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->maxBatchReportCount:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setMaxDaySessionNumbers(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-gtz p0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "maxDaySessionNumbers must be greater than 0."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->maxDaySessionNumbers:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setMaxParallelTimmingEvents(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	const/16 v1, 0x1000</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/tencent/stat/StatConfig;->isBetween(III)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "setMaxParallelTimmingEvents can not exceed the range of [1, 4096]."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->maxParallelTimmingEvents:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setMaxReportEventLength(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-gtz p0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "maxReportEventLength on setMaxReportEventLength() must greater than 0."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->maxReportEventLength:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setMaxSendRetryCount(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	const/16 v1, 0xa</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/tencent/stat/StatConfig;->isBetween(III)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "setMaxSendRetryCount can not exceed the range of [1,10]."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->maxSendRetryCount:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setMaxSessionStatReportCount(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-gez p0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "maxSessionStatReportCount cannot be less than 0."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->maxSessionStatReportCount:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setMaxStoreEventCount(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const v1, 0x7a120</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/tencent/stat/StatConfig;->isBetween(III)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "setMaxStoreEventCount can not exceed the range of [0, 500000]."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->maxStoreEventCount:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setQQ(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/tencent/stat/StatService;->reportQQ(Landroid/content/Context;Ljava/lang/String;)V</span>
+.end method
+
+.method public static setSendPeriodMinutes(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	const/16 v1, 0x2760</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/tencent/stat/StatConfig;->isBetween(III)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "setSendPeriodMinutes can not exceed the range of [1, 7*24*60] minutes."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->sendPeriodMinutes:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setSessionTimoutMillis(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/16 v0, 0x3e8</span>
+<span class="">	const v1, 0x5265c00</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/tencent/stat/StatConfig;->isBetween(III)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "setSessionTimoutMillis can not exceed the range of [1000, 24 * 60 * 60 * 1000]."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput p0, Lcom/tencent/stat/StatConfig;->sessionTimoutMillis:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setStatReportUrl(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "statReportUrl cannot be null or empty."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->error(Ljava/lang/Object;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sput-object p0, Lcom/tencent/stat/StatConfig;->statReportUrl:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static setStatSendStrategy(Lcom/tencent/stat/StatReportStrategy;)V
+<span class="">	.locals 3</span>
+
+<span class="">	sput-object p0, Lcom/tencent/stat/StatConfig;->statSendStrategy:Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v2, "Change to statSendStrategy: "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+.end method
+
+.method static storeAppkeys(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {p1}, Lcom/tencent/stat/common/StatCommonHelper;->encode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "_mta_ky_tag_"</span>
+<span class="">	invoke-static {p0, v1, v0}, Lcom/tencent/stat/common/StatPreferences;->putString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private static updateAppkeys(Ljava/lang/String;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	sput-object p0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v2, p0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, "|"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->appkey:Ljava/lang/String;</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static updateCfg(Lcom/tencent/stat/StatConfig$a;Lorg/json/JSONObject;)V
+<span class="">	.locals 3</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p1}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	const-string v2, "v"</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/tencent/stat/StatConfig$a;->d:I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Exception;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v2, "c"</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	const-string v0, "c"</span>
+<span class="">	invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-lez v2, :cond_0</span>
+<span class="">	new-instance v2, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v2, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iput-object v2, p0, Lcom/tencent/stat/StatConfig$a;->b:Lorg/json/JSONObject;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const-string v2, "m"</span>
+<span class="">	:try_start_2</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v0, "m"</span>
+<span class="">	invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/stat/StatConfig$a;->c:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/stat/b;->a()Landroid/content/Context;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatStore;->getInstance(Landroid/content/Context;)Lcom/tencent/stat/StatStore;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/tencent/stat/StatStore;->storeCfg(Lcom/tencent/stat/StatConfig$a;)V</span>
+<span class="">	iget v0, p0, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	:cond_5</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v1, v1, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	if-ne v0, v1, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/stat/StatConfig$a;->b:Lorg/json/JSONObject;</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->updateReportStrategy(Lorg/json/JSONObject;)V</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/stat/StatConfig$a;->b:Lorg/json/JSONObject;</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->checkHibernate(Lorg/json/JSONObject;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	.catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1</span>
+.end method
+
+.method static updateOnlineConfig(Lorg/json/JSONObject;)V
+<span class="">	.locals 5</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	iget v2, v2, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->sdkCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	invoke-static {v2, v0}, Lcom/tencent/stat/StatConfig;->updateCfg(Lcom/tencent/stat/StatConfig$a;Lorg/json/JSONObject;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->e(Ljava/lang/Exception;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_2</span>
+<span class="">	iget v2, v2, Lcom/tencent/stat/StatConfig$a;->a:I</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->userCfg:Lcom/tencent/stat/StatConfig$a;</span>
+<span class="">	invoke-static {v2, v0}, Lcom/tencent/stat/StatConfig;->updateCfg(Lcom/tencent/stat/StatConfig$a;Lorg/json/JSONObject;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v2, "rs"</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatReportStrategy;->getStatReportStrategy(I)Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sput-object v0, Lcom/tencent/stat/StatConfig;->statSendStrategy:Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	sget-object v2, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "Change to ReportStrategy:"</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/StatReportStrategy;->name()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method static updateReportStrategy(Lorg/json/JSONObject;)V
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "rs"</span>
+<span class="">	invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatReportStrategy;->getStatReportStrategy(I)Lcom/tencent/stat/StatReportStrategy;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/stat/StatConfig;->setStatSendStrategy(Lcom/tencent/stat/StatReportStrategy;)V</span>
+<span class="">	sget-object v1, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "Change to ReportStrategy: "</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0}, Lcom/tencent/stat/StatReportStrategy;->name()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/tencent/stat/common/StatLogger;->debug(Ljava/lang/Object;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v0, Lcom/tencent/stat/StatConfig;->logger:Lcom/tencent/stat/common/StatLogger;</span>
+<span class="">	const-string v1, "rs not found."</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/tencent/stat/common/StatLogger;->d(Ljava/lang/Object;)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

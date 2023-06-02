@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.core.assist</a></li>
+        <li><i class="ico ico-class"></i> ContentLengthInputStream.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;
+.super Ljava/io/InputStream;
+.source "SourceFile"
+
+
+.field private final length:I
+.field private final stream:Ljava/io/InputStream;
+
+
+.method public constructor <init>(Ljava/io/InputStream;I)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/io/InputStream;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	iput p2, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->length:I</span>
+.end method
+
+.method public available()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->length:I</span>
+.end method
+
+.method public close()V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/InputStream;->close()V</span>
+.end method
+
+.method public mark(I)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/io/InputStream;->mark(I)V</span>
+.end method
+
+.method public markSupported()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/InputStream;->markSupported()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public read()I
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/InputStream;->read()I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public read([B)I
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/io/InputStream;->read([B)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public read([BII)I
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public reset()V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/InputStream;->reset()V</span>
+.end method
+
+.method public skip(J)J
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/ContentLengthInputStream;->stream:Ljava/io/InputStream;</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J</span>
+<span class="">	move-result-wide v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

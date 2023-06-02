@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.connect.share</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/connect/share/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+
+
+.method public static final a(Landroid/graphics/BitmapFactory$Options;II)I
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {p0, p1, p2}, Lcom/tencent/connect/share/a;->b(Landroid/graphics/BitmapFactory$Options;II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/16 v0, 0x8</span>
+<span class="">	if-gt v1, v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v0, v1, :cond_1</span>
+<span class="">	shl-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	add-int/lit8 v0, v1, 0x7</span>
+<span class="">	div-int/lit8 v0, v0, 0x8</span>
+<span class="">	mul-int/lit8 v0, v0, 0x8</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method private static a(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v5, Landroid/graphics/Matrix;</span>
+<span class="">	invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V</span>
+<span class="">	invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-le v0, v2, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	int-to-float v2, p1</span>
+<span class="">	int-to-float v0, v0</span>
+<span class="">	div-float v0, v2, v0</span>
+<span class="">	invoke-virtual {v5, v0, v0}, Landroid/graphics/Matrix;->postScale(FF)Z</span>
+<span class="">	invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v4</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move v2, v1</span>
+<span class="">	invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static final a(Ljava/lang/String;I)Landroid/graphics/Bitmap;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v5, -0x1</span>
+<span class="">	invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v3, Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v3}, Landroid/graphics/BitmapFactory$Options;-><init>()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, v3, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	invoke-static {p0, v3}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	iget v0, v3, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	iget v1, v3, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	iget-boolean v4, v3, Landroid/graphics/BitmapFactory$Options;->mCancel:Z</span>
+<span class="">	if-nez v4, :cond_2</span>
+<span class="">	iget v4, v3, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	if-eq v4, v5, :cond_2</span>
+<span class="">	iget v4, v3, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	if-ne v4, v5, :cond_3</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-le v0, v1, :cond_5</span>
+<span class="">	:cond_3</span>
+<span class="">	sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;</span>
+<span class="">	:goto_1</span>
+<span class="">	iput-object v1, v3, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;</span>
+<span class="">	if-le v0, p1, :cond_4</span>
+<span class="">	mul-int v0, p1, p1</span>
+<span class="">	invoke-static {v3, v5, v0}, Lcom/tencent/connect/share/a;->a(Landroid/graphics/BitmapFactory$Options;II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, v3, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_4</span>
+<span class="">	iput-boolean v0, v3, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	invoke-static {p0, v3}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_6</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget v1, v3, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	:cond_6</span>
+<span class="">	iget v2, v3, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	if-le v1, v2, :cond_7</span>
+<span class="">	if-le v1, p1, :cond_0</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-static {v0, p1}, Lcom/tencent/connect/share/a;->a(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v1, v2</span>
+<span class="">	:cond_7</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method protected static final a(Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuffer;</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->delete()Z</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz p0, :cond_2</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v2, Ljava/io/FileOutputStream;</span>
+<span class="">	invoke-direct {v2, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	sget-object v1, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	const/16 v3, 0x50</span>
+<span class="">	invoke-virtual {p0, v1, v3, v2}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/FileOutputStream;->flush()V</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V</span>
+<span class="">	invoke-virtual {p0}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static final a(Landroid/content/Context;Ljava/lang/String;Lcom/tencent/utils/AsynLoadImgBack;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const-string v0, "AsynScaleCompressImage"</span>
+<span class="">	const-string v1, "scaleCompressImage"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-interface {p2, v0, v2}, Lcom/tencent/utils/AsynLoadImgBack;->saved(ILjava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/utils/Util;->hasSDCard()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	invoke-interface {p2, v0, v2}, Lcom/tencent/utils/AsynLoadImgBack;->saved(ILjava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/connect/share/e;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1, p2}, Lcom/tencent/connect/share/e;-><init>(Landroid/os/Looper;Lcom/tencent/utils/AsynLoadImgBack;)V</span>
+<span class="">	new-instance v1, Ljava/lang/Thread;</span>
+<span class="">	new-instance v2, Lcom/tencent/connect/share/f;</span>
+<span class="">	invoke-direct {v2, p1, v0}, Lcom/tencent/connect/share/f;-><init>(Ljava/lang/String;Landroid/os/Handler;)V</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Thread;->start()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static final a(Landroid/content/Context;Ljava/util/ArrayList;Lcom/tencent/utils/AsynLoadImgBack;)V
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/content/Context;",</span>
+<span class="">	"Ljava/util/ArrayList",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;",</span>
+<span class="">	"Lcom/tencent/utils/AsynLoadImgBack;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const-string v0, "AsynScaleCompressImage"</span>
+<span class="">	const-string v1, "batchScaleCompressImage"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-interface {p2, v0, v2}, Lcom/tencent/utils/AsynLoadImgBack;->saved(ILjava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/tencent/utils/Util;->hasSDCard()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	invoke-interface {p2, v0, v2}, Lcom/tencent/utils/AsynLoadImgBack;->saved(ILjava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/tencent/connect/share/g;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1, p2}, Lcom/tencent/connect/share/g;-><init>(Landroid/os/Looper;Lcom/tencent/utils/AsynLoadImgBack;)V</span>
+<span class="">	new-instance v1, Ljava/lang/Thread;</span>
+<span class="">	new-instance v2, Lcom/tencent/connect/share/h;</span>
+<span class="">	invoke-direct {v2, p1, v0}, Lcom/tencent/connect/share/h;-><init>(Ljava/util/ArrayList;Landroid/os/Handler;)V</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Thread;->start()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Ljava/lang/String;II)Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p1, p2}, Lcom/tencent/connect/share/a;->b(Ljava/lang/String;II)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method private static b(Landroid/graphics/BitmapFactory$Options;II)I
+<span class="">	.locals 11</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v10, -0x1</span>
+<span class="">	iget v0, p0, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	int-to-double v2, v0</span>
+<span class="">	iget v0, p0, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	int-to-double v4, v0</span>
+<span class="">	if-ne p2, v10, :cond_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ne p1, v10, :cond_2</span>
+<span class="">	const/16 v2, 0x80</span>
+<span class="">	:goto_1</span>
+<span class="">	if-ge v2, v0, :cond_3</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_0</span>
+<span class="">	mul-double v6, v2, v4</span>
+<span class="">	:cond_1</span>
+<span class="">	int-to-double v8, p2</span>
+<span class="">	div-double/2addr v6, v8</span>
+<span class="">	invoke-static {v6, v7}, Ljava/lang/Math;->sqrt(D)D</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	invoke-static {v6, v7}, Ljava/lang/Math;->ceil(D)D</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	double-to-int v0, v6</span>
+<span class="">	goto :goto_0</span>
+<span class="">	int-to-double v6, p1</span>
+<span class="">	:cond_2</span>
+<span class="">	div-double/2addr v2, v6</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Math;->floor(D)D</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	int-to-double v6, p1</span>
+<span class="">	div-double/2addr v4, v6</span>
+<span class="">	invoke-static {v4, v5}, Ljava/lang/Math;->floor(D)D</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->min(DD)D</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	double-to-int v2, v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	if-ne p2, v10, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	if-ne p1, v10, :cond_4</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	if-eq p1, v10, :cond_0</span>
+<span class="">	:cond_4</span>
+<span class="">	move v0, v2</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method private static final b(Ljava/lang/String;II)Z
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v6, -0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	move v0, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v5, Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v5}, Landroid/graphics/BitmapFactory$Options;-><init>()V</span>
+<span class="">	iput-boolean v3, v5, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	invoke-static {p0, v5}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	iget v0, v5, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	iget v1, v5, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	iget-boolean v4, v5, Landroid/graphics/BitmapFactory$Options;->mCancel:Z</span>
+<span class="">	if-nez v4, :cond_1</span>
+<span class="">	iget v4, v5, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	if-eq v4, v6, :cond_1</span>
+<span class="">	iget v4, v5, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	if-ne v4, v6, :cond_2</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-le v0, v1, :cond_4</span>
+<span class="">	:cond_2</span>
+<span class="">	move v4, v0</span>
+<span class="">	if-ge v0, v1, :cond_5</span>
+<span class="">	:goto_1</span>
+<span class="">	const-string v1, "AsynScaleCompressImage"</span>
+<span class="">	:goto_2</span>
+<span class="">	new-instance v6, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v7, "longSide="</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	const-string v7, "shortSide="</span>
+<span class="">	invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	invoke-static {v1, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;</span>
+<span class="">	iput-object v1, v5, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;</span>
+<span class="">	if-gt v4, p2, :cond_3</span>
+<span class="">	if-le v0, p1, :cond_6</span>
+<span class="">	move v0, v3</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v4, v1</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view.wigets</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/view/wigets/b;
+.super Landroid/view/ViewGroup;
+.source "SourceFile"
+
+
+.field private static final a:I = 0x3
+.field private static final b:I = 0x1
+.field private static final c:I = 0x2
+.field private d:I
+.field private e:I
+.field private f:[[I
+.field private g:Lcom/umeng/socialize/view/wigets/e;
+.field private h:I
+.field private i:I
+.field private j:I
+.field private k:I
+.field private l:I
+.field private m:Landroid/content/Context;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0, p1}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->k:I</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->f:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_grid_divider_line"</span>
+<span class="">	invoke-static {p1, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->k:I</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->f:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_grid_divider_line"</span>
+<span class="">	invoke-static {p1, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V</span>
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->k:I</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->f:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_grid_divider_line"</span>
+<span class="">	invoke-static {p1, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+.end method
+
+.method private b()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	filled-new-array {v0, v1}, [I</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	invoke-static {v1, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, [[I</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->m:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget v0, v0, Landroid/content/res/Configuration;->orientation:I</span>
+<span class="">	if-ne v0, v1, :cond_2</span>
+<span class="">	const/4 v0, 0x6</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/view/wigets/e;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/view/wigets/e;->a()I</span>
+<span class="">	move-result v1</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	div-int/2addr v1, v2</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	rem-int/2addr v0, v1</span>
+<span class="">	if-lez v0, :cond_3</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_3</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "###### row = "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ", column = "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	filled-new-array {v0, v1}, [I</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	invoke-static {v1, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, [[I</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a()Lcom/umeng/socialize/view/wigets/e;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+.end method
+
+.method public a(I)V
+<span class="">	.locals 10</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	array-length v4, v0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	aget-object v0, v0, v2</span>
+<span class="">	array-length v5, v0</span>
+<span class="">	mul-int v0, v4, v5</span>
+<span class="">	if-le p1, v0, :cond_0</span>
+<span class="">	move p1, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	rem-int v1, p1, v4</span>
+<span class="">	if-lez v1, :cond_1</span>
+<span class="">	sub-int v1, v4, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	sub-int/2addr v0, p1</span>
+<span class="">	sub-int v6, v0, v1</span>
+<span class="">	add-int v7, v6, p1</span>
+<span class="">	move v3, v2</span>
+<span class="">	move v0, v2</span>
+<span class="">	:goto_1</span>
+<span class="">	if-lt v3, v5, :cond_2</span>
+<span class="">	move v1, v2</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	move v0, v2</span>
+<span class="">	if-lt v0, v4, :cond_3</span>
+<span class="">	:goto_2</span>
+<span class="">	add-int/lit8 v0, v3, 0x1</span>
+<span class="">	move v3, v0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	if-lt v1, v6, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	if-ge v1, v7, :cond_4</span>
+<span class="">	iget-object v8, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	aget-object v8, v8, v0</span>
+<span class="">	const/4 v9, 0x1</span>
+<span class="">	aput v9, v8, v3</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	:goto_3</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	if-lt v1, v7, :cond_5</span>
+<span class="">	:cond_4</span>
+<span class="">	iget-object v8, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	aget-object v8, v8, v0</span>
+<span class="">	const/4 v9, 0x2</span>
+<span class="">	aput v9, v8, v3</span>
+<span class="">	goto :goto_3</span>
+<span class="">	iget-object v8, p0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	:cond_5</span>
+<span class="">	aget-object v8, v8, v0</span>
+<span class="">	const/4 v9, 0x3</span>
+<span class="">	aput v9, v8, v3</span>
+<span class="">	goto :goto_3</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/view/wigets/e;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/view/wigets/b;->b()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/wigets/b;->requestLayout()V</span>
+.end method
+
+.method public b(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+.end method
+
+.method public c(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/umeng/socialize/view/wigets/b;->k:I</span>
+.end method
+
+.method public d(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+.end method
+
+.method public e(I)I
+<span class="">	.locals 3</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	mul-int/2addr v0, v1</span>
+<span class="">	sub-int v0, p1, v0</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/view/wigets/b;->d:I</span>
+<span class="">	div-int/2addr v0, v1</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	mul-int/2addr v0, v1</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/view/wigets/b;->e:I</span>
+<span class="">	add-int/lit8 v1, v1, -0x1</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	mul-int/2addr v1, v2</span>
+<span class="">	add-int/2addr v0, v1</span>
+.end method
+
+.method protected onLayout(ZIIII)V
+<span class="">	.locals 22</span>
+
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v4, v0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+<span class="">	if-nez v4, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/umeng/socialize/view/wigets/b;->getContext()Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v10</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v4, v0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+<span class="">	invoke-virtual {v4}, Lcom/umeng/socialize/view/wigets/e;->a()I</span>
+<span class="">	move-result v4</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-virtual {v0, v4}, Lcom/umeng/socialize/view/wigets/b;->a(I)V</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/umeng/socialize/view/wigets/b;->removeAllViews()V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v4, v0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	array-length v11, v4</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v4, v0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	aget-object v4, v4, v5</span>
+<span class="">	array-length v12, v4</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/view/wigets/b;->i:I</span>
+<span class="">	add-int/lit8 v5, v11, -0x1</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v6, v0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	mul-int/2addr v5, v6</span>
+<span class="">	sub-int/2addr v4, v5</span>
+<span class="">	div-int v13, v4, v11</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/view/wigets/b;->h:I</span>
+<span class="">	add-int/lit8 v5, v12, -0x1</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v6, v0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	mul-int/2addr v5, v6</span>
+<span class="">	sub-int/2addr v4, v5</span>
+<span class="">	div-int v14, v4, v12</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	move v8, v4</span>
+<span class="">	move v9, v6</span>
+<span class="">	move v6, v7</span>
+<span class="">	if-ge v8, v12, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	move v7, v4</span>
+<span class="">	move v4, v5</span>
+<span class="">	if-lt v7, v11, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	if-lez v8, :cond_9</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v5, v0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	aget-object v5, v5, v6</span>
+<span class="">	add-int/lit8 v6, v8, -0x1</span>
+<span class="">	aget v5, v5, v6</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	if-ne v5, v6, :cond_8</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	if-eqz v5, :cond_2</span>
+<span class="">	:goto_2</span>
+<span class="">	new-instance v5, Landroid/view/View;</span>
+<span class="">	invoke-direct {v5, v10}, Landroid/view/View;-><init>(Landroid/content/Context;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v6, v0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	invoke-virtual {v5, v6}, Landroid/view/View;->setBackgroundColor(I)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-virtual {v0, v5}, Lcom/umeng/socialize/view/wigets/b;->addView(Landroid/view/View;)V</span>
+<span class="">	mul-int v6, v8, v14</span>
+<span class="">	add-int/2addr v6, v9</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v7, v0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	sub-int v7, v6, v7</span>
+<span class="">	move/from16 v0, p2</span>
+<span class="">	move/from16 v1, p4</span>
+<span class="">	invoke-virtual {v5, v0, v7, v1, v6}, Landroid/view/View;->layout(IIII)V</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	add-int v6, v9, v5</span>
+<span class="">	add-int/lit8 v5, v8, 0x1</span>
+<span class="">	move v8, v5</span>
+<span class="">	move v9, v6</span>
+<span class="">	move v5, v4</span>
+<span class="">	move v6, v7</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	:cond_3</span>
+<span class="">	iget-object v5, v0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	aget-object v5, v5, v7</span>
+<span class="">	aget v5, v5, v8</span>
+<span class="">	const/4 v15, 0x1</span>
+<span class="">	if-ne v5, v15, :cond_a</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v15, v0, Lcom/umeng/socialize/view/wigets/b;->g:Lcom/umeng/socialize/view/wigets/e;</span>
+<span class="">	add-int/lit8 v5, v4, 0x1</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-virtual {v15, v4, v0}, Lcom/umeng/socialize/view/wigets/e;->a(ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v15</span>
+<span class="">	invoke-virtual {v15}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	if-nez v4, :cond_5</span>
+<span class="">	new-instance v4, Landroid/view/ViewGroup$LayoutParams;</span>
+<span class="">	invoke-direct {v4, v13, v14}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V</span>
+<span class="">	invoke-virtual {v15, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	add-int/lit8 v4, v11, -0x1</span>
+<span class="">	:goto_3</span>
+<span class="">	if-ne v7, v4, :cond_6</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	mul-int v16, v7, v13</span>
+<span class="">	:goto_4</span>
+<span class="">	add-int v16, v16, v6</span>
+<span class="">	add-int v17, v16, v13</span>
+<span class="">	mul-int v18, v8, v14</span>
+<span class="">	add-int v18, v18, v9</span>
+<span class="">	add-int v19, v18, v14</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-virtual {v0, v15}, Lcom/umeng/socialize/view/wigets/b;->addView(Landroid/view/View;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-virtual {v0, v15, v13, v14}, Lcom/umeng/socialize/view/wigets/b;->measureChild(Landroid/view/View;II)V</span>
+<span class="">	move/from16 v0, v16</span>
+<span class="">	move/from16 v1, v18</span>
+<span class="">	move/from16 v2, v17</span>
+<span class="">	move/from16 v3, v19</span>
+<span class="">	invoke-virtual {v15, v0, v1, v2, v3}, Landroid/view/View;->layout(IIII)V</span>
+<span class="">	if-nez v4, :cond_4</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v15, v0, Lcom/umeng/socialize/view/wigets/b;->f:[[I</span>
+<span class="">	add-int/lit8 v20, v7, 0x1</span>
+<span class="">	aget-object v15, v15, v20</span>
+<span class="">	aget v15, v15, v8</span>
+<span class="">	const/16 v20, 0x2</span>
+<span class="">	move/from16 v0, v20</span>
+<span class="">	if-ne v15, v0, :cond_4</span>
+<span class="">	new-instance v15, Landroid/view/View;</span>
+<span class="">	invoke-direct {v15, v10}, Landroid/view/View;-><init>(Landroid/content/Context;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v0, v0, Lcom/umeng/socialize/view/wigets/b;->k:I</span>
+<span class="">	move/from16 v20, v0</span>
+<span class="">	move/from16 v0, v20</span>
+<span class="">	invoke-virtual {v15, v0}, Landroid/view/View;->setBackgroundColor(I)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-virtual {v0, v15}, Lcom/umeng/socialize/view/wigets/b;->addView(Landroid/view/View;)V</span>
+<span class="">	add-int v20, v16, v13</span>
+<span class="">	move/from16 v0, v20</span>
+<span class="">	move/from16 v1, v18</span>
+<span class="">	move/from16 v2, p4</span>
+<span class="">	move/from16 v3, v19</span>
+<span class="">	invoke-virtual {v15, v0, v1, v2, v3}, Landroid/view/View;->layout(IIII)V</span>
+<span class="">	new-instance v15, Landroid/view/View;</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-direct {v15, v10}, Landroid/view/View;-><init>(Landroid/content/Context;)V</span>
+<span class="">	if-nez v4, :cond_7</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/view/wigets/b;->j:I</span>
+<span class="">	invoke-virtual {v15, v4}, Landroid/view/View;->setBackgroundColor(I)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	add-int/2addr v4, v6</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	:goto_5</span>
+<span class="">	invoke-virtual {v0, v15}, Lcom/umeng/socialize/view/wigets/b;->addView(Landroid/view/View;)V</span>
+<span class="">	add-int v6, v16, v13</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v0, v0, Lcom/umeng/socialize/view/wigets/b;->l:I</span>
+<span class="">	move/from16 v16, v0</span>
+<span class="">	add-int v16, v16, v17</span>
+<span class="">	move/from16 v0, v18</span>
+<span class="">	move/from16 v1, v16</span>
+<span class="">	move/from16 v2, v19</span>
+<span class="">	invoke-virtual {v15, v6, v0, v1, v2}, Landroid/view/View;->layout(IIII)V</span>
+<span class="">	move/from16 v21, v5</span>
+<span class="">	move v5, v4</span>
+<span class="">	move/from16 v4, v21</span>
+<span class="">	add-int/lit8 v6, v7, 0x1</span>
+<span class="">	:goto_6</span>
+<span class="">	move v7, v6</span>
+<span class="">	move v6, v5</span>
+<span class="">	goto/16 :goto_1</span>
+<span class="">	iput v14, v4, Landroid/view/ViewGroup$LayoutParams;->height:I</span>
+<span class="">	:cond_5</span>
+<span class="">	iput v13, v4, Landroid/view/ViewGroup$LayoutParams;->width:I</span>
+<span class="">	goto/16 :goto_3</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	:cond_6</span>
+<span class="">	goto/16 :goto_4</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	:cond_7</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/view/wigets/b;->k:I</span>
+<span class="">	invoke-virtual {v15, v4}, Landroid/view/View;->setBackgroundColor(I)V</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	goto :goto_5</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	:cond_8</span>
+<span class="">	goto/16 :goto_2</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	:cond_9</span>
+<span class="">	goto/16 :goto_2</span>
+<span class="">	move v5, v6</span>
+<span class="">	:cond_a</span>
+<span class="">	goto :goto_6</span>
+.end method
+
+.method protected onMeasure(II)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onMeasure(II)V</span>
+<span class="">	invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->h:I</span>
+<span class="">	invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/b;->i:I</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/view/wigets/b;->i:I</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/view/wigets/b;->h:I</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/umeng/socialize/view/wigets/b;->setMeasuredDimension(II)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

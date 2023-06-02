@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.facebook.controller</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/umeng/socialize/facebook/controller/c;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/facebook/widget/FacebookDialog$Callback;
+
+
+.field final synthetic a:Lcom/umeng/socialize/facebook/controller/a;
+
+
+.method constructor <init>(Lcom/umeng/socialize/facebook/controller/a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/c;->a:Lcom/umeng/socialize/facebook/controller/a;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public a(Lcom/facebook/widget/FacebookDialog$PendingCall;Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "HelloFacebook"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "Success! "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p2}, Landroid/os/Bundle;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/c;->a:Lcom/umeng/socialize/facebook/controller/a;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/facebook/controller/a;->a(Lcom/umeng/socialize/facebook/controller/a;)Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/facebook/UiLifecycleHelper;->b(Landroid/os/Bundle;)V</span>
+.end method
+
+.method public a(Lcom/facebook/widget/FacebookDialog$PendingCall;Ljava/lang/Exception;Landroid/os/Bundle;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const-string v0, "HelloFacebook"</span>
+<span class="">	const-string v1, "Error: %s"</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Object;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-virtual {p2}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

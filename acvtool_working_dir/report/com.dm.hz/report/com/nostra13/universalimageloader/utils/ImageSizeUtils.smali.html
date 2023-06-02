@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.utils</a></li>
+        <li><i class="ico ico-class"></i> ImageSizeUtils.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/nostra13/universalimageloader/utils/ImageSizeUtils;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/nostra13/universalimageloader/utils/ImageSizeUtils$1;
+}
+.end annotation
+
+.field private static final DEFAULT_MAX_BITMAP_DIMENSION:I = 0x800
+.field private static maxBitmapSize:Lcom/nostra13/universalimageloader/core/assist/ImageSize;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	const/16 v1, 0xd33</span>
+<span class="">	invoke-static {v1, v0, v2}, Landroid/opengl/GLES10;->glGetIntegerv(I[II)V</span>
+<span class="">	aget v0, v0, v2</span>
+<span class="">	const/16 v1, 0x800</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	new-instance v1, Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	invoke-direct {v1, v0, v0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;-><init>(II)V</span>
+<span class="">	sput-object v1, Lcom/nostra13/universalimageloader/utils/ImageSizeUtils;->maxBitmapSize:Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+.end method
+
+.method private constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static computeImageSampleSize(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;Z)I
+<span class="">	.locals 9</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I</span>
+<span class="">	move-result v5</span>
+<span class="">	div-int v3, v2, v4</span>
+<span class="">	div-int v6, v0, v5</span>
+<span class="">	sget-object v7, Lcom/nostra13/universalimageloader/utils/ImageSizeUtils$1;->$SwitchMap$com$nostra13$universalimageloader$core$assist$ViewScaleType:[I</span>
+<span class="">	invoke-virtual {p2}, Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;->ordinal()I</span>
+<span class="">	move-result v8</span>
+<span class="">	aget v7, v7, v8</span>
+<span class="">	packed-switch v7, :pswitch_data_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-ge v0, v1, :cond_4</span>
+<span class="">	:goto_1</span>
+<span class="">	if-eqz p3, :cond_2</span>
+<span class="">	:pswitch_0</span>
+<span class="">	move v3, v2</span>
+<span class="">	move v2, v0</span>
+<span class="">	move v0, v1</span>
+<span class="">	div-int/lit8 v6, v3, 0x2</span>
+<span class="">	:goto_2</span>
+<span class="">	if-ge v6, v4, :cond_1</span>
+<span class="">	div-int/lit8 v6, v2, 0x2</span>
+<span class="">	if-lt v6, v5, :cond_0</span>
+<span class="">	div-int/lit8 v3, v3, 0x2</span>
+<span class="">	:cond_1</span>
+<span class="">	div-int/lit8 v2, v2, 0x2</span>
+<span class="">	mul-int/lit8 v0, v0, 0x2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-static {v3, v6}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-eqz p3, :cond_3</span>
+<span class="">	:pswitch_1</span>
+<span class="">	move v3, v2</span>
+<span class="">	move v2, v0</span>
+<span class="">	move v0, v1</span>
+<span class="">	div-int/lit8 v6, v3, 0x2</span>
+<span class="">	:goto_3</span>
+<span class="">	if-lt v6, v4, :cond_0</span>
+<span class="">	div-int/lit8 v6, v2, 0x2</span>
+<span class="">	if-lt v6, v5, :cond_0</span>
+<span class="">	div-int/lit8 v3, v3, 0x2</span>
+<span class="">	div-int/lit8 v2, v2, 0x2</span>
+<span class="">	mul-int/lit8 v0, v0, 0x2</span>
+<span class="">	goto :goto_3</span>
+<span class="">	invoke-static {v3, v6}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public static computeImageScale(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;Z)F
+<span class="">	.locals 7</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I</span>
+<span class="">	move-result v0</span>
+<span class="">	int-to-float v2, v3</span>
+<span class="">	int-to-float v5, v1</span>
+<span class="">	div-float/2addr v2, v5</span>
+<span class="">	int-to-float v5, v4</span>
+<span class="">	int-to-float v6, v0</span>
+<span class="">	div-float/2addr v5, v6</span>
+<span class="">	sget-object v6, Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;->FIT_INSIDE:Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;</span>
+<span class="">	if-ne p2, v6, :cond_0</span>
+<span class="">	cmpl-float v6, v2, v5</span>
+<span class="">	if-gez v6, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v6, Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;->CROP:Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;</span>
+<span class="">	if-ne p2, v6, :cond_5</span>
+<span class="">	cmpg-float v6, v2, v5</span>
+<span class="">	if-gez v6, :cond_5</span>
+<span class="">	:cond_1</span>
+<span class="">	int-to-float v0, v4</span>
+<span class="">	div-float/2addr v0, v2</span>
+<span class="">	float-to-int v0, v0</span>
+<span class="">	move v2, v1</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/high16 v0, 0x3f800000    # 1.0f</span>
+<span class="">	if-nez p3, :cond_2</span>
+<span class="">	if-ge v2, v3, :cond_2</span>
+<span class="">	if-lt v1, v4, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz p3, :cond_4</span>
+<span class="">	if-eq v2, v3, :cond_4</span>
+<span class="">	if-eq v1, v4, :cond_4</span>
+<span class="">	:cond_3</span>
+<span class="">	int-to-float v0, v2</span>
+<span class="">	int-to-float v1, v3</span>
+<span class="">	div-float/2addr v0, v1</span>
+<span class="">	:cond_4</span>
+<span class="">	int-to-float v1, v3</span>
+<span class="">	:cond_5</span>
+<span class="">	div-float/2addr v1, v5</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	move v2, v1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static computeMinImageSampleSize(Lcom/nostra13/universalimageloader/core/assist/ImageSize;)I
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I</span>
+<span class="">	move-result v1</span>
+<span class="">	sget-object v2, Lcom/nostra13/universalimageloader/utils/ImageSizeUtils;->maxBitmapSize:Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	invoke-virtual {v2}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I</span>
+<span class="">	move-result v2</span>
+<span class="">	sget-object v3, Lcom/nostra13/universalimageloader/utils/ImageSizeUtils;->maxBitmapSize:Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	invoke-virtual {v3}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I</span>
+<span class="">	move-result v3</span>
+<span class="">	int-to-float v0, v0</span>
+<span class="">	int-to-float v2, v2</span>
+<span class="">	div-float/2addr v0, v2</span>
+<span class="">	float-to-double v4, v0</span>
+<span class="">	invoke-static {v4, v5}, Ljava/lang/Math;->ceil(D)D</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	double-to-int v0, v4</span>
+<span class="">	int-to-float v1, v1</span>
+<span class="">	int-to-float v2, v3</span>
+<span class="">	div-float/2addr v1, v2</span>
+<span class="">	float-to-double v1, v1</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	double-to-int v1, v1</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static defineTargetSizeForView(Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;Lcom/nostra13/universalimageloader/core/assist/ImageSize;)Lcom/nostra13/universalimageloader/core/assist/ImageSize;
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-interface {p0}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getWidth()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-gtz v0, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I</span>
+<span class="">	move-result v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {p0}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getHeight()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-gtz v1, :cond_1</span>
+<span class="">	invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I</span>
+<span class="">	move-result v1</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v2, Lcom/nostra13/universalimageloader/core/assist/ImageSize;</span>
+<span class="">	invoke-direct {v2, v0, v1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;-><init>(II)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

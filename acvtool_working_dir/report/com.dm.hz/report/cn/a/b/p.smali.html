@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.a.b</a></li>
+        <li><i class="ico ico-class"></i> p.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/a/b/p;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private static a:Lcn/a/b/k; = null
+.field private static final b:Ljava/lang/String; = "DES"
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Lcn/a/b/k;</span>
+<span class="">	const-class v1, Lcn/a/b/p;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Lcn/a/b/k;-><init>(Ljava/lang/String;)V</span>
+<span class="">	sput-object v0, Lcn/a/b/p;->a:Lcn/a/b/k;</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a(II)I
+<span class="">	.locals 6</span>
+
+<span class="">	if-le p0, p1, :cond_2</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	move v3, v0</span>
+<span class="">	move v2, p1</span>
+<span class="">	move v0, v1</span>
+<span class="">	move v1, p0</span>
+<span class="">	:goto_1</span>
+<span class="">	if-le v3, v2, :cond_0</span>
+<span class="">	rem-int v4, v2, v3</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez v4, :cond_1</span>
+<span class="">	rem-int v4, v1, v3</span>
+<span class="">	if-nez v4, :cond_1</span>
+<span class="">	mul-int/2addr v0, v3</span>
+<span class="">	div-int/2addr v2, v3</span>
+<span class="">	div-int/2addr v1, v3</span>
+<span class="">	add-int/lit8 v3, v3, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v5, p1</span>
+<span class="">	:cond_2</span>
+<span class="">	move p1, p0</span>
+<span class="">	move p0, v5</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a()Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Ljava/text/SimpleDateFormat;</span>
+<span class="">	const-string v1, "yyyyMMddHHmmssSSS"</span>
+<span class="">	sget-object v2, Ljava/util/Locale;->CHINESE:Ljava/util/Locale;</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V</span>
+<span class="">	new-instance v1, Ljava/util/Date;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/Date;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static a(I)Ljava/lang/String;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v5, 0x2</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	new-instance v3, Ljava/util/Random;</span>
+<span class="">	invoke-direct {v3}, Ljava/util/Random;-><init>()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	move v2, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v2, p0, :cond_0</span>
+<span class="">	invoke-virtual {v3, v5}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v1</span>
+<span class="">	rem-int/lit8 v1, v1, 0x2</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	const-string v1, "char"</span>
+<span class="">	const-string v4, "char"</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_4</span>
+<span class="">	invoke-virtual {v3, v5}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	rem-int/lit8 v1, v1, 0x2</span>
+<span class="">	if-nez v1, :cond_3</span>
+<span class="">	const/16 v1, 0x41</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const/16 v0, 0x1a</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	int-to-char v0, v0</span>
+<span class="">	invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	add-int/lit8 v1, v2, 0x1</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_1</span>
+<span class="">	move v2, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v1, "num"</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const/16 v1, 0x61</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_2</span>
+<span class="">	const-string v4, "num"</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const/16 v0, 0xa</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/util/Random;->nextInt(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_3</span>
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 6</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "UTF-8"</span>
+<span class="">	invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x10</span>
+<span class="">	new-array v1, v1, [B</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	array-length v4, v0</span>
+<span class="">	const/16 v5, 0x10</span>
+<span class="">	invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-static {v0, v2, v1, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V</span>
+<span class="">	const-string v0, "UTF-8"</span>
+<span class="">	invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v2, Ljavax/crypto/spec/SecretKeySpec;</span>
+<span class="">	const-string v3, "AES"</span>
+<span class="">	invoke-direct {v2, v1, v3}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V</span>
+<span class="">	const-string v1, "AES/ECB/PKCS7Padding"</span>
+<span class="">	invoke-static {v1}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	invoke-virtual {v1, v3, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V</span>
+<span class="">	invoke-virtual {v1, v0}, Ljavax/crypto/Cipher;->doFinal([B)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	invoke-static {v0, v1}, Lcn/a/b/b;->b([BI)[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v0, Ljava/lang/String;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/util/HashMap;)Ljava/lang/String;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/HashMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Ljava/lang/String;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v2, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {p0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lorg/apache/http/client/entity/UrlEncodedFormEntity;</span>
+<span class="">	const-string v1, "UTF-8"</span>
+<span class="">	invoke-direct {v0, v2, v1}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;-><init>(Ljava/util/List;Ljava/lang/String;)V</span>
+<span class="">	new-instance v1, Ljava/io/BufferedReader;</span>
+<span class="">	new-instance v2, Ljava/io/InputStreamReader;</span>
+<span class="">	invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v2, v0}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	new-instance v5, Lorg/apache/http/message/BasicNameValuePair;</span>
+<span class="">	invoke-virtual {p0, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	invoke-direct {v5, v0, v1}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcn/a/b/p;->a:Lcn/a/b/k;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcn/a/b/k;->a(Ljava/lang/Throwable;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;)Ljava/util/HashMap;
+<span class="">	.locals 7</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/HashMap",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	new-instance v2, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	const-string v1, "&"</span>
+<span class="">	invoke-virtual {p0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	array-length v4, v3</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v1, v4, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	aget-object v0, v3, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v5, "="</span>
+<span class="">	invoke-virtual {v0, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v5, v0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const/4 v6, 0x2</span>
+<span class="">	if-ne v5, v6, :cond_2</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	aget-object v5, v0, v5</span>
+<span class="">	const-string v6, "UTF-8"</span>
+<span class="">	invoke-static {v5, v6}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	aget-object v0, v0, v6</span>
+<span class="">	const-string v6, "UTF-8"</span>
+<span class="">	invoke-static {v0, v6}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v5, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	aget-object v0, v0, v5</span>
+<span class="">	const-string v5, "UTF-8"</span>
+<span class="">	invoke-static {v0, v5}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v5, ""</span>
+<span class="">	invoke-virtual {v2, v0, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v5, Lcn/a/b/p;->a:Lcn/a/b/k;</span>
+<span class="">	invoke-virtual {v5, v0}, Lcn/a/b/k;->a(Ljava/lang/Throwable;)V</span>
+<span class="">	sget-object v0, Lcn/a/b/p;->a:Lcn/a/b/k;</span>
+<span class="">	new-instance v5, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v6, "URL decode params String error:"</span>
+<span class="">	invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v0, v5}, Lcn/a/b/k;->e(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static b(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljavax/crypto/spec/DESKeySpec;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljavax/crypto/spec/DESKeySpec;-><init>([B)V</span>
+<span class="">	const-string v1, "DES"</span>
+<span class="">	invoke-static {v1}, Ljavax/crypto/SecretKeyFactory;->getInstance(Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "DES"</span>
+<span class="">	invoke-static {v1}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Ljavax/crypto/spec/IvParameterSpec;</span>
+<span class="">	const-string v3, "12345678"</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/String;->getBytes()[B</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	invoke-virtual {v1, v3, v0, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljavax/crypto/Cipher;->doFinal([B)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	invoke-static {v0, v1}, Lcn/a/b/b;->a([BI)Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v0, Lcn/a/b/p;->a:Lcn/a/b/k;</span>
+<span class="">	const-string v1, "des encode error"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcn/a/b/k;->b(Ljava/lang/String;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static b(Ljava/lang/String;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "[0-9]*"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "."</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	const/4 v3, 0x4</span>
+<span class="">	invoke-virtual {p0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "."</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	const/4 v3, 0x6</span>
+<span class="">	invoke-virtual {p0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object p0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcn/a/b/p;->a:Lcn/a/b/k;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcn/a/b/k;->a(Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static d(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "-"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x4</span>
+<span class="">	const/4 v3, 0x6</span>
+<span class="">	invoke-virtual {p0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "-"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x6</span>
+<span class="">	const/16 v3, 0x8</span>
+<span class="">	invoke-virtual {p0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object p0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcn/a/b/p;->a:Lcn/a/b/k;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcn/a/b/k;->a(Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static e(Ljava/lang/String;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

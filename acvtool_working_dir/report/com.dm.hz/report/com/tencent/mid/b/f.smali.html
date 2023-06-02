@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.mid.b</a></li>
+        <li><i class="ico ico-class"></i> f.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/tencent/mid/b/f;
+.super Ljava/lang/Object;
+
+
+.field protected a:Landroid/content/Context;
+
+
+.method protected constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/mid/b/f;->a:Landroid/content/Context;</span>
+<span class="">	iput-object p1, p0, Lcom/tencent/mid/b/f;->a:Landroid/content/Context;</span>
+.end method
+
+.method private d(Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/tencent/mid/b/f;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/tencent/mid/b/f;->a(Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public static e()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "6X8Y4XdM2Vhvn0I="</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->decode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static f()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "6X8Y4XdM2Vhvn0KfzcEatGnWaNU="</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->decode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static g()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "4kU71lN96TJUomD1vOU9lgj9U+kKmxDPLVM+zzjst5U="</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->decode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private l()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->b()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/tencent/mid/b/f;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Lcom/tencent/mid/api/MidEntity;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/tencent/mid/api/MidEntity;->toString()Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/tencent/mid/b/f;->d(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected abstract a(Lcom/tencent/mid/b/a;)V
+<span class="">	</span>
+
+.end method
+
+.method protected abstract a(Ljava/lang/String;)V
+<span class="">	</span>
+
+.end method
+
+.method protected abstract a()Z
+<span class="">	</span>
+
+.end method
+
+.method protected abstract b()Ljava/lang/String;
+<span class="">	</span>
+
+.end method
+
+.method protected b(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1}, Lcom/tencent/mid/util/Util;->encode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public b(Lcom/tencent/mid/b/a;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->a()Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/tencent/mid/b/f;->a(Lcom/tencent/mid/b/a;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected c(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1}, Lcom/tencent/mid/util/Util;->decode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected abstract c()V
+<span class="">	</span>
+
+.end method
+
+.method protected abstract d()Lcom/tencent/mid/b/a;
+<span class="">	</span>
+
+.end method
+
+.method public h()Lcom/tencent/mid/api/MidEntity;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/tencent/mid/b/f;->l()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/api/MidEntity;->parse(Ljava/lang/String;)Lcom/tencent/mid/api/MidEntity;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  i()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->c()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public j()Lcom/tencent/mid/b/a;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/f;->d()Lcom/tencent/mid/b/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected k()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "4kU71lN96TJUomD1vOU9lgj9Tw=="</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->decode(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

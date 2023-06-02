@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.utils</a></li>
+        <li><i class="ico ico-class"></i> L.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/nostra13/universalimageloader/utils/L;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private static volatile DISABLED:Z = false
+.field private static final LOG_FORMAT:Ljava/lang/String; = "%1$s\n%2$s"
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-boolean v0, Lcom/nostra13/universalimageloader/utils/L;->DISABLED:Z</span>
+.end method
+
+.method private constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static varargs d(Ljava/lang/String;[Ljava/lang/Object;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v0, v1, p0, p1}, Lcom/nostra13/universalimageloader/utils/L;->log(ILjava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V</span>
+.end method
+
+.method public static disableLogging()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	sput-boolean v0, Lcom/nostra13/universalimageloader/utils/L;->DISABLED:Z</span>
+.end method
+
+.method public static varargs e(Ljava/lang/String;[Ljava/lang/Object;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x6</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v0, v1, p0, p1}, Lcom/nostra13/universalimageloader/utils/L;->log(ILjava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V</span>
+.end method
+
+.method public static e(Ljava/lang/Throwable;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x6</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-array v2, v2, [Ljava/lang/Object;</span>
+<span class="">	invoke-static {v0, p0, v1, v2}, Lcom/nostra13/universalimageloader/utils/L;->log(ILjava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V</span>
+.end method
+
+.method public static varargs e(Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x6</span>
+<span class="">	invoke-static {v0, p0, p1, p2}, Lcom/nostra13/universalimageloader/utils/L;->log(ILjava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V</span>
+.end method
+
+.method public static enableLogging()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-boolean v0, Lcom/nostra13/universalimageloader/utils/L;->DISABLED:Z</span>
+.end method
+
+.method public static varargs i(Ljava/lang/String;[Ljava/lang/Object;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v0, v1, p0, p1}, Lcom/nostra13/universalimageloader/utils/L;->log(ILjava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V</span>
+.end method
+
+.method private static varargs log(ILjava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V
+<span class="">	.locals 5</span>
+
+<span class="">	sget-boolean v0, Lcom/nostra13/universalimageloader/utils/L;->DISABLED:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	array-length v0, p3</span>
+<span class="">	:cond_0</span>
+<span class="">	if-lez v0, :cond_3</span>
+<span class="">	invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	:goto_1</span>
+<span class="">	sget-object v1, Lcom/nostra13/universalimageloader/core/ImageLoader;->TAG:Ljava/lang/String;</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-static {p0, v1, v0}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p1}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "%1$s\n%2$s"</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	new-array v3, v3, [Ljava/lang/Object;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	aput-object v0, v3, v4</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	aput-object v1, v3, v0</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-object v0, p2</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static varargs w(Ljava/lang/String;[Ljava/lang/Object;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x5</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v0, v1, p0, p1}, Lcom/nostra13/universalimageloader/utils/L;->log(ILjava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

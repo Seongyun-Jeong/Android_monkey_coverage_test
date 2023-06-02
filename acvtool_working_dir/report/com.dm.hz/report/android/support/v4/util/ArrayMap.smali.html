@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.util</a></li>
+        <li><i class="ico ico-class"></i> ArrayMap.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Landroid/support/v4/util/ArrayMap;
+.super Landroid/support/v4/util/SimpleArrayMap;
+.source "SourceFile"
+.implements Ljava/util/Map;
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<K:",
+"Ljava/lang/Object;",
+"V:",
+"Ljava/lang/Object;",
+">",
+"Landroid/support/v4/util/SimpleArrayMap",
+"<TK;TV;>;",
+"Ljava/util/Map",
+"<TK;TV;>;"
+}
+.end annotation
+
+.field  mCollections:Landroid/support/v4/util/MapCollections;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Landroid/support/v4/util/MapCollections",
+"<TK;TV;>;"
+}
+.end annotation
+.end field
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Landroid/support/v4/util/SimpleArrayMap;-><init>()V</span>
+.end method
+
+.method public constructor <init>(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/support/v4/util/SimpleArrayMap;-><init>(I)V</span>
+.end method
+
+.method public constructor <init>(Landroid/support/v4/util/SimpleArrayMap;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/support/v4/util/SimpleArrayMap;-><init>(Landroid/support/v4/util/SimpleArrayMap;)V</span>
+.end method
+
+.method private getCollection()Landroid/support/v4/util/MapCollections;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Landroid/support/v4/util/MapCollections",</span>
+<span class="">	"<TK;TV;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/util/ArrayMap;->mCollections:Landroid/support/v4/util/MapCollections;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Landroid/support/v4/util/ArrayMap$1;</span>
+<span class="">	invoke-direct {v0, p0}, Landroid/support/v4/util/ArrayMap$1;-><init>(Landroid/support/v4/util/ArrayMap;)V</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/util/ArrayMap;->mCollections:Landroid/support/v4/util/MapCollections;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/util/ArrayMap;->mCollections:Landroid/support/v4/util/MapCollections;</span>
+.end method
+
+.method public containsAll(Ljava/util/Collection;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<*>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Landroid/support/v4/util/MapCollections;->containsAllHelper(Ljava/util/Map;Ljava/util/Collection;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public entrySet()Ljava/util/Set;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Set",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/util/Map$Entry",</span>
+<span class="">	"<TK;TV;>;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0}, Landroid/support/v4/util/ArrayMap;->getCollection()Landroid/support/v4/util/MapCollections;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/support/v4/util/MapCollections;->getEntrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public keySet()Ljava/util/Set;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Set",</span>
+<span class="">	"<TK;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0}, Landroid/support/v4/util/ArrayMap;->getCollection()Landroid/support/v4/util/MapCollections;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/support/v4/util/MapCollections;->getKeySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public putAll(Ljava/util/Map;)V
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<+TK;+TV;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget v0, p0, Landroid/support/v4/util/ArrayMap;->mSize:I</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/support/v4/util/ArrayMap;->ensureCapacity(I)V</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v2, v0}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public removeAll(Ljava/util/Collection;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<*>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Landroid/support/v4/util/MapCollections;->removeAllHelper(Ljava/util/Map;Ljava/util/Collection;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public retainAll(Ljava/util/Collection;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<*>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Landroid/support/v4/util/MapCollections;->retainAllHelper(Ljava/util/Map;Ljava/util/Collection;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public values()Ljava/util/Collection;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<TV;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0}, Landroid/support/v4/util/ArrayMap;->getCollection()Landroid/support/v4/util/MapCollections;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/support/v4/util/MapCollections;->getValues()Ljava/util/Collection;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

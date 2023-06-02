@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.widget</a></li>
+        <li><i class="ico ico-class"></i> ContentLoadingProgressBar.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Landroid/support/v4/widget/ContentLoadingProgressBar;
+.super Landroid/widget/ProgressBar;
+.source "SourceFile"
+
+
+.field private static final MIN_DELAY:I = 0x1f4
+.field private static final MIN_SHOW_TIME:I = 0x1f4
+.field private final mDelayedHide:Ljava/lang/Runnable;
+.field private final mDelayedShow:Ljava/lang/Runnable;
+.field private mDismissed:Z
+.field private mPostedHide:Z
+.field private mPostedShow:Z
+.field private mStartTime:J
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2, v2}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V</span>
+<span class="">	const-wide/16 v0, -0x1</span>
+<span class="">	iput-wide v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J</span>
+<span class="">	iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z</span>
+<span class="">	iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z</span>
+<span class="">	iput-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z</span>
+<span class="">	new-instance v0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;</span>
+<span class="">	invoke-direct {v0, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$1;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;</span>
+<span class="">	new-instance v0, Landroid/support/v4/widget/ContentLoadingProgressBar$2;</span>
+<span class="">	invoke-direct {v0, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$2;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;</span>
+.end method
+
+.method static synthetic access$002(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z</span>
+.end method
+
+.method static synthetic access$102(Landroid/support/v4/widget/ContentLoadingProgressBar;J)J
+<span class="">	.locals 0</span>
+
+<span class="">	iput-wide p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J</span>
+.end method
+
+.method static synthetic access$202(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z</span>
+.end method
+
+.method static synthetic access$300(Landroid/support/v4/widget/ContentLoadingProgressBar;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z</span>
+.end method
+
+.method private removeCallbacks()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z</span>
+.end method
+
+.method public hide()V
+<span class="">	.locals 9</span>
+
+<span class="">	const-wide/16 v7, 0x1f4</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	iput-boolean v6, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	iget-wide v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J</span>
+<span class="">	sub-long/2addr v0, v2</span>
+<span class="">	cmp-long v2, v0, v7</span>
+<span class="">	if-gez v2, :cond_0</span>
+<span class="">	iget-wide v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J</span>
+<span class="">	const-wide/16 v4, -0x1</span>
+<span class="">	cmp-long v2, v2, v4</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	const/16 v0, 0x8</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->setVisibility(I)V</span>
+<span class="">	:cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-boolean v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z</span>
+<span class="">	:cond_2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	iget-object v2, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;</span>
+<span class="">	sub-long v0, v7, v0</span>
+<span class="">	invoke-virtual {p0, v2, v0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->postDelayed(Ljava/lang/Runnable;J)Z</span>
+<span class="">	iput-boolean v6, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onAttachedToWindow()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-super {p0}, Landroid/widget/ProgressBar;->onAttachedToWindow()V</span>
+<span class="">	invoke-direct {p0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks()V</span>
+.end method
+
+.method public onDetachedFromWindow()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-super {p0}, Landroid/widget/ProgressBar;->onDetachedFromWindow()V</span>
+<span class="">	invoke-direct {p0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks()V</span>
+.end method
+
+.method public show()V
+<span class="">	.locals 3</span>
+
+<span class="">	const-wide/16 v0, -0x1</span>
+<span class="">	iput-wide v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z</span>
+<span class="">	iget-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;</span>
+<span class="">	const-wide/16 v1, 0x1f4</span>
+<span class="">	invoke-virtual {p0, v0, v1, v2}, Landroid/support/v4/widget/ContentLoadingProgressBar;->postDelayed(Ljava/lang/Runnable;J)Z</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z</span>
+<span class="">	:cond_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.a.a</a></li>
+        <li><i class="ico ico-class"></i> h.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/dm/hz/a/a/h;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/dm/hz/a/a/k;
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/Object;",
+"Lcom/dm/hz/a/a/k",
+"<",
+"Lcom/dm/hz/a/a/b;",
+">;"
+}
+.end annotation
+
+
+
+.method constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public a(Lcom/dm/hz/a/a/i;Landroid/view/View;Lcom/dm/hz/a/a/b;)Landroid/view/View;
+<span class="">	.locals 5</span>
+
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	instance-of v0, p2, Lcom/dm/hz/gift/a/c;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	check-cast p2, Lcom/dm/hz/gift/a/c;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/dm/hz/a/a/i;->a()[Landroid/view/View$OnClickListener;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, p3}, Lcom/dm/hz/a/a/i;->a(Lcom/dm/hz/a/a/b;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	check-cast p3, Lcom/dm/hz/gift/model/Charge;</span>
+<span class="">	iget-object v2, p2, Lcom/dm/hz/gift/a/c;->b:Landroid/widget/TextView;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	iget v4, p3, Lcom/dm/hz/gift/model/Charge;->num:I</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v4, p3, Lcom/dm/hz/gift/model/Charge;->prompt:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	invoke-virtual {p2, p3}, Lcom/dm/hz/gift/a/c;->setTag(Ljava/lang/Object;)V</span>
+<span class="">	iget-object v2, p2, Lcom/dm/hz/gift/a/c;->b:Landroid/widget/TextView;</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V</span>
+<span class="">	iget-object v1, p2, Lcom/dm/hz/gift/a/c;->b:Landroid/widget/TextView;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	aget-object v0, v0, v2</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	new-instance p2, Lcom/dm/hz/gift/a/c;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p1, Lcom/dm/hz/a/a/i;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-direct {p2, v0}, Lcom/dm/hz/gift/a/c;-><init>(Landroid/content/Context;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public bridge synthetic a(Lcom/dm/hz/a/a/i;Landroid/view/View;Ljava/lang/Object;)Landroid/view/View;
+<span class="">	.locals 1</span>
+
+<span class="">	check-cast p3, Lcom/dm/hz/a/a/b;</span>
+<span class="">	invoke-virtual {p0, p1, p2, p3}, Lcom/dm/hz/a/a/h;->a(Lcom/dm/hz/a/a/i;Landroid/view/View;Lcom/dm/hz/a/a/b;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.b.b</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/umeng/socialize/b/b/c;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private static final a:I = 0x2
+.field public static final b:I = 0x4c
+.field protected static final c:I = 0xff
+.field protected static final d:B = 0x3dt
+.field protected static final e:B = 0x3dt
+.field private static final l:I = 0x2000
+.field protected final f:I
+.field protected g:[B
+.field protected h:I
+.field protected i:Z
+.field protected j:I
+.field protected k:I
+.field private final m:I
+.field private final n:I
+.field private final o:I
+.field private p:I
+
+
+.method protected constructor <init>(IIII)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput p1, p0, Lcom/umeng/socialize/b/b/c;->m:I</span>
+<span class="">	iput p2, p0, Lcom/umeng/socialize/b/b/c;->n:I</span>
+<span class="">	if-lez p3, :cond_0</span>
+<span class="">	if-lez p4, :cond_0</span>
+<span class="">	div-int v0, p3, p2</span>
+<span class="">	mul-int/2addr v0, p2</span>
+<span class="">	:goto_0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/b/b/c;->f:I</span>
+<span class="">	iput p4, p0, Lcom/umeng/socialize/b/b/c;->o:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected static b(B)Z
+<span class="">	.locals 1</span>
+
+<span class="">	sparse-switch p0, :sswitch_data_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:sswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:sswitch_data_0</span>
+<span class="">	.sparse-switch</span>
+<span class="">	0x9 -> :sswitch_0</span>
+<span class="">	0xa -> :sswitch_0</span>
+<span class="">	0xd -> :sswitch_0</span>
+<span class="">	0x20 -> :sswitch_0</span>
+<span class="">	.end sparse-switch</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/b/b/c;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	new-array v0, v0, [B</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	iput v3, p0, Lcom/umeng/socialize/b/b/c;->h:I</span>
+<span class="">	iput v3, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	:cond_0</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	mul-int/lit8 v0, v0, 0x2</span>
+<span class="">	new-array v0, v0, [B</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	array-length v2, v2</span>
+<span class="">	invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private e()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/b/b/c;->h:I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/b/b/c;->j:I</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/b/b/c;->k:I</span>
+<span class="">	iput-boolean v1, p0, Lcom/umeng/socialize/b/b/c;->i:Z</span>
+.end method
+
+.method public a(Ljava/lang/Object;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/lang/Exception;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	instance-of v0, p1, [B</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/Exception;</span>
+<span class="">	const-string v1, "Parameter supplied to Base-N encode is not a byte[]"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	check-cast p1, [B</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/b/b/c;->d([B)[B</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected a(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/b/b/c;->h:I</span>
+<span class="">	add-int/2addr v1, p1</span>
+<span class="">	if-ge v0, v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/b/b/c;->d()V</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method abstract a([BII)V
+<span class="">	</span>
+
+.end method
+
+.method  a()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected abstract a(B)Z
+<span class="">	</span>
+
+.end method
+
+.method  b()I
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/b/b/c;->h:I</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	sub-int/2addr v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b(Ljava/lang/Object;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/lang/Exception;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	instance-of v0, p1, [B</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	check-cast p1, [B</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/b/b/c;->c([B)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	instance-of v0, p1, Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	check-cast p1, Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/b/b/c;->b(Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Ljava/lang/Exception;</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v1, "Parameter supplied to Base-N decode is not a byte[] or a String"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public b([B)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/b/b/c;->d([B)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/b/b/a;->a([B)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method abstract b([BII)V
+<span class="">	</span>
+
+.end method
+
+.method public b([BZ)Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	array-length v2, p1</span>
+<span class="">	if-lt v0, v2, :cond_1</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	aget-byte v2, p1, v0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/umeng/socialize/b/b/c;->a(B)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	aget-byte v2, p1, v0</span>
+<span class="">	const/16 v3, 0x3d</span>
+<span class="">	if-eq v2, v3, :cond_2</span>
+<span class="">	aget-byte v2, p1, v0</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/b/b/c;->b(B)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b(Ljava/lang/String;)[B
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/b/b/a;->b(Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/b/b/c;->c([B)[B</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected c()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/16 v0, 0x2000</span>
+.end method
+
+.method  c([BII)I
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/b/b/c;->b()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0, p3}, Ljava/lang/Math;->min(II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	invoke-static {v1, v2, p1, p2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	add-int/2addr v1, v0</span>
+<span class="">	iput v1, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/b/b/c;->h:I</span>
+<span class="">	if-lt v1, v2, :cond_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/b/b/c;->g:[B</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/b/b/c;->i:Z</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public c(Ljava/lang/String;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/b/b/a;->b(Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/umeng/socialize/b/b/c;->b([BZ)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public c([B)[B
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/b/b/c;->e()V</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	array-length v0, p1</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	array-length v0, p1</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, p1, v1, v0}, Lcom/umeng/socialize/b/b/c;->b([BII)V</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	invoke-virtual {p0, p1, v1, v0}, Lcom/umeng/socialize/b/b/c;->b([BII)V</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/b/b/c;->h:I</span>
+<span class="">	new-array p1, v0, [B</span>
+<span class="">	array-length v0, p1</span>
+<span class="">	invoke-virtual {p0, p1, v1, v0}, Lcom/umeng/socialize/b/b/c;->c([BII)I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public d([B)[B
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/b/b/c;->e()V</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	array-length v0, p1</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	array-length v0, p1</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, p1, v2, v0}, Lcom/umeng/socialize/b/b/c;->a([BII)V</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	invoke-virtual {p0, p1, v2, v0}, Lcom/umeng/socialize/b/b/c;->a([BII)V</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/b/b/c;->h:I</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/b/b/c;->p:I</span>
+<span class="">	sub-int/2addr v0, v1</span>
+<span class="">	new-array p1, v0, [B</span>
+<span class="">	array-length v0, p1</span>
+<span class="">	invoke-virtual {p0, p1, v2, v0}, Lcom/umeng/socialize/b/b/c;->c([BII)I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public e([B)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/b/b/c;->d([B)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/b/b/a;->a([B)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected f([B)Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	array-length v2, p1</span>
+<span class="">	:goto_1</span>
+<span class="">	if-ge v0, v2, :cond_0</span>
+<span class="">	const/16 v2, 0x3d</span>
+<span class="">	aget-byte v3, p1, v0</span>
+<span class="">	if-eq v2, v3, :cond_2</span>
+<span class="">	aget-byte v2, p1, v0</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/umeng/socialize/b/b/c;->a(B)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public g([B)J
+<span class="">	.locals 6</span>
+
+<span class="">	array-length v0, p1</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/b/b/c;->m:I</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	iget v1, p0, Lcom/umeng/socialize/b/b/c;->m:I</span>
+<span class="">	div-int/2addr v0, v1</span>
+<span class="">	int-to-long v0, v0</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/b/b/c;->n:I</span>
+<span class="">	int-to-long v2, v2</span>
+<span class="">	mul-long/2addr v0, v2</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/b/b/c;->f:I</span>
+<span class="">	if-lez v2, :cond_0</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/b/b/c;->f:I</span>
+<span class="">	int-to-long v2, v2</span>
+<span class="">	add-long/2addr v2, v0</span>
+<span class="">	const-wide/16 v4, 0x1</span>
+<span class="">	sub-long/2addr v2, v4</span>
+<span class="">	iget v4, p0, Lcom/umeng/socialize/b/b/c;->f:I</span>
+<span class="">	int-to-long v4, v4</span>
+<span class="">	div-long/2addr v2, v4</span>
+<span class="">	iget v4, p0, Lcom/umeng/socialize/b/b/c;->o:I</span>
+<span class="">	int-to-long v4, v4</span>
+<span class="">	mul-long/2addr v2, v4</span>
+<span class="">	add-long/2addr v0, v2</span>
+<span class="">	:cond_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

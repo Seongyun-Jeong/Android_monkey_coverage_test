@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.core</a></li>
+        <li><i class="ico ico-class"></i> ImageLoaderEngine.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private final cacheKeysForImageAwares:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/Integer;",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field final configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;
+.field private final networkDenied:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field private final pauseLock:Ljava/lang/Object;
+.field private final paused:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field private final slowNetwork:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field private taskDistributor:Ljava/util/concurrent/Executor;
+.field private taskExecutor:Ljava/util/concurrent/Executor;
+.field private taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
+.field private final uriLocks:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Ljava/util/concurrent/locks/ReentrantLock;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method constructor <init>(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	invoke-static {v0}, Ljava/util/Collections;->synchronizedMap(Ljava/util/Map;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Ljava/util/WeakHashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->uriLocks:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->paused:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->networkDenied:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->slowNetwork:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	new-instance v0, Ljava/lang/Object;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->pauseLock:Ljava/lang/Object;</span>
+<span class="">	iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget-object v0, p1, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->taskExecutor:Ljava/util/concurrent/Executor;</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;</span>
+<span class="">	iget-object v0, p1, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+<span class="">	invoke-static {}, Ljava/util/concurrent/Executors;->newCachedThreadPool()Ljava/util/concurrent/ExecutorService;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskDistributor:Ljava/util/concurrent/Executor;</span>
+.end method
+
+.method static synthetic access$000(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->initExecutorsIfNeed()V</span>
+.end method
+
+.method static synthetic access$100(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+.end method
+
+.method static synthetic access$200(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;</span>
+.end method
+
+.method private createTaskExecutor()Ljava/util/concurrent/Executor;
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget v0, v0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->threadPoolSize:I</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget v1, v1, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->threadPriority:I</span>
+<span class="">	iget-object v2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget-object v2, v2, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->tasksProcessingType:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createExecutor(IILcom/nostra13/universalimageloader/core/assist/QueueProcessingType;)Ljava/util/concurrent/Executor;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private initExecutorsIfNeed()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget-boolean v0, v0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->customExecutor:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;</span>
+<span class="">	check-cast v0, Ljava/util/concurrent/ExecutorService;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->isShutdown()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->createTaskExecutor()Ljava/util/concurrent/Executor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget-boolean v0, v0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->customExecutorForCachedImages:Z</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+<span class="">	check-cast v0, Ljava/util/concurrent/ExecutorService;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->isShutdown()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->createTaskExecutor()Ljava/util/concurrent/Executor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method  cancelDisplayTaskFor(Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;</span>
+<span class="">	invoke-interface {p1}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getId()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+.end method
+
+.method  denyNetworkDownloads(Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->networkDenied:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V</span>
+.end method
+
+.method  fireCallback(Ljava/lang/Runnable;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskDistributor:Ljava/util/concurrent/Executor;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V</span>
+.end method
+
+.method  getLoadingUriForView(Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;</span>
+<span class="">	invoke-interface {p1}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getId()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+.end method
+
+.method  getLockForUri(Ljava/lang/String;)Ljava/util/concurrent/locks/ReentrantLock;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->uriLocks:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->uriLocks:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  getPause()Ljava/util/concurrent/atomic/AtomicBoolean;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->paused:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+.end method
+
+.method  getPauseLock()Ljava/lang/Object;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->pauseLock:Ljava/lang/Object;</span>
+.end method
+
+.method  handleSlowNetwork(Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->slowNetwork:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V</span>
+.end method
+
+.method  isNetworkDenied()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->networkDenied:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method  isSlowNetwork()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->slowNetwork:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method  pause()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->paused:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V</span>
+.end method
+
+.method  prepareDisplayTaskFor(Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;</span>
+<span class="">	invoke-interface {p1}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getId()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+.end method
+
+.method  resume()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->paused:Ljava/util/concurrent/atomic/AtomicBoolean;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->pauseLock:Ljava/lang/Object;</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->pauseLock:Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method  stop()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget-boolean v0, v0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->customExecutor:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;</span>
+<span class="">	check-cast v0, Ljava/util/concurrent/ExecutorService;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->configuration:Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;</span>
+<span class="">	iget-boolean v0, v0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->customExecutorForCachedImages:Z</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+<span class="">	check-cast v0, Ljava/util/concurrent/ExecutorService;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->clear()V</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->uriLocks:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->clear()V</span>
+.end method
+
+.method  submit(Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskDistributor:Ljava/util/concurrent/Executor;</span>
+<span class="">	new-instance v1, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;</span>
+<span class="">	invoke-direct {v1, p0, p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;-><init>(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;)V</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V</span>
+.end method
+
+.method  submit(Lcom/nostra13/universalimageloader/core/ProcessAndDisplayImageTask;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->initExecutorsIfNeed()V</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

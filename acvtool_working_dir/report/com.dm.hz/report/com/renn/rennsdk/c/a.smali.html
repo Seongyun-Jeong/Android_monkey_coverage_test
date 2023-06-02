@@ -1,0 +1,2867 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.renn.rennsdk.c</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/renn/rennsdk/c/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/renn/rennsdk/c/a$a;,
+Lcom/renn/rennsdk/c/a$b;,
+Lcom/renn/rennsdk/c/a$c;,
+Lcom/renn/rennsdk/c/a$d;,
+Lcom/renn/rennsdk/c/a$e;,
+Lcom/renn/rennsdk/c/a$f;
+}
+.end annotation
+
+.field private static final A:Ljava/lang/String; = "multipart/form-data; boundary=00content0boundary00"
+.field private static final B:Ljava/lang/String; = "application/x-www-form-urlencoded"
+.field private static final C:Ljava/lang/String; = "application/json"
+.field private static final D:Ljava/lang/String; = "gzip"
+.field private static final E:[Ljava/lang/String;
+.field private static F:Ljavax/net/ssl/SSLSocketFactory; = null
+.field private static G:Ljavax/net/ssl/HostnameVerifier; = null
+.field public static final a:Ljava/lang/String; = "UTF-8"
+.field public static final b:Ljava/lang/String; = "Accept"
+.field public static final c:Ljava/lang/String; = "Accept-Charset"
+.field public static final d:Ljava/lang/String; = "Accept-Encoding"
+.field public static final e:Ljava/lang/String; = "Authorization"
+.field public static final f:Ljava/lang/String; = "Cache-Control"
+.field public static final g:Ljava/lang/String; = "Content-Encoding"
+.field public static final h:Ljava/lang/String; = "Content-Length"
+.field public static final i:Ljava/lang/String; = "Content-Type"
+.field public static final j:Ljava/lang/String; = "Date"
+.field public static final k:Ljava/lang/String; = "ETag"
+.field public static final l:Ljava/lang/String; = "Expires"
+.field public static final m:Ljava/lang/String; = "If-None-Match"
+.field public static final n:Ljava/lang/String; = "Last-Modified"
+.field public static final o:Ljava/lang/String; = "Location"
+.field public static final p:Ljava/lang/String; = "Server"
+.field public static final q:Ljava/lang/String; = "User-Agent"
+.field public static final r:Ljava/lang/String; = "DELETE"
+.field public static final s:Ljava/lang/String; = "GET"
+.field public static final t:Ljava/lang/String; = "HEAD"
+.field public static final u:Ljava/lang/String; = "OPTIONS"
+.field public static final v:Ljava/lang/String; = "POST"
+.field public static final w:Ljava/lang/String; = "PUT"
+.field public static final x:Ljava/lang/String; = "TRACE"
+.field public static final y:Ljava/lang/String; = "charset"
+.field private static final z:Ljava/lang/String; = "00content0boundary00"
+.field private final H:Ljava/net/HttpURLConnection;
+.field private I:Lcom/renn/rennsdk/c/a$f;
+.field private J:Z
+.field private K:Z
+.field private L:Z
+.field private M:Z
+.field private N:I
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	new-array v0, v0, [Ljava/lang/String;</span>
+<span class="">	sput-object v0, Lcom/renn/rennsdk/c/a;->E:[Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/c/a;->M:Z</span>
+<span class="">	const/16 v0, 0x2000</span>
+<span class="">	iput v0, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/net/URL;</span>
+<span class="">	invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/net/HttpURLConnection;</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p2}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public constructor <init>(Ljava/net/URL;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/c/a;->M:Z</span>
+<span class="">	const/16 v0, 0x2000</span>
+<span class="">	iput v0, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/net/HttpURLConnection;</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p2}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method private static P()Ljavax/net/ssl/SSLSocketFactory;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v0, Lcom/renn/rennsdk/c/a;->F:Ljavax/net/ssl/SSLSocketFactory;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	new-array v0, v0, [Ljavax/net/ssl/TrustManager;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v2, Lcom/renn/rennsdk/c/b;</span>
+<span class="">	invoke-direct {v2}, Lcom/renn/rennsdk/c/b;-><init>()V</span>
+<span class="">	aput-object v2, v0, v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v1, "TLS"</span>
+<span class="">	invoke-static {v1}, Ljavax/net/ssl/SSLContext;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/SSLContext;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-instance v3, Ljava/security/SecureRandom;</span>
+<span class="">	invoke-direct {v3}, Ljava/security/SecureRandom;-><init>()V</span>
+<span class="">	invoke-virtual {v1, v2, v0, v3}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V</span>
+<span class="">	invoke-virtual {v1}, Ljavax/net/ssl/SSLContext;->getSocketFactory()Ljavax/net/ssl/SSLSocketFactory;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/renn/rennsdk/c/a;->F:Ljavax/net/ssl/SSLSocketFactory;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/renn/rennsdk/c/a;->F:Ljavax/net/ssl/SSLSocketFactory;</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Ljava/io/IOException;</span>
+<span class="">	const-string v2, "Security exception configuring SSL context"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/io/IOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method private static Q()Ljavax/net/ssl/HostnameVerifier;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/renn/rennsdk/c/a;->G:Ljavax/net/ssl/HostnameVerifier;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/d;</span>
+<span class="">	invoke-direct {v0}, Lcom/renn/rennsdk/c/d;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/renn/rennsdk/c/a;->G:Ljavax/net/ssl/HostnameVerifier;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/renn/rennsdk/c/a;->G:Ljavax/net/ssl/HostnameVerifier;</span>
+.end method
+
+.method static synthetic a(Lcom/renn/rennsdk/c/a;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+.end method
+
+.method public static a(Ljava/lang/CharSequence;Ljava/util/Map;Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/CharSequence;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;Z)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;Ljava/util/Map;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->b(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static varargs a(Ljava/lang/CharSequence;Z[Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;[Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->b(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static a(Ljava/net/URL;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "GET"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/net/URL;Ljava/lang/String;)V</span>
+.end method
+
+.method public static a(Ljava/lang/CharSequence;)Ljava/lang/String;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v4, Ljava/net/URL;</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v4, v0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	invoke-virtual {v4}, Ljava/net/URL;->getHost()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v4}, Ljava/net/URL;->getPort()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const/16 v2, 0x3a</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v0, Ljava/net/URI;</span>
+<span class="">	invoke-virtual {v4}, Ljava/net/URL;->getProtocol()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v4}, Ljava/net/URL;->getPath()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v4}, Ljava/net/URL;->getQuery()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Ljava/net/URI;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/URI;->toASCIIString()Ljava/lang/String;</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/net/URISyntaxException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	new-instance v1, Ljava/io/IOException;</span>
+<span class="">	const-string v2, "Parsing URI failed"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/io/IOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public static a(Ljava/lang/CharSequence;Ljava/util/Map;)Ljava/lang/String;
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/CharSequence;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;)",</span>
+<span class="">	"Ljava/lang/String;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v4, 0x3d</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v0, v1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/renn/rennsdk/c/a;->b(Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/16 v0, 0x26</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static varargs a(Ljava/lang/CharSequence;[Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	const/16 v3, 0x3d</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	array-length v1, p1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	array-length v1, p1</span>
+<span class="">	:cond_1</span>
+<span class="">	rem-int/lit8 v1, v1, 0x2</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	const-string v1, "Must specify an even number of parameter names/values"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v0, v1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/renn/rennsdk/c/a;->b(Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	aget-object v0, p1, v0</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	aget-object v0, p1, v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	:cond_3</span>
+<span class="">	array-length v2, p1</span>
+<span class="">	:goto_1</span>
+<span class="">	if-lt v0, v2, :cond_4</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/16 v2, 0x26</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	aget-object v2, p1, v0</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	add-int/lit8 v2, v0, 0x1</span>
+<span class="">	aget-object v2, p1, v2</span>
+<span class="">	if-eqz v2, :cond_5</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	add-int/lit8 v0, v0, 0x2</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static a(Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
+<span class="">	.locals 3</span>
+
+<span class="">	const/16 v2, 0x2f</span>
+<span class="">	const/16 v0, 0x3a</span>
+<span class="">	invoke-virtual {p0, v0}, Ljava/lang/String;->indexOf(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit8 v0, v0, 0x2</span>
+<span class="">	invoke-virtual {p0, v2}, Ljava/lang/String;->lastIndexOf(I)I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public static a(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "http.proxyPort"</span>
+<span class="">	invoke-static {v1, v0}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	const-string v1, "https.proxyPort"</span>
+<span class="">	invoke-static {v1, v0}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+.end method
+
+.method public static a(Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "http.proxyHost"</span>
+<span class="">	invoke-static {v0, p0}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	const-string v0, "https.proxyHost"</span>
+<span class="">	invoke-static {v0, p0}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+.end method
+
+.method public static a(Z)V
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "http.keepAlive"</span>
+<span class="">	invoke-static {p0}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+.end method
+
+.method public static varargs a([Ljava/lang/String;)V
+<span class="">	.locals 5</span>
+
+<span class="">	if-eqz p0, :cond_1</span>
+<span class="">	array-length v0, p0</span>
+<span class="">	if-lez v0, :cond_1</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	array-length v0, p0</span>
+<span class="">	add-int/lit8 v2, v0, -0x1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v0, v2, :cond_0</span>
+<span class="">	aget-object v0, p0, v2</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v0, "http.nonProxyHosts"</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-object v3, p0, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/16 v4, 0x7c</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v0, "http.nonProxyHosts"</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v0, v1}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static b(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "GET"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/lang/CharSequence;Ljava/lang/String;)V</span>
+.end method
+
+.method public static b(Ljava/lang/CharSequence;Ljava/util/Map;Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/CharSequence;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;Z)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;Ljava/util/Map;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->c(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static varargs b(Ljava/lang/CharSequence;Z[Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;[Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->c(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static b(Ljava/net/URL;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "POST"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/net/URL;Ljava/lang/String;)V</span>
+.end method
+
+.method private static b(Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
+<span class="">	.locals 5</span>
+
+<span class="">	const/16 v4, 0x3f</span>
+<span class="">	const/16 v3, 0x26</span>
+<span class="">	invoke-virtual {p0, v4}, Ljava/lang/String;->indexOf(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/StringBuilder;->length()I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/lit8 v1, v1, -0x1</span>
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	if-ne v0, v2, :cond_1</span>
+<span class="">	invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-ge v0, v1, :cond_0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eq v0, v3, :cond_0</span>
+<span class="">	invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "POST"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/lang/CharSequence;Ljava/lang/String;)V</span>
+.end method
+
+.method public static c(Ljava/lang/CharSequence;Ljava/util/Map;Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/CharSequence;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;Z)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;Ljava/util/Map;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->d(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static varargs c(Ljava/lang/CharSequence;Z[Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;[Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->d(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static c(Ljava/net/URL;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "PUT"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/net/URL;Ljava/lang/String;)V</span>
+.end method
+
+.method public static d(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "PUT"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/lang/CharSequence;Ljava/lang/String;)V</span>
+.end method
+
+.method public static d(Ljava/lang/CharSequence;Ljava/util/Map;Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/CharSequence;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;Z)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;Ljava/util/Map;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static varargs d(Ljava/lang/CharSequence;Z[Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;[Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static d(Ljava/net/URL;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "DELETE"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/net/URL;Ljava/lang/String;)V</span>
+.end method
+
+.method public static e(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "DELETE"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/lang/CharSequence;Ljava/lang/String;)V</span>
+.end method
+
+.method public static e(Ljava/lang/CharSequence;Ljava/util/Map;Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/CharSequence;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;Z)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;Ljava/util/Map;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->f(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static varargs e(Ljava/lang/CharSequence;Z[Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;[Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/renn/rennsdk/c/a;->f(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static e(Ljava/net/URL;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "HEAD"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/net/URL;Ljava/lang/String;)V</span>
+.end method
+
+.method public static f(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "HEAD"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/lang/CharSequence;Ljava/lang/String;)V</span>
+.end method
+
+.method public static f(Ljava/net/URL;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "OPTIONS"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/net/URL;Ljava/lang/String;)V</span>
+.end method
+
+.method public static g(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "OPTIONS"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/lang/CharSequence;Ljava/lang/String;)V</span>
+.end method
+
+.method public static g(Ljava/net/URL;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "TRACE"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/net/URL;Ljava/lang/String;)V</span>
+.end method
+
+.method public static h(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	const-string v1, "TRACE"</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/renn/rennsdk/c/a;-><init>(Ljava/lang/CharSequence;Ljava/lang/String;)V</span>
+.end method
+
+.method private static final i(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/e;</span>
+<span class="">	invoke-direct {v0, p0, p1}, Lcom/renn/rennsdk/c/e;-><init>(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/f;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/renn/rennsdk/c/f;-><init>(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic s(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p0}, Lcom/renn/rennsdk/c/a;->t(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private static t(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 0</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string p0, "UTF-8"</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public A()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Cache-Control"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public B()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "ETag"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public C()J
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "Expires"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->f(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v0</span>
+.end method
+
+.method public D()J
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "Last-Modified"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->f(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v0</span>
+.end method
+
+.method public E()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Location"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public F()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Content-Type"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public G()I
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Content-Length"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->g(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public H()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "application/json"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->r(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected I()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/renn/rennsdk/c/a;->J:Z</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	const-string v1, "\r\n--00content0boundary00--\r\n"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->a(Ljava/lang/String;)Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	iget-boolean v0, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/c/a$f;->close()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	iput-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/c/a$f;->close()V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected J()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->I()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method protected K()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/net/HttpURLConnection;->setDoOutput(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	const-string v1, "Content-Type"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/net/HttpURLConnection;->getRequestProperty(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "charset"</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/renn/rennsdk/c/a;->c(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v2}, Ljava/net/HttpURLConnection;->getOutputStream()Ljava/io/OutputStream;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget v3, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+<span class="">	invoke-direct {v1, v2, v0, v3}, Lcom/renn/rennsdk/c/a$f;-><init>(Ljava/io/OutputStream;Ljava/lang/String;I)V</span>
+<span class="">	iput-object v1, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected L()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/renn/rennsdk/c/a;->J:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/renn/rennsdk/c/a;->J:Z</span>
+<span class="">	const-string v0, "multipart/form-data; boundary=00content0boundary00"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->p(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/c/a;->K()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	const-string v1, "--00content0boundary00\r\n"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->a(Ljava/lang/String;)Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "\r\n--00content0boundary00\r\n"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->a(Ljava/lang/String;)Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public M()Ljava/io/OutputStreamWriter;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->K()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	new-instance v0, Ljava/io/OutputStreamWriter;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-static {v2}, Lcom/renn/rennsdk/c/a$f;->a(Lcom/renn/rennsdk/c/a$f;)Ljava/nio/charset/CharsetEncoder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/nio/charset/CharsetEncoder;->charset()Ljava/nio/charset/Charset;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public N()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	instance-of v0, v0, Ljavax/net/ssl/HttpsURLConnection;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	check-cast v0, Ljavax/net/ssl/HttpsURLConnection;</span>
+<span class="">	invoke-static {}, Lcom/renn/rennsdk/c/a;->P()Ljavax/net/ssl/SSLSocketFactory;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljavax/net/ssl/HttpsURLConnection;->setSSLSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public O()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	instance-of v0, v0, Ljavax/net/ssl/HttpsURLConnection;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	check-cast v0, Ljavax/net/ssl/HttpsURLConnection;</span>
+<span class="">	invoke-static {}, Lcom/renn/rennsdk/c/a;->Q()Ljavax/net/ssl/HostnameVerifier;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljavax/net/ssl/HttpsURLConnection;->setHostnameVerifier(Ljavax/net/ssl/HostnameVerifier;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(Ljava/lang/String;I)I
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->J()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->getHeaderFieldInt(Ljava/lang/String;I)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public a(Ljava/lang/String;J)J
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->J()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3}, Ljava/net/HttpURLConnection;->getHeaderFieldDate(Ljava/lang/String;J)J</span>
+<span class="">	move-result-wide v0</span>
+.end method
+
+.method public a(J)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->setIfModifiedSince(J)V</span>
+.end method
+
+.method public a(Ljava/io/File;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/io/BufferedOutputStream;</span>
+<span class="">	new-instance v1, Ljava/io/FileOutputStream;</span>
+<span class="">	invoke-direct {v1, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	iget v2, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/g;</span>
+<span class="">	iget-boolean v2, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	invoke-direct {v1, p0, v0, v2, v0}, Lcom/renn/rennsdk/c/g;-><init>(Lcom/renn/rennsdk/c/a;Ljava/io/Closeable;ZLjava/io/OutputStream;)V</span>
+<span class="">	invoke-virtual {v1}, Lcom/renn/rennsdk/c/g;->call()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public a(Ljava/io/InputStream;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->K()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method protected a(Ljava/io/InputStream;Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/j;</span>
+<span class="">	iget-boolean v3, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v4, p1</span>
+<span class="">	move-object v5, p2</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/renn/rennsdk/c/j;-><init>(Lcom/renn/rennsdk/c/a;Ljava/io/Closeable;ZLjava/io/InputStream;Ljava/io/OutputStream;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/c/j;->call()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/renn/rennsdk/c/a;</span>
+.end method
+
+.method public a(Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->q()Ljava/io/BufferedInputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public a(Ljava/io/PrintStream;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/io/Reader;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->K()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	new-instance v0, Ljava/io/OutputStreamWriter;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	iget-object v2, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-static {v2}, Lcom/renn/rennsdk/c/a$f;->a(Lcom/renn/rennsdk/c/a$f;)Ljava/nio/charset/CharsetEncoder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/nio/charset/CharsetEncoder;->charset()Ljava/nio/charset/Charset;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/c;</span>
+<span class="">	invoke-direct {v1, p0, v0, p1, v0}, Lcom/renn/rennsdk/c/c;-><init>(Lcom/renn/rennsdk/c/a;Ljava/io/Flushable;Ljava/io/Reader;Ljava/io/Writer;)V</span>
+<span class="">	invoke-virtual {v1}, Lcom/renn/rennsdk/c/c;->call()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method protected a(Ljava/io/Reader;Ljava/io/Writer;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/k;</span>
+<span class="">	iget-boolean v3, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v4, p1</span>
+<span class="">	move-object v5, p2</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/renn/rennsdk/c/k;-><init>(Lcom/renn/rennsdk/c/a;Ljava/io/Closeable;ZLjava/io/Reader;Ljava/io/Writer;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/c/k;->call()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/renn/rennsdk/c/a;</span>
+.end method
+
+.method public a(Ljava/io/Writer;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->t()Ljava/io/BufferedReader;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/i;</span>
+<span class="">	iget-boolean v3, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v4, v2</span>
+<span class="">	move-object v5, p1</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/renn/rennsdk/c/i;-><init>(Lcom/renn/rennsdk/c/a;Ljava/io/Closeable;ZLjava/io/BufferedReader;Ljava/io/Writer;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/c/i;->call()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/renn/rennsdk/c/a;</span>
+.end method
+
+.method public a(Ljava/lang/Appendable;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->t()Ljava/io/BufferedReader;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v0, Lcom/renn/rennsdk/c/h;</span>
+<span class="">	iget-boolean v3, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v4, v2</span>
+<span class="">	move-object v5, p1</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/renn/rennsdk/c/h;-><init>(Lcom/renn/rennsdk/c/a;Ljava/io/Closeable;ZLjava/io/BufferedReader;Ljava/lang/Appendable;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/renn/rennsdk/c/h;->call()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/renn/rennsdk/c/a;</span>
+.end method
+
+.method public a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, "UTF-8"</span>
+<span class="">	invoke-virtual {p0, p1, p2, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	iget-boolean v0, p0, Lcom/renn/rennsdk/c/a;->K:Z</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v2, "application/x-www-form-urlencoded"</span>
+<span class="">	invoke-virtual {p0, v2, p3}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iput-boolean v1, p0, Lcom/renn/rennsdk/c/a;->K:Z</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->K()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	const/16 v1, 0x26</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->write(I)V</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1, p3}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->a(Ljava/lang/String;)Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	const/16 v1, 0x3d</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->write(I)V</span>
+<span class="">	if-eqz p2, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1, p3}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->a(Ljava/lang/String;)Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:cond_2</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/io/File;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, v0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/io/InputStream;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, v0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/Number;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/io/BufferedInputStream;</span>
+<span class="">	new-instance v1, Ljava/io/FileInputStream;</span>
+<span class="">	invoke-direct {v1, p3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	invoke-virtual {p0, p1, p2, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->L()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/renn/rennsdk/c/a;->f(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-virtual {p0, p3, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Number;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-eqz p3, :cond_0</span>
+<span class="">	invoke-virtual {p3}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0, p1, p2, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->L()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/renn/rennsdk/c/a;->f(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-virtual {v0, p3}, Lcom/renn/rennsdk/c/a$f;->a(Ljava/lang/String;)Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public a(Ljava/util/Map$Entry;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map$Entry",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/util/Map$Entry;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map$Entry",</span>
+<span class="">	"<**>;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	")",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0, v0, v1, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/util/Map;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/util/Map$Entry;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Ljava/util/Map;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	")",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-virtual {p0, v0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/util/Map$Entry;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Ljava/util/concurrent/atomic/AtomicInteger;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V</span>
+.end method
+
+.method public a([B)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/io/ByteArrayInputStream;</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/InputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a()Ljava/net/HttpURLConnection;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+.end method
+
+.method public b(I)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setChunkedStreamingMode(I)V</span>
+.end method
+
+.method public b(Ljava/io/File;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/io/BufferedInputStream;</span>
+<span class="">	new-instance v1, Ljava/io/FileInputStream;</span>
+<span class="">	invoke-direct {v1, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/InputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public b(Ljava/lang/String;Ljava/lang/Number;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, v0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Number;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public b(Ljava/util/Map$Entry;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map$Entry",</span>
+<span class="">	"<**>;)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, "UTF-8"</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/util/Map$Entry;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public b(Ljava/util/Map;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<**>;)",</span>
+<span class="">	"Lcom/renn/rennsdk/c/a;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, "UTF-8"</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/util/Map;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public b(Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+.end method
+
+.method public b(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->m()Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->q()Ljava/io/BufferedInputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	invoke-static {p1}, Lcom/renn/rennsdk/c/a;->t(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/ByteArrayOutputStream;->toString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public b(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0, p2}, Lcom/renn/rennsdk/c/a;->c(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public b()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/renn/rennsdk/c/a;->L:Z</span>
+.end method
+
+.method public c()I
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->I()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getResponseCode()I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public c(I)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	if-ge p1, v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	const-string v1, "Size must be greater than zero"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iput p1, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+.end method
+
+.method public c(Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/renn/rennsdk/c/a;->M:Z</span>
+.end method
+
+.method public c(Ljava/lang/String;)Ljava/io/InputStreamReader;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/io/InputStreamReader;</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->r()Ljava/io/InputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {p1}, Lcom/renn/rennsdk/c/a;->t(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method protected c(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 9</span>
+
+<span class="">	const/16 v7, 0x22</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/16 v6, 0x3b</span>
+<span class="">	const/4 v5, -0x1</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->length()I</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {p1, v6}, Ljava/lang/String;->indexOf(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit8 v2, v0, 0x1</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	if-ne v2, v3, :cond_4</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p1, v6, v2}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v5, :cond_7</span>
+<span class="">	move v0, v2</span>
+<span class="">	move v2, v3</span>
+<span class="">	if-lt v0, v2, :cond_5</span>
+<span class="">	:goto_1</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/16 v4, 0x3d</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-virtual {p1, v4, v0}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	move-result v4</span>
+<span class="">	if-eq v4, v5, :cond_6</span>
+<span class="">	if-ge v4, v2, :cond_6</span>
+<span class="">	invoke-virtual {p1, v0, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_6</span>
+<span class="">	add-int/lit8 v0, v4, 0x1</span>
+<span class="">	invoke-virtual {p1, v0, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_6</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	if-le v4, v1, :cond_1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v7, v1, :cond_1</span>
+<span class="">	add-int/lit8 v1, v4, -0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v7, v1, :cond_1</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	add-int/lit8 v2, v4, -0x1</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	add-int/lit8 v2, v2, 0x1</span>
+<span class="">	:cond_6</span>
+<span class="">	invoke-virtual {p1, v6, v2}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v5, :cond_7</span>
+<span class="">	move v0, v2</span>
+<span class="">	move v2, v3</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v8, v0</span>
+<span class="">	:cond_7</span>
+<span class="">	move v0, v2</span>
+<span class="">	move v2, v8</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public d(I)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V</span>
+.end method
+
+.method public d(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "Basic "</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const/16 v2, 0x3a</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Lcom/renn/rennsdk/c/a$a;->a(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->n(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public d(Z)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setUseCaches(Z)V</span>
+.end method
+
+.method public d(Ljava/lang/String;)Ljava/io/BufferedReader;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/io/BufferedReader;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/renn/rennsdk/c/a;->c(Ljava/lang/String;)Ljava/io/InputStreamReader;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget v2, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V</span>
+.end method
+
+.method public d()Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public e(I)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V</span>
+.end method
+
+.method public e(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 3</span>
+
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	const-string v0, "; charset="</span>
+<span class="">	const-string v0, "Content-Type"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "; charset="</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "Content-Type"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public e(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->J()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->getHeaderField(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public e()Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v0, 0xc9</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public f(Ljava/lang/String;)J
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-wide/16 v0, -0x1</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;J)J</span>
+<span class="">	move-result-wide v0</span>
+.end method
+
+.method public f(I)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setFixedLengthStreamingMode(I)V</span>
+.end method
+
+.method protected f(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v1, "form-data; name=\""</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	const-string v1, "\"; filename=\""</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_0</span>
+<span class="">	const/16 v1, 0x22</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "Content-Disposition"</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/renn/rennsdk/c/a;->h(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public f()Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v0, 0x1f4</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public g(Ljava/lang/String;)I
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;I)I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public g(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, v0, p2}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public g()Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v0, 0x190</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public h(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, ": "</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "\r\n\r\n"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a;->i(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public h()Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v0, 0x194</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public h(Ljava/lang/String;)[Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->u()Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/renn/rennsdk/c/a;->E:[Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/List;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->isEmpty()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	new-array v1, v1, [Ljava/lang/String;</span>
+<span class="">	invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, [Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/renn/rennsdk/c/a;->E:[Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public i(Ljava/lang/CharSequence;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->K()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->I:Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/renn/rennsdk/c/a$f;->a(Ljava/lang/String;)Lcom/renn/rennsdk/c/a$f;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public i(Ljava/lang/String;)Ljava/util/Map;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->j(Ljava/lang/String;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public i()Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v0, 0x130</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public j()Ljava/lang/String;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->I()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getResponseMessage()Ljava/lang/String;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method protected j(Ljava/lang/String;)Ljava/util/Map;
+<span class="">	.locals 10</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v9, 0x22</span>
+<span class="">	const/16 v8, 0x3b</span>
+<span class="">	const/4 v7, -0x1</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/String;->length()I</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {p1, v8}, Ljava/lang/String;->indexOf(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	add-int/lit8 v3, v0, 0x1</span>
+<span class="">	if-eqz v3, :cond_2</span>
+<span class="">	if-ne v3, v1, :cond_3</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p1, v8, v3}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v7, :cond_4</span>
+<span class="">	move v0, v1</span>
+<span class="">	new-instance v2, Ljava/util/LinkedHashMap;</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-direct {v2}, Ljava/util/LinkedHashMap;-><init>()V</span>
+<span class="">	if-lt v3, v0, :cond_6</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_5</span>
+<span class="">	move-object v0, v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/16 v4, 0x3d</span>
+<span class="">	:cond_6</span>
+<span class="">	invoke-virtual {p1, v4, v3}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	move-result v4</span>
+<span class="">	if-eq v4, v7, :cond_7</span>
+<span class="">	if-ge v4, v0, :cond_7</span>
+<span class="">	invoke-virtual {p1, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-lez v5, :cond_7</span>
+<span class="">	add-int/lit8 v4, v4, 0x1</span>
+<span class="">	invoke-virtual {p1, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_7</span>
+<span class="">	const/4 v6, 0x2</span>
+<span class="">	if-le v5, v6, :cond_8</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	invoke-virtual {v4, v6}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v6</span>
+<span class="">	if-ne v9, v6, :cond_8</span>
+<span class="">	add-int/lit8 v6, v5, -0x1</span>
+<span class="">	invoke-virtual {v4, v6}, Ljava/lang/String;->charAt(I)C</span>
+<span class="">	move-result v6</span>
+<span class="">	if-ne v9, v6, :cond_8</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	add-int/lit8 v5, v5, -0x1</span>
+<span class="">	invoke-virtual {v4, v6, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	add-int/lit8 v3, v0, 0x1</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_7</span>
+<span class="">	invoke-virtual {p1, v8, v3}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v7, :cond_5</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_8</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method public k()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V</span>
+.end method
+
+.method public k(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "User-Agent"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public l()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+.end method
+
+.method public l(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Accept-Encoding"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public m(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Accept-Charset"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected m()Ljava/io/ByteArrayOutputStream;
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->G()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/ByteArrayOutputStream;-><init>(I)V</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public n(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Authorization"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public n()Ljava/lang/String;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->v()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->b(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public o(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "If-None-Match"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public o()Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->G()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public p(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public p()[B
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->m()Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->q()Ljava/io/BufferedInputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/renn/rennsdk/c/a;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public q(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->f(I)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public q()Ljava/io/BufferedInputStream;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/io/BufferedInputStream;</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->r()Ljava/io/InputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget v2, p0, Lcom/renn/rennsdk/c/a;->N:I</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V</span>
+.end method
+
+.method public r(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Accept"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Lcom/renn/rennsdk/c/a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public r()Ljava/io/InputStream;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->c()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/16 v1, 0x190</span>
+<span class="">	if-ge v0, v1, :cond_2</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v1, p0, Lcom/renn/rennsdk/c/a;->M:Z</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const-string v1, "gzip"</span>
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->x()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getErrorStream()Ljava/io/InputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+<span class="">	new-instance v1, Ljava/util/zip/GZIPInputStream;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/util/zip/GZIPInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_2</span>
+<span class="">	new-instance v1, Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	invoke-direct {v1, v0}, Lcom/renn/rennsdk/c/a$d;-><init>(Ljava/io/IOException;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public s()Ljava/io/InputStreamReader;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->v()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->c(Ljava/lang/String;)Ljava/io/InputStreamReader;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public t()Ljava/io/BufferedReader;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->v()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->d(Ljava/lang/String;)Ljava/io/BufferedReader;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public toString()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getRequestMethod()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const/16 v1, 0x20</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getURL()Ljava/net/URL;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public u()Ljava/util/Map;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcom/renn/rennsdk/c/a$d;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/renn/rennsdk/c/a;->J()Lcom/renn/rennsdk/c/a;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/c/a;->H:Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getHeaderFields()Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public v()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "Content-Type"</span>
+<span class="">	const-string v1, "charset"</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/renn/rennsdk/c/a;->b(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public w()Lcom/renn/rennsdk/c/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "gzip"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->l(Ljava/lang/String;)Lcom/renn/rennsdk/c/a;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public x()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Content-Encoding"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public y()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "Server"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public z()J
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "Date"</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/c/a;->f(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

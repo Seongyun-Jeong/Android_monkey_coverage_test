@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.android</a></li>
+        <li><i class="ico ico-class"></i> AsyncFacebookRunner.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/android/AsyncFacebookRunner;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/android/AsyncFacebookRunner$RequestListener;
+}
+.end annotation
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+.field  a:Lcom/facebook/android/Facebook;
+
+
+.method public constructor <init>(Lcom/facebook/android/Facebook;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/android/AsyncFacebookRunner;->a:Lcom/facebook/android/Facebook;</span>
+.end method
+
+.method public a(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, p2, v0}, Lcom/facebook/android/AsyncFacebookRunner;->a(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+.end method
+
+.method public a(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/facebook/android/AsyncFacebookRunner$1;</span>
+<span class="">	invoke-direct {v0, p0, p1, p2, p3}, Lcom/facebook/android/AsyncFacebookRunner$1;-><init>(Lcom/facebook/android/AsyncFacebookRunner;Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/android/AsyncFacebookRunner$1;->start()V</span>
+.end method
+
+.method public a(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const-string v3, "GET"</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	move-object v5, v1</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/facebook/android/AsyncFacebookRunner;->a(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+.end method
+
+.method public a(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const-string v3, "GET"</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	move-object v5, p3</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/facebook/android/AsyncFacebookRunner;->a(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+.end method
+
+.method public a(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v3, "GET"</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v2, p2</span>
+<span class="">	move-object v4, p3</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/facebook/android/AsyncFacebookRunner;->a(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+.end method
+
+.method public a(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v3, "GET"</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v2, p2</span>
+<span class="">	move-object v4, p3</span>
+<span class="">	move-object v5, p4</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/facebook/android/AsyncFacebookRunner;->a(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+.end method
+
+.method public a(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V
+<span class="">	.locals 7</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/facebook/android/AsyncFacebookRunner$2;</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v3, p2</span>
+<span class="">	move-object v4, p3</span>
+<span class="">	move-object v5, p4</span>
+<span class="">	move-object v6, p5</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/facebook/android/AsyncFacebookRunner$2;-><init>(Lcom/facebook/android/AsyncFacebookRunner;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/android/AsyncFacebookRunner$2;->start()V</span>
+.end method
+
+.method public a(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v2, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v2}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v3, "GET"</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/facebook/android/AsyncFacebookRunner;->a(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+.end method
+
+.method public a(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V
+<span class="">	.locals 6</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v2, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v2}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v3, "GET"</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v4, p2</span>
+<span class="">	move-object v5, p3</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/facebook/android/AsyncFacebookRunner;->a(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

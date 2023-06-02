@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view</a></li>
+        <li><i class="ico ico-class"></i> an.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/view/an;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field private a:Lcom/umeng/socialize/view/abs/SocialPopupDialog;
+.field private b:Landroid/content/Context;
+.field private c:Lcom/umeng/socialize/controller/UMSocialService;
+.field private d:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/umeng/socialize/bean/k;",
+">;"
+}
+.end annotation
+.end field
+.field private e:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Lcom/umeng/socialize/bean/k;",
+"Landroid/view/View;",
+">;"
+}
+.end annotation
+.end field
+.field private f:Lcom/umeng/socialize/controller/listener/SocializeListeners$a;
+
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/umeng/socialize/controller/listener/SocializeListeners$a;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/view/an;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$a;</span>
+<span class="">	invoke-static {p2}, Lcom/umeng/socialize/controller/d;->a(Ljava/lang/String;)Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/an;->c:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->c:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/controller/UMSocialService;->c()Lcom/umeng/socialize/bean/l;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p1, v0}, Lcom/umeng/socialize/common/m;->a(Landroid/content/Context;Lcom/umeng/socialize/bean/l;)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/an;->d:Ljava/util/List;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->d:Ljava/util/List;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/view/an;->a(Ljava/util/List;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/an;->e:Ljava/util/Map;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/view/by;</span>
+<span class="">	invoke-direct {v1, p0, p1, p1}, Lcom/umeng/socialize/view/by;-><init>(Lcom/umeng/socialize/view/an;Landroid/content/Context;Landroid/content/Context;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->e:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_4</span>
+<span class="">	:cond_0</span>
+<span class="">	const/16 v0, 0x8</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->a(I)Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->e:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_text_choose_account"</span>
+<span class="">	invoke-static {p1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->a(Ljava/lang/String;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;</span>
+<span class="">	invoke-virtual {v1, v5}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->b(I)Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->b(Ljava/lang/String;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;-><init>(Landroid/content/Context;)V</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_default_avatar"</span>
+<span class="">	invoke-static {p1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(I)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/common/b$a;->e:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v4, "umeng_socialize_text_visitor"</span>
+<span class="">	invoke-static {p1, v3, v4}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(Ljava/lang/String;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/view/cm;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/umeng/socialize/view/cm;-><init>(Lcom/umeng/socialize/view/an;)V</span>
+<span class="">	invoke-virtual {v0, v2}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(Landroid/view/View$OnClickListener;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a()Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0, v6}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->b(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/utils/m;->d(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/utils/m;->c(Landroid/content/Context;)[I</span>
+<span class="">	move-result-object v0</span>
+<span class="">	aget v2, v0, v5</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	aget v0, v0, v3</span>
+<span class="">	invoke-virtual {v1, v2, v0}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->a(II)Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->a()Lcom/umeng/socialize/view/abs/SocialPopupDialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/an;->a:Lcom/umeng/socialize/view/abs/SocialPopupDialog;</span>
+<span class="">	instance-of v0, p1, Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->a:Lcom/umeng/socialize/view/abs/SocialPopupDialog;</span>
+<span class="">	check-cast p1, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/umeng/socialize/view/abs/SocialPopupDialog;->setOwnerActivity(Landroid/app/Activity;)V</span>
+<span class="">	:cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->a:Lcom/umeng/socialize/view/abs/SocialPopupDialog;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/view/cn;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/view/cn;-><init>(Lcom/umeng/socialize/view/an;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/view/abs/SocialPopupDialog;->a(Lcom/umeng/socialize/view/abs/SocialPopupDialog$SwitchListener;)V</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/k;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/an;->e:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/View;</span>
+<span class="">	invoke-virtual {v1, v0, v6}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;->a(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$a;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/view/an;)Lcom/umeng/socialize/view/abs/SocialPopupDialog;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->a:Lcom/umeng/socialize/view/abs/SocialPopupDialog;</span>
+.end method
+
+.method private a(Ljava/util/List;)Ljava/util/Map;
+<span class="">	.locals 8</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/umeng/socialize/bean/k;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/umeng/socialize/bean/k;",</span>
+<span class="">	"Landroid/view/View;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/an;->c()Ljava/util/Map;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/k;</span>
+<span class="">	new-instance v3, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	invoke-direct {v3, v4}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iget-object v4, v0, Lcom/umeng/socialize/bean/k;->a:Ljava/lang/String;</span>
+<span class="">	const-string v5, "qzone"</span>
+<span class="">	invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_1</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	sget-object v5, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v6, "umeng_socialize_qzone_on"</span>
+<span class="">	invoke-static {v4, v5, v6}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {v3, v4}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(I)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-object v5, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	sget-object v6, Lcom/umeng/socialize/common/b$a;->e:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v7, "umeng_socialize_login_qq"</span>
+<span class="">	invoke-static {v5, v6, v7}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v5</span>
+<span class="">	invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(Ljava/lang/String;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	new-instance v4, Lcom/umeng/socialize/view/co;</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-direct {v4, p0, v0}, Lcom/umeng/socialize/view/co;-><init>(Lcom/umeng/socialize/view/an;Lcom/umeng/socialize/bean/k;)V</span>
+<span class="">	invoke-virtual {v3, v4}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(Landroid/view/View$OnClickListener;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	invoke-virtual {v3}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a()Landroid/view/View;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-interface {v1, v0, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget v4, v0, Lcom/umeng/socialize/bean/k;->c:I</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v3, v4}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(I)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	iget-object v4, v0, Lcom/umeng/socialize/bean/k;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v3, v4}, Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;->a(Ljava/lang/String;)Lcom/umeng/socialize/view/abs/SocialPopupDialog$b;</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private a(Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 3</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->c:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/view/cq;</span>
+<span class="">	invoke-direct {v2, p0, p1}, Lcom/umeng/socialize/view/cq;-><init>(Lcom/umeng/socialize/view/an;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	invoke-interface {v0, v1, p1, v2}, Lcom/umeng/socialize/controller/UMSocialService;->b(Landroid/content/Context;Lcom/umeng/socialize/bean/g;Lcom/umeng/socialize/controller/listener/SocializeListeners$SocializeClientListener;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->c:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/view/cr;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/umeng/socialize/view/cr;-><init>(Lcom/umeng/socialize/view/an;)V</span>
+<span class="">	invoke-interface {v0, v1, v2}, Lcom/umeng/socialize/controller/UMSocialService;->e(Landroid/content/Context;Lcom/umeng/socialize/controller/listener/SocializeListeners$SocializeClientListener;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/view/an;Lcom/umeng/socialize/bean/g;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/view/an;->a(Lcom/umeng/socialize/bean/g;)V</span>
+.end method
+
+.method static synthetic b(Lcom/umeng/socialize/view/an;)Lcom/umeng/socialize/controller/listener/SocializeListeners$a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$a;</span>
+.end method
+
+.method static synthetic c(Lcom/umeng/socialize/view/an;)Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+.end method
+
+.method static synthetic d(Lcom/umeng/socialize/view/an;)Lcom/umeng/socialize/controller/UMSocialService;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->c:Lcom/umeng/socialize/controller/UMSocialService;</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/j;->c(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/j;->d(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$a;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->f:Lcom/umeng/socialize/controller/listener/SocializeListeners$a;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/an;->b:Landroid/content/Context;</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/utils/j;->b(Landroid/content/Context;)Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Lcom/umeng/socialize/controller/listener/SocializeListeners$a;->a(Lcom/umeng/socialize/bean/g;Z)V</span>
+<span class="">	:cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->a:Lcom/umeng/socialize/view/abs/SocialPopupDialog;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/m;->b(Landroid/app/Dialog;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/an;->a:Lcom/umeng/socialize/view/abs/SocialPopupDialog;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/m;->a(Landroid/app/Dialog;)V</span>
+.end method
+
+.method public c()Ljava/util/Map;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/umeng/socialize/bean/k;",</span>
+<span class="">	"Landroid/view/View;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/cs;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/view/cs;-><init>(Lcom/umeng/socialize/view/an;)V</span>
+<span class="">	new-instance v1, Ljava/util/TreeMap;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

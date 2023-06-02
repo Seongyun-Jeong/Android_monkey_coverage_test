@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.content</a></li>
+        <li><i class="ico ico-class"></i> CursorLoader.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Landroid/support/v4/content/CursorLoader;
+.super Landroid/support/v4/content/AsyncTaskLoader;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Landroid/support/v4/content/AsyncTaskLoader",
+"<",
+"Landroid/database/Cursor;",
+">;"
+}
+.end annotation
+
+.field  mCursor:Landroid/database/Cursor;
+.field final mObserver:Landroid/support/v4/content/Loader$ForceLoadContentObserver;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Landroid/support/v4/content/Loader",
+"<",
+"Landroid/database/Cursor;",
+">.Force",
+"LoadContentObserver;"
+}
+.end annotation
+.end field
+.field  mProjection:[Ljava/lang/String;
+.field  mSelection:Ljava/lang/String;
+.field  mSelectionArgs:[Ljava/lang/String;
+.field  mSortOrder:Ljava/lang/String;
+.field  mUri:Landroid/net/Uri;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/support/v4/content/AsyncTaskLoader;-><init>(Landroid/content/Context;)V</span>
+<span class="">	new-instance v0, Landroid/support/v4/content/Loader$ForceLoadContentObserver;</span>
+<span class="">	invoke-direct {v0, p0}, Landroid/support/v4/content/Loader$ForceLoadContentObserver;-><init>(Landroid/support/v4/content/Loader;)V</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/content/CursorLoader;->mObserver:Landroid/support/v4/content/Loader$ForceLoadContentObserver;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/support/v4/content/AsyncTaskLoader;-><init>(Landroid/content/Context;)V</span>
+<span class="">	new-instance v0, Landroid/support/v4/content/Loader$ForceLoadContentObserver;</span>
+<span class="">	invoke-direct {v0, p0}, Landroid/support/v4/content/Loader$ForceLoadContentObserver;-><init>(Landroid/support/v4/content/Loader;)V</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/content/CursorLoader;->mObserver:Landroid/support/v4/content/Loader$ForceLoadContentObserver;</span>
+<span class="">	iput-object p2, p0, Landroid/support/v4/content/CursorLoader;->mUri:Landroid/net/Uri;</span>
+<span class="">	iput-object p3, p0, Landroid/support/v4/content/CursorLoader;->mProjection:[Ljava/lang/String;</span>
+<span class="">	iput-object p4, p0, Landroid/support/v4/content/CursorLoader;->mSelection:Ljava/lang/String;</span>
+<span class="">	iput-object p5, p0, Landroid/support/v4/content/CursorLoader;->mSelectionArgs:[Ljava/lang/String;</span>
+<span class="">	iput-object p6, p0, Landroid/support/v4/content/CursorLoader;->mSortOrder:Ljava/lang/String;</span>
+.end method
+
+.method public deliverResult(Landroid/database/Cursor;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->isReset()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-interface {p1}, Landroid/database/Cursor;->close()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-object p1, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->isStarted()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	invoke-super {p0, p1}, Landroid/support/v4/content/AsyncTaskLoader;->deliverResult(Ljava/lang/Object;)V</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eq v0, p1, :cond_0</span>
+<span class="">	invoke-interface {v0}, Landroid/database/Cursor;->isClosed()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-interface {v0}, Landroid/database/Cursor;->close()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public bridge synthetic deliverResult(Ljava/lang/Object;)V
+<span class="">	.locals 0</span>
+
+<span class="">	check-cast p1, Landroid/database/Cursor;</span>
+<span class="">	invoke-virtual {p0, p1}, Landroid/support/v4/content/CursorLoader;->deliverResult(Landroid/database/Cursor;)V</span>
+.end method
+
+.method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v4/content/AsyncTaskLoader;->dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "mUri="</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mUri:Landroid/net/Uri;</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "mProjection="</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mProjection:[Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "mSelection="</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mSelection:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "mSelectionArgs="</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mSelectionArgs:[Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "mSortOrder="</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mSortOrder:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "mCursor="</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V</span>
+<span class="">	invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "mContentChanged="</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V</span>
+<span class="">	iget-boolean v0, p0, Landroid/support/v4/content/CursorLoader;->mContentChanged:Z</span>
+<span class="">	invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Z)V</span>
+.end method
+
+.method public getProjection()[Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mProjection:[Ljava/lang/String;</span>
+.end method
+
+.method public getSelection()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mSelection:Ljava/lang/String;</span>
+.end method
+
+.method public getSelectionArgs()[Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mSelectionArgs:[Ljava/lang/String;</span>
+.end method
+
+.method public getSortOrder()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mSortOrder:Ljava/lang/String;</span>
+.end method
+
+.method public getUri()Landroid/net/Uri;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mUri:Landroid/net/Uri;</span>
+.end method
+
+.method public loadInBackground()Landroid/database/Cursor;
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Landroid/support/v4/content/CursorLoader;->mUri:Landroid/net/Uri;</span>
+<span class="">	iget-object v2, p0, Landroid/support/v4/content/CursorLoader;->mProjection:[Ljava/lang/String;</span>
+<span class="">	iget-object v3, p0, Landroid/support/v4/content/CursorLoader;->mSelection:Ljava/lang/String;</span>
+<span class="">	iget-object v4, p0, Landroid/support/v4/content/CursorLoader;->mSelectionArgs:[Ljava/lang/String;</span>
+<span class="">	iget-object v5, p0, Landroid/support/v4/content/CursorLoader;->mSortOrder:Ljava/lang/String;</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v0}, Landroid/database/Cursor;->getCount()I</span>
+<span class="">	iget-object v1, p0, Landroid/support/v4/content/CursorLoader;->mObserver:Landroid/support/v4/content/Loader$ForceLoadContentObserver;</span>
+<span class="">	invoke-interface {v0, v1}, Landroid/database/Cursor;->registerContentObserver(Landroid/database/ContentObserver;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public bridge synthetic loadInBackground()Ljava/lang/Object;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->loadInBackground()Landroid/database/Cursor;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public onCanceled(Landroid/database/Cursor;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-interface {p1}, Landroid/database/Cursor;->isClosed()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-interface {p1}, Landroid/database/Cursor;->close()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public bridge synthetic onCanceled(Ljava/lang/Object;)V
+<span class="">	.locals 0</span>
+
+<span class="">	check-cast p1, Landroid/database/Cursor;</span>
+<span class="">	invoke-virtual {p0, p1}, Landroid/support/v4/content/CursorLoader;->onCanceled(Landroid/database/Cursor;)V</span>
+.end method
+
+.method protected onReset()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0}, Landroid/support/v4/content/AsyncTaskLoader;->onReset()V</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->onStopLoading()V</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	invoke-interface {v0}, Landroid/database/Cursor;->isClosed()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	invoke-interface {v0}, Landroid/database/Cursor;->close()V</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+.end method
+
+.method protected onStartLoading()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/support/v4/content/CursorLoader;->deliverResult(Landroid/database/Cursor;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->takeContentChanged()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Landroid/support/v4/content/CursorLoader;->mCursor:Landroid/database/Cursor;</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->forceLoad()V</span>
+<span class="">	:cond_2</span>
+.end method
+
+.method protected onStopLoading()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-virtual {p0}, Landroid/support/v4/content/CursorLoader;->cancelLoad()Z</span>
+.end method
+
+.method public setProjection([Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Landroid/support/v4/content/CursorLoader;->mProjection:[Ljava/lang/String;</span>
+.end method
+
+.method public setSelection(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Landroid/support/v4/content/CursorLoader;->mSelection:Ljava/lang/String;</span>
+.end method
+
+.method public setSelectionArgs([Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Landroid/support/v4/content/CursorLoader;->mSelectionArgs:[Ljava/lang/String;</span>
+.end method
+
+.method public setSortOrder(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Landroid/support/v4/content/CursorLoader;->mSortOrder:Ljava/lang/String;</span>
+.end method
+
+.method public setUri(Landroid/net/Uri;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Landroid/support/v4/content/CursorLoader;->mUri:Landroid/net/Uri;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

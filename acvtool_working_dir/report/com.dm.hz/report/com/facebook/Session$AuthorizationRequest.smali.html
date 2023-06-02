@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook</a></li>
+        <li><i class="ico ico-class"></i> Session$AuthorizationRequest.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/Session$AuthorizationRequest;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Ljava/io/Serializable;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/Session;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x9
+name = "AuthorizationRequest"
+.end annotation
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/Session$AuthorizationRequest$AuthRequestSerializationProxyV1;
+}
+.end annotation
+
+.field private static final a:J = 0x1L
+.field private final b:Lcom/facebook/Session$StartActivityDelegate;
+.field private c:Lcom/facebook/SessionLoginBehavior;
+.field private d:I
+.field private e:Lcom/facebook/Session$StatusCallback;
+.field private f:Z
+.field private g:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field private h:Lcom/facebook/SessionDefaultAudience;
+.field private i:Ljava/lang/String;
+.field private j:Ljava/lang/String;
+.field private final k:Ljava/lang/String;
+.field private final l:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+
+
+.method constructor <init>(Landroid/app/Activity;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionLoginBehavior;->a:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	const v0, 0xface</span>
+<span class="">	iput v0, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionDefaultAudience;->c:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->k:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->l:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$AuthorizationRequest$1;</span>
+<span class="">	invoke-direct {v0, p0, p1}, Lcom/facebook/Session$AuthorizationRequest$1;-><init>(Lcom/facebook/Session$AuthorizationRequest;Landroid/app/Activity;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->b:Lcom/facebook/Session$StartActivityDelegate;</span>
+.end method
+
+.method constructor <init>(Landroid/support/v4/app/Fragment;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionLoginBehavior;->a:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	const v0, 0xface</span>
+<span class="">	iput v0, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionDefaultAudience;->c:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->k:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->l:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$AuthorizationRequest$2;</span>
+<span class="">	invoke-direct {v0, p0, p1}, Lcom/facebook/Session$AuthorizationRequest$2;-><init>(Lcom/facebook/Session$AuthorizationRequest;Landroid/support/v4/app/Fragment;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->b:Lcom/facebook/Session$StartActivityDelegate;</span>
+.end method
+
+.method private constructor <init>(Lcom/facebook/SessionLoginBehavior;ILjava/util/List;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/SessionLoginBehavior;",</span>
+<span class="">	"I",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Z",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionLoginBehavior;->a:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	const v0, 0xface</span>
+<span class="">	iput v0, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+<span class="">	sget-object v0, Lcom/facebook/SessionDefaultAudience;->c:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->k:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->l:Ljava/util/Map;</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$AuthorizationRequest$3;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/facebook/Session$AuthorizationRequest$3;-><init>(Lcom/facebook/Session$AuthorizationRequest;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->b:Lcom/facebook/Session$StartActivityDelegate;</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	iput p2, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+<span class="">	iput-object p3, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+<span class="">	invoke-static {p4}, Lcom/facebook/SessionDefaultAudience;->valueOf(Ljava/lang/String;)Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	iput-boolean p5, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+<span class="">	iput-object p6, p0, Lcom/facebook/Session$AuthorizationRequest;->i:Ljava/lang/String;</span>
+<span class="">	iput-object p7, p0, Lcom/facebook/Session$AuthorizationRequest;->j:Ljava/lang/String;</span>
+.end method
+
+.method synthetic constructor <init>(Lcom/facebook/SessionLoginBehavior;ILjava/util/List;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Lcom/facebook/Session$AuthorizationRequest;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct/range {p0 .. p7}, Lcom/facebook/Session$AuthorizationRequest;-><init>(Lcom/facebook/SessionLoginBehavior;ILjava/util/List;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/Session$AuthorizationRequest;)Lcom/facebook/Session$StartActivityDelegate;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->b:Lcom/facebook/Session$StartActivityDelegate;</span>
+.end method
+
+.method private a(Ljava/io/ObjectInputStream;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/InvalidObjectException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/io/InvalidObjectException;</span>
+<span class="">	const-string v1, "Cannot readObject, serialization proxy required"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method static synthetic b(Lcom/facebook/Session$AuthorizationRequest;)Ljava/util/Map;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->l:Ljava/util/Map;</span>
+.end method
+
+.method static synthetic c(Lcom/facebook/Session$AuthorizationRequest;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+.end method
+
+.method static synthetic d(Lcom/facebook/Session$AuthorizationRequest;)Lcom/facebook/SessionLoginBehavior;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+.end method
+
+.method static synthetic e(Lcom/facebook/Session$AuthorizationRequest;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+.end method
+
+.method static synthetic f(Lcom/facebook/Session$AuthorizationRequest;)Ljava/util/List;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+.end method
+
+.method static synthetic g(Lcom/facebook/Session$AuthorizationRequest;)Lcom/facebook/SessionDefaultAudience;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+.end method
+
+.method  a(I)Lcom/facebook/Session$AuthorizationRequest;
+<span class="">	.locals 0</span>
+
+<span class="">	if-ltz p1, :cond_0</span>
+<span class="">	iput p1, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  a(Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session$AuthorizationRequest;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session$AuthorizationRequest;->e:Lcom/facebook/Session$StatusCallback;</span>
+.end method
+
+.method  a(Lcom/facebook/SessionDefaultAudience;)Lcom/facebook/Session$AuthorizationRequest;
+<span class="">	.locals 0</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  a(Lcom/facebook/SessionLoginBehavior;)Lcom/facebook/Session$AuthorizationRequest;
+<span class="">	.locals 0</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  a(Ljava/util/List;)Lcom/facebook/Session$AuthorizationRequest;
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)",</span>
+<span class="">	"Lcom/facebook/Session$AuthorizationRequest;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method varargs a([Ljava/lang/String;)Lcom/facebook/Session$AuthorizationRequest;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/Session$AuthorizationRequest;->a(Ljava/util/List;)Lcom/facebook/Session$AuthorizationRequest;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method  a(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session$AuthorizationRequest;->i:Ljava/lang/String;</span>
+.end method
+
+.method public a(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+.end method
+
+.method  a()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+.end method
+
+.method  b()Lcom/facebook/Session$StatusCallback;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->e:Lcom/facebook/Session$StatusCallback;</span>
+.end method
+
+.method  b(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/Session$AuthorizationRequest;->j:Ljava/lang/String;</span>
+.end method
+
+.method  c()Lcom/facebook/SessionLoginBehavior;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+.end method
+
+.method  d()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+.end method
+
+.method  e()Ljava/util/List;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+.end method
+
+.method  f()Lcom/facebook/SessionDefaultAudience;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+.end method
+
+.method  g()Lcom/facebook/Session$StartActivityDelegate;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->b:Lcom/facebook/Session$StartActivityDelegate;</span>
+.end method
+
+.method  h()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->i:Ljava/lang/String;</span>
+.end method
+
+.method  i()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->j:Ljava/lang/String;</span>
+.end method
+
+.method  j()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/Session$AuthorizationRequest;->k:Ljava/lang/String;</span>
+.end method
+
+.method  k()Lcom/facebook/AuthorizationClient$AuthorizationRequest;
+<span class="">	.locals 10</span>
+
+<span class="">	new-instance v8, Lcom/facebook/Session$AuthorizationRequest$4;</span>
+<span class="">	invoke-direct {v8, p0}, Lcom/facebook/Session$AuthorizationRequest$4;-><init>(Lcom/facebook/Session$AuthorizationRequest;)V</span>
+<span class="">	new-instance v0, Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	iget v2, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+<span class="">	iget-boolean v3, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+<span class="">	iget-object v4, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+<span class="">	iget-object v5, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	iget-object v6, p0, Lcom/facebook/Session$AuthorizationRequest;->i:Ljava/lang/String;</span>
+<span class="">	iget-object v7, p0, Lcom/facebook/Session$AuthorizationRequest;->j:Ljava/lang/String;</span>
+<span class="">	iget-object v9, p0, Lcom/facebook/Session$AuthorizationRequest;->k:Ljava/lang/String;</span>
+<span class="">	invoke-direct/range {v0 .. v9}, Lcom/facebook/AuthorizationClient$AuthorizationRequest;-><init>(Lcom/facebook/SessionLoginBehavior;IZLjava/util/List;Lcom/facebook/SessionDefaultAudience;Ljava/lang/String;Ljava/lang/String;Lcom/facebook/AuthorizationClient$StartActivityDelegate;Ljava/lang/String;)V</span>
+.end method
+
+.method  l()Ljava/lang/Object;
+<span class="">	.locals 9</span>
+
+<span class="">	new-instance v0, Lcom/facebook/Session$AuthorizationRequest$AuthRequestSerializationProxyV1;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/Session$AuthorizationRequest;->c:Lcom/facebook/SessionLoginBehavior;</span>
+<span class="">	iget v2, p0, Lcom/facebook/Session$AuthorizationRequest;->d:I</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/Session$AuthorizationRequest;->g:Ljava/util/List;</span>
+<span class="">	iget-object v4, p0, Lcom/facebook/Session$AuthorizationRequest;->h:Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	invoke-virtual {v4}, Lcom/facebook/SessionDefaultAudience;->name()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget-boolean v5, p0, Lcom/facebook/Session$AuthorizationRequest;->f:Z</span>
+<span class="">	iget-object v6, p0, Lcom/facebook/Session$AuthorizationRequest;->i:Ljava/lang/String;</span>
+<span class="">	iget-object v7, p0, Lcom/facebook/Session$AuthorizationRequest;->j:Ljava/lang/String;</span>
+<span class="">	const/4 v8, 0x0</span>
+<span class="">	invoke-direct/range {v0 .. v8}, Lcom/facebook/Session$AuthorizationRequest$AuthRequestSerializationProxyV1;-><init>(Lcom/facebook/SessionLoginBehavior;ILjava/util/List;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Lcom/facebook/Session$AuthorizationRequest$AuthRequestSerializationProxyV1;)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../.resources/report.js"></script>
+</body>
+</html>

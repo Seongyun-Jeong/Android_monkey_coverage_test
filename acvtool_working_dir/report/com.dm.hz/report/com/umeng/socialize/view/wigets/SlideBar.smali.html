@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view.wigets</a></li>
+        <li><i class="ico ico-class"></i> SlideBar.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/view/wigets/SlideBar;
+.super Landroid/view/View;
+.source "SourceFile"
+
+
+.field private a:[C
+.field private b:I
+.field private c:I
+.field private d:Ljava/util/HashMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/HashMap",
+"<",
+"Ljava/lang/Character;",
+"Ljava/lang/Integer;",
+">;"
+}
+.end annotation
+.end field
+.field private e:Landroid/widget/ListView;
+.field private f:Landroid/widget/TextView;
+.field private g:I
+.field private h:I
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const-string v0, "#EEEEEE"</span>
+<span class="">	invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->b:I</span>
+<span class="">	const-string v0, "#EEEEEE"</span>
+<span class="">	invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->c:I</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/view/wigets/SlideBar;->a(Landroid/content/Context;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	const-string v0, "#EEEEEE"</span>
+<span class="">	invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->b:I</span>
+<span class="">	const-string v0, "#EEEEEE"</span>
+<span class="">	invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->c:I</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/view/wigets/SlideBar;->a(Landroid/content/Context;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V</span>
+<span class="">	const-string v0, "#EEEEEE"</span>
+<span class="">	invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->b:I</span>
+<span class="">	const-string v0, "#EEEEEE"</span>
+<span class="">	invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->c:I</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/view/wigets/SlideBar;->a(Landroid/content/Context;)V</span>
+.end method
+
+.method private a(Landroid/content/Context;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/16 v0, 0x1c</span>
+<span class="">	new-array v0, v0, [C</span>
+<span class="">	fill-array-data v0, :array_0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->g:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "alphabet_size"</span>
+<span class="">	invoke-static {p1, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F</span>
+<span class="">	move-result v0</span>
+<span class="">	float-to-int v0, v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->g:I</span>
+<span class="">	nop</span>
+<span class="">	:array_0</span>
+<span class="">	.array-data 2</span>
+<span class="">	0x5e38s</span>
+<span class="">	0x41s</span>
+<span class="">	0x42s</span>
+<span class="">	0x43s</span>
+<span class="">	0x44s</span>
+<span class="">	0x45s</span>
+<span class="">	0x46s</span>
+<span class="">	0x47s</span>
+<span class="">	0x48s</span>
+<span class="">	0x49s</span>
+<span class="">	0x4as</span>
+<span class="">	0x4bs</span>
+<span class="">	0x4cs</span>
+<span class="">	0x4ds</span>
+<span class="">	0x4es</span>
+<span class="">	0x4fs</span>
+<span class="">	0x50s</span>
+<span class="">	0x51s</span>
+<span class="">	0x52s</span>
+<span class="">	0x53s</span>
+<span class="">	0x54s</span>
+<span class="">	0x55s</span>
+<span class="">	0x56s</span>
+<span class="">	0x57s</span>
+<span class="">	0x58s</span>
+<span class="">	0x59s</span>
+<span class="">	0x5as</span>
+<span class="">	0x7b26s</span>
+<span class="">	.end array-data</span>
+.end method
+
+.method private a(Ljava/lang/Character;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->d:Ljava/util/HashMap;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->d:Ljava/util/HashMap;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private b(Ljava/lang/Character;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Integer;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public a(Landroid/widget/ListView;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->e:Landroid/widget/ListView;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->e:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ListView;->getAdapter()Landroid/widget/ListAdapter;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/view/wigets/a;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/view/wigets/a;->a()Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/view/wigets/SlideBar;->a(Ljava/util/List;)V</span>
+.end method
+
+.method public a(Landroid/widget/TextView;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->f:Landroid/widget/TextView;</span>
+.end method
+
+.method public a(Ljava/util/List;)V
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcom/umeng/socialize/bean/p;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-interface {p1}, Ljava/util/List;->size()I</span>
+<span class="">	move-result v2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v1, v2, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/wigets/SlideBar;->invalidate()V</span>
+<span class="">	invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/bean/p;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/p;->j()C</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->d:Ljava/util/HashMap;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected onDraw(Landroid/graphics/Canvas;)V
+<span class="">	.locals 6</span>
+
+<span class="">	new-instance v1, Landroid/graphics/Paint;</span>
+<span class="">	invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V</span>
+<span class="">	const v0, -0x595656</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setColor(I)V</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->g:I</span>
+<span class="">	int-to-float v0, v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setTextSize(F)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V</span>
+<span class="">	sget-object v0, Landroid/graphics/Paint$Align;->CENTER:Landroid/graphics/Paint$Align;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setTextAlign(Landroid/graphics/Paint$Align;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/wigets/SlideBar;->getMeasuredWidth()I</span>
+<span class="">	move-result v0</span>
+<span class="">	div-int/lit8 v0, v0, 0x2</span>
+<span class="">	int-to-float v2, v0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	array-length v3, v3</span>
+<span class="">	if-lt v0, v3, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	:cond_1</span>
+<span class="">	aget-char v3, v3, v0</span>
+<span class="">	invoke-static {v3}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {p0, v3}, Lcom/umeng/socialize/view/wigets/SlideBar;->a(Ljava/lang/Character;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_2</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->b:I</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setColor(I)V</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-char v3, v3, v0</span>
+<span class="">	invoke-static {v3}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget v4, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->h:I</span>
+<span class="">	iget v5, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->h:I</span>
+<span class="">	mul-int/2addr v5, v0</span>
+<span class="">	add-int/2addr v4, v5</span>
+<span class="">	int-to-float v4, v4</span>
+<span class="">	invoke-virtual {p1, v3, v2, v4, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->c:I</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setColor(I)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected onSizeChanged(IIII)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V</span>
+<span class="">	const-string v0, "com.umeng.socialize"</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "onSizeChanged +"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	div-int v0, p2, v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->h:I</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	invoke-super {p0, p1}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F</span>
+<span class="">	move-result v0</span>
+<span class="">	float-to-int v0, v0</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->h:I</span>
+<span class="">	div-int/2addr v0, v2</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	array-length v2, v2</span>
+<span class="">	if-lt v0, v2, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	add-int/lit8 v0, v0, -0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I</span>
+<span class="">	move-result v2</span>
+<span class="">	const/4 v3, 0x2</span>
+<span class="">	if-ne v2, v3, :cond_6</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/view/wigets/SlideBar;->setPressed(Z)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->f:Landroid/widget/TextView;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	aget-char v3, v3, v0</span>
+<span class="">	invoke-static {v3}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->f:Landroid/widget/TextView;</span>
+<span class="">	invoke-virtual {v2}, Landroid/widget/TextView;->getVisibility()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->f:Landroid/widget/TextView;</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/widget/TextView;->setVisibility(I)V</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	aget-char v2, v2, v0</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {p0, v2}, Lcom/umeng/socialize/view/wigets/SlideBar;->a(Ljava/lang/Character;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_5</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_3</span>
+<span class="">	if-gez v0, :cond_0</span>
+<span class="">	:cond_4</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->e:Landroid/widget/ListView;</span>
+<span class="">	:cond_5</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->a:[C</span>
+<span class="">	aget-char v0, v3, v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/view/wigets/SlideBar;->b(Ljava/lang/Character;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v2, v0}, Landroid/widget/ListView;->setSelection(I)V</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ne v0, v4, :cond_3</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/umeng/socialize/view/wigets/SlideBar;->setPressed(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/wigets/SlideBar;->f:Landroid/widget/TextView;</span>
+<span class="">	const/16 v1, 0x8</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V</span>
+<span class="">	goto :goto_1</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

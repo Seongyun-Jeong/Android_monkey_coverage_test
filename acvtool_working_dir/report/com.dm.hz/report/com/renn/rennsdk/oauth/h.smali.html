@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.renn.rennsdk.oauth</a></li>
+        <li><i class="ico ico-class"></i> h.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/renn/rennsdk/oauth/h;
+.super Landroid/widget/RelativeLayout;
+.source "SourceFile"
+
+
+.field private static final a:Ljava/lang/String; = "LoginLayout"
+.field private static final b:Z
+.field private c:F
+.field private d:Landroid/widget/RelativeLayout;
+.field private e:Ljava/lang/Object;
+.field private f:Landroid/content/Context;
+.field private g:Landroid/graphics/Bitmap;
+.field private h:Landroid/widget/ImageView;
+.field private i:Lcom/renn/rennsdk/b$a;
+
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/h;->f:Landroid/content/Context;</span>
+<span class="">	const v0, 0x106000c</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/oauth/h;->setBackgroundColor(I)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Z)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/renn/rennsdk/oauth/h;->a(Ljava/lang/Object;)V</span>
+<span class="">	const v0, 0x106000c</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/oauth/h;->setBackgroundColor(I)V</span>
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/h;->f:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget v0, v0, Landroid/content/res/Configuration;->orientation:I</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget v1, v1, Landroid/util/DisplayMetrics;->density:F</span>
+<span class="">	iput v1, p0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/renn/rennsdk/oauth/h;->a()V</span>
+<span class="">	:pswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/renn/rennsdk/oauth/h;->b()V</span>
+<span class="">	:pswitch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method static synthetic a(Lcom/renn/rennsdk/oauth/h;)Lcom/renn/rennsdk/b$a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/h;->i:Lcom/renn/rennsdk/b$a;</span>
+.end method
+
+.method private a()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/renn/rennsdk/oauth/h;->a(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/oauth/h;->addView(Landroid/view/View;)V</span>
+.end method
+
+.method static synthetic a(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-static {p0}, Lcom/renn/rennsdk/oauth/h;->b(Ljava/lang/String;)V</span>
+.end method
+
+.method private a(Z)V
+<span class="">	.locals 21</span>
+
+<span class="">	const-string v1, "000000000000000"</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v2, v0, Lcom/renn/rennsdk/oauth/h;->f:Landroid/content/Context;</span>
+<span class="">	invoke-static {v2}, Lcom/renn/rennsdk/oauth/b;->a(Landroid/content/Context;)Lcom/renn/rennsdk/oauth/b;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Lcom/renn/rennsdk/oauth/b;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v11</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "renren_login_background"</span>
+<span class="">	invoke-static {v2, v3}, Lcom/renn/rennsdk/oauth/m;->d(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v12</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "renren_logo_land"</span>
+<span class="">	invoke-static {v2, v3}, Lcom/renn/rennsdk/oauth/m;->d(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Landroid/graphics/drawable/BitmapDrawable;</span>
+<span class="">	invoke-virtual {v1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v13</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "renren_topbar"</span>
+<span class="">	invoke-static {v2, v3}, Lcom/renn/rennsdk/oauth/m;->d(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v14</span>
+<span class="">	new-instance v15, Landroid/widget/TextView;</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v15, v1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "renren_registe_tips"</span>
+<span class="">	invoke-static {v1, v2}, Lcom/renn/rennsdk/oauth/m;->d(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v15, v1}, Landroid/widget/TextView;->setBackgroundResource(I)V</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	if-nez v11, :cond_1</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "renren_register_tip_str_with_sim"</span>
+<span class="">	invoke-static {v2, v3}, Lcom/renn/rennsdk/oauth/m;->b(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v2, "^ "</span>
+<span class="">	const-string v3, "\u00a0"</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v16</span>
+<span class="">	new-instance v17, Landroid/text/SpannableStringBuilder;</span>
+<span class="">	invoke-direct/range {v17 .. v17}, Landroid/text/SpannableStringBuilder;-><init>()V</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const/16 v1, 0x24</span>
+<span class="">	move-object/from16 v0, v16</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I</span>
+<span class="">	move-result v3</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	move v7, v1</span>
+<span class="">	move v8, v2</span>
+<span class="">	move v9, v3</span>
+<span class="">	move v10, v4</span>
+<span class="">	:goto_1</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	if-ne v9, v1, :cond_2</span>
+<span class="">	invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v9</span>
+<span class="">	if-eqz v7, :cond_5</span>
+<span class="">	move-object/from16 v0, v16</span>
+<span class="">	invoke-virtual {v0, v10, v9}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;</span>
+<span class="">	new-instance v1, Landroid/text/style/TextAppearanceSpan;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/high16 v4, 0x41600000    # 14.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v4, v5</span>
+<span class="">	float-to-int v4, v4</span>
+<span class="">	new-instance v5, Landroid/content/res/ColorStateList;</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	filled-new-array {v6, v7}, [I</span>
+<span class="">	move-result-object v6</span>
+<span class="">	sget-object v7, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	invoke-static {v7, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	check-cast v6, [[I</span>
+<span class="">	const/4 v7, 0x1</span>
+<span class="">	new-array v7, v7, [I</span>
+<span class="">	const/16 v16, 0x0</span>
+<span class="">	const v18, -0xc1c5c7</span>
+<span class="">	aput v18, v7, v16</span>
+<span class="">	invoke-direct {v5, v6, v7}, Landroid/content/res/ColorStateList;-><init>([[I[I)V</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	invoke-direct/range {v1 .. v6}, Landroid/text/style/TextAppearanceSpan;-><init>(Ljava/lang/String;IILandroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)V</span>
+<span class="">	sub-int v2, v10, v8</span>
+<span class="">	sub-int v3, v9, v8</span>
+<span class="">	const/16 v4, 0x21</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3, v4}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V</span>
+<span class="">	:goto_2</span>
+<span class="">	sget-object v1, Landroid/widget/TextView$BufferType;->SPANNABLE:Landroid/widget/TextView$BufferType;</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v15, v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V</span>
+<span class="">	const/high16 v1, 0x41200000    # 10.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v2, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v1, v2</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	const/high16 v2, 0x41200000    # 10.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v3, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v2, v3</span>
+<span class="">	float-to-int v2, v2</span>
+<span class="">	const/high16 v3, 0x41200000    # 10.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v4, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v3, v4</span>
+<span class="">	float-to-int v3, v3</span>
+<span class="">	const/high16 v4, 0x41200000    # 10.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v4, v5</span>
+<span class="">	float-to-int v4, v4</span>
+<span class="">	invoke-virtual {v15, v1, v2, v3, v4}, Landroid/widget/TextView;->setPadding(IIII)V</span>
+<span class="">	new-instance v1, Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iput-object v1, v0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v1, v0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual {v1, v12}, Landroid/widget/RelativeLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v1, v0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	const/4 v3, -0x1</span>
+<span class="">	const/4 v4, -0x1</span>
+<span class="">	invoke-direct {v2, v3, v4}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	const/high16 v1, 0x41200000    # 10.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v2, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v1, v2</span>
+<span class="">	float-to-int v2, v1</span>
+<span class="">	const/high16 v1, 0x42300000    # 44.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v3, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v1, v3</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	new-instance v3, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	const/4 v4, -0x1</span>
+<span class="">	invoke-direct {v3, v4, v1}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	const/16 v1, 0xa</span>
+<span class="">	invoke-virtual {v3, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	new-instance v4, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	const/high16 v1, 0x42820000    # 65.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v1, v5</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	const/high16 v5, 0x42080000    # 34.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v6, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v5, v6</span>
+<span class="">	float-to-int v5, v5</span>
+<span class="">	invoke-direct {v4, v1, v5}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	const/high16 v1, 0x40e00000    # 7.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v1, v5</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	iput v1, v4, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I</span>
+<span class="">	const/16 v1, 0xb</span>
+<span class="">	invoke-virtual {v4, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	const/16 v1, 0xf</span>
+<span class="">	invoke-virtual {v4, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	new-instance v5, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	const/high16 v1, 0x42580000    # 54.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v6, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v1, v6</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	const/high16 v6, 0x42080000    # 34.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v7, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v6, v7</span>
+<span class="">	float-to-int v6, v6</span>
+<span class="">	invoke-direct {v5, v1, v6}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	const/high16 v1, 0x40e00000    # 7.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v6, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v1, v6</span>
+<span class="">	float-to-int v1, v1</span>
+<span class="">	iput v1, v5, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I</span>
+<span class="">	const/16 v1, 0x9</span>
+<span class="">	invoke-virtual {v5, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	const/16 v1, 0xf</span>
+<span class="">	invoke-virtual {v5, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	if-nez p1, :cond_6</span>
+<span class="">	new-instance v1, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	const/high16 v6, 0x435c0000    # 220.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v7, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v6, v7</span>
+<span class="">	float-to-int v6, v6</span>
+<span class="">	const/4 v7, -0x2</span>
+<span class="">	invoke-direct {v1, v6, v7}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	const/high16 v6, 0x425c0000    # 55.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v7, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v6, v7</span>
+<span class="">	float-to-int v6, v6</span>
+<span class="">	iput v6, v1, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I</span>
+<span class="">	:goto_3</span>
+<span class="">	const/16 v6, 0xe</span>
+<span class="">	invoke-virtual {v1, v6}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	new-instance v6, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	const/4 v7, -0x2</span>
+<span class="">	const/4 v8, -0x2</span>
+<span class="">	invoke-direct {v6, v7, v8}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	mul-int/lit8 v7, v2, 0x3</span>
+<span class="">	iput v7, v6, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I</span>
+<span class="">	mul-int/lit8 v7, v2, 0x3</span>
+<span class="">	iput v7, v6, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I</span>
+<span class="">	if-nez p1, :cond_7</span>
+<span class="">	const/high16 v7, 0x41f00000    # 30.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v8, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v7, v8</span>
+<span class="">	float-to-int v7, v7</span>
+<span class="">	iput v7, v6, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I</span>
+<span class="">	:goto_4</span>
+<span class="">	const/16 v7, 0xe</span>
+<span class="">	invoke-virtual {v6, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V</span>
+<span class="">	new-instance v7, Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	invoke-direct {v7, v8}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {v7, v3}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	invoke-virtual {v7, v14}, Landroid/widget/RelativeLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	const/16 v3, 0x7d1</span>
+<span class="">	invoke-virtual {v7, v3}, Landroid/widget/RelativeLayout;->setId(I)V</span>
+<span class="">	new-instance v3, Landroid/widget/Button;</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	invoke-direct {v3, v8}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const-string v8, "renren_action_btn"</span>
+<span class="">	invoke-static {v4, v8}, Lcom/renn/rennsdk/oauth/m;->d(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/widget/Button;->setBackgroundResource(I)V</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	const-string v9, "renren_send_reg_sms_cancal_button_title"</span>
+<span class="">	invoke-static {v8, v9}, Lcom/renn/rennsdk/oauth/m;->b(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v8</span>
+<span class="">	invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	const/high16 v4, 0x41700000    # 15.0f</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/widget/Button;->setTextSize(F)V</span>
+<span class="">	const/4 v4, -0x1</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/widget/Button;->setTextColor(I)V</span>
+<span class="">	const/16 v4, 0x8</span>
+<span class="">	invoke-virtual {v3, v4}, Landroid/widget/Button;->setVisibility(I)V</span>
+<span class="">	new-instance v4, Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v8</span>
+<span class="">	invoke-direct {v4, v8}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	invoke-virtual {v4, v13}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+<span class="">	const/4 v5, 0x3</span>
+<span class="">	const/16 v8, 0x7d1</span>
+<span class="">	invoke-virtual {v1, v5, v8}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V</span>
+<span class="">	invoke-virtual {v15, v1}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	const/16 v1, 0x7d2</span>
+<span class="">	invoke-virtual {v15, v1}, Landroid/widget/TextView;->setId(I)V</span>
+<span class="">	const/4 v1, 0x3</span>
+<span class="">	const/16 v5, 0x7d2</span>
+<span class="">	invoke-virtual {v6, v1, v5}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V</span>
+<span class="">	new-instance v1, Landroid/widget/Button;</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-direct {v1, v5}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-virtual {v1, v6}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	const-string v6, "renren_action_btn"</span>
+<span class="">	invoke-static {v5, v6}, Lcom/renn/rennsdk/oauth/m;->d(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v5</span>
+<span class="">	invoke-virtual {v1, v5}, Landroid/widget/Button;->setBackgroundResource(I)V</span>
+<span class="">	const v5, -0xd0d0e</span>
+<span class="">	invoke-virtual {v1, v5}, Landroid/widget/Button;->setTextColor(I)V</span>
+<span class="">	const/high16 v5, 0x41900000    # 18.0f</span>
+<span class="">	invoke-virtual {v1, v5}, Landroid/widget/Button;->setTextSize(F)V</span>
+<span class="">	const/16 v5, 0xa</span>
+<span class="">	shr-int/lit8 v6, v2, 0x1</span>
+<span class="">	const/16 v8, 0xa</span>
+<span class="">	shr-int/lit8 v2, v2, 0x1</span>
+<span class="">	invoke-virtual {v1, v5, v6, v8, v2}, Landroid/widget/Button;->setPadding(IIII)V</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	const-string v8, "renren_register_sent_sms_button_title"</span>
+<span class="">	invoke-static {v6, v8}, Lcom/renn/rennsdk/oauth/m;->b(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v6</span>
+<span class="">	invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-direct {v2, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v5, "106900867742"</span>
+<span class="">	invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	if-eqz v11, :cond_0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	invoke-virtual {v12, v2, v5}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v7, v3}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	invoke-virtual {v7, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v2, v0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual {v2, v7}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v2, v0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual {v2, v15}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget-object v2, v0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V</span>
+<span class="">	new-instance v2, Lcom/renn/rennsdk/oauth/i;</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/renn/rennsdk/oauth/i;-><init>(Lcom/renn/rennsdk/oauth/h;)V</span>
+<span class="">	invoke-virtual {v3, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	new-instance v2, Lcom/renn/rennsdk/oauth/j;</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	invoke-direct {v2, v0}, Lcom/renn/rennsdk/oauth/j;-><init>(Lcom/renn/rennsdk/oauth/h;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual/range {p0 .. p0}, Lcom/renn/rennsdk/oauth/h;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "renren_register_tip_str_without_sim"</span>
+<span class="">	invoke-static {v2, v3}, Lcom/renn/rennsdk/oauth/m;->b(Landroid/content/Context;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "#"</span>
+<span class="">	const-string v3, "\n"</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	if-eqz v7, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	move-object/from16 v0, v16</span>
+<span class="">	invoke-virtual {v0, v10, v9}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;</span>
+<span class="">	new-instance v1, Landroid/text/style/TextAppearanceSpan;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/high16 v4, 0x41600000    # 14.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v4, v5</span>
+<span class="">	float-to-int v4, v4</span>
+<span class="">	new-instance v5, Landroid/content/res/ColorStateList;</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	const/16 v18, 0x0</span>
+<span class="">	move/from16 v0, v18</span>
+<span class="">	filled-new-array {v6, v0}, [I</span>
+<span class="">	move-result-object v6</span>
+<span class="">	sget-object v18, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	move-object/from16 v0, v18</span>
+<span class="">	invoke-static {v0, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	check-cast v6, [[I</span>
+<span class="">	const/16 v18, 0x1</span>
+<span class="">	move/from16 v0, v18</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	move-object/from16 v18, v0</span>
+<span class="">	const/16 v19, 0x0</span>
+<span class="">	const v20, -0xc1c5c7</span>
+<span class="">	aput v20, v18, v19</span>
+<span class="">	move-object/from16 v0, v18</span>
+<span class="">	invoke-direct {v5, v6, v0}, Landroid/content/res/ColorStateList;-><init>([[I[I)V</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	invoke-direct/range {v1 .. v6}, Landroid/text/style/TextAppearanceSpan;-><init>(Ljava/lang/String;IILandroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)V</span>
+<span class="">	sub-int v2, v10, v8</span>
+<span class="">	sub-int v3, v9, v8</span>
+<span class="">	const/16 v4, 0x21</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3, v4}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V</span>
+<span class="">	add-int/lit8 v2, v9, 0x1</span>
+<span class="">	const/16 v1, 0x24</span>
+<span class="">	move-object/from16 v0, v16</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	move v3, v2</span>
+<span class="">	move v2, v1</span>
+<span class="">	add-int/lit8 v4, v8, 0x1</span>
+<span class="">	:goto_5</span>
+<span class="">	if-eqz v7, :cond_4</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	move v7, v1</span>
+<span class="">	:goto_6</span>
+<span class="">	move v8, v4</span>
+<span class="">	move v9, v2</span>
+<span class="">	move v10, v3</span>
+<span class="">	goto/16 :goto_1</span>
+<span class="">	move-object/from16 v0, v16</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v0, v10, v9}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;</span>
+<span class="">	new-instance v1, Landroid/text/style/TextAppearanceSpan;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/high16 v4, 0x41b00000    # 22.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v4, v5</span>
+<span class="">	float-to-int v4, v4</span>
+<span class="">	new-instance v5, Landroid/content/res/ColorStateList;</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	const/16 v18, 0x0</span>
+<span class="">	move/from16 v0, v18</span>
+<span class="">	filled-new-array {v6, v0}, [I</span>
+<span class="">	move-result-object v6</span>
+<span class="">	sget-object v18, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	move-object/from16 v0, v18</span>
+<span class="">	invoke-static {v0, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	check-cast v6, [[I</span>
+<span class="">	const/16 v18, 0x1</span>
+<span class="">	move/from16 v0, v18</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	move-object/from16 v18, v0</span>
+<span class="">	const/16 v19, 0x0</span>
+<span class="">	const v20, -0xcf8e47</span>
+<span class="">	aput v20, v18, v19</span>
+<span class="">	move-object/from16 v0, v18</span>
+<span class="">	invoke-direct {v5, v6, v0}, Landroid/content/res/ColorStateList;-><init>([[I[I)V</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	invoke-direct/range {v1 .. v6}, Landroid/text/style/TextAppearanceSpan;-><init>(Ljava/lang/String;IILandroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)V</span>
+<span class="">	sub-int v2, v10, v8</span>
+<span class="">	sub-int v3, v9, v8</span>
+<span class="">	const/16 v4, 0x21</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3, v4}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V</span>
+<span class="">	add-int/lit8 v2, v9, 0x1</span>
+<span class="">	const/16 v1, 0x24</span>
+<span class="">	move-object/from16 v0, v16</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Ljava/lang/String;->indexOf(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	move v3, v2</span>
+<span class="">	move v2, v1</span>
+<span class="">	goto :goto_5</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_6</span>
+<span class="">	move-object/from16 v0, v16</span>
+<span class="">	:cond_5</span>
+<span class="">	invoke-virtual {v0, v10, v9}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;</span>
+<span class="">	new-instance v1, Landroid/text/style/TextAppearanceSpan;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const/high16 v4, 0x41b00000    # 22.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v5, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v4, v5</span>
+<span class="">	float-to-int v4, v4</span>
+<span class="">	new-instance v5, Landroid/content/res/ColorStateList;</span>
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	filled-new-array {v6, v7}, [I</span>
+<span class="">	move-result-object v6</span>
+<span class="">	sget-object v7, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;</span>
+<span class="">	invoke-static {v7, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	check-cast v6, [[I</span>
+<span class="">	const/4 v7, 0x1</span>
+<span class="">	new-array v7, v7, [I</span>
+<span class="">	const/16 v16, 0x0</span>
+<span class="">	const v18, -0xcf8e47</span>
+<span class="">	aput v18, v7, v16</span>
+<span class="">	invoke-direct {v5, v6, v7}, Landroid/content/res/ColorStateList;-><init>([[I[I)V</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	invoke-direct/range {v1 .. v6}, Landroid/text/style/TextAppearanceSpan;-><init>(Ljava/lang/String;IILandroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;)V</span>
+<span class="">	sub-int v2, v10, v8</span>
+<span class="">	sub-int v3, v9, v8</span>
+<span class="">	const/16 v4, 0x21</span>
+<span class="">	move-object/from16 v0, v17</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3, v4}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V</span>
+<span class="">	goto/16 :goto_2</span>
+<span class="">	new-instance v1, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	:cond_6</span>
+<span class="">	const/high16 v6, 0x43af0000    # 350.0f</span>
+<span class="">	move-object/from16 v0, p0</span>
+<span class="">	iget v7, v0, Lcom/renn/rennsdk/oauth/h;->c:F</span>
+<span class="">	mul-float/2addr v6, v7</span>
+<span class="">	float-to-int v6, v6</span>
+<span class="">	const/4 v7, -0x2</span>
+<span class="">	invoke-direct {v1, v6, v7}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	iput v2, v1, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I</span>
+<span class="">	goto/16 :goto_3</span>
+<span class="">	iput v2, v6, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I</span>
+<span class="">	:cond_7</span>
+<span class="">	goto/16 :goto_4</span>
+.end method
+
+.method static synthetic b(Lcom/renn/rennsdk/oauth/h;)Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/h;->f:Landroid/content/Context;</span>
+.end method
+
+.method private b()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/renn/rennsdk/oauth/h;->a(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/h;->d:Landroid/widget/RelativeLayout;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/renn/rennsdk/oauth/h;->addView(Landroid/view/View;)V</span>
+.end method
+
+.method private static final b(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public a(Landroid/graphics/Bitmap;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/h;->g:Landroid/graphics/Bitmap;</span>
+<span class="">	iget-object v0, p0, Lcom/renn/rennsdk/oauth/h;->h:Landroid/widget/ImageView;</span>
+<span class="">	iget-object v1, p0, Lcom/renn/rennsdk/oauth/h;->g:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+.end method
+
+.method public a(Lcom/renn/rennsdk/b$a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/h;->i:Lcom/renn/rennsdk/b$a;</span>
+.end method
+
+.method public a(Ljava/lang/Object;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/renn/rennsdk/oauth/h;->e:Ljava/lang/Object;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

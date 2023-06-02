@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.open</a></li>
+        <li><i class="ico ico-class"></i> TaskGuide$h.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tencent/open/TaskGuide$h;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/tencent/open/TaskGuide;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0xa
+name = "h"
+.end annotation
+
+.field  a:Ljava/lang/String;
+.field  b:Ljava/lang/String;
+.field  c:[Lcom/tencent/open/TaskGuide$g;
+
+
+.method private constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method static a(Lorg/json/JSONObject;)Lcom/tencent/open/TaskGuide$h;
+<span class="">	.locals 11</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lorg/json/JSONException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v7, Lcom/tencent/open/TaskGuide$h;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v7}, Lcom/tencent/open/TaskGuide$h;-><init>()V</span>
+<span class="">	const-string v0, "task_info"</span>
+<span class="">	invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "task_id"</span>
+<span class="">	invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v7, Lcom/tencent/open/TaskGuide$h;->a:Ljava/lang/String;</span>
+<span class="">	const-string v1, "task_desc"</span>
+<span class="">	invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v7, Lcom/tencent/open/TaskGuide$h;->b:Ljava/lang/String;</span>
+<span class="">	const-string v1, "step_info"</span>
+<span class="">	invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;</span>
+<span class="">	move-result-object v9</span>
+<span class="">	invoke-virtual {v9}, Lorg/json/JSONArray;->length()I</span>
+<span class="">	move-result v10</span>
+<span class="">	if-lez v10, :cond_1</span>
+<span class="">	new-array v0, v10, [Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	iput-object v0, v7, Lcom/tencent/open/TaskGuide$h;->c:[Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	move v8, v0</span>
+<span class="">	if-ge v8, v10, :cond_2</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v9, v8}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "step_no"</span>
+<span class="">	invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const-string v2, "status"</span>
+<span class="">	invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v6</span>
+<span class="">	const-string v2, "step_desc"</span>
+<span class="">	invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "step_gift"</span>
+<span class="">	invoke-virtual {v0, v3}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, "end_time"</span>
+<span class="">	invoke-virtual {v0, v4}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v4</span>
+<span class="">	new-instance v0, Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/tencent/open/TaskGuide$g;-><init>(ILjava/lang/String;Ljava/lang/String;JI)V</span>
+<span class="">	iget-object v1, v7, Lcom/tencent/open/TaskGuide$h;->c:[Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	aput-object v0, v1, v8</span>
+<span class="">	add-int/lit8 v0, v8, 0x1</span>
+<span class="">	move v8, v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object v0, v7</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$h;->a:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$h;->c:[Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/open/TaskGuide$h;->c:[Lcom/tencent/open/TaskGuide$g;</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	if-lez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

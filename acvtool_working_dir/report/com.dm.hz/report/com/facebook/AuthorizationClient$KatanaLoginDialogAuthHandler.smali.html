@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook</a></li>
+        <li><i class="ico ico-class"></i> AuthorizationClient$KatanaLoginDialogAuthHandler.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;
+.super Lcom/facebook/AuthorizationClient$KatanaAuthHandler;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/AuthorizationClient;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x0
+name = "KatanaLoginDialogAuthHandler"
+.end annotation
+
+.field private static final e:J = 0x1L
+.field final synthetic d:Lcom/facebook/AuthorizationClient;
+.field private f:Ljava/lang/String;
+.field private g:Ljava/lang/String;
+
+
+.method constructor <init>(Lcom/facebook/AuthorizationClient;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/AuthorizationClient$KatanaAuthHandler;-><init>(Lcom/facebook/AuthorizationClient;)V</span>
+.end method
+
+.method private a(Landroid/content/Intent;)Lcom/facebook/AuthorizationClient$Result;
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "com.facebook.platform.status.ERROR_TYPE"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iget-object v1, v1, Lcom/facebook/AuthorizationClient;->E:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	sget-object v2, Lcom/facebook/AccessTokenSource;->c:Lcom/facebook/AccessTokenSource;</span>
+<span class="">	invoke-static {v0, v2}, Lcom/facebook/AccessToken;->a(Landroid/os/Bundle;Lcom/facebook/AccessTokenSource;)Lcom/facebook/AccessToken;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v0}, Lcom/facebook/AuthorizationClient$Result;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Lcom/facebook/AccessToken;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "ServiceDisabled"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string v0, "service_disabled"</span>
+<span class="">	const-string v1, "1"</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Ljava/lang/String;Ljava/lang/Object;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/AuthorizationClient;->E:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	invoke-direct {p0, v0, p1}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Landroid/content/Intent;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Landroid/content/Intent;)Lcom/facebook/AuthorizationClient$Result;
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "com.facebook.platform.status.ERROR_TYPE"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "UserCanceled"</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	const-string v2, "PermissionDenied"</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "com.facebook.platform.status.ERROR_DESCRIPTION"</span>
+<span class="">	invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p1, v0}, Lcom/facebook/AuthorizationClient$Result;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Ljava/lang/String;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v2, "com.facebook.platform.status.ERROR_JSON"</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-eqz v2, :cond_2</span>
+<span class="">	new-instance v3, Lorg/json/JSONObject;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-direct {v3, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "error_code"</span>
+<span class="">	invoke-virtual {v3, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	const-string v2, "com.facebook.platform.status.ERROR_DESCRIPTION"</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {p1, v1, v2, v0}, Lcom/facebook/AuthorizationClient$Result;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v2</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 4</span>
+
+<span class="">	if-eqz p3, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/AuthorizationClient;->z:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->f:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/facebook/AppEventsLogger;->b(Landroid/content/Context;Ljava/lang/String;)Lcom/facebook/AppEventsLogger;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v1}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v2, "app_id"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->f:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "action_id"</span>
+<span class="">	invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-virtual {v1, p2, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, p1, v2, v1}, Lcom/facebook/AppEventsLogger;->a(Ljava/lang/String;Ljava/lang/Double;Landroid/os/Bundle;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  a()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "katana_login_dialog"</span>
+.end method
+
+.method  a(IILandroid/content/Intent;)Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const-string v1, "fb_dialogs_native_login_dialog_complete"</span>
+<span class="">	const-string v2, "fb_native_login_dialog_complete_time"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->g:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, v1, v2, v3}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	if-nez p3, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/AuthorizationClient;->E:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	const-string v1, "Operation canceled"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/facebook/AuthorizationClient$Result;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Ljava/lang/String;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/facebook/AuthorizationClient;->a(Lcom/facebook/AuthorizationClient$Result;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-static {p3}, Lcom/facebook/internal/NativeProtocol;->c(Landroid/content/Intent;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	if-nez p2, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/AuthorizationClient;->E:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	invoke-direct {p0, v0, p3}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Landroid/content/Intent;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eq p2, v1, :cond_3</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iget-object v1, v1, Lcom/facebook/AuthorizationClient;->E:Lcom/facebook/AuthorizationClient$AuthorizationRequest;</span>
+<span class="">	const-string v2, "Unexpected resultCode from authorization."</span>
+<span class="">	invoke-static {v1, v2, v0}, Lcom/facebook/AuthorizationClient$Result;->a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0, p3}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Landroid/content/Intent;)Lcom/facebook/AuthorizationClient$Result;</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/AuthorizationClient;->e()V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method  a(Lcom/facebook/AuthorizationClient$AuthorizationRequest;)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AuthorizationClient$AuthorizationRequest;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->f:Ljava/lang/String;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->d:Lcom/facebook/AuthorizationClient;</span>
+<span class="">	iget-object v1, v1, Lcom/facebook/AuthorizationClient;->z:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AuthorizationClient$AuthorizationRequest;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	new-instance v3, Ljava/util/ArrayList;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AuthorizationClient$AuthorizationRequest;->b()Ljava/util/List;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AuthorizationClient$AuthorizationRequest;->e()Lcom/facebook/SessionDefaultAudience;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Lcom/facebook/SessionDefaultAudience;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-static {v1, v2, v3, v4}, Lcom/facebook/internal/NativeProtocol;->a(Landroid/content/Context;Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v2, "com.facebook.platform.protocol.CALL_ID"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->g:Ljava/lang/String;</span>
+<span class="">	const-string v2, "call_id"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->g:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v2, v3}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Ljava/lang/String;Ljava/lang/Object;)V</span>
+<span class="">	const-string v2, "protocol_version"</span>
+<span class="">	const-string v3, "com.facebook.platform.protocol.PROTOCOL_VERSION"</span>
+<span class="">	invoke-virtual {v1, v3, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v2, v0}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Ljava/lang/String;Ljava/lang/Object;)V</span>
+<span class="">	const-string v0, "permissions"</span>
+<span class="">	const-string v2, ","</span>
+<span class="">	const-string v3, "com.facebook.platform.extra.PERMISSIONS"</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v2, v3}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0, v0, v2}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Ljava/lang/String;Ljava/lang/Object;)V</span>
+<span class="">	const-string v0, "write_privacy"</span>
+<span class="">	const-string v2, "com.facebook.platform.extra.WRITE_PRIVACY"</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0, v0, v2}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Ljava/lang/String;Ljava/lang/Object;)V</span>
+<span class="">	const-string v0, "fb_dialogs_native_login_dialog_start"</span>
+<span class="">	const-string v2, "fb_native_login_dialog_start_time"</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->g:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, v0, v2, v3}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/AuthorizationClient$AuthorizationRequest;->d()I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/facebook/AuthorizationClient$KatanaLoginDialogAuthHandler;->a(Landroid/content/Intent;I)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../.resources/report.js"></script>
+</body>
+</html>

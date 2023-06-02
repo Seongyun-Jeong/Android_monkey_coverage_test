@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool</a></li>
+        <li><i class="ico ico-class"></i> i.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/ykt/networktool/i;
+.super Ljava/lang/Thread;
+.source "SourceFile"
+
+
+.field private final a:Ljava/util/concurrent/BlockingQueue;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/concurrent/BlockingQueue",
+"<",
+"Lcn/ykt/networktool/n;",
+">;"
+}
+.end annotation
+.end field
+.field private final b:Lcn/ykt/networktool/h;
+.field private final c:Lcn/ykt/networktool/b;
+.field private final d:Lcn/ykt/networktool/r;
+.field private volatile e:Z
+
+
+<span class="cov">.method public constructor &lt;init&gt;(Ljava/util/concurrent/BlockingQueue;Lcn/ykt/networktool/h;Lcn/ykt/networktool/b;Lcn/ykt/networktool/r;)V</span>
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/concurrent/BlockingQueue",</span>
+<span class="">	"<",</span>
+<span class="">	"Lcn/ykt/networktool/n;",</span>
+<span class="">	">;",</span>
+<span class="">	"Lcn/ykt/networktool/h;",</span>
+<span class="">	"Lcn/ykt/networktool/b;",</span>
+<span class="">	"Lcn/ykt/networktool/r;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Thread;-><init>()V</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	iput-boolean v0, p0, Lcn/ykt/networktool/i;->e:Z</span>
+<span class="cov">	iput-object p1, p0, Lcn/ykt/networktool/i;->a:Ljava/util/concurrent/BlockingQueue;</span>
+<span class="cov">	iput-object p2, p0, Lcn/ykt/networktool/i;->b:Lcn/ykt/networktool/h;</span>
+<span class="cov">	iput-object p3, p0, Lcn/ykt/networktool/i;->c:Lcn/ykt/networktool/b;</span>
+<span class="cov">	iput-object p4, p0, Lcn/ykt/networktool/i;->d:Lcn/ykt/networktool/r;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method private a(Lcn/ykt/networktool/n;Lcn/ykt/networktool/v;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcn/ykt/networktool/n",</span>
+<span class="">	"<*>;",</span>
+<span class="">	"Lcn/ykt/networktool/v;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p1, p2}, Lcn/ykt/networktool/n;->a(Lcn/ykt/networktool/v;)Lcn/ykt/networktool/v;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/i;->d:Lcn/ykt/networktool/r;</span>
+<span class="">	invoke-interface {v1, p1, v0}, Lcn/ykt/networktool/r;->a(Lcn/ykt/networktool/n;Lcn/ykt/networktool/v;)V</span>
+.end method
+
+.method public a()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcn/ykt/networktool/i;->e:Z</span>
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/i;->interrupt()V</span>
+.end method
+
+<span class="cov">.method public run()V</span>
+<span class="">	.locals 6</span>
+
+<span class="cov">	const/4 v5, 0x0</span>
+<span class="cov">	const/16 v0, 0xa</span>
+<span class="cov">	invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	:try_start_0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/i;->a:Ljava/util/concurrent/BlockingQueue;</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/concurrent/BlockingQueue;->take()Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcn/ykt/networktool/n;</span>
+<span class="cov">	:try_start_1</span>
+<span class="cov">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="cov">	const-string v1, "network-queue-take"</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcn/ykt/networktool/n;->a(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->i()Z</span>
+<span class="cov">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	const-string v1, "network-discard-cancelled"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcn/ykt/networktool/n;->b(Ljava/lang/String;)V</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Lcn/ykt/networktool/v; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	invoke-direct {p0, v0, v1}, Lcn/ykt/networktool/i;->a(Lcn/ykt/networktool/n;Lcn/ykt/networktool/v;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:catch_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	iget-boolean v0, p0, Lcn/ykt/networktool/i;->e:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="cov">	sget v1, Landroid/os/Build$VERSION;->SDK_INT:I</span>
+<span class="cov">	:try_start_2</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	const/16 v2, 0xe</span>
+<span class="cov">	if-lt v1, v2, :cond_2</span>
+<span class="exec">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->c()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	invoke-static {v1}, Landroid/net/TrafficStats;->setThreadStatsTag(I)V</span>
+<span class="cov">	iget-object v1, p0, Lcn/ykt/networktool/i;->b:Lcn/ykt/networktool/h;</span>
+<span class="cov">	:cond_2</span>
+<span class="exec">	invoke-interface {v1, v0}, Lcn/ykt/networktool/h;->a(Lcn/ykt/networktool/n;)Lcn/ykt/networktool/k;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	const-string v2, "network-http-complete"</span>
+<span class="cov">	invoke-virtual {v0, v2}, Lcn/ykt/networktool/n;->a(Ljava/lang/String;)V</span>
+<span class="cov">	iget-boolean v2, v1, Lcn/ykt/networktool/k;->d:Z</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->x()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	const-string v1, "not-modified"</span>
+<span class="">	invoke-virtual {v0, v1}, Lcn/ykt/networktool/n;->b(Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Lcn/ykt/networktool/v; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	const-string v2, "Unhandled exception %s"</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	new-array v3, v3, [Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	aput-object v4, v3, v5</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcn/ykt/networktool/w;->a(Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="">	iget-object v2, p0, Lcn/ykt/networktool/i;->d:Lcn/ykt/networktool/r;</span>
+<span class="">	new-instance v3, Lcn/ykt/networktool/v;</span>
+<span class="">	invoke-direct {v3, v1}, Lcn/ykt/networktool/v;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	invoke-interface {v2, v0, v3}, Lcn/ykt/networktool/r;->a(Lcn/ykt/networktool/n;Lcn/ykt/networktool/v;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="exec">	invoke-virtual {v0, v1}, Lcn/ykt/networktool/n;->a(Lcn/ykt/networktool/k;)Lcn/ykt/networktool/q;</span>
+<span class="cov">	:try_start_3</span>
+<span class="cov">	:cond_3</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	const-string v2, "network-parse-complete"</span>
+<span class="cov">	invoke-virtual {v0, v2}, Lcn/ykt/networktool/n;->a(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->s()Z</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	if-eqz v2, :cond_4</span>
+<span class="cov">	iget-object v2, v1, Lcn/ykt/networktool/q;->b:Lcn/ykt/networktool/b$a;</span>
+<span class="cov">	if-eqz v2, :cond_4</span>
+<span class="cov">	iget-object v2, p0, Lcn/ykt/networktool/i;->c:Lcn/ykt/networktool/b;</span>
+<span class="exec">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->f()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v3</span>
+<span class="cov">	iget-object v4, v1, Lcn/ykt/networktool/q;->b:Lcn/ykt/networktool/b$a;</span>
+<span class="cov">	invoke-interface {v2, v3, v4}, Lcn/ykt/networktool/b;->a(Ljava/lang/String;Lcn/ykt/networktool/b$a;)V</span>
+<span class="cov">	const-string v2, "network-cache-written"</span>
+<span class="cov">	invoke-virtual {v0, v2}, Lcn/ykt/networktool/n;->a(Ljava/lang/String;)V</span>
+<span class="cov">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->w()V</span>
+<span class="cov">	:cond_4</span>
+<span class="cov">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="cov">	const-string v3, "NetworkDispatcher -> run() Current Thread ID:"</span>
+<span class="cov">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;</span>
+<span class="cov">	move-result-object v3</span>
+<span class="exec">	invoke-virtual {v3}, Ljava/lang/Thread;->getId()J</span>
+<span class="cov">	move-result-wide v3</span>
+<span class="exec">	invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="exec">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	const/4 v3, 0x0</span>
+<span class="cov">	new-array v3, v3, [Ljava/lang/Object;</span>
+<span class="cov">	invoke-static {v2, v3}, Lcn/ykt/networktool/w;->a(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="cov">	iget-object v2, p0, Lcn/ykt/networktool/i;->d:Lcn/ykt/networktool/r;</span>
+<span class="cov">	invoke-interface {v2, v0, v1}, Lcn/ykt/networktool/r;->a(Lcn/ykt/networktool/n;Lcn/ykt/networktool/q;)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="cov">	:try_end_3</span>
+<span class="">	.catch Lcn/ykt/networktool/v; {:try_start_3 .. :try_end_3} :catch_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.cache.disc</a></li>
+        <li><i class="ico ico-class"></i> LimitedDiscCache.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;
+.super Lcom/nostra13/universalimageloader/cache/disc/BaseDiscCache;
+.source "SourceFile"
+
+
+.field private static final INVALID_SIZE:I = -0x1
+.field private final cacheSize:Ljava/util/concurrent/atomic/AtomicInteger;
+.field private final lastUsageDates:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/io/File;",
+"Ljava/lang/Long;",
+">;"
+}
+.end annotation
+.end field
+.field private final sizeLimit:I
+
+
+.method public constructor <init>(Ljava/io/File;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createFileNameGenerator()Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, p1, v0, p2}, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;-><init>(Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;I)V</span>
+.end method
+
+.method public constructor <init>(Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/nostra13/universalimageloader/cache/disc/BaseDiscCache;-><init>(Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)V</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	invoke-static {v0}, Ljava/util/Collections;->synchronizedMap(Ljava/util/Map;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	iput p3, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->sizeLimit:I</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->cacheSize:Ljava/util/concurrent/atomic/AtomicInteger;</span>
+<span class="">	invoke-direct {p0}, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->calculateCacheSizeAndFillUsageMap()V</span>
+.end method
+
+.method static synthetic access$000(Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;)Ljava/util/Map;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+.end method
+
+.method static synthetic access$100(Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;)Ljava/util/concurrent/atomic/AtomicInteger;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->cacheSize:Ljava/util/concurrent/atomic/AtomicInteger;</span>
+.end method
+
+.method private calculateCacheSizeAndFillUsageMap()V
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/Thread;</span>
+<span class="">	new-instance v1, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache$1;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache$1;-><init>(Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;)V</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Thread;->start()V</span>
+.end method
+
+.method private removeNext()I
+<span class="">	.locals 11</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v4, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	monitor-enter v4</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v5</span>
+<span class="">	move-object v3, v2</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	if-nez v2, :cond_2</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/io/File;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Long;</span>
+<span class="">	move-object v2, v1</span>
+<span class="">	:goto_2</span>
+<span class="">	move-object v3, v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/lang/Long;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v8</span>
+<span class="">	cmp-long v6, v6, v8</span>
+<span class="">	if-gez v6, :cond_5</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/io/File;</span>
+<span class="">	move-object v10, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	move-object v1, v10</span>
+<span class="">	goto :goto_2</span>
+<span class="">	monitor-exit v4</span>
+<span class="">	:cond_3</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_4</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->getSize(Ljava/io/File;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->delete()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v4</span>
+<span class="">	:try_start_1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	:cond_4</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	:cond_5</span>
+<span class="">	move-object v0, v3</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method public clear()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->clear()V</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->cacheSize:Ljava/util/concurrent/atomic/AtomicInteger;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V</span>
+<span class="">	invoke-super {p0}, Lcom/nostra13/universalimageloader/cache/disc/BaseDiscCache;->clear()V</span>
+.end method
+
+.method public get(Ljava/lang/String;)Ljava/io/File;
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-super {p0, p1}, Lcom/nostra13/universalimageloader/cache/disc/BaseDiscCache;->get(Ljava/lang/String;)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	invoke-virtual {v0, v2, v3}, Ljava/io/File;->setLastModified(J)Z</span>
+<span class="">	iget-object v2, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+.end method
+
+.method protected abstract getSize(Ljava/io/File;)I
+<span class="">	</span>
+
+.end method
+
+.method public put(Ljava/lang/String;Ljava/io/File;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-virtual {p0, p2}, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->getSize(Ljava/io/File;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->cacheSize:Ljava/util/concurrent/atomic/AtomicInteger;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	add-int/2addr v0, v1</span>
+<span class="">	iget v2, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->sizeLimit:I</span>
+<span class="">	if-le v0, v2, :cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->removeNext()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	if-ne v0, v2, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->cacheSize:Ljava/util/concurrent/atomic/AtomicInteger;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->currentTimeMillis()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	invoke-virtual {p2, v1, v2}, Ljava/io/File;->setLastModified(J)Z</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->lastUsageDates:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, p2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v2, p0, Lcom/nostra13/universalimageloader/cache/disc/LimitedDiscCache;->cacheSize:Ljava/util/concurrent/atomic/AtomicInteger;</span>
+<span class="">	:cond_1</span>
+<span class="">	neg-int v0, v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

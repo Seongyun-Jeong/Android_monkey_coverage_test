@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.google.gson</a></li>
+        <li><i class="ico ico-class"></i> LruCache.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/google/gson/LruCache;
+.super Ljava/util/LinkedHashMap;
+.source "SourceFile"
+.implements Lcom/google/gson/Cache;
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<K:",
+"Ljava/lang/Object;",
+"V:",
+"Ljava/lang/Object;",
+">",
+"Ljava/util/LinkedHashMap",
+"<TK;TV;>;",
+"Lcom/google/gson/Cache",
+"<TK;TV;>;"
+}
+.end annotation
+
+.field private static final serialVersionUID:J = 0x1L
+.field private final maxCapacity:I
+
+
+.method public constructor <init>(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const v0, 0x3f333333    # 0.7f</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-direct {p0, p1, v0, v1}, Ljava/util/LinkedHashMap;-><init>(IFZ)V</span>
+<span class="">	iput p1, p0, Lcom/google/gson/LruCache;->maxCapacity:I</span>
+.end method
+
+.method public declared-synchronized addElement(Ljava/lang/Object;Ljava/lang/Object;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TK;TV;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/google/gson/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public declared-synchronized getElement(Ljava/lang/Object;)Ljava/lang/Object;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TK;)TV;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/google/gson/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method protected removeEldestEntry(Ljava/util/Map$Entry;)Z
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map$Entry",</span>
+<span class="">	"<TK;TV;>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/google/gson/LruCache;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iget v1, p0, Lcom/google/gson/LruCache;->maxCapacity:I</span>
+<span class="">	if-le v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public declared-synchronized removeElement(Ljava/lang/Object;)Ljava/lang/Object;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TK;)TV;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/google/gson/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

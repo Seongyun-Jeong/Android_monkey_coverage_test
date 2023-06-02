@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool</a></li>
+        <li><i class="ico ico-class"></i> n.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcn/ykt/networktool/n;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Ljava/lang/Comparable;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcn/ykt/networktool/n$a;,
+Lcn/ykt/networktool/n$b;
+}
+.end annotation
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<T:",
+"Ljava/lang/Object;",
+">",
+"Ljava/lang/Object;",
+"Ljava/lang/Comparable",
+"<",
+"Lcn/ykt/networktool/n",
+"<TT;>;>;"
+}
+.end annotation
+
+.field private static final a:Ljava/lang/String; = "UTF-8"
+.field private static final m:J = 0xbb8L
+.field private final b:Lcn/ykt/networktool/w$a;
+.field private final c:I
+.field private final d:Ljava/lang/String;
+.field private final e:I
+.field private final f:Lcn/ykt/networktool/q$a;
+.field private g:Ljava/lang/Integer;
+.field private h:Lcn/ykt/networktool/o;
+.field private i:Z
+.field private j:Z
+.field private k:Z
+.field private l:J
+.field private n:Lcn/ykt/networktool/s;
+.field private o:Lcn/ykt/networktool/b$a;
+.field private p:Ljava/lang/Object;
+
+
+<span class="cov">.method public constructor &lt;init&gt;(ILjava/lang/String;Lcn/ykt/networktool/q$a;)V</span>
+<span class="">	.locals 4</span>
+
+<span class="cov">	const/4 v3, 0x0</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="cov">	iput-object v3, p0, Lcn/ykt/networktool/n;->b:Lcn/ykt/networktool/w$a;</span>
+<span class="cov">	const/4 v1, 0x1</span>
+<span class="cov">	iput-boolean v1, p0, Lcn/ykt/networktool/n;->i:Z</span>
+<span class="cov">	iput-boolean v0, p0, Lcn/ykt/networktool/n;->j:Z</span>
+<span class="cov">	iput-boolean v0, p0, Lcn/ykt/networktool/n;->k:Z</span>
+<span class="cov">	const-wide/16 v1, 0x0</span>
+<span class="cov">	iput-wide v1, p0, Lcn/ykt/networktool/n;->l:J</span>
+<span class="cov">	iput-object v3, p0, Lcn/ykt/networktool/n;->o:Lcn/ykt/networktool/b$a;</span>
+<span class="cov">	iput p1, p0, Lcn/ykt/networktool/n;->c:I</span>
+<span class="cov">	iput-object p2, p0, Lcn/ykt/networktool/n;->d:Ljava/lang/String;</span>
+<span class="cov">	iput-object p3, p0, Lcn/ykt/networktool/n;->f:Lcn/ykt/networktool/q$a;</span>
+<span class="cov">	new-instance v1, Lcn/ykt/networktool/e;</span>
+<span class="cov">	invoke-direct {v1}, Lcn/ykt/networktool/e;-><init>()V</span>
+<span class="cov">	invoke-virtual {p0, v1}, Lcn/ykt/networktool/n;->a(Lcn/ykt/networktool/s;)V</span>
+<span class="exec">	invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="cov">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	iput v0, p0, Lcn/ykt/networktool/n;->e:I</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	invoke-static {p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Landroid/net/Uri;->getHost()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/String;->hashCode()I</span>
+<span class="cov">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Lcn/ykt/networktool/q$a;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	invoke-direct {p0, v0, p1, p2}, Lcn/ykt/networktool/n;-><init>(ILjava/lang/String;Lcn/ykt/networktool/q$a;)V</span>
+.end method
+
+.method private a(Ljava/util/Map;Ljava/lang/String;)[B
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	")[B"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	invoke-static {v1, p2}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	const/16 v1, 0x3d</span>
+<span class="">	invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-static {v0, p2}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	const/16 v0, 0x26</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Ljava/lang/RuntimeException;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "Encoding not supported: "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+<span class="cov">.method public a()I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget v0, p0, Lcn/ykt/networktool/n;->c:I</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method public a(Lcn/ykt/networktool/n;)I</span>
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcn/ykt/networktool/n",</span>
+<span class="">	"<TT;>;)I"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="exec">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->t()Lcn/ykt/networktool/n$b;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {p1}, Lcn/ykt/networktool/n;->t()Lcn/ykt/networktool/n$b;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	if-ne v0, v1, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/n;->g:Ljava/lang/Integer;</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	iget-object v1, p1, Lcn/ykt/networktool/n;->g:Ljava/lang/Integer;</span>
+<span class="exec">	invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I</span>
+<span class="cov">	move-result v1</span>
+<span class="cov">	sub-int/2addr v0, v1</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1}, Lcn/ykt/networktool/n$b;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0}, Lcn/ykt/networktool/n$b;->ordinal()I</span>
+<span class="">	move-result v0</span>
+<span class="">	sub-int v0, v1, v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected abstract a(Lcn/ykt/networktool/k;)Lcn/ykt/networktool/q;
+<span class="">	</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcn/ykt/networktool/k;",</span>
+<span class="">	")",</span>
+<span class="">	"Lcn/ykt/networktool/q",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+.method protected a(Lcn/ykt/networktool/v;)Lcn/ykt/networktool/v;
+<span class="">	.locals 0</span>
+
+.end method
+
+<span class="cov">.method public final a(I)V</span>
+<span class="">	.locals 1</span>
+
+<span class="exec">	invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcn/ykt/networktool/n;->g:Ljava/lang/Integer;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public a(Lcn/ykt/networktool/b$a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/n;->o:Lcn/ykt/networktool/b$a;</span>
+.end method
+
+<span class="cov">.method public a(Lcn/ykt/networktool/o;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput-object p1, p0, Lcn/ykt/networktool/n;->h:Lcn/ykt/networktool/o;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public a(Lcn/ykt/networktool/s;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput-object p1, p0, Lcn/ykt/networktool/n;->n:Lcn/ykt/networktool/s;</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public a(Ljava/lang/Object;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/n;->p:Ljava/lang/Object;</span>
+.end method
+
+<span class="cov">.method public a(Ljava/lang/String;)V</span>
+<span class="">	.locals 4</span>
+
+<span class="cov">	iget-wide v0, p0, Lcn/ykt/networktool/n;->l:J</span>
+<span class="cov">	const-wide/16 v2, 0x0</span>
+<span class="cov">	cmp-long v0, v0, v2</span>
+<span class="cov">	if-nez v0, :cond_0</span>
+<span class="exec">	invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J</span>
+<span class="cov">	move-result-wide v0</span>
+<span class="cov">	iput-wide v0, p0, Lcn/ykt/networktool/n;->l:J</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public final a(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcn/ykt/networktool/n;->i:Z</span>
+.end method
+
+.method public b()Ljava/lang/Object;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/n;->p:Ljava/lang/Object;</span>
+.end method
+
+.method public b(Lcn/ykt/networktool/v;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/n;->f:Lcn/ykt/networktool/q$a;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/n;->f:Lcn/ykt/networktool/q$a;</span>
+<span class="">	invoke-interface {v0, p1}, Lcn/ykt/networktool/q$a;->a(Lcn/ykt/networktool/v;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method protected abstract b(Ljava/lang/Object;)V
+<span class="">	</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+<span class="cov">.method  b(Ljava/lang/String;)V</span>
+<span class="">	.locals 5</span>
+
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/n;->h:Lcn/ykt/networktool/o;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/n;->h:Lcn/ykt/networktool/o;</span>
+<span class="cov">	invoke-virtual {v0, p0}, Lcn/ykt/networktool/o;->b(Lcn/ykt/networktool/n;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J</span>
+<span class="cov">	move-result-wide v0</span>
+<span class="cov">	iget-wide v2, p0, Lcn/ykt/networktool/n;->l:J</span>
+<span class="cov">	sub-long/2addr v0, v2</span>
+<span class="cov">	const-wide/16 v2, 0xbb8</span>
+<span class="cov">	cmp-long v2, v0, v2</span>
+<span class="cov">	if-ltz v2, :cond_1</span>
+<span class="cov">	const-string v2, "%d ms: %s"</span>
+<span class="cov">	const/4 v3, 0x2</span>
+<span class="cov">	new-array v3, v3, [Ljava/lang/Object;</span>
+<span class="cov">	const/4 v4, 0x0</span>
+<span class="exec">	invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	aput-object v0, v3, v4</span>
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="exec">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	aput-object v1, v3, v0</span>
+<span class="cov">	invoke-static {v2, v3}, Lcn/ykt/networktool/w;->b(Ljava/lang/String;[Ljava/lang/Object;)V</span>
+<span class="cov">	:cond_1</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public c()I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget v0, p0, Lcn/ykt/networktool/n;->e:I</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method public synthetic compareTo(Ljava/lang/Object;)I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	check-cast p1, Lcn/ykt/networktool/n;</span>
+<span class="exec">	invoke-virtual {p0, p1}, Lcn/ykt/networktool/n;->a(Lcn/ykt/networktool/n;)I</span>
+<span class="cov">	move-result v0</span>
+<span class="exec">	return v0</span>
+.end method
+
+.method public final d()I
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/n;->g:Ljava/lang/Integer;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "getSequence called before setSequence"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/n;->g:Ljava/lang/Integer;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I</span>
+<span class="">	move-result v0</span>
+.end method
+
+<span class="cov">.method public e()Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/n;->d:Ljava/lang/String;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method public f()Ljava/lang/String;</span>
+<span class="">	.locals 1</span>
+
+<span class="exec">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->e()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method public g()Lcn/ykt/networktool/b$a;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/n;->o:Lcn/ykt/networktool/b$a;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method public h()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcn/ykt/networktool/n;->j:Z</span>
+.end method
+
+<span class="cov">.method public i()Z</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-boolean v0, p0, Lcn/ykt/networktool/n;->j:Z</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method public j()Ljava/util/Map;</span>
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcn/ykt/networktool/a;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="exec">	invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method protected k()Ljava/util/Map;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcn/ykt/networktool/a;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->o()Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected l()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->p()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public m()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->q()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public n()[B
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcn/ykt/networktool/a;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->k()Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->l()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {p0, v0, v1}, Lcn/ykt/networktool/n;->a(Ljava/util/Map;Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method protected o()Ljava/util/Map;</span>
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcn/ykt/networktool/a;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method protected p()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "UTF-8"</span>
+.end method
+
+.method public q()Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v1, "application/x-www-form-urlencoded; charset="</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->p()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+<span class="cov">.method public r()[B</span>
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lcn/ykt/networktool/a;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="exec">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->o()Ljava/util/Map;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Map;->size()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-lez v1, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->p()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {p0, v0, v1}, Lcn/ykt/networktool/n;->a(Ljava/util/Map;Ljava/lang/String;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-object v0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public final s()Z</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-boolean v0, p0, Lcn/ykt/networktool/n;->i:Z</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method public t()Lcn/ykt/networktool/n$b;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	sget-object v0, Lcn/ykt/networktool/n$b;->b:Lcn/ykt/networktool/n$b;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method public toString()Ljava/lang/String;</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="cov">	const-string v1, "0x"</span>
+<span class="cov">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->c()I</span>
+<span class="cov">	move-result v1</span>
+<span class="exec">	invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="exec">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="cov">	iget-boolean v0, p0, Lcn/ykt/networktool/n;->j:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v0, "[X] "</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="exec">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->e()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v2, " "</span>
+<span class="exec">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, " "</span>
+<span class="exec">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {p0}, Lcn/ykt/networktool/n;->t()Lcn/ykt/networktool/n$b;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="exec">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const-string v1, " "</span>
+<span class="exec">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iget-object v1, p0, Lcn/ykt/networktool/n;->g:Ljava/lang/Integer;</span>
+<span class="exec">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	return-object v0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const-string v0, "[ ] "</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public final u()I</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/n;->n:Lcn/ykt/networktool/s;</span>
+<span class="exec">	invoke-interface {v0}, Lcn/ykt/networktool/s;->a()I</span>
+<span class="cov">	move-result v0</span>
+<span class="exec">	return v0</span>
+.end method
+
+<span class="cov">.method public v()Lcn/ykt/networktool/s;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcn/ykt/networktool/n;->n:Lcn/ykt/networktool/s;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method public w()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	iput-boolean v0, p0, Lcn/ykt/networktool/n;->k:Z</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public x()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcn/ykt/networktool/n;->k:Z</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view.abs</a></li>
+        <li><i class="ico ico-class"></i> SocializeBaseView.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/umeng/socialize/view/abs/SocializeBaseView;
+.super Lcom/umeng/socialize/view/abs/BaseView;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;
+}
+.end annotation
+
+.field protected d:Lcom/umeng/socialize/controller/UMSocialService;
+.field  e:Landroid/view/View;
+
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/umeng/socialize/view/abs/BaseView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/view/abs/BaseView;-><init>(Landroid/content/Context;)V</span>
+<span class="">	invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/f;->a:Lcom/umeng/socialize/bean/f;</span>
+<span class="">	invoke-static {p2, v0}, Lcom/umeng/socialize/controller/d;->a(Ljava/lang/String;Lcom/umeng/socialize/bean/f;)Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/controller/UMSocialService;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method protected a(Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->n()V</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->b(Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;)V</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/view/b;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->e:Landroid/view/View;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->removeView(Landroid/view/View;)V</span>
+.end method
+
+.method public b(Lcom/umeng/socialize/controller/UMSocialService;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-super {p0}, Lcom/umeng/socialize/view/abs/BaseView;->k()V</span>
+.end method
+
+.method protected b(Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/a/a;</span>
+<span class="">	const-string v1, "no entity descriptor."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/umeng/socialize/a/a;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {p1, v0}, Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;->a(Lcom/umeng/socialize/a/a;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/view/abs/n;</span>
+<span class="">	invoke-direct {v2, p0, p1}, Lcom/umeng/socialize/view/abs/n;-><init>(Lcom/umeng/socialize/view/abs/SocializeBaseView;Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;)V</span>
+<span class="">	invoke-interface {v0, v1, v2}, Lcom/umeng/socialize/controller/UMSocialService;->d(Landroid/content/Context;Lcom/umeng/socialize/controller/listener/SocializeListeners$SocializeClientListener;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public h()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-super {p0}, Lcom/umeng/socialize/view/abs/BaseView;->h()V</span>
+.end method
+
+.method public i()V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0}, Lcom/umeng/socialize/view/abs/BaseView;->i()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->m()Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-interface {v1}, Lcom/umeng/socialize/controller/UMSocialService;->f()Lcom/umeng/socialize/bean/m;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-boolean v1, v1, Lcom/umeng/socialize/bean/m;->e:Z</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const-string v1, "com.umeng.view.SocialView"</span>
+<span class="">	const-string v2, "entity has initialized."</span>
+<span class="">	invoke-static {v1, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d()Landroid/app/Activity;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->d:Lcom/umeng/socialize/controller/UMSocialService;</span>
+<span class="">	invoke-interface {v0, v1, v2}, Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;->a(Landroid/content/Context;Lcom/umeng/socialize/controller/UMSocialService;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v1, "com.umeng.view.SocialView"</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v2, "entity has no initialized."</span>
+<span class="">	invoke-static {v1, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->l()Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->e:Landroid/view/View;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->e:Landroid/view/View;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/abs/SocializeBaseView;->e:Landroid/view/View;</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->addView(Landroid/view/View;)V</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/view/abs/SocializeBaseView;->a(Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public abstract l()Landroid/view/View;
+<span class="">	</span>
+
+.end method
+
+.method protected m()Lcom/umeng/socialize/view/abs/SocializeBaseView$SocializeInitListener;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/abs/m;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/view/abs/m;-><init>(Lcom/umeng/socialize/view/abs/SocializeBaseView;)V</span>
+.end method
+
+.method protected n()V
+<span class="">	.locals 0</span>
+
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

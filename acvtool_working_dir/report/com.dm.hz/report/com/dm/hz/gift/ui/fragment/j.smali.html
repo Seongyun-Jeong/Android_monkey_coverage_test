@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.gift.ui.fragment</a></li>
+        <li><i class="ico ico-class"></i> j.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/gift/ui/fragment/j;
+.super Lcom/a/a/a/c;
+.source "SourceFile"
+
+
+.field private a:Landroid/view/View;
+.field private m:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/dm/hz/a/a/b;",
+">;"
+}
+.end annotation
+.end field
+.field private n:Lcom/dm/hz/gift/a/d;
+.field private o:Landroid/widget/GridView;
+.field private p:Lcom/dm/hz/view/CustomListEmptyView;
+.field private q:Lcom/dm/hz/view/LoadingView;
+
+
+<span class="cov">.method public constructor &lt;init&gt;()V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-direct {p0}, Lcom/a/a/a/c;-><init>()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method static synthetic a(Lcom/dm/hz/gift/ui/fragment/j;)Landroid/app/Activity;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->i:Landroid/app/Activity;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method static synthetic a(Lcom/dm/hz/gift/ui/fragment/j;Ljava/lang/String;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-virtual {p0, p1}, Lcom/dm/hz/gift/ui/fragment/j;->b(Ljava/lang/String;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method static synthetic b(Lcom/dm/hz/gift/ui/fragment/j;)Lcom/dm/hz/view/LoadingView;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->q:Lcom/dm/hz/view/LoadingView;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method static synthetic c(Lcom/dm/hz/gift/ui/fragment/j;)Ljava/util/List;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->m:Ljava/util/List;</span>
+.end method
+
+.method static synthetic d(Lcom/dm/hz/gift/ui/fragment/j;)Lcom/dm/hz/gift/a/d;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->n:Lcom/dm/hz/gift/a/d;</span>
+.end method
+
+<span class="cov">.method private d()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a0001</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	new-instance v1, Lcom/dm/hz/gift/ui/fragment/k;</span>
+<span class="cov">	invoke-direct {v1, p0}, Lcom/dm/hz/gift/ui/fragment/k;-><init>(Lcom/dm/hz/gift/ui/fragment/j;)V</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic e(Lcom/dm/hz/gift/ui/fragment/j;)Lcom/dm/hz/view/CustomListEmptyView;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->p:Lcom/dm/hz/view/CustomListEmptyView;</span>
+.end method
+
+<span class="cov">.method protected a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	const v0, 0x7f030016</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="exec">	invoke-virtual {p1, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->a:Landroid/view/View;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->a:Landroid/view/View;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method protected a()V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a005e</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/widget/GridView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->o:Landroid/widget/GridView;</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/gift/a/d;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/gift/ui/fragment/j;->i:Landroid/app/Activity;</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/gift/ui/fragment/j;->m:Ljava/util/List;</span>
+<span class="cov">	invoke-direct {v0, v1, v2}, Lcom/dm/hz/gift/a/d;-><init>(Landroid/app/Activity;Ljava/util/List;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->n:Lcom/dm/hz/gift/a/d;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->o:Landroid/widget/GridView;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/gift/ui/fragment/j;->n:Lcom/dm/hz/gift/a/d;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/widget/GridView;->setAdapter(Landroid/widget/ListAdapter;)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a005f</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->p:Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->p:Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="cov">	const v1, 0x7f0800e2</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/view/CustomListEmptyView;->a(I)V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->p:Lcom/dm/hz/view/CustomListEmptyView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/view/CustomListEmptyView;->b()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a0060</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/LoadingView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->q:Lcom/dm/hz/view/LoadingView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->q:Lcom/dm/hz/view/LoadingView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/view/LoadingView;->a()V</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/gift/ui/fragment/j;->d()V</span>
+<span class="cov">	const v0, 0x7f0800c4</span>
+<span class="cov">	invoke-virtual {p0, v0}, Lcom/dm/hz/gift/ui/fragment/j;->a(I)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public a(I)V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a0002</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="cov">	invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected b()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="cov">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->m:Ljava/util/List;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected c()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-boolean v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->c:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="cov">	:goto_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="cov">	iput-boolean v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->c:Z</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->q:Lcom/dm/hz/view/LoadingView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/view/LoadingView;->a()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/gift/ui/fragment/j;->i:Landroid/app/Activity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/d/d;->a(Landroid/content/Context;)Lcom/dm/hz/d/d;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	new-instance v1, Lcom/dm/hz/gift/ui/fragment/l;</span>
+<span class="cov">	invoke-direct {v1, p0}, Lcom/dm/hz/gift/ui/fragment/l;-><init>(Lcom/dm/hz/gift/ui/fragment/j;)V</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/d/d;->c(Lcom/dm/hz/d/c;)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../../.resources/report.js"></script>
+</body>
+</html>

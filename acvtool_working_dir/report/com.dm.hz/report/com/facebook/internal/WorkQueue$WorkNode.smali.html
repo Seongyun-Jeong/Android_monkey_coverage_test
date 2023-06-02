@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.internal</a></li>
+        <li><i class="ico ico-class"></i> WorkQueue$WorkNode.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/facebook/internal/WorkQueue$WorkNode;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/facebook/internal/WorkQueue$WorkItem;
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/facebook/internal/WorkQueue;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x2
+name = "WorkNode"
+.end annotation
+
+.field static final synthetic b:Z
+.field final synthetic a:Lcom/facebook/internal/WorkQueue;
+.field private final c:Ljava/lang/Runnable;
+.field private d:Lcom/facebook/internal/WorkQueue$WorkNode;
+.field private e:Lcom/facebook/internal/WorkQueue$WorkNode;
+.field private f:Z
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	sput-boolean v0, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method constructor <init>(Lcom/facebook/internal/WorkQueue;Ljava/lang/Runnable;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object p2, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->c:Ljava/lang/Runnable;</span>
+.end method
+
+.method  a(Lcom/facebook/internal/WorkQueue$WorkNode;)Lcom/facebook/internal/WorkQueue$WorkNode;
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-boolean v1, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-boolean v1, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	if-ne p1, p0, :cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	if-ne v1, p0, :cond_3</span>
+<span class="">	move-object p1, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object v2, v1, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object v2, v1, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object p1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  a(Lcom/facebook/internal/WorkQueue$WorkNode;Z)Lcom/facebook/internal/WorkQueue$WorkNode;
+<span class="">	.locals 2</span>
+
+<span class="">	sget-boolean v0, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-boolean v0, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	if-nez p1, :cond_2</span>
+<span class="">	iput-object p0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object p0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p2, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v0, p1, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object p0, v1, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iput-object p0, v0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object p0, v0</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method  a(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->f:Z</span>
+.end method
+
+.method public a()Z
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/WorkQueue;->a(Lcom/facebook/internal/WorkQueue;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/internal/WorkQueue$WorkNode;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	invoke-static {v2}, Lcom/facebook/internal/WorkQueue;->b(Lcom/facebook/internal/WorkQueue;)Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/facebook/internal/WorkQueue$WorkNode;->a(Lcom/facebook/internal/WorkQueue$WorkNode;)Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/facebook/internal/WorkQueue;->a(Lcom/facebook/internal/WorkQueue;Lcom/facebook/internal/WorkQueue$WorkNode;)V</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method  b(Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	sget-boolean v0, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	if-eq v0, p0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-boolean v0, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	iget-object v0, v0, Lcom/facebook/internal/WorkQueue$WorkNode;->e:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	if-eq v0, p0, :cond_1</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-boolean v0, Lcom/facebook/internal/WorkQueue$WorkNode;->b:Z</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/internal/WorkQueue$WorkNode;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eq v0, p1, :cond_2</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_2</span>
+.end method
+
+.method public b()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->f:Z</span>
+.end method
+
+.method public c()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/WorkQueue;->a(Lcom/facebook/internal/WorkQueue;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/internal/WorkQueue$WorkNode;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	invoke-static {v2}, Lcom/facebook/internal/WorkQueue;->b(Lcom/facebook/internal/WorkQueue;)Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/facebook/internal/WorkQueue$WorkNode;->a(Lcom/facebook/internal/WorkQueue$WorkNode;)Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/facebook/internal/WorkQueue;->a(Lcom/facebook/internal/WorkQueue;Lcom/facebook/internal/WorkQueue$WorkNode;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->a:Lcom/facebook/internal/WorkQueue;</span>
+<span class="">	invoke-static {v2}, Lcom/facebook/internal/WorkQueue;->b(Lcom/facebook/internal/WorkQueue;)Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	invoke-virtual {p0, v2, v3}, Lcom/facebook/internal/WorkQueue$WorkNode;->a(Lcom/facebook/internal/WorkQueue$WorkNode;Z)Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/facebook/internal/WorkQueue;->a(Lcom/facebook/internal/WorkQueue;Lcom/facebook/internal/WorkQueue$WorkNode;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+.end method
+
+.method  d()Ljava/lang/Runnable;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->c:Ljava/lang/Runnable;</span>
+.end method
+
+.method  e()Lcom/facebook/internal/WorkQueue$WorkNode;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/internal/WorkQueue$WorkNode;->d:Lcom/facebook/internal/WorkQueue$WorkNode;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

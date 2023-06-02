@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.lockscreen.view</a></li>
+        <li><i class="ico ico-class"></i> Tweener.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/lockscreen/view/Tweener;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation build Landroid/annotation/SuppressLint;
+value = {
+"NewApi"
+}
+.end annotation
+
+.field private static final DEBUG:Z = false
+.field private static final TAG:Ljava/lang/String; = "Tweener"
+.field private static mCleanupListener:Landroid/animation/Animator$AnimatorListener;
+.field private static sTweens:Ljava/util/HashMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/HashMap",
+"<",
+"Ljava/lang/Object;",
+"Lcom/dm/hz/lockscreen/view/Tweener;",
+">;"
+}
+.end annotation
+.end field
+.field public mObjectAnimator:Landroid/animation/ObjectAnimator;
+
+
+<span class="cov">.method static constructor &lt;clinit&gt;()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="cov">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/lockscreen/view/Tweener$1;</span>
+<span class="cov">	invoke-direct {v0}, Lcom/dm/hz/lockscreen/view/Tweener$1;-><init>()V</span>
+<span class="cov">	sput-object v0, Lcom/dm/hz/lockscreen/view/Tweener;->mCleanupListener:Landroid/animation/Animator$AnimatorListener;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public constructor &lt;init&gt;(Landroid/animation/ObjectAnimator;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="cov">	iput-object p1, p0, Lcom/dm/hz/lockscreen/view/Tweener;->mObjectAnimator:Landroid/animation/ObjectAnimator;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method static synthetic access$000(Landroid/animation/Animator;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-static {p0}, Lcom/dm/hz/lockscreen/view/Tweener;->remove(Landroid/animation/Animator;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private static remove(Landroid/animation/Animator;)V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	sget-object v0, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="exec">	invoke-virtual {v0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="cov">	move-result-object v1</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_1</span>
+<span class="exec">	invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Ljava/util/Map$Entry;</span>
+<span class="exec">	invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/lockscreen/view/Tweener;</span>
+<span class="cov">	iget-object v0, v0, Lcom/dm/hz/lockscreen/view/Tweener;->mObjectAnimator:Landroid/animation/ObjectAnimator;</span>
+<span class="cov">	if-ne v0, p0, :cond_0</span>
+<span class="cov">	invoke-interface {v1}, Ljava/util/Iterator;->remove()V</span>
+<span class="cov">	:cond_1</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private static varargs replace(Ljava/util/ArrayList;[Ljava/lang/Object;)V</span>
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/ArrayList",</span>
+<span class="">	"<",</span>
+<span class="">	"Landroid/animation/PropertyValuesHolder;",</span>
+<span class="">	">;[",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="cov">	array-length v2, p1</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	move v1, v0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	if-ge v1, v2, :cond_2</span>
+<span class="cov">	aget-object v0, p1, v1</span>
+<span class="cov">	sget-object v3, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="exec">	invoke-virtual {v3, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/lockscreen/view/Tweener;</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="cov">	iget-object v3, v0, Lcom/dm/hz/lockscreen/view/Tweener;->mObjectAnimator:Landroid/animation/ObjectAnimator;</span>
+<span class="cov">	invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->cancel()V</span>
+<span class="cov">	if-eqz p0, :cond_1</span>
+<span class="cov">	iget-object v3, v0, Lcom/dm/hz/lockscreen/view/Tweener;->mObjectAnimator:Landroid/animation/ObjectAnimator;</span>
+<span class="exec">	invoke-virtual {p0}, Ljava/util/ArrayList;->size()I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	new-array v0, v0, [Landroid/animation/PropertyValuesHolder;</span>
+<span class="exec">	invoke-virtual {p0, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, [Landroid/animation/PropertyValuesHolder;</span>
+<span class="cov">	invoke-virtual {v3, v0}, Landroid/animation/ObjectAnimator;->setValues([Landroid/animation/PropertyValuesHolder;)V</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	:goto_1</span>
+<span class="cov">	add-int/lit8 v0, v1, 0x1</span>
+<span class="cov">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v3, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_1</span>
+<span class="cov">	:cond_2</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public static reset()V
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/HashMap;->clear()V</span>
+.end method
+
+<span class="cov">.method public static varargs to(Ljava/lang/Object;J[Ljava/lang/Object;)Lcom/dm/hz/lockscreen/view/Tweener;</span>
+<span class="">	.locals 17</span>
+
+<span class="cov">	const-wide/16 v9, 0x0</span>
+<span class="cov">	const/4 v8, 0x0</span>
+<span class="cov">	const/4 v7, 0x0</span>
+<span class="cov">	const/4 v6, 0x0</span>
+<span class="cov">	const/4 v5, 0x0</span>
+<span class="cov">	new-instance v12, Ljava/util/ArrayList;</span>
+<span class="cov">	move-object/from16 v0, p3</span>
+<span class="cov">	array-length v2, v0</span>
+<span class="cov">	div-int/lit8 v2, v2, 0x2</span>
+<span class="cov">	invoke-direct {v12, v2}, Ljava/util/ArrayList;-><init>(I)V</span>
+<span class="cov">	const/4 v2, 0x0</span>
+<span class="cov">	move v11, v2</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	move-object/from16 v0, p3</span>
+<span class="cov">	array-length v2, v0</span>
+<span class="cov">	if-ge v11, v2, :cond_a</span>
+<span class="cov">	aget-object v2, p3, v11</span>
+<span class="cov">	instance-of v2, v2, Ljava/lang/String;</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	new-instance v2, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v4, "Key must be a string: "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aget-object v4, p3, v11</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v2</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	aget-object v2, p3, v11</span>
+<span class="cov">	check-cast v2, Ljava/lang/String;</span>
+<span class="cov">	add-int/lit8 v3, v11, 0x1</span>
+<span class="cov">	aget-object v3, p3, v3</span>
+<span class="cov">	const-string v4, "ease"</span>
+<span class="exec">	invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_1</span>
+<span class="">	move-object v2, v3</span>
+<span class="">	check-cast v2, Landroid/animation/TimeInterpolator;</span>
+<span class="">	move-object v3, v6</span>
+<span class="">	move-object v4, v7</span>
+<span class="">	move v5, v8</span>
+<span class="">	move-wide v6, v9</span>
+<span class="cov">	:goto_1</span>
+<span class="cov">	add-int/lit8 v8, v11, 0x2</span>
+<span class="cov">	move v11, v8</span>
+<span class="cov">	move-wide v9, v6</span>
+<span class="cov">	move-object v6, v3</span>
+<span class="cov">	move-object v7, v4</span>
+<span class="cov">	move v8, v5</span>
+<span class="cov">	move-object v5, v2</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	const-string v4, "onUpdate"</span>
+<span class="exec">	invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="cov">	if-nez v4, :cond_2</span>
+<span class="cov">	const-string v4, "onUpdateListener"</span>
+<span class="exec">	invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_3</span>
+<span class="cov">	:cond_2</span>
+<span class="cov">	check-cast v3, Landroid/animation/ValueAnimator$AnimatorUpdateListener;</span>
+<span class="cov">	move-object v2, v5</span>
+<span class="cov">	move-object v4, v3</span>
+<span class="cov">	move-object v3, v6</span>
+<span class="cov">	move v5, v8</span>
+<span class="cov">	move-wide v6, v9</span>
+<span class="">	goto :goto_1</span>
+<span class="cov">	:cond_3</span>
+<span class="cov">	const-string v4, "onComplete"</span>
+<span class="exec">	invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="cov">	if-nez v4, :cond_4</span>
+<span class="cov">	const-string v4, "onCompleteListener"</span>
+<span class="exec">	invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="">	if-eqz v4, :cond_5</span>
+<span class="cov">	:cond_4</span>
+<span class="cov">	check-cast v3, Landroid/animation/Animator$AnimatorListener;</span>
+<span class="cov">	move-object v2, v5</span>
+<span class="cov">	move-object v4, v7</span>
+<span class="cov">	move v5, v8</span>
+<span class="cov">	move-wide v6, v9</span>
+<span class="">	goto :goto_1</span>
+<span class="cov">	:cond_5</span>
+<span class="cov">	const-string v4, "delay"</span>
+<span class="exec">	invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="cov">	if-eqz v4, :cond_6</span>
+<span class="cov">	check-cast v3, Ljava/lang/Number;</span>
+<span class="exec">	invoke-virtual {v3}, Ljava/lang/Number;->longValue()J</span>
+<span class="cov">	move-result-wide v2</span>
+<span class="cov">	move-object v4, v7</span>
+<span class="cov">	move-object/from16 v16, v6</span>
+<span class="cov">	move-wide v6, v2</span>
+<span class="cov">	move-object v2, v5</span>
+<span class="cov">	move-object/from16 v3, v16</span>
+<span class="cov">	move v5, v8</span>
+<span class="">	goto :goto_1</span>
+<span class="cov">	:cond_6</span>
+<span class="cov">	const-string v4, "repeatCount"</span>
+<span class="exec">	invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="cov">	if-eqz v4, :cond_7</span>
+<span class="cov">	check-cast v3, Ljava/lang/Number;</span>
+<span class="exec">	invoke-virtual {v3}, Ljava/lang/Number;->intValue()I</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	move-object v3, v6</span>
+<span class="cov">	move-object v4, v7</span>
+<span class="cov">	move-wide v6, v9</span>
+<span class="cov">	move/from16 v16, v2</span>
+<span class="cov">	move-object v2, v5</span>
+<span class="cov">	move/from16 v5, v16</span>
+<span class="">	goto :goto_1</span>
+<span class="cov">	:cond_7</span>
+<span class="cov">	instance-of v4, v3, [F</span>
+<span class="cov">	if-eqz v4, :cond_8</span>
+<span class="cov">	const/4 v4, 0x2</span>
+<span class="cov">	new-array v13, v4, [F</span>
+<span class="cov">	const/4 v14, 0x0</span>
+<span class="cov">	move-object v4, v3</span>
+<span class="cov">	check-cast v4, [F</span>
+<span class="cov">	check-cast v4, [F</span>
+<span class="cov">	const/4 v15, 0x0</span>
+<span class="cov">	aget v4, v4, v15</span>
+<span class="cov">	aput v4, v13, v14</span>
+<span class="cov">	const/4 v4, 0x1</span>
+<span class="cov">	check-cast v3, [F</span>
+<span class="cov">	check-cast v3, [F</span>
+<span class="cov">	const/4 v14, 0x1</span>
+<span class="cov">	aget v3, v3, v14</span>
+<span class="cov">	aput v3, v13, v4</span>
+<span class="exec">	invoke-static {v2, v13}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	invoke-virtual {v12, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-object v2, v5</span>
+<span class="cov">	move-object v3, v6</span>
+<span class="cov">	move-object v4, v7</span>
+<span class="cov">	move v5, v8</span>
+<span class="cov">	move-wide v6, v9</span>
+<span class="">	goto/16 :goto_1</span>
+<span class="cov">	:cond_8</span>
+<span class="cov">	instance-of v4, v3, Ljava/lang/Number;</span>
+<span class="cov">	if-eqz v4, :cond_9</span>
+<span class="cov">	check-cast v3, Ljava/lang/Number;</span>
+<span class="exec">	invoke-virtual {v3}, Ljava/lang/Number;->floatValue()F</span>
+<span class="cov">	move-result v3</span>
+<span class="cov">	const/4 v4, 0x1</span>
+<span class="cov">	new-array v4, v4, [F</span>
+<span class="cov">	const/4 v13, 0x0</span>
+<span class="cov">	aput v3, v4, v13</span>
+<span class="exec">	invoke-static {v2, v4}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	invoke-virtual {v12, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="cov">	move-object v2, v5</span>
+<span class="cov">	move-object v3, v6</span>
+<span class="cov">	move-object v4, v7</span>
+<span class="cov">	move v5, v8</span>
+<span class="cov">	move-wide v6, v9</span>
+<span class="">	goto/16 :goto_1</span>
+<span class="">	:cond_9</span>
+<span class="">	new-instance v4, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	new-instance v5, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v6, "Bad argument for key \""</span>
+<span class="">	invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v5, "\" with value "</span>
+<span class="">	invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v4, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v4</span>
+<span class="cov">	:cond_a</span>
+<span class="cov">	sget-object v2, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="cov">	move-object/from16 v0, p0</span>
+<span class="exec">	invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	check-cast v2, Lcom/dm/hz/lockscreen/view/Tweener;</span>
+<span class="cov">	if-nez v2, :cond_e</span>
+<span class="exec">	invoke-virtual {v12}, Ljava/util/ArrayList;->size()I</span>
+<span class="cov">	move-result v2</span>
+<span class="cov">	new-array v2, v2, [Landroid/animation/PropertyValuesHolder;</span>
+<span class="exec">	invoke-virtual {v12, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	check-cast v2, [Landroid/animation/PropertyValuesHolder;</span>
+<span class="cov">	move-object/from16 v0, p0</span>
+<span class="exec">	invoke-static {v0, v2}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;</span>
+<span class="cov">	move-result-object v2</span>
+<span class="cov">	new-instance v3, Lcom/dm/hz/lockscreen/view/Tweener;</span>
+<span class="cov">	invoke-direct {v3, v2}, Lcom/dm/hz/lockscreen/view/Tweener;-><init>(Landroid/animation/ObjectAnimator;)V</span>
+<span class="cov">	sget-object v4, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="cov">	move-object/from16 v0, p0</span>
+<span class="cov">	invoke-virtual {v4, v0, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	:goto_2</span>
+<span class="">	if-eqz v5, :cond_b</span>
+<span class="">	invoke-virtual {v2, v5}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V</span>
+<span class="cov">	:cond_b</span>
+<span class="cov">	invoke-virtual {v2, v9, v10}, Landroid/animation/ObjectAnimator;->setStartDelay(J)V</span>
+<span class="cov">	move-wide/from16 v0, p1</span>
+<span class="cov">	invoke-virtual {v2, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;</span>
+<span class="cov">	invoke-virtual {v2, v8}, Landroid/animation/ObjectAnimator;->setRepeatCount(I)V</span>
+<span class="cov">	if-eqz v7, :cond_c</span>
+<span class="cov">	invoke-virtual {v2}, Landroid/animation/ObjectAnimator;->removeAllUpdateListeners()V</span>
+<span class="cov">	invoke-virtual {v2, v7}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V</span>
+<span class="cov">	:cond_c</span>
+<span class="cov">	if-eqz v6, :cond_d</span>
+<span class="cov">	invoke-virtual {v2}, Landroid/animation/ObjectAnimator;->removeAllListeners()V</span>
+<span class="cov">	invoke-virtual {v2, v6}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V</span>
+<span class="cov">	:cond_d</span>
+<span class="cov">	sget-object v4, Lcom/dm/hz/lockscreen/view/Tweener;->mCleanupListener:Landroid/animation/Animator$AnimatorListener;</span>
+<span class="cov">	invoke-virtual {v2, v4}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V</span>
+<span class="cov">	invoke-virtual {v2}, Landroid/animation/ObjectAnimator;->start()V</span>
+<span class="exec">	return-object v3</span>
+<span class="cov">	:cond_e</span>
+<span class="cov">	sget-object v3, Lcom/dm/hz/lockscreen/view/Tweener;->sTweens:Ljava/util/HashMap;</span>
+<span class="cov">	move-object/from16 v0, p0</span>
+<span class="exec">	invoke-virtual {v3, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="cov">	move-result-object v3</span>
+<span class="cov">	check-cast v3, Lcom/dm/hz/lockscreen/view/Tweener;</span>
+<span class="cov">	iget-object v3, v3, Lcom/dm/hz/lockscreen/view/Tweener;->mObjectAnimator:Landroid/animation/ObjectAnimator;</span>
+<span class="cov">	const/4 v4, 0x1</span>
+<span class="cov">	new-array v4, v4, [Ljava/lang/Object;</span>
+<span class="cov">	const/4 v11, 0x0</span>
+<span class="cov">	aput-object p0, v4, v11</span>
+<span class="cov">	invoke-static {v12, v4}, Lcom/dm/hz/lockscreen/view/Tweener;->replace(Ljava/util/ArrayList;[Ljava/lang/Object;)V</span>
+<span class="cov">	move-object/from16 v16, v3</span>
+<span class="cov">	move-object v3, v2</span>
+<span class="cov">	move-object/from16 v2, v16</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method varargs from(Ljava/lang/Object;J[Ljava/lang/Object;)Lcom/dm/hz/lockscreen/view/Tweener;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {p1, p2, p3, p4}, Lcom/dm/hz/lockscreen/view/Tweener;->to(Ljava/lang/Object;J[Ljava/lang/Object;)Lcom/dm/hz/lockscreen/view/Tweener;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

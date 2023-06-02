@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.balance.ui.a</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/balance/ui/a/c;
+.super Lcom/a/a/a/c;
+.source "SourceFile"
+.implements Landroid/view/View$OnClickListener;
+
+
+.field private a:Landroid/view/View;
+.field private m:Landroid/widget/ListView;
+.field private n:Ljava/util/List;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/List",
+"<",
+"Lcom/dm/hz/a/a/b;",
+">;"
+}
+.end annotation
+.end field
+.field private o:Lcom/dm/hz/view/ProgressNumberTextView;
+.field private p:Lcom/dm/hz/view/ProgressNumberTextView;
+.field private q:Lcom/dm/hz/balance/a/a;
+.field private r:Lcom/dm/hz/view/LoadingView;
+
+
+<span class="cov">.method public constructor &lt;init&gt;()V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-direct {p0}, Lcom/a/a/a/c;-><init>()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method static synthetic a(Lcom/dm/hz/balance/ui/a/c;)Lcom/dm/hz/view/LoadingView;</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->r:Lcom/dm/hz/view/LoadingView;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+.method static synthetic a(Lcom/dm/hz/balance/ui/a/c;I)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/dm/hz/balance/ui/a/c;->b(I)V</span>
+.end method
+
+<span class="cov">.method static synthetic a(Lcom/dm/hz/balance/ui/a/c;Ljava/lang/String;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-virtual {p0, p1}, Lcom/dm/hz/balance/ui/a/c;->b(Ljava/lang/String;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method static synthetic b(Lcom/dm/hz/balance/ui/a/c;)Lcom/dm/hz/view/ProgressNumberTextView;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->o:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+.end method
+
+.method static synthetic c(Lcom/dm/hz/balance/ui/a/c;)Lcom/dm/hz/view/ProgressNumberTextView;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->p:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+.end method
+
+.method static synthetic d(Lcom/dm/hz/balance/ui/a/c;)Ljava/util/List;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->n:Ljava/util/List;</span>
+.end method
+
+.method static synthetic e(Lcom/dm/hz/balance/ui/a/c;)Lcom/dm/hz/balance/a/a;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->q:Lcom/dm/hz/balance/a/a;</span>
+.end method
+
+<span class="cov">.method protected a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	const v0, 0x7f03000a</span>
+<span class="cov">	const/4 v1, 0x0</span>
+<span class="exec">	invoke-virtual {p1, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->a:Landroid/view/View;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->a:Landroid/view/View;</span>
+<span class="exec">	return-object v0</span>
+.end method
+
+<span class="cov">.method protected a()V</span>
+<span class="">	.locals 3</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a001c</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->o:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a001d</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->p:Lcom/dm/hz/view/ProgressNumberTextView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a001e</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Landroid/widget/ListView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->m:Landroid/widget/ListView;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->a:Landroid/view/View;</span>
+<span class="cov">	const v1, 0x7f0a001f</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	check-cast v0, Lcom/dm/hz/view/LoadingView;</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->r:Lcom/dm/hz/view/LoadingView;</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/balance/a/a;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/balance/ui/a/c;->i:Landroid/app/Activity;</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/balance/ui/a/c;->n:Ljava/util/List;</span>
+<span class="cov">	invoke-direct {v0, v1, v2}, Lcom/dm/hz/balance/a/a;-><init>(Landroid/app/Activity;Ljava/util/List;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->q:Lcom/dm/hz/balance/a/a;</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->m:Landroid/widget/ListView;</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/balance/ui/a/c;->q:Lcom/dm/hz/balance/a/a;</span>
+<span class="cov">	invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected b()V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="cov">	invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->n:Ljava/util/List;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method protected c()V</span>
+<span class="">	.locals 2</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->r:Lcom/dm/hz/view/LoadingView;</span>
+<span class="cov">	invoke-virtual {v0}, Lcom/dm/hz/view/LoadingView;->a()V</span>
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/balance/ui/a/c;->i:Landroid/app/Activity;</span>
+<span class="exec">	invoke-static {v0}, Lcom/dm/hz/d/d;->a(Landroid/content/Context;)Lcom/dm/hz/d/d;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	new-instance v1, Lcom/dm/hz/balance/ui/a/d;</span>
+<span class="cov">	invoke-direct {v1, p0}, Lcom/dm/hz/balance/ui/a/d;-><init>(Lcom/dm/hz/balance/ui/a/c;)V</span>
+<span class="cov">	invoke-virtual {v0, v1}, Lcom/dm/hz/d/d;->e(Lcom/dm/hz/d/c;)V</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public onClick(Landroid/view/View;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Lcom/a/a/b/g;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/view/View;->getId()I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../../.resources/report.js"></script>
+</body>
+</html>

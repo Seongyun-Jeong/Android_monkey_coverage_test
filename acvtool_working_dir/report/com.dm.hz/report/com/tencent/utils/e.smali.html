@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.utils</a></li>
+        <li><i class="ico ico-class"></i> e.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/tencent/utils/e;
+.super Ljava/lang/Thread;
+.source "SourceFile"
+
+
+.field final synthetic a:Landroid/content/Context;
+.field final synthetic b:Landroid/os/Bundle;
+
+
+.method constructor <init>(Landroid/content/Context;Landroid/os/Bundle;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/utils/e;->a:Landroid/content/Context;</span>
+<span class="">	iput-object p2, p0, Lcom/tencent/utils/e;->b:Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Thread;-><init>()V</span>
+.end method
+
+.method public run()V
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/utils/e;->a:Landroid/content/Context;</span>
+<span class="">	const-string v1, "http://cgi.qplus.com/report/report"</span>
+<span class="">	const-string v2, "GET"</span>
+<span class="">	iget-object v3, p0, Lcom/tencent/utils/e;->b:Landroid/os/Bundle;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/tencent/utils/HttpUtils;->openUrl2(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Lcom/tencent/utils/Util$Statistic;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

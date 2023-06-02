@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool.toolbox</a></li>
+        <li><i class="ico ico-class"></i> n.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/ykt/networktool/toolbox/n;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcn/ykt/networktool/toolbox/n$a;,
+Lcn/ykt/networktool/toolbox/n$b;,
+Lcn/ykt/networktool/toolbox/n$c;,
+Lcn/ykt/networktool/toolbox/n$d;
+}
+.end annotation
+
+.field private final a:Lcn/ykt/networktool/o;
+.field private b:I
+.field private final c:Lcn/ykt/networktool/toolbox/n$b;
+.field private final d:Ljava/util/HashMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/HashMap",
+"<",
+"Ljava/lang/String;",
+"Lcn/ykt/networktool/toolbox/n$a;",
+">;"
+}
+.end annotation
+.end field
+.field private final e:Ljava/util/HashMap;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/HashMap",
+"<",
+"Ljava/lang/String;",
+"Lcn/ykt/networktool/toolbox/n$a;",
+">;"
+}
+.end annotation
+.end field
+.field private final f:Landroid/os/Handler;
+.field private g:Ljava/lang/Runnable;
+
+
+.method public constructor <init>(Lcn/ykt/networktool/o;Lcn/ykt/networktool/toolbox/n$b;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/16 v0, 0x64</span>
+<span class="">	iput v0, p0, Lcn/ykt/networktool/toolbox/n;->b:I</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcn/ykt/networktool/toolbox/n;->d:Ljava/util/HashMap;</span>
+<span class="">	new-instance v0, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcn/ykt/networktool/toolbox/n;->e:Ljava/util/HashMap;</span>
+<span class="">	new-instance v0, Landroid/os/Handler;</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V</span>
+<span class="">	iput-object v0, p0, Lcn/ykt/networktool/toolbox/n;->f:Landroid/os/Handler;</span>
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/toolbox/n;->a:Lcn/ykt/networktool/o;</span>
+<span class="">	iput-object p2, p0, Lcn/ykt/networktool/toolbox/n;->c:Lcn/ykt/networktool/toolbox/n$b;</span>
+.end method
+
+.method public static a(Landroid/widget/ImageView;II)Lcn/ykt/networktool/toolbox/n$d;
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcn/ykt/networktool/toolbox/o;</span>
+<span class="">	invoke-direct {v0, p2, p0, p1}, Lcn/ykt/networktool/toolbox/o;-><init>(ILandroid/widget/ImageView;I)V</span>
+.end method
+
+.method static synthetic a(Lcn/ykt/networktool/toolbox/n;)Ljava/util/HashMap;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->d:Ljava/util/HashMap;</span>
+.end method
+
+.method private a()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eq v0, v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalStateException;</span>
+<span class="">	const-string v1, "ImageLoader must be invoked from the main thread."</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method static synthetic a(Lcn/ykt/networktool/toolbox/n;Ljava/lang/Runnable;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/toolbox/n;->g:Ljava/lang/Runnable;</span>
+.end method
+
+.method static synthetic a(Lcn/ykt/networktool/toolbox/n;Ljava/lang/String;Landroid/graphics/Bitmap;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcn/ykt/networktool/toolbox/n;->a(Ljava/lang/String;Landroid/graphics/Bitmap;)V</span>
+.end method
+
+.method static synthetic a(Lcn/ykt/networktool/toolbox/n;Ljava/lang/String;Lcn/ykt/networktool/v;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcn/ykt/networktool/toolbox/n;->a(Ljava/lang/String;Lcn/ykt/networktool/v;)V</span>
+.end method
+
+.method private a(Ljava/lang/String;Landroid/graphics/Bitmap;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->c:Lcn/ykt/networktool/toolbox/n$b;</span>
+<span class="">	invoke-interface {v0, p1, p2}, Lcn/ykt/networktool/toolbox/n$b;->b(Ljava/lang/String;Landroid/graphics/Bitmap;)V</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcn/ykt/networktool/toolbox/n$a;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {v0, p2}, Lcn/ykt/networktool/toolbox/n$a;->a(Lcn/ykt/networktool/toolbox/n$a;Landroid/graphics/Bitmap;)V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0, p1, v0, v1}, Lcn/ykt/networktool/toolbox/n;->a(Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$a;Lcn/ykt/networktool/v;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private a(Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$a;Lcn/ykt/networktool/v;)V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->e:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->g:Ljava/lang/Runnable;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcn/ykt/networktool/toolbox/r;</span>
+<span class="">	invoke-direct {v0, p0, p3}, Lcn/ykt/networktool/toolbox/r;-><init>(Lcn/ykt/networktool/toolbox/n;Lcn/ykt/networktool/v;)V</span>
+<span class="">	iput-object v0, p0, Lcn/ykt/networktool/toolbox/n;->g:Ljava/lang/Runnable;</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->f:Landroid/os/Handler;</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/n;->g:Ljava/lang/Runnable;</span>
+<span class="">	iget v2, p0, Lcn/ykt/networktool/toolbox/n;->b:I</span>
+<span class="">	int-to-long v2, v2</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private a(Ljava/lang/String;Lcn/ykt/networktool/v;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcn/ykt/networktool/toolbox/n$a;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-direct {p0, p1, v0, p2}, Lcn/ykt/networktool/toolbox/n;->a(Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$a;Lcn/ykt/networktool/v;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private static b(Ljava/lang/String;II)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v1</span>
+<span class="">	add-int/lit8 v1, v1, 0xc</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V</span>
+<span class="">	const-string v1, "#W"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "#H"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static synthetic b(Lcn/ykt/networktool/toolbox/n;)Ljava/util/HashMap;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/n;->e:Ljava/util/HashMap;</span>
+.end method
+
+.method public a(Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$d;)Lcn/ykt/networktool/toolbox/n$c;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, p1, p2, v0, v0}, Lcn/ykt/networktool/toolbox/n;->a(Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$d;II)Lcn/ykt/networktool/toolbox/n$c;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public a(Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$d;II)Lcn/ykt/networktool/toolbox/n$c;
+<span class="">	.locals 14</span>
+
+<span class="">	invoke-direct {p0}, Lcn/ykt/networktool/toolbox/n;->a()V</span>
+<span class="">	move/from16 v0, p3</span>
+<span class="">	move/from16 v1, p4</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcn/ykt/networktool/toolbox/n;->b(Ljava/lang/String;II)Ljava/lang/String;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	iget-object v2, p0, Lcn/ykt/networktool/toolbox/n;->c:Lcn/ykt/networktool/toolbox/n$b;</span>
+<span class="">	invoke-interface {v2, v6}, Lcn/ykt/networktool/toolbox/n$b;->a(Ljava/lang/String;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	if-eqz v4, :cond_0</span>
+<span class="">	new-instance v2, Lcn/ykt/networktool/toolbox/n$c;</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	const/4 v7, 0x0</span>
+<span class="">	move-object v3, p0</span>
+<span class="">	move-object v5, p1</span>
+<span class="">	invoke-direct/range {v2 .. v7}, Lcn/ykt/networktool/toolbox/n$c;-><init>(Lcn/ykt/networktool/toolbox/n;Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$d;)V</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	move-object/from16 v0, p2</span>
+<span class="">	invoke-interface {v0, v2, v3}, Lcn/ykt/networktool/toolbox/n$d;->a(Lcn/ykt/networktool/toolbox/n$c;Z)V</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v2, Lcn/ykt/networktool/toolbox/n$c;</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	move-object v3, p0</span>
+<span class="">	move-object v5, p1</span>
+<span class="">	move-object/from16 v7, p2</span>
+<span class="">	invoke-direct/range {v2 .. v7}, Lcn/ykt/networktool/toolbox/n$c;-><init>(Lcn/ykt/networktool/toolbox/n;Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Lcn/ykt/networktool/toolbox/n$d;)V</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	move-object/from16 v0, p2</span>
+<span class="">	invoke-interface {v0, v2, v3}, Lcn/ykt/networktool/toolbox/n$d;->a(Lcn/ykt/networktool/toolbox/n$c;Z)V</span>
+<span class="">	iget-object v3, p0, Lcn/ykt/networktool/toolbox/n;->d:Ljava/util/HashMap;</span>
+<span class="">	invoke-virtual {v3, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	check-cast v3, Lcn/ykt/networktool/toolbox/n$a;</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	invoke-virtual {v3, v2}, Lcn/ykt/networktool/toolbox/n$a;->a(Lcn/ykt/networktool/toolbox/n$c;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v7, Lcn/ykt/networktool/toolbox/s;</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v9, Lcn/ykt/networktool/toolbox/p;</span>
+<span class="">	invoke-direct {v9, p0, v6}, Lcn/ykt/networktool/toolbox/p;-><init>(Lcn/ykt/networktool/toolbox/n;Ljava/lang/String;)V</span>
+<span class="">	sget-object v12, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;</span>
+<span class="">	new-instance v13, Lcn/ykt/networktool/toolbox/q;</span>
+<span class="">	invoke-direct {v13, p0, v6}, Lcn/ykt/networktool/toolbox/q;-><init>(Lcn/ykt/networktool/toolbox/n;Ljava/lang/String;)V</span>
+<span class="">	move-object v8, p1</span>
+<span class="">	move/from16 v10, p3</span>
+<span class="">	move/from16 v11, p4</span>
+<span class="">	invoke-direct/range {v7 .. v13}, Lcn/ykt/networktool/toolbox/s;-><init>(Ljava/lang/String;Lcn/ykt/networktool/q$b;IILandroid/graphics/Bitmap$Config;Lcn/ykt/networktool/q$a;)V</span>
+<span class="">	iget-object v3, p0, Lcn/ykt/networktool/toolbox/n;->a:Lcn/ykt/networktool/o;</span>
+<span class="">	invoke-virtual {v3, v7}, Lcn/ykt/networktool/o;->a(Lcn/ykt/networktool/n;)Lcn/ykt/networktool/n;</span>
+<span class="">	iget-object v3, p0, Lcn/ykt/networktool/toolbox/n;->d:Ljava/util/HashMap;</span>
+<span class="">	new-instance v4, Lcn/ykt/networktool/toolbox/n$a;</span>
+<span class="">	invoke-direct {v4, p0, v7, v2}, Lcn/ykt/networktool/toolbox/n$a;-><init>(Lcn/ykt/networktool/toolbox/n;Lcn/ykt/networktool/n;Lcn/ykt/networktool/toolbox/n$c;)V</span>
+<span class="">	invoke-virtual {v3, v6, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcn/ykt/networktool/toolbox/n;->b:I</span>
+.end method
+
+.method public a(Ljava/lang/String;II)Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Lcn/ykt/networktool/toolbox/n;->a()V</span>
+<span class="">	invoke-static {p1, p2, p3}, Lcn/ykt/networktool/toolbox/n;->b(Ljava/lang/String;II)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/n;->c:Lcn/ykt/networktool/toolbox/n$b;</span>
+<span class="">	invoke-interface {v1, v0}, Lcn/ykt/networktool/toolbox/n$b;->a(Ljava/lang/String;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

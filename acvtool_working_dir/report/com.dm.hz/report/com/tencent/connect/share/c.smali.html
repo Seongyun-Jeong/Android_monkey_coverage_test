@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.connect.share</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class  Lcom/tencent/connect/share/c;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/tencent/utils/AsynLoadImgBack;
+
+
+.field final synthetic a:Landroid/os/Bundle;
+.field final synthetic b:Ljava/lang/String;
+.field final synthetic c:Ljava/lang/String;
+.field final synthetic d:Lcom/tencent/tauth/IUiListener;
+.field final synthetic e:Landroid/app/Activity;
+.field final synthetic f:Lcom/tencent/connect/share/QQShare;
+
+
+.method constructor <init>(Lcom/tencent/connect/share/QQShare;Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;Lcom/tencent/tauth/IUiListener;Landroid/app/Activity;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/connect/share/c;->f:Lcom/tencent/connect/share/QQShare;</span>
+<span class="">	iput-object p2, p0, Lcom/tencent/connect/share/c;->a:Landroid/os/Bundle;</span>
+<span class="">	iput-object p3, p0, Lcom/tencent/connect/share/c;->b:Ljava/lang/String;</span>
+<span class="">	iput-object p4, p0, Lcom/tencent/connect/share/c;->c:Ljava/lang/String;</span>
+<span class="">	iput-object p5, p0, Lcom/tencent/connect/share/c;->d:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	iput-object p6, p0, Lcom/tencent/connect/share/c;->e:Landroid/app/Activity;</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public batchSaved(ILjava/util/ArrayList;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(I",</span>
+<span class="">	"Ljava/util/ArrayList",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+.method public saved(ILjava/lang/String;)V
+<span class="">	.locals 5</span>
+
+<span class="">	if-nez p1, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/share/c;->a:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "imageLocalUrl"</span>
+<span class="">	invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/share/c;->f:Lcom/tencent/connect/share/QQShare;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/connect/share/c;->e:Landroid/app/Activity;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/connect/share/c;->a:Landroid/os/Bundle;</span>
+<span class="">	iget-object v3, p0, Lcom/tencent/connect/share/c;->d:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Lcom/tencent/connect/share/QQShare;->a(Lcom/tencent/connect/share/QQShare;Landroid/app/Activity;Landroid/os/Bundle;Lcom/tencent/tauth/IUiListener;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/share/c;->b:Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/share/c;->c:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/share/c;->d:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/connect/share/c;->d:Lcom/tencent/tauth/IUiListener;</span>
+<span class="">	new-instance v1, Lcom/tencent/tauth/UiError;</span>
+<span class="">	const/4 v2, -0x6</span>
+<span class="">	const-string v3, "\u83b7\u53d6\u5206\u4eab\u56fe\u7247\u5931\u8d25!"</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-direct {v1, v2, v3, v4}, Lcom/tencent/tauth/UiError;-><init>(ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {v0, v1}, Lcom/tencent/tauth/IUiListener;->onError(Lcom/tencent/tauth/UiError;)V</span>
+<span class="">	const-string v0, "shareToQQ"</span>
+<span class="">	const-string v1, "\u83b7\u53d6\u5206\u4eab\u56fe\u7247\u5931\u8d25!"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/b/a/g;->a(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

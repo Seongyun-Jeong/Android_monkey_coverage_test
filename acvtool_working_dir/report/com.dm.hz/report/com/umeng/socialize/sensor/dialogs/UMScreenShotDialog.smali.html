@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.sensor.dialogs</a></li>
+        <li><i class="ico ico-class"></i> UMScreenShotDialog.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;
+.super Landroid/app/Dialog;
+.source "SourceFile"
+
+
+.field private static a:Ljava/lang/String;
+.field private b:Landroid/widget/ImageView;
+.field private c:I
+.field private d:Landroid/os/Handler;
+.field private e:Landroid/content/Context;
+.field private volatile f:Z
+.field private g:Ljava/lang/Runnable;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->a:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/common/b$a;->d:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v1, "scrshot_dlg_style"</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-direct {p0, p1, v0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;-><init>(Landroid/content/Context;I)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;I)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->b:Landroid/widget/ImageView;</span>
+<span class="">	const/16 v0, 0x3e8</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->c:I</span>
+<span class="">	new-instance v0, Landroid/os/Handler;</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Handler;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->d:Landroid/os/Handler;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f:Z</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog$1;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog$1;-><init>(Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->g:Ljava/lang/Runnable;</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->d()V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f:Z</span>
+.end method
+
+.method static synthetic c()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->a:Ljava/lang/String;</span>
+.end method
+
+.method private d()V
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->a:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "shake_umeng_socialize_scrshot_snapshot"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->setContentView(I)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "screen_snapshot_imageview"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/ImageView;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->b:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->getWindow()Landroid/view/Window;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->d:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "snapshotDialogWindowAnim"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/Window;->setWindowAnimations(I)V</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->setCancelable(Z)V</span>
+<span class="">	invoke-virtual {p0, v4}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->setCanceledOnTouchOutside(Z)V</span>
+.end method
+
+.method private e()Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f()V</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	instance-of v0, v0, Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	check-cast v0, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f()V</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private f()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->d:Landroid/os/Handler;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->g:Ljava/lang/Runnable;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f:Z</span>
+.end method
+
+.method public a()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->c:I</span>
+.end method
+
+.method public a(I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->getWindow()Landroid/view/Window;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p1}, Landroid/view/Window;->setWindowAnimations(I)V</span>
+.end method
+
+.method public a(Landroid/graphics/Bitmap;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->b:Landroid/widget/ImageView;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->b:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 8</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->getWindow()Landroid/view/Window;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v1, 0x33</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/Window;->setGravity(I)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->a:Ljava/lang/String;</span>
+<span class="">	const-string v1, "mContext \u4e3a\u7a7a, \u4e0d\u80fd\u8bbe\u7f6e\u7a97\u53e3\u53c2\u6570."</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->getWindow()Landroid/view/Window;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Landroid/view/Window;->getWindowManager()Landroid/view/WindowManager;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Landroid/view/Display;->getWidth()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {v1}, Landroid/view/Display;->getHeight()I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->getWindow()Landroid/view/Window;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget v4, v4, Landroid/content/res/Configuration;->orientation:I</span>
+<span class="">	const/4 v5, 0x2</span>
+<span class="">	if-ne v4, v5, :cond_3</span>
+<span class="">	div-int/lit8 v4, v2, 0x5</span>
+<span class="">	iput v4, v3, Landroid/view/WindowManager$LayoutParams;->x:I</span>
+<span class="">	div-int/lit8 v4, v1, 0xa</span>
+<span class="">	iput v4, v3, Landroid/view/WindowManager$LayoutParams;->y:I</span>
+<span class="">	int-to-double v4, v2</span>
+<span class="">	const-wide v6, 0x3fe3333333333333L    # 0.6</span>
+<span class="">	mul-double/2addr v4, v6</span>
+<span class="">	double-to-int v2, v4</span>
+<span class="">	iput v2, v3, Landroid/view/WindowManager$LayoutParams;->width:I</span>
+<span class="">	int-to-double v1, v1</span>
+<span class="">	const-wide v4, 0x3fe999999999999aL    # 0.8</span>
+<span class="">	mul-double/2addr v1, v4</span>
+<span class="">	double-to-int v1, v1</span>
+<span class="">	iput v1, v3, Landroid/view/WindowManager$LayoutParams;->height:I</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	iget v4, v4, Landroid/content/res/Configuration;->orientation:I</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	if-ne v4, v5, :cond_2</span>
+<span class="">	div-int/lit8 v4, v2, 0x14</span>
+<span class="">	iput v4, v3, Landroid/view/WindowManager$LayoutParams;->x:I</span>
+<span class="">	div-int/lit8 v4, v1, 0x5</span>
+<span class="">	iput v4, v3, Landroid/view/WindowManager$LayoutParams;->y:I</span>
+<span class="">	int-to-double v4, v2</span>
+<span class="">	const-wide v6, 0x3feccccccccccccdL    # 0.9</span>
+<span class="">	mul-double/2addr v4, v6</span>
+<span class="">	double-to-int v2, v4</span>
+<span class="">	iput v2, v3, Landroid/view/WindowManager$LayoutParams;->width:I</span>
+<span class="">	int-to-double v1, v1</span>
+<span class="">	const-wide/high16 v4, 0x3fe0000000000000L    # 0.5</span>
+<span class="">	mul-double/2addr v1, v4</span>
+<span class="">	double-to-int v1, v1</span>
+<span class="">	iput v1, v3, Landroid/view/WindowManager$LayoutParams;->height:I</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public b(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->c:I</span>
+.end method
+
+.method public dismiss()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->dismiss()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f:Z</span>
+.end method
+
+.method public onAttachedToWindow()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->a:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### onAttachedToWindow ==> \u4e0d\u80fd\u663e\u793aScreenShotDialog"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->onAttachedToWindow()V</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onDetachedFromWindow()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->a:Ljava/lang/String;</span>
+<span class="">	const-string v1, "####onDetachedFromWindow"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->d:Landroid/os/Handler;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->g:Ljava/lang/Runnable;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f:Z</span>
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->onDetachedFromWindow()V</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e:Landroid/content/Context;</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->d:Landroid/os/Handler;</span>
+<span class="">	iput-object v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->b:Landroid/widget/ImageView;</span>
+.end method
+
+.method public show()V
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->e()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->a:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### \u4e0d\u80fd\u663e\u793aScreenShotDialog"</span>
+<span class="">	invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->b()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-super {p0}, Landroid/app/Dialog;->show()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->f:Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->d:Landroid/os/Handler;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->g:Ljava/lang/Runnable;</span>
+<span class="">	iget v2, p0, Lcom/umeng/socialize/sensor/dialogs/UMScreenShotDialog;->c:I</span>
+<span class="">	int-to-long v2, v2</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

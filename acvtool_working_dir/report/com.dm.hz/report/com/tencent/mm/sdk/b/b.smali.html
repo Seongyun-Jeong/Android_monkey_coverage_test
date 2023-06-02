@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.mm.sdk.b</a></li>
+        <li><i class="ico ico-class"></i> b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class final Lcom/tencent/mm/sdk/b/b;
+.super Ljava/lang/Object;
+.implements Lcom/tencent/mm/sdk/b/a$a;
+
+
+
+
+<span class="cov">.method constructor &lt;init&gt;()V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method public final b()I</span>
+<span class="">	.locals 1</span>
+
+<span class="exec">	invoke-static {}, Lcom/tencent/mm/sdk/b/a;->a()I</span>
+<span class="cov">	move-result v0</span>
+<span class="exec">	return v0</span>
+.end method
+
+.method public final d(Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/mm/sdk/b/a;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	if-gt v0, v1, :cond_0</span>
+<span class="">	invoke-static {p1, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public final e(Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/mm/sdk/b/a;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	if-gt v0, v1, :cond_0</span>
+<span class="">	invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public final f(Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/tencent/mm/sdk/b/a;->a()I</span>
+<span class="">	move-result v0</span>
+<span class="">	const/4 v1, 0x4</span>
+<span class="">	if-gt v0, v1, :cond_0</span>
+<span class="">	invoke-static {p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

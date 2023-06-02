@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.utils</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/utils/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/utils/a$a;
+}
+.end annotation
+
+.field public static final a:Ljava/lang/String; = "umeng_cache"
+.field public static b:Ljava/lang/String; = null
+.field public static final c:I = 0x300000
+.field private static final d:Ljava/lang/String;
+.field private static final e:I = 0x100000
+.field private static final f:I = 0x28
+.field private static final g:I = 0xa
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "/mnt/sdcard/"</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/utils/a;->b:Ljava/lang/String;</span>
+<span class="">	const-class v0, Lcom/umeng/socialize/utils/a;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/utils/a;->d:Ljava/lang/String;</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/utils/a;->a()V</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a(Ljava/lang/String;II)Landroid/graphics/Bitmap;
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->d(Ljava/lang/String;)Ljava/io/InputStream;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0, p1, p2}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;II)Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	:try_start_1</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v2, v1, v3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/utils/a;->a(Ljava/io/InputStream;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/utils/a;->a(Ljava/io/InputStream;)V</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/utils/a;->a(Ljava/io/InputStream;)V</span>
+<span class="">	:goto_2</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static a([B)Landroid/graphics/BitmapFactory$Options;
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v6, 0x2</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	new-instance v0, Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	invoke-direct {v0}, Landroid/graphics/BitmapFactory$Options;-><init>()V</span>
+<span class="">	iput-boolean v4, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	array-length v1, p0</span>
+<span class="">	invoke-static {p0, v5, v1, v0}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	iget v1, v0, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	sget v2, Lcom/umeng/socialize/media/UMImage;->h:I</span>
+<span class="">	div-int/2addr v1, v2</span>
+<span class="">	int-to-double v1, v1</span>
+<span class="">	invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	double-to-int v1, v1</span>
+<span class="">	iget v2, v0, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	sget v3, Lcom/umeng/socialize/media/UMImage;->i:I</span>
+<span class="">	div-int/2addr v2, v3</span>
+<span class="">	int-to-double v2, v2</span>
+<span class="">	invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D</span>
+<span class="">	move-result-wide v2</span>
+<span class="">	double-to-int v2, v2</span>
+<span class="">	if-le v2, v4, :cond_2</span>
+<span class="">	if-le v1, v4, :cond_2</span>
+<span class="">	if-le v2, v1, :cond_1</span>
+<span class="">	iput v2, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-boolean v5, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	iput v1, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-le v2, v6, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	iput v2, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-le v1, v6, :cond_0</span>
+<span class="">	:cond_3</span>
+<span class="">	iput v1, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a()V
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "mounted"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "umeng_cache"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/utils/a;->b:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/utils/a;->b:Ljava/lang/String;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->mkdir()Z</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/utils/a;->b:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/a;->e(Ljava/lang/String;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	invoke-static {}, Ljava/lang/System;->gc()V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "umeng_cache"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/utils/a;->b:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const-string v1, "BitmapUtils"</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "\u6e05\u9664\u7f13\u5b58\u629b\u51fa\u5f02\u5e38 \uff1a "</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static a(Ljava/io/InputStream;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/InputStream;->close()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/utils/a;->d:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;Landroid/graphics/Bitmap;)V
+<span class="">	.locals 4</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v1, Ljava/io/BufferedOutputStream;</span>
+<span class="">	new-instance v0, Ljava/io/FileOutputStream;</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V</span>
+<span class="">	const/16 v0, 0x64</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getRowBytes()I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v3</span>
+<span class="">	mul-int/2addr v2, v3</span>
+<span class="">	const/high16 v3, 0x300000</span>
+<span class="">	if-le v2, v3, :cond_0</span>
+<span class="">	const/16 v0, 0x50</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v2, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	invoke-virtual {p1, v2, v0, v1}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedOutputStream;->flush()V</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/BufferedOutputStream;->close()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/io/File;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;I)Z
+<span class="">	.locals 4</span>
+
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->length()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	int-to-long v2, p1</span>
+<span class="">	cmp-long v0, v0, v2</span>
+<span class="">	if-ltz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Landroid/graphics/Bitmap;)[B
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/utils/a;->d:Ljava/lang/String;</span>
+<span class="">	const-string v2, "bitmap2Bytes  ==> bitmap == null or bitmap.isRecycled()"</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v2, Ljava/io/ByteArrayOutputStream;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V</span>
+<span class="">	sget-object v1, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	const/16 v3, 0x64</span>
+<span class="">	invoke-virtual {p0, v1, v3, v2}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_1</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_start_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/utils/a;->d:Ljava/lang/String;</span>
+<span class="">	:try_start_3</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_1</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_start_4</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v2, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	if-eqz v2, :cond_3</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->close()V</span>
+<span class="">	:try_start_5</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3</span>
+<span class="">	:goto_3</span>
+<span class="">	:cond_3</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_3</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_4</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static b(Ljava/lang/String;)Landroid/graphics/Bitmap;
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->d(Ljava/lang/String;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {v1, v0, v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/utils/a;->a(Ljava/io/InputStream;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static b(Ljava/lang/String;II)Landroid/graphics/Bitmap;
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->d(Ljava/lang/String;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {p0, p1, p2}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;II)Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v0, v2}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/utils/a;->a(Ljava/io/InputStream;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static b()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-static {}, Lcom/umeng/socialize/utils/a;->a()V</span>
+.end method
+
+.method private static c()I
+<span class="">	.locals 5</span>
+
+<span class="">	new-instance v0, Landroid/os/StatFs;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/StatFs;->getAvailableBlocks()I</span>
+<span class="">	move-result v1</span>
+<span class="">	int-to-double v1, v1</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/StatFs;->getBlockSize()I</span>
+<span class="">	move-result v0</span>
+<span class="">	int-to-double v3, v0</span>
+<span class="">	mul-double v0, v1, v3</span>
+<span class="">	const-wide/high16 v2, 0x4130000000000000L    # 1048576.0</span>
+<span class="">	div-double/2addr v0, v2</span>
+<span class="">	double-to-int v0, v0</span>
+.end method
+
+.method private static c(Ljava/lang/String;II)Landroid/graphics/BitmapFactory$Options;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v5, 0x1</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->d(Ljava/lang/String;)Ljava/io/InputStream;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0}, Landroid/graphics/BitmapFactory$Options;-><init>()V</span>
+<span class="">	iput-boolean v5, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {v2, v1, v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget v1, v0, Landroid/graphics/BitmapFactory$Options;->outHeight:I</span>
+<span class="">	div-int/2addr v1, p2</span>
+<span class="">	int-to-double v3, v1</span>
+<span class="">	invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	double-to-int v1, v3</span>
+<span class="">	iget v3, v0, Landroid/graphics/BitmapFactory$Options;->outWidth:I</span>
+<span class="">	div-int/2addr v3, p1</span>
+<span class="">	int-to-double v3, v3</span>
+<span class="">	invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D</span>
+<span class="">	move-result-wide v3</span>
+<span class="">	double-to-int v3, v3</span>
+<span class="">	if-le v1, v5, :cond_1</span>
+<span class="">	if-le v3, v5, :cond_1</span>
+<span class="">	if-le v1, v3, :cond_2</span>
+<span class="">	iput v1, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-boolean v1, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/utils/a;->a(Ljava/io/InputStream;)V</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iput v3, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method public static c(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string p0, ""</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "http://"</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	const-string v0, "https://"</span>
+<span class="">	invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	:cond_2</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/utils/a;->b:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/b/b/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object p0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static d(Ljava/lang/String;)Ljava/io/InputStream;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/bean/l;->b()Lcom/umeng/socialize/bean/l;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/l;->t()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	new-instance v0, Ljava/io/FileInputStream;</span>
+<span class="">	new-instance v2, Ljava/io/File;</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/InputStream;->available()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-gtz v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v1, Ljava/net/URL;</span>
+<span class="">	invoke-direct {v1, p0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/net/URL;->openStream()Ljava/io/InputStream;</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2</span>
+<span class="">	move-result-object v1</span>
+<span class="">	:try_start_2</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/umeng/socialize/utils/a;->a(Ljava/lang/String;Landroid/graphics/Bitmap;)V</span>
+<span class="">	new-instance v0, Ljava/io/FileInputStream;</span>
+<span class="">	new-instance v2, Ljava/io/File;</span>
+<span class="">	invoke-static {p0}, Lcom/umeng/socialize/utils/a;->c(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {v0, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3</span>
+<span class="">	:cond_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V</span>
+<span class="">	:try_start_3</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	move-object v5, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	move-object v1, v5</span>
+<span class="">	const-string v2, "BitmapUtil"</span>
+<span class="">	:goto_2</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "\u8bfb\u53d6\u56fe\u7247\u6d41\u51fa\u9519"</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_3</span>
+<span class="">	move-object v5, v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	move-object v1, v5</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method private static e(Ljava/lang/String;)V
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	array-length v0, v3</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	move v2, v1</span>
+<span class="">	array-length v4, v3</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v0, v4, :cond_3</span>
+<span class="">	const/high16 v0, 0xa00000</span>
+<span class="">	if-gt v2, v0, :cond_2</span>
+<span class="">	const/16 v0, 0x28</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/utils/a;->c()I</span>
+<span class="">	move-result v2</span>
+<span class="">	if-le v0, v2, :cond_0</span>
+<span class="">	const-wide v4, 0x3fd999999999999aL    # 0.4</span>
+<span class="">	:cond_2</span>
+<span class="">	array-length v0, v3</span>
+<span class="">	int-to-double v6, v0</span>
+<span class="">	mul-double/2addr v4, v6</span>
+<span class="">	const-wide/high16 v6, 0x3ff0000000000000L    # 1.0</span>
+<span class="">	add-double/2addr v4, v6</span>
+<span class="">	double-to-int v0, v4</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/utils/a$a;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-direct {v2, v4}, Lcom/umeng/socialize/utils/a$a;-><init>(Lcom/umeng/socialize/utils/a$a;)V</span>
+<span class="">	invoke-static {v3, v2}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V</span>
+<span class="">	if-ge v1, v0, :cond_0</span>
+<span class="">	:goto_1</span>
+<span class="">	aget-object v2, v3, v1</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->delete()Z</span>
+<span class="">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	int-to-long v4, v2</span>
+<span class="">	:cond_3</span>
+<span class="">	aget-object v2, v3, v0</span>
+<span class="">	invoke-virtual {v2}, Ljava/io/File;->length()J</span>
+<span class="">	move-result-wide v6</span>
+<span class="">	add-long/2addr v4, v6</span>
+<span class="">	long-to-int v2, v4</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

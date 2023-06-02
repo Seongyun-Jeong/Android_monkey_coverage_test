@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> ProfilePictureView.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/widget/ProfilePictureView;
+.super Landroid/widget/FrameLayout;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/widget/ProfilePictureView$OnErrorListener;
+}
+.end annotation
+
+.field public static final a:Ljava/lang/String;
+.field public static final b:I = -0x1
+.field public static final c:I = -0x2
+.field public static final d:I = -0x3
+.field public static final e:I = -0x4
+.field private static final f:I = 0x1
+.field private static final g:Z = true
+.field private static final h:Ljava/lang/String; = "ProfilePictureView_superState"
+.field private static final i:Ljava/lang/String; = "ProfilePictureView_profileId"
+.field private static final j:Ljava/lang/String; = "ProfilePictureView_presetSize"
+.field private static final k:Ljava/lang/String; = "ProfilePictureView_isCropped"
+.field private static final l:Ljava/lang/String; = "ProfilePictureView_bitmap"
+.field private static final m:Ljava/lang/String; = "ProfilePictureView_width"
+.field private static final n:Ljava/lang/String; = "ProfilePictureView_height"
+.field private static final o:Ljava/lang/String; = "ProfilePictureView_refresh"
+.field private p:Ljava/lang/String;
+.field private q:I
+.field private r:I
+.field private s:Z
+.field private t:Landroid/graphics/Bitmap;
+.field private u:Landroid/widget/ImageView;
+.field private v:I
+.field private w:Lcom/facebook/internal/ImageRequest;
+.field private x:Lcom/facebook/widget/ProfilePictureView$OnErrorListener;
+.field private y:Landroid/graphics/Bitmap;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/widget/ProfilePictureView;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/facebook/widget/ProfilePictureView;->a:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->y:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/ProfilePictureView;->a(Landroid/content/Context;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->y:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/ProfilePictureView;->a(Landroid/content/Context;)V</span>
+<span class="">	invoke-direct {p0, p2}, Lcom/facebook/widget/ProfilePictureView;->a(Landroid/util/AttributeSet;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->y:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/ProfilePictureView;->a(Landroid/content/Context;)V</span>
+<span class="">	invoke-direct {p0, p2}, Lcom/facebook/widget/ProfilePictureView;->a(Landroid/util/AttributeSet;)V</span>
+.end method
+
+.method private a(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, -0x1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->removeAllViews()V</span>
+<span class="">	new-instance v0, Landroid/widget/ImageView;</span>
+<span class="">	invoke-direct {v0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->u:Landroid/widget/ImageView;</span>
+<span class="">	new-instance v0, Landroid/widget/FrameLayout$LayoutParams;</span>
+<span class="">	invoke-direct {v0, v1, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->u:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->u:Landroid/widget/ImageView;</span>
+<span class="">	sget-object v1, Landroid/widget/ImageView$ScaleType;->CENTER_INSIDE:Landroid/widget/ImageView$ScaleType;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->u:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->addView(Landroid/view/View;)V</span>
+.end method
+
+.method private a(Landroid/util/AttributeSet;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/facebook/android/R$styleable;->com_facebook_profile_picture_view:[I</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/facebook/widget/ProfilePictureView;->a(I)V</span>
+<span class="">	invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V</span>
+.end method
+
+.method private a(Lcom/facebook/internal/ImageResponse;)V
+<span class="">	.locals 5</span>
+
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->a()Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->w:Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->w:Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->c()Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->b()Ljava/lang/Exception;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->x:Lcom/facebook/widget/ProfilePictureView$OnErrorListener;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	new-instance v2, Lcom/facebook/FacebookException;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "Error in downloading profile picture for profileId: "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->c()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V</span>
+<span class="">	invoke-interface {v0, v2}, Lcom/facebook/widget/ProfilePictureView$OnErrorListener;->a(Lcom/facebook/FacebookException;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/LoggingBehavior;->a:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	:cond_1</span>
+<span class="">	const/4 v2, 0x6</span>
+<span class="">	sget-object v3, Lcom/facebook/widget/ProfilePictureView;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v2, v3, v1}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Landroid/graphics/Bitmap;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/internal/ImageResponse;->d()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->c(Z)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/ProfilePictureView;Lcom/facebook/internal/ImageResponse;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/ProfilePictureView;->a(Lcom/facebook/internal/ImageResponse;)V</span>
+.end method
+
+.method private b(Landroid/graphics/Bitmap;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->u:Landroid/widget/ImageView;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/ProfilePictureView;->t:Landroid/graphics/Bitmap;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->u:Landroid/widget/ImageView;</span>
+<span class="">	invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private b(Z)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/ProfilePictureView;->f()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget v1, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	iget v1, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/ProfilePictureView;->e()V</span>
+<span class="">	:cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->c(Z)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private c(Z)V
+<span class="">	.locals 5</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Lcom/facebook/internal/ImageRequest$Builder;</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->getContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	iget v3, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	iget v4, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	invoke-static {v2, v3, v4}, Lcom/facebook/internal/ImageRequest;->a(Ljava/lang/String;II)Ljava/net/URI;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/facebook/internal/ImageRequest$Builder;-><init>(Landroid/content/Context;Ljava/net/URI;)V</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/internal/ImageRequest$Builder;->a(Z)Lcom/facebook/internal/ImageRequest$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/facebook/internal/ImageRequest$Builder;->a(Ljava/lang/Object;)Lcom/facebook/internal/ImageRequest$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/ProfilePictureView$1;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/widget/ProfilePictureView$1;-><init>(Lcom/facebook/widget/ProfilePictureView;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/internal/ImageRequest$Builder;->a(Lcom/facebook/internal/ImageRequest$Callback;)Lcom/facebook/internal/ImageRequest$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/ImageRequest$Builder;->a()Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->w:Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->w:Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/ImageDownloader;->b(Lcom/facebook/internal/ImageRequest;)Z</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->w:Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/ImageDownloader;->a(Lcom/facebook/internal/ImageRequest;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcom/facebook/LoggingBehavior;->a:Lcom/facebook/LoggingBehavior;</span>
+<span class="">	const/4 v2, 0x6</span>
+<span class="">	sget-object v3, Lcom/facebook/widget/ProfilePictureView;->a:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Ljava/net/URISyntaxException;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v2, v3, v0}, Lcom/facebook/internal/Logger;->a(Lcom/facebook/LoggingBehavior;ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private d(Z)I
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget v1, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+<span class="">	packed-switch v1, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	sget v0, Lcom/facebook/android/R$dimen;->com_facebook_profilepictureview_preset_size_small:I</span>
+<span class="">	:pswitch_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget v0, Lcom/facebook/android/R$dimen;->com_facebook_profilepictureview_preset_size_normal:I</span>
+<span class="">	:pswitch_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget v0, Lcom/facebook/android/R$dimen;->com_facebook_profilepictureview_preset_size_large:I</span>
+<span class="">	:pswitch_2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	:pswitch_3</span>
+<span class="">	sget v0, Lcom/facebook/android/R$dimen;->com_facebook_profilepictureview_preset_size_normal:I</span>
+<span class="">	goto :goto_1</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch -0x4</span>
+<span class="">	:pswitch_2</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_3</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method private e()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->y:Landroid/graphics/Bitmap;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget v0, Lcom/facebook/android/R$drawable;->com_facebook_profile_picture_blank_square:I</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->getResources()Landroid/content/res/Resources;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Landroid/graphics/Bitmap;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	sget v0, Lcom/facebook/android/R$drawable;->com_facebook_profile_picture_blank_portrait:I</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/ProfilePictureView;->f()Z</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->y:Landroid/graphics/Bitmap;</span>
+<span class="">	iget v1, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	iget v2, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	invoke-static {v0, v1, v2, v3}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Landroid/graphics/Bitmap;)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private f()Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->getHeight()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->getWidth()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lt v0, v4, :cond_0</span>
+<span class="">	if-ge v3, v4, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0, v2}, Lcom/facebook/widget/ProfilePictureView;->d(Z)I</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_6</span>
+<span class="">	move v3, v1</span>
+<span class="">	if-gt v1, v3, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	move v0, v1</span>
+<span class="">	iget v3, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	:goto_2</span>
+<span class="">	if-ne v1, v3, :cond_5</span>
+<span class="">	iget v3, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	if-ne v0, v3, :cond_5</span>
+<span class="">	iput v1, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	:goto_3</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->b()Z</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	move v0, v3</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_4</span>
+<span class="">	move v0, v3</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_4</span>
+<span class="">	move v2, v4</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move v1, v0</span>
+<span class="">	:cond_6</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public final a()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+.end method
+
+.method public final a(I)V
+<span class="">	.locals 2</span>
+
+<span class="">	packed-switch p1, :pswitch_data_0</span>
+<span class="">	new-instance v0, Ljava/lang/IllegalArgumentException;</span>
+<span class="">	const-string v1, "Must use a predefined preset size"</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	iput p1, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->requestLayout()V</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch -0x4</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_0</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method public final a(Landroid/graphics/Bitmap;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/ProfilePictureView;->y:Landroid/graphics/Bitmap;</span>
+.end method
+
+.method public final a(Lcom/facebook/widget/ProfilePictureView$OnErrorListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/ProfilePictureView;->x:Lcom/facebook/widget/ProfilePictureView$OnErrorListener;</span>
+.end method
+
+.method public final a(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/ProfilePictureView;->e()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Z)V</span>
+.end method
+
+.method public final a(Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Z)V</span>
+.end method
+
+.method public final b()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+.end method
+
+.method public final c()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+.end method
+
+.method public final d()Lcom/facebook/widget/ProfilePictureView$OnErrorListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->x:Lcom/facebook/widget/ProfilePictureView$OnErrorListener;</span>
+.end method
+
+.method protected onDetachedFromWindow()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->w:Lcom/facebook/internal/ImageRequest;</span>
+.end method
+
+.method protected onLayout(ZIIII)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-super/range {p0 .. p5}, Landroid/widget/FrameLayout;->onLayout(ZIIII)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Z)V</span>
+.end method
+
+.method protected onMeasure(II)V
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v7, -0x2</span>
+<span class="">	const/high16 v6, 0x40000000    # 2.0f</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/ProfilePictureView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eq v5, v6, :cond_0</span>
+<span class="">	iget v5, v4, Landroid/view/ViewGroup$LayoutParams;->height:I</span>
+<span class="">	if-ne v5, v7, :cond_0</span>
+<span class="">	invoke-direct {p0, v2}, Lcom/facebook/widget/ProfilePictureView;->d(Z)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {v0, v6}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I</span>
+<span class="">	move-result p2</span>
+<span class="">	move v1, v2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eq v5, v6, :cond_2</span>
+<span class="">	iget v4, v4, Landroid/view/ViewGroup$LayoutParams;->width:I</span>
+<span class="">	if-ne v4, v7, :cond_2</span>
+<span class="">	invoke-direct {p0, v2}, Lcom/facebook/widget/ProfilePictureView;->d(Z)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {v1, v6}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I</span>
+<span class="">	move-result p1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-virtual {p0, v1, v0}, Lcom/facebook/widget/ProfilePictureView;->setMeasuredDimension(II)V</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Lcom/facebook/widget/ProfilePictureView;->measureChildren(II)V</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move v2, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	move v1, v3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-class v1, Landroid/os/Bundle;</span>
+<span class="">	if-eq v0, v1, :cond_1</span>
+<span class="">	invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onRestoreInstanceState(Landroid/os/Parcelable;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	check-cast p1, Landroid/os/Bundle;</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, "ProfilePictureView_superState"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-super {p0, v0}, Landroid/widget/FrameLayout;->onRestoreInstanceState(Landroid/os/Parcelable;)V</span>
+<span class="">	const-string v0, "ProfilePictureView_profileId"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	const-string v0, "ProfilePictureView_presetSize"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+<span class="">	const-string v0, "ProfilePictureView_isCropped"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+<span class="">	const-string v0, "ProfilePictureView_width"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	const-string v0, "ProfilePictureView_height"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	const-string v0, "ProfilePictureView_bitmap"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Landroid/graphics/Bitmap;)V</span>
+<span class="">	const-string v0, "ProfilePictureView_refresh"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/ProfilePictureView;->b(Z)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected onSaveInstanceState()Landroid/os/Parcelable;
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0}, Landroid/widget/FrameLayout;->onSaveInstanceState()Landroid/os/Parcelable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v1}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v2, "ProfilePictureView_superState"</span>
+<span class="">	invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V</span>
+<span class="">	const-string v0, "ProfilePictureView_profileId"</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/ProfilePictureView;->p:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "ProfilePictureView_presetSize"</span>
+<span class="">	iget v2, p0, Lcom/facebook/widget/ProfilePictureView;->v:I</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V</span>
+<span class="">	const-string v0, "ProfilePictureView_isCropped"</span>
+<span class="">	iget-boolean v2, p0, Lcom/facebook/widget/ProfilePictureView;->s:Z</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V</span>
+<span class="">	const-string v0, "ProfilePictureView_bitmap"</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/ProfilePictureView;->t:Landroid/graphics/Bitmap;</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V</span>
+<span class="">	const-string v0, "ProfilePictureView_width"</span>
+<span class="">	iget v2, p0, Lcom/facebook/widget/ProfilePictureView;->r:I</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V</span>
+<span class="">	const-string v0, "ProfilePictureView_height"</span>
+<span class="">	iget v2, p0, Lcom/facebook/widget/ProfilePictureView;->q:I</span>
+<span class="">	invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V</span>
+<span class="">	const-string v2, "ProfilePictureView_refresh"</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/ProfilePictureView;->w:Lcom/facebook/internal/ImageRequest;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

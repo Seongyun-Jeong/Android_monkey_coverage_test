@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool</a></li>
+        <li><i class="ico ico-class"></i> k.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/ykt/networktool/k;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field public final a:I
+.field public final b:[B
+.field public final c:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field public final d:Z
+
+
+<span class="cov">.method public constructor &lt;init&gt;(I[BLjava/util/Map;Z)V</span>
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(I[B",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;Z)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="cov">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="cov">	iput p1, p0, Lcn/ykt/networktool/k;->a:I</span>
+<span class="cov">	iput-object p2, p0, Lcn/ykt/networktool/k;->b:[B</span>
+<span class="cov">	iput-object p3, p0, Lcn/ykt/networktool/k;->c:Ljava/util/Map;</span>
+<span class="cov">	iput-boolean p4, p0, Lcn/ykt/networktool/k;->d:Z</span>
+<span class="exec">	return-void</span>
+.end method
+
+.method public constructor <init>([B)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-direct {p0, v0, p1, v1, v2}, Lcn/ykt/networktool/k;-><init>(I[BLjava/util/Map;Z)V</span>
+.end method
+
+.method public constructor <init>([BLjava/util/Map;)V
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"([B",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0, v0, p1, p2, v1}, Lcn/ykt/networktool/k;-><init>(I[BLjava/util/Map;Z)V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

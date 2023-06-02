@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook</a></li>
+        <li><i class="ico ico-class"></i> TokenCachingStrategy.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/facebook/TokenCachingStrategy;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+.field public static final a:Ljava/lang/String; = "com.facebook.TokenCachingStrategy.Token"
+.field public static final b:Ljava/lang/String; = "com.facebook.TokenCachingStrategy.ExpirationDate"
+.field public static final c:Ljava/lang/String; = "com.facebook.TokenCachingStrategy.LastRefreshDate"
+.field public static final d:Ljava/lang/String; = "com.facebook.TokenCachingStrategy.UserFBID"
+.field public static final e:Ljava/lang/String; = "com.facebook.TokenCachingStrategy.AccessTokenSource"
+.field public static final f:Ljava/lang/String; = "com.facebook.TokenCachingStrategy.Permissions"
+.field private static final g:J = -0x8000000000000000L
+.field private static final h:Ljava/lang/String; = "com.facebook.TokenCachingStrategy.IsSSO"
+
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a(Landroid/os/Bundle;J)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.ExpirationDate"</span>
+<span class="">	invoke-virtual {p0, v0, p1, p2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V</span>
+.end method
+
+.method public static a(Landroid/os/Bundle;Lcom/facebook/AccessTokenSource;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.AccessTokenSource"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V</span>
+.end method
+
+.method public static a(Landroid/os/Bundle;Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "value"</span>
+<span class="">	invoke-static {p1, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.Token"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method static a(Landroid/os/Bundle;Ljava/lang/String;Ljava/util/Date;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p2}, Ljava/util/Date;->getTime()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-virtual {p0, p1, v0, v1}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V</span>
+.end method
+
+.method public static a(Landroid/os/Bundle;Ljava/util/Date;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "value"</span>
+<span class="">	invoke-static {p1, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.ExpirationDate"</span>
+<span class="">	invoke-static {p0, v0, p1}, Lcom/facebook/TokenCachingStrategy;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/util/Date;)V</span>
+.end method
+
+.method public static a(Landroid/os/Bundle;Ljava/util/List;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/os/Bundle;",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "value"</span>
+<span class="">	invoke-static {p1, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	instance-of v0, p1, Ljava/util/ArrayList;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	check-cast p1, Ljava/util/ArrayList;</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.Permissions"</span>
+<span class="">	invoke-virtual {p0, v0, p1}, Landroid/os/Bundle;->putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V</span>
+<span class="">	new-instance v0, Ljava/util/ArrayList;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V</span>
+<span class="">	move-object p1, v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static b(Landroid/os/Bundle;Ljava/lang/String;)Ljava/util/Date;
+<span class="">	.locals 5</span>
+
+<span class="">	const-wide/high16 v3, -0x8000000000000000L</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0, p1, v3, v4}, Landroid/os/Bundle;->getLong(Ljava/lang/String;J)J</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	cmp-long v3, v1, v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	new-instance v0, Ljava/util/Date;</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/util/Date;-><init>(J)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static b(Landroid/os/Bundle;J)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.LastRefreshDate"</span>
+<span class="">	invoke-virtual {p0, v0, p1, p2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V</span>
+.end method
+
+.method public static b(Landroid/os/Bundle;Ljava/util/Date;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "value"</span>
+<span class="">	invoke-static {p1, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.LastRefreshDate"</span>
+<span class="">	invoke-static {p0, v0, p1}, Lcom/facebook/TokenCachingStrategy;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/util/Date;)V</span>
+.end method
+
+.method public static b(Landroid/os/Bundle;)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const-wide/16 v3, 0x0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "com.facebook.TokenCachingStrategy.Token"</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const-string v1, "com.facebook.TokenCachingStrategy.ExpirationDate"</span>
+<span class="">	invoke-virtual {p0, v1, v3, v4}, Landroid/os/Bundle;->getLong(Ljava/lang/String;J)J</span>
+<span class="">	move-result-wide v1</span>
+<span class="">	cmp-long v1, v1, v3</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c(Landroid/os/Bundle;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.Token"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static d(Landroid/os/Bundle;)Ljava/util/Date;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.ExpirationDate"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/TokenCachingStrategy;->b(Landroid/os/Bundle;Ljava/lang/String;)Ljava/util/Date;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static e(Landroid/os/Bundle;)J
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.ExpirationDate"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v0</span>
+.end method
+
+.method public static f(Landroid/os/Bundle;)Ljava/util/List;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/os/Bundle;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.Permissions"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static g(Landroid/os/Bundle;)Lcom/facebook/AccessTokenSource;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.AccessTokenSource"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.AccessTokenSource"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/AccessTokenSource;</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.IsSSO"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/facebook/AccessTokenSource;->b:Lcom/facebook/AccessTokenSource;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/facebook/AccessTokenSource;->e:Lcom/facebook/AccessTokenSource;</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static h(Landroid/os/Bundle;)Ljava/util/Date;
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.LastRefreshDate"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/TokenCachingStrategy;->b(Landroid/os/Bundle;Ljava/lang/String;)Ljava/util/Date;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public static i(Landroid/os/Bundle;)J
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "bundle"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.TokenCachingStrategy.LastRefreshDate"</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J</span>
+<span class="">	move-result-wide v0</span>
+.end method
+
+.method public abstract a()Landroid/os/Bundle;
+<span class="">	</span>
+
+.end method
+
+.method public abstract a(Landroid/os/Bundle;)V
+<span class="">	</span>
+
+.end method
+
+.method public abstract b()V
+<span class="">	</span>
+
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../.resources/report.js"></script>
+</body>
+</html>

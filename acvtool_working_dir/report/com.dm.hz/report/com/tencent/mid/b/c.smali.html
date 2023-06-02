@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.mid.b</a></li>
+        <li><i class="ico ico-class"></i> c.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/tencent/mid/b/c;
+.super Lcom/tencent/mid/b/f;
+
+
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/tencent/mid/b/f;-><init>(Landroid/content/Context;)V</span>
+.end method
+
+.method protected a(Lcom/tencent/mid/b/a;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method protected a(Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "write mid to InternalStorage"</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logInfo(Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "/"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/c;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/b/b;->a(Ljava/lang/String;)Ljava/io/File;</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/c;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	new-instance v1, Ljava/io/FileWriter;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V</span>
+<span class="">	new-instance v0, Ljava/io/BufferedWriter;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/c;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ","</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, "\n"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/BufferedWriter;->close()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logWarn(Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+.end method
+
+.method protected a()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/mid/b/c;->a:Landroid/content/Context;</span>
+<span class="">	const-string v1, "android.permission.WRITE_EXTERNAL_STORAGE"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/tencent/mid/util/Util;->checkPermission(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "mounted"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected b()Ljava/lang/String;
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "read mid from InternalStorage"</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logInfo(Ljava/lang/String;)V</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/c;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/b/b;->a(Ljava/io/File;)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	const-string v3, ","</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v3, v0</span>
+<span class="">	const/4 v4, 0x2</span>
+<span class="">	if-ne v3, v4, :cond_0</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	aget-object v3, v0, v3</span>
+<span class="">	invoke-virtual {p0}, Lcom/tencent/mid/b/c;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const-string v3, "read mid from InternalStorage:"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	aget-object v3, v0, v3</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Lcom/tencent/mid/util/Util;->logInfo(Ljava/lang/String;)V</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aget-object v0, v0, v2</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_2</span>
+<span class="">	:cond_1</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logWarn(Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected c()V
+<span class="">	.locals 3</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "/"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/c;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/b/b;->a(Ljava/lang/String;)Ljava/io/File;</span>
+<span class="">	new-instance v0, Ljava/io/File;</span>
+<span class="">	invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {}, Lcom/tencent/mid/b/c;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	new-instance v1, Ljava/io/FileWriter;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V</span>
+<span class="">	new-instance v0, Ljava/io/BufferedWriter;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/io/BufferedWriter;->close()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	invoke-static {v0}, Lcom/tencent/mid/util/Util;->logWarn(Ljava/lang/Throwable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+.end method
+
+.method protected d()Lcom/tencent/mid/b/a;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

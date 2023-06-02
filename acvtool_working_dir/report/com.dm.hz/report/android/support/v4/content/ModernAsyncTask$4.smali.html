@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.content</a></li>
+        <li><i class="ico ico-class"></i> ModernAsyncTask$4.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class synthetic Landroid/support/v4/content/ModernAsyncTask$4;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Landroid/support/v4/content/ModernAsyncTask;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x1008
+name = null
+.end annotation
+
+.field static final synthetic $SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Landroid/support/v4/content/ModernAsyncTask$Status;->values()[Landroid/support/v4/content/ModernAsyncTask$Status;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	sput-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I</span>
+<span class="">	:try_start_0</span>
+<span class="">	sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I</span>
+<span class="">	sget-object v1, Landroid/support/v4/content/ModernAsyncTask$Status;->RUNNING:Landroid/support/v4/content/ModernAsyncTask$Status;</span>
+<span class="">	invoke-virtual {v1}, Landroid/support/v4/content/ModernAsyncTask$Status;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_1</span>
+<span class="">	sget-object v0, Landroid/support/v4/content/ModernAsyncTask$4;->$SwitchMap$android$support$v4$content$ModernAsyncTask$Status:[I</span>
+<span class="">	sget-object v1, Landroid/support/v4/content/ModernAsyncTask$Status;->FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;</span>
+<span class="">	invoke-virtual {v1}, Landroid/support/v4/content/ModernAsyncTask$Status;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

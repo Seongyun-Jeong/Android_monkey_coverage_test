@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">cn.ykt.networktool.toolbox</a></li>
+        <li><i class="ico ico-class"></i> aa.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcn/ykt/networktool/toolbox/aa;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcn/ykt/networktool/q$a;
+.implements Lcn/ykt/networktool/q$b;
+.implements Ljava/util/concurrent/Future;
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<T:",
+"Ljava/lang/Object;",
+">",
+"Ljava/lang/Object;",
+"Lcn/ykt/networktool/q$a;",
+"Lcn/ykt/networktool/q$b",
+"<TT;>;",
+"Ljava/util/concurrent/Future",
+"<TT;>;"
+}
+.end annotation
+
+.field private a:Lcn/ykt/networktool/n;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcn/ykt/networktool/n",
+"<*>;"
+}
+.end annotation
+.end field
+.field private b:Z
+.field private c:Ljava/lang/Object;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"TT;"
+}
+.end annotation
+.end field
+.field private d:Lcn/ykt/networktool/v;
+
+
+.method private constructor <init>()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcn/ykt/networktool/toolbox/aa;->b:Z</span>
+.end method
+
+.method public static a()Lcn/ykt/networktool/toolbox/aa;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<E:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">()",</span>
+<span class="">	"Lcn/ykt/networktool/toolbox/aa",</span>
+<span class="">	"<TE;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcn/ykt/networktool/toolbox/aa;</span>
+<span class="">	invoke-direct {v0}, Lcn/ykt/networktool/toolbox/aa;-><init>()V</span>
+.end method
+
+.method private declared-synchronized a(Ljava/lang/Long;)Ljava/lang/Object;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/lang/InterruptedException;,</span>
+<span class="">	Ljava/util/concurrent/ExecutionException;,</span>
+<span class="">	Ljava/util/concurrent/TimeoutException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/Long;",</span>
+<span class="">	")TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-wide/16 v2, 0x0</span>
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->d:Lcn/ykt/networktool/v;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/ExecutionException;</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/aa;->d:Lcn/ykt/networktool/v;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcn/ykt/networktool/toolbox/aa;->b:Z</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->c:Ljava/lang/Object;</span>
+<span class="">	:goto_0</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	if-nez p1, :cond_3</span>
+<span class="">	:cond_1</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Ljava/lang/Object;->wait(J)V</span>
+<span class="">	:try_start_2</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->d:Lcn/ykt/networktool/v;</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/ExecutionException;</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/aa;->d:Lcn/ykt/networktool/v;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V</span>
+<span class="">	throw v0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	cmp-long v0, v0, v2</span>
+<span class="">	if-lez v0, :cond_2</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Long;->longValue()J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Ljava/lang/Object;->wait(J)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget-boolean v0, p0, Lcn/ykt/networktool/toolbox/aa;->b:Z</span>
+<span class="">	:cond_4</span>
+<span class="">	if-nez v0, :cond_5</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/TimeoutException;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/TimeoutException;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->c:Ljava/lang/Object;</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+.end method
+
+.method public a(Lcn/ykt/networktool/n;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcn/ykt/networktool/n",</span>
+<span class="">	"<*>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/toolbox/aa;->a:Lcn/ykt/networktool/n;</span>
+.end method
+
+.method public declared-synchronized a(Lcn/ykt/networktool/v;)V
+<span class="">	.locals 1</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/toolbox/aa;->d:Lcn/ykt/networktool/v;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public declared-synchronized a(Ljava/lang/Object;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iput-boolean v0, p0, Lcn/ykt/networktool/toolbox/aa;->b:Z</span>
+<span class="">	iput-object p1, p0, Lcn/ykt/networktool/toolbox/aa;->c:Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public declared-synchronized cancel(Z)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v1, p0, Lcn/ykt/networktool/toolbox/aa;->a:Lcn/ykt/networktool/n;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/toolbox/aa;->isDone()Z</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->a:Lcn/ykt/networktool/n;</span>
+<span class="">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->h()V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public get()Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/lang/InterruptedException;,</span>
+<span class="">	Ljava/util/concurrent/ExecutionException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-direct {p0, v0}, Lcn/ykt/networktool/toolbox/aa;->a(Ljava/lang/Long;)Ljava/lang/Object;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	new-instance v1, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V</span>
+<span class="">	throw v1</span>
+.end method
+
+.method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/lang/InterruptedException;,</span>
+<span class="">	Ljava/util/concurrent/ExecutionException;,</span>
+<span class="">	Ljava/util/concurrent/TimeoutException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(J",</span>
+<span class="">	"Ljava/util/concurrent/TimeUnit;",</span>
+<span class="">	")TT;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3}, Ljava/util/concurrent/TimeUnit;->convert(JLjava/util/concurrent/TimeUnit;)J</span>
+<span class="">	move-result-wide v0</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {p0, v0}, Lcn/ykt/networktool/toolbox/aa;->a(Ljava/lang/Long;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public isCancelled()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->a:Lcn/ykt/networktool/n;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->a:Lcn/ykt/networktool/n;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcn/ykt/networktool/n;->i()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public declared-synchronized isDone()Z
+<span class="">	.locals 1</span>
+
+<span class="">	monitor-enter p0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-boolean v0, p0, Lcn/ykt/networktool/toolbox/aa;->b:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcn/ykt/networktool/toolbox/aa;->d:Lcn/ykt/networktool/v;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcn/ykt/networktool/toolbox/aa;->isCancelled()Z</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit p0</span>
+<span class="">	throw v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

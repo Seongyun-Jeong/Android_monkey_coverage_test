@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook</a></li>
+        <li><i class="ico ico-class"></i> NativeAppCallContentProvider.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/facebook/NativeAppCallContentProvider;
+.super Landroid/content/ContentProvider;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/NativeAppCallContentProvider$AttachmentDataSource;
+}
+.end annotation
+
+.field private static final a:Ljava/lang/String;
+.field private static final b:Ljava/lang/String; = "content://com.facebook.app.NativeAppCallContentProvider"
+.field private final c:Lcom/facebook/NativeAppCallContentProvider$AttachmentDataSource;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/facebook/NativeAppCallContentProvider;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/facebook/NativeAppCallContentProvider;->a:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 1</span>
+
+<span class="">	new-instance v0, Lcom/facebook/NativeAppCallAttachmentStore;</span>
+<span class="">	invoke-direct {v0}, Lcom/facebook/NativeAppCallAttachmentStore;-><init>()V</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/NativeAppCallContentProvider;-><init>(Lcom/facebook/NativeAppCallContentProvider$AttachmentDataSource;)V</span>
+.end method
+
+.method constructor <init>(Lcom/facebook/NativeAppCallContentProvider$AttachmentDataSource;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Landroid/content/ContentProvider;-><init>()V</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/NativeAppCallContentProvider;->c:Lcom/facebook/NativeAppCallContentProvider$AttachmentDataSource;</span>
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/util/UUID;Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v0, "%s%s/%s/%s"</span>
+<span class="">	const/4 v1, 0x4</span>
+<span class="">	new-array v1, v1, [Ljava/lang/Object;</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	const-string v3, "content://com.facebook.app.NativeAppCallContentProvider"</span>
+<span class="">	aput-object v3, v1, v2</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput-object p0, v1, v2</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	invoke-virtual {p1}, Ljava/util/UUID;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	aput-object v3, v1, v2</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	aput-object p2, v1, v2</span>
+<span class="">	invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method  a(Landroid/net/Uri;)Landroid/util/Pair;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Landroid/net/Uri;",</span>
+<span class="">	")",</span>
+<span class="">	"Landroid/util/Pair",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/util/UUID;",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/net/Uri;->getPath()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "/"</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	aget-object v1, v0, v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aget-object v2, v0, v2</span>
+<span class="">	invoke-static {v1}, Ljava/util/UUID;->fromString(Ljava/lang/String;)Ljava/util/UUID;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v0, Landroid/util/Pair;</span>
+<span class="">	invoke-direct {v0, v1, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public getType(Landroid/net/Uri;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public onCreate()Z
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x1</span>
+.end method
+
+.method public openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/FileNotFoundException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/NativeAppCallContentProvider;->a(Landroid/net/Uri;)Landroid/util/Pair;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/io/FileNotFoundException;</span>
+<span class="">	invoke-direct {v0}, Ljava/io/FileNotFoundException;-><init>()V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/NativeAppCallContentProvider;->c:Lcom/facebook/NativeAppCallContentProvider$AttachmentDataSource;</span>
+<span class="">	iget-object v0, v1, Landroid/util/Pair;->first:Ljava/lang/Object;</span>
+<span class="">	check-cast v0, Ljava/util/UUID;</span>
+<span class="">	iget-object v1, v1, Landroid/util/Pair;->second:Ljava/lang/Object;</span>
+<span class="">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	invoke-interface {v2, v0, v1}, Lcom/facebook/NativeAppCallContentProvider$AttachmentDataSource;->a(Ljava/util/UUID;Ljava/lang/String;)Ljava/io/File;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/high16 v1, 0x10000000</span>
+<span class="">	invoke-static {v0, v1}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v1, Lcom/facebook/NativeAppCallContentProvider;->a:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "Got unexpected exception:"</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../.resources/report.js"></script>
+</body>
+</html>

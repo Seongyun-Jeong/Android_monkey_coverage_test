@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.facebook.controller</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/facebook/controller/a;
+.super Lcom/umeng/socialize/sso/ab;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/facebook/controller/a$a;,
+Lcom/umeng/socialize/facebook/controller/a$b;
+}
+.end annotation
+
+.field private static synthetic M:[I = null
+.field private static final j:Ljava/lang/String; = "publish_actions, user_photos, read_stream"
+.field private K:Lcom/facebook/Session$StatusCallback;
+.field private L:Lcom/facebook/widget/FacebookDialog$Callback;
+.field private a:Lcom/facebook/UiLifecycleHelper;
+.field private b:Landroid/app/Activity;
+.field private c:Lcom/umeng/socialize/bean/l;
+.field private d:Lcom/umeng/socialize/bean/m;
+.field private e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;
+.field private final f:Ljava/lang/String;
+.field private final g:Ljava/lang/String;
+.field private h:Lcom/umeng/socialize/facebook/controller/a$a;
+.field private i:Lcom/umeng/socialize/facebook/controller/a$b;
+.field private k:Ljava/lang/String;
+.field private l:Ljava/lang/String;
+.field private m:Ljava/lang/String;
+.field private n:Ljava/lang/String;
+.field private o:Lcom/umeng/socialize/media/UMediaObject;
+.field private p:Landroid/os/Bundle;
+.field private q:Z
+.field private r:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;
+
+
+.method public constructor <init>(Landroid/app/Activity;Lcom/umeng/socialize/facebook/controller/a$b;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-direct {p0, p1, v0, p2}, Lcom/umeng/socialize/facebook/controller/a;-><init>(Landroid/app/Activity;Ljava/lang/String;Lcom/umeng/socialize/facebook/controller/a$b;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/app/Activity;Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a$b;->b:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	invoke-direct {p0, p1, p2, v0}, Lcom/umeng/socialize/facebook/controller/a;-><init>(Landroid/app/Activity;Ljava/lang/String;Lcom/umeng/socialize/facebook/controller/a$b;)V</span>
+.end method
+
+.method public constructor <init>(Landroid/app/Activity;Ljava/lang/String;Lcom/umeng/socialize/facebook/controller/a$b;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/sso/ab;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/bean/l;->b()Lcom/umeng/socialize/bean/l;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->c:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	const-string v1, "com.umeng.share:PendingAction"</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->f:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$a;->a:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$b;->a:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->i:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->k:Ljava/lang/String;</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->m:Ljava/lang/String;</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->n:Ljava/lang/String;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	new-instance v1, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v1}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	iput-boolean v1, p0, Lcom/umeng/socialize/facebook/controller/a;->q:Z</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->r:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/facebook/controller/b;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/facebook/controller/b;-><init>(Lcom/umeng/socialize/facebook/controller/a;)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->K:Lcom/facebook/Session$StatusCallback;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/facebook/controller/c;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/facebook/controller/c;-><init>(Lcom/umeng/socialize/facebook/controller/a;)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->L:Lcom/facebook/widget/FacebookDialog$Callback;</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	new-instance v1, Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/facebook/controller/a;->K:Lcom/facebook/Session$StatusCallback;</span>
+<span class="">	invoke-direct {v1, v2, v3}, Lcom/facebook/UiLifecycleHelper;-><init>(Landroid/app/Activity;Lcom/facebook/Session$StatusCallback;)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v1}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	invoke-virtual {v1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v2, "#### facebook onCreate Bundle"</span>
+<span class="">	invoke-static {v0, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.umeng.share:PendingAction"</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/facebook/controller/a$a;->valueOf(Ljava/lang/String;)Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/facebook/controller/a;->a(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/facebook/UiLifecycleHelper;->a(Landroid/os/Bundle;)V</span>
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/facebook/controller/a;->i:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/b;->a(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/facebook/controller/a;->q:Z</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a$a;->a:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/facebook/controller/a;)Lcom/facebook/UiLifecycleHelper;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+.end method
+
+.method private a(Lcom/facebook/Response;)V
+<span class="">	.locals 5</span>
+
+<span class="">	const-string v0, ""</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Response;->a()Lcom/facebook/FacebookRequestError;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "@@@@ send true"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/facebook/controller/a;->q:Z</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string v0, "\u5206\u4eab\u6210\u529f"</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/umeng/socialize/facebook/controller/a;->a(Z)V</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->c:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/bean/l;->q()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v1, v0}, Lcom/umeng/socialize/facebook/controller/a/a;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "done."</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v2, "@@@@ send false"</span>
+<span class="">	invoke-static {v0, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/facebook/controller/a;->q:Z</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const-string v0, "\u5206\u4eab\u5931\u8d25"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	:goto_2</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "#### "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v2, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/umeng/socialize/facebook/controller/a;->a(Z)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const-string v0, "failed."</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_2</span>
+.end method
+
+.method private a(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V
+<span class="">	.locals 5</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	if-eqz p3, :cond_4</span>
+<span class="">	instance-of v0, p3, Lcom/facebook/FacebookOperationCanceledException;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	instance-of v0, p3, Lcom/facebook/FacebookAuthorizationException;</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/facebook/controller/a;->q:Z</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const-string v0, "\u6388\u6743\u5931\u8d25"</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p3, :cond_1</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v0, " : "</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p3}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v3, "### facebook"</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, " state =  "</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->d()Lcom/facebook/SessionState;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v0}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v0, "oauth failed..."</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->b()Z</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_8</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->g()Ljava/util/Date;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v2, v0, v1}, Lcom/umeng/socialize/facebook/controller/a/b;->a(Landroid/content/Context;Ljava/lang/String;Ljava/util/Date;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->a()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	if-eqz v1, :cond_5</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->m:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v1, v0, v2}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Landroid/os/Bundle;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/facebook/controller/a;->J:Z</span>
+<span class="">	:cond_5</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->i:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$b;->b:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	if-ne v0, v1, :cond_6</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a$a;->b:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->f()Z</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_7</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "@@@@ directShare"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->q()V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	new-instance v0, Lcom/facebook/Session$NewPermissionsRequest;</span>
+<span class="">	:cond_7</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	new-array v2, v2, [Ljava/lang/String;</span>
+<span class="">	const/4 v3, 0x0</span>
+<span class="">	const-string v4, "publish_actions, user_photos, read_stream"</span>
+<span class="">	aput-object v4, v2, v3</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/facebook/Session$NewPermissionsRequest;-><init>(Landroid/app/Activity;[Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p1, v0}, Lcom/facebook/Session;->b(Lcom/facebook/Session$NewPermissionsRequest;)V</span>
+<span class="">	goto :goto_1</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->d()Lcom/facebook/SessionState;</span>
+<span class="">	:cond_8</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/SessionState;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "### facebook SessionState = "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->d()Lcom/facebook/SessionState;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	if-eqz v0, :cond_9</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/a/a;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "Facebook\u6388\u6743\u5931\u8d25"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/facebook/Session;->d()Lcom/facebook/SessionState;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/umeng/socialize/a/a;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->m:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v1, v0, v2}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->a(Lcom/umeng/socialize/a/a;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->h()V</span>
+<span class="">	:cond_9</span>
+<span class="">	goto/16 :goto_1</span>
+.end method
+
+.method private a(Lcom/umeng/socialize/facebook/controller/a$a;Z)V
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->f()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->s()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->b()Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	new-instance v1, Lcom/facebook/Session$NewPermissionsRequest;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	new-array v3, v3, [Ljava/lang/String;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const-string v5, "publish_actions, user_photos, read_stream"</span>
+<span class="">	aput-object v5, v3, v4</span>
+<span class="">	invoke-direct {v1, v2, v3}, Lcom/facebook/Session$NewPermissionsRequest;-><init>(Landroid/app/Activity;[Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/Session;->b(Lcom/facebook/Session$NewPermissionsRequest;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->s()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/facebook/controller/a;Lcom/facebook/Response;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/umeng/socialize/facebook/controller/a;->a(Lcom/facebook/Response;)V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/facebook/controller/a;Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3}, Lcom/umeng/socialize/facebook/controller/a;->a(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/facebook/controller/a;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->k:Ljava/lang/String;</span>
+.end method
+
+.method private a(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)V
+<span class="">	.locals 3</span>
+
+<span class="">	if-nez p2, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### facebook \u4e0d\u652f\u6301\u7eaf\u6587\u672c\u5206\u4eab\uff0c\u8bf7\u8bbe\u7f6e\u5206\u4eab\u56fe\u7247"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	:cond_0</span>
+<span class="">	instance-of v1, p2, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	check-cast p2, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;->l()Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;->a()Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->x:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->m:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->n:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/facebook/media/FaceBookShareContent;->b()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/b/b/d;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->p()V</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	instance-of v1, p2, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	:cond_3</span>
+<span class="">	if-eqz v1, :cond_4</span>
+<span class="">	check-cast p2, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/media/UMImage;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->x:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/media/UMImage;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	:cond_4</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v2, "### facebook \u6682\u4e0d\u652f\u6301\u975e\u56fe\u7247\u5206\u4eab"</span>
+<span class="">	invoke-static {v1, v2}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method static synthetic b(Lcom/umeng/socialize/facebook/controller/a;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+.end method
+
+.method static synthetic c(Lcom/umeng/socialize/facebook/controller/a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->y()V</span>
+.end method
+
+.method static synthetic d(Lcom/umeng/socialize/facebook/controller/a;)Landroid/app/Activity;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+.end method
+
+.method static synthetic m()[I
+<span class="">	.locals 3</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a;->M:[I</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/facebook/controller/a$a;->values()[Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v0, v0</span>
+<span class="">	new-array v0, v0, [I</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$a;->a:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/facebook/controller/a$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$a;->b:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_2</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/facebook/controller/a$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x2</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$a;->c:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:goto_2</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/facebook/controller/a$a;->ordinal()I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	aput v2, v0, v1</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/facebook/controller/a;->M:[I</span>
+<span class="">	:goto_3</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_3</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_1</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_2</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private p()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/media/UMediaObject;->b_()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/media/UMediaObject;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "http://www.umeng.com/social"</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private q()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->i:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$b;->b:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	if-ne v0, v1, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a$a;->b:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	invoke-direct {p0, v0, v2}, Lcom/umeng/socialize/facebook/controller/a;->a(Lcom/umeng/socialize/facebook/controller/a$a;Z)V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "@@@@@ performPublish(PendingAction.POST_STATUS_UPDATE, false);"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a$a;->c:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	invoke-direct {p0, v0, v2}, Lcom/umeng/socialize/facebook/controller/a;->a(Lcom/umeng/socialize/facebook/controller/a$a;Z)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private r()Z
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->b()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private s()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/facebook/controller/a$a;->a:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	invoke-static {}, Lcom/umeng/socialize/facebook/controller/a;->m()[I</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/facebook/controller/a$a;->ordinal()I</span>
+<span class="">	move-result v0</span>
+<span class="">	aget v0, v1, v0</span>
+<span class="">	packed-switch v0, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->c:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/l;->q()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/facebook/controller/a;->q:Z</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const-string v0, "\u5206\u4eab\u4e2d..."</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v1, v0}, Lcom/umeng/socialize/facebook/controller/a/a;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->t()V</span>
+<span class="">	:pswitch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->x()V</span>
+<span class="">	:pswitch_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v0, "sharing..."</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x2</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method private t()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "@@@@@ postStatus"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->f()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->v()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	instance-of v0, v0, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->u()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->w()V</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/media/UMediaObject;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->k:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->y()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->y()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "\u5206\u4eab\u56fe\u7247\u6570\u636e\u4e3a\u7a7a, \u5206\u4eab\u5931\u8d25..."</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/facebook/controller/a/a;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a$a;->c:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:cond_3</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private u()Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-interface {v0}, Lcom/umeng/socialize/media/UMediaObject;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/b/b/d;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/UMImage;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/a;->a(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private v()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Landroid/os/Bundle;</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "message"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "name"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->x:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "caption"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->m:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "description"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->n:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "link"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "### facebook \u5206\u4eab\u5185\u5bb9 : message : "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ", title : "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->x:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, ", caption : "</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->m:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/Bundle;->clear()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private w()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "@@@@@ uploadImage"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->f()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/facebook/controller/net/b;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	invoke-direct {v1, v2, v0}, Lcom/umeng/socialize/facebook/controller/net/b;-><init>(Landroid/content/Context;Lcom/umeng/socialize/media/UMImage;)V</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/facebook/controller/e;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/facebook/controller/e;-><init>(Lcom/umeng/socialize/facebook/controller/a;)V</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/umeng/socialize/facebook/controller/net/b;->a(Lcom/umeng/socialize/facebook/controller/net/ImageUrlTask$OnUploadListener;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	new-array v0, v0, [Ljava/lang/Void;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/umeng/socialize/facebook/controller/net/b;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/facebook/controller/a$a;->b:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->h:Lcom/umeng/socialize/facebook/controller/a$a;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private x()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### postPhoto, image data is null..."</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/facebook/controller/net/PostPhotoTask;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/umeng/socialize/facebook/controller/net/PostPhotoTask;-><init>(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)V</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/facebook/controller/f;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/facebook/controller/f;-><init>(Lcom/umeng/socialize/facebook/controller/a;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/facebook/controller/net/PostPhotoTask;->a(Lcom/umeng/socialize/facebook/controller/net/PostPhotoTask$OnPostPhotoListener;)V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	new-array v1, v1, [Ljava/lang/Void;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/facebook/controller/net/PostPhotoTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private y()V
+<span class="">	.locals 6</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "@@@@@ executePostStatus start"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "picture"</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->k:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v0, Lcom/facebook/Request;</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "me/feed"</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	sget-object v4, Lcom/facebook/HttpMethod;->b:Lcom/facebook/HttpMethod;</span>
+<span class="">	new-instance v5, Lcom/umeng/socialize/facebook/controller/h;</span>
+<span class="">	invoke-direct {v5, p0}, Lcom/umeng/socialize/facebook/controller/h;-><init>(Lcom/umeng/socialize/facebook/controller/a;)V</span>
+<span class="">	invoke-direct/range {v0 .. v5}, Lcom/facebook/Request;-><init>(Lcom/facebook/Session;Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/HttpMethod;Lcom/facebook/Request$Callback;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Request;->n()Lcom/facebook/RequestAsyncTask;</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->z()V</span>
+.end method
+
+.method private z()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->p:Landroid/os/Bundle;</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/Bundle;->clear()V</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->k:Ljava/lang/String;</span>
+.end method
+
+.method public a()Lcom/umeng/socialize/bean/a;
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_facebook"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/bean/a;</span>
+<span class="">	const-string v2, "facebook"</span>
+<span class="">	invoke-direct {v1, v2, v0}, Lcom/umeng/socialize/bean/a;-><init>(Ljava/lang/String;I)V</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->H:Lcom/umeng/socialize/bean/a;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->H:Lcom/umeng/socialize/bean/a;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_facebook_off"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	iput v1, v0, Lcom/umeng/socialize/bean/a;->d:I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->H:Lcom/umeng/socialize/bean/a;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/facebook/controller/d;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/facebook/controller/d;-><init>(Lcom/umeng/socialize/facebook/controller/a;)V</span>
+<span class="">	iput-object v1, v0, Lcom/umeng/socialize/bean/a;->k:Lcom/umeng/socialize/controller/listener/SocializeListeners$OnSnsPlatformClickListener;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->H:Lcom/umeng/socialize/bean/a;</span>
+.end method
+
+.method public a(IILandroid/content/Intent;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-virtual {p0, p1, p2, p3}, Lcom/umeng/socialize/facebook/controller/a;->b(IILandroid/content/Intent;)V</span>
+.end method
+
+.method public a(IILandroid/content/Intent;Lcom/facebook/widget/FacebookDialog$Callback;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v0, p1, p2, p3, p4}, Lcom/facebook/UiLifecycleHelper;->a(IILandroid/content/Intent;Lcom/facebook/widget/FacebookDialog$Callback;)V</span>
+.end method
+
+.method public a(Landroid/app/Activity;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/UiLifecycleHelper;->a()V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/AppEventsLogger;->b(Landroid/content/Context;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public a(Landroid/app/Activity;Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V
+<span class="">	.locals 3</span>
+
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Landroid/app/Activity;->isFinishing()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "\u4e0d\u80fd\u8fdb\u884c\u6388\u6743, activity = null"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->b()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->c()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/g;->m:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-interface {v1, v2}, Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;->b(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	new-instance v1, Lcom/facebook/Session$OpenRequest;</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-direct {v1, p1}, Lcom/facebook/Session$OpenRequest;-><init>(Landroid/app/Activity;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->K:Lcom/facebook/Session$StatusCallback;</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/facebook/Session$OpenRequest;->b(Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session$OpenRequest;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/Session;->a(Lcom/facebook/Session$OpenRequest;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->b()Z</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### \u6253\u5f00\u6fc0\u6d3bSession"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->K:Lcom/facebook/Session$StatusCallback;</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcom/facebook/Session;->a(Landroid/app/Activity;ZLcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/UiLifecycleHelper;->a(Landroid/os/Bundle;)V</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/bean/a;Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	iput-boolean v1, p0, Lcom/umeng/socialize/facebook/controller/a;->J:Z</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->m:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-static {v1}, Lcom/umeng/socialize/bean/l;->e(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	iput-object p2, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->j()Lcom/umeng/socialize/bean/i;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/i;->a:Lcom/umeng/socialize/bean/i;</span>
+<span class="">	if-ne v0, v1, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->p()Lcom/umeng/socialize/bean/UMShareMsg;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v0, v0, Lcom/umeng/socialize/bean/UMShareMsg;->a:Ljava/lang/String;</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->p()Lcom/umeng/socialize/bean/UMShareMsg;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/UMShareMsg;->a()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/bean/i;->b:Lcom/umeng/socialize/bean/i;</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/umeng/socialize/bean/m;->a(Lcom/umeng/socialize/bean/i;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object p3, p0, Lcom/umeng/socialize/facebook/controller/a;->r:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_4</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->r:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->r:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	invoke-interface {v1}, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;->a()V</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->c:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	const-class v2, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/umeng/socialize/bean/l;->b(Ljava/lang/Class;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	invoke-direct {p0, v1, v0}, Lcom/umeng/socialize/facebook/controller/a;->a(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->c()Z</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	:cond_3</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/bean/m;->a()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	:cond_4</span>
+<span class="">	const-string v1, "\u8bf7\u8bbe\u7f6eFacebook\u7684\u5206\u4eab\u5185\u5bb9..."</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/facebook/controller/a/a;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/bean/m;Lcom/umeng/socialize/bean/g;Lcom/umeng/socialize/controller/listener/SocializeListeners$SocializeClientListener;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->h()V</span>
+<span class="">	if-eqz p3, :cond_0</span>
+<span class="">	invoke-interface {p3}, Lcom/umeng/socialize/controller/listener/SocializeListeners$SocializeClientListener;->a()V</span>
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	invoke-interface {p3, v0, p1}, Lcom/umeng/socialize/controller/listener/SocializeListeners$SocializeClientListener;->a(ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+.end method
+
+.method public a(Lcom/umeng/socialize/facebook/controller/a$b;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/facebook/controller/a;->i:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+.end method
+
+.method public a(Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### facebook app id"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {p1}, Lcom/facebook/internal/Utility;->c(Ljava/lang/String;)V</span>
+.end method
+
+.method protected a(Z)V
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-static {}, Lcom/umeng/socialize/bean/l;->n()Lcom/umeng/socialize/bean/g;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const v0, 0x9c41</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v2, v2, Lcom/umeng/socialize/bean/m;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/facebook/controller/a;->l:Ljava/lang/String;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/facebook/controller/a;->o:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	invoke-virtual {v1}, Lcom/umeng/socialize/bean/g;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v0, v2, v3, v4, v5}, Lcom/umeng/socialize/utils/m;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	const/16 v2, 0x16</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/utils/n;->a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;I)V</span>
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->r:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->r:Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-interface {v2, v1, v0, v3}, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;->a(Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->c:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	const-class v3, Lcom/umeng/socialize/controller/listener/SocializeListeners$SnsPostListener;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/facebook/controller/a;->d:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {v2, v3, v1, v0, v4}, Lcom/umeng/socialize/bean/l;->a(Ljava/lang/Class;Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+.end method
+
+.method public b(IILandroid/content/Intent;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->L:Lcom/facebook/widget/FacebookDialog$Callback;</span>
+<span class="">	invoke-virtual {p0, p1, p2, p3, v0}, Lcom/umeng/socialize/facebook/controller/a;->a(IILandroid/content/Intent;Lcom/facebook/widget/FacebookDialog$Callback;)V</span>
+.end method
+
+.method public b(Landroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/UiLifecycleHelper;->b(Landroid/os/Bundle;)V</span>
+.end method
+
+.method public b()Z
+<span class="">	.locals 2</span>
+
+<span class="">	const-string v0, "com.facebook.katana"</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/b;->a(Ljava/lang/String;Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public c()Z
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v6, 0x1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/facebook/controller/a/b;->a(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->r()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "### facebook\u5df2\u7ecf\u6388\u6743, post type = "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->i:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->f()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/facebook/controller/a;->q()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	new-instance v1, Lcom/facebook/Session$NewPermissionsRequest;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	new-array v3, v6, [Ljava/lang/String;</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	const-string v5, "publish_actions, user_photos, read_stream"</span>
+<span class="">	aput-object v5, v3, v4</span>
+<span class="">	invoke-direct {v1, v2, v3}, Lcom/facebook/Session$NewPermissionsRequest;-><init>(Landroid/app/Activity;[Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/Session;->b(Lcom/facebook/Session$NewPermissionsRequest;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/facebook/controller/a;->e:Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/umeng/socialize/facebook/controller/a;->a(Landroid/app/Activity;Lcom/umeng/socialize/controller/listener/SocializeListeners$UMAuthListener;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public d()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->a(Landroid/content/Context;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public e()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->c:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/facebook/controller/a;->n()Lcom/umeng/socialize/bean/a;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/bean/l;->a(Lcom/umeng/socialize/bean/a;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->c:Lcom/umeng/socialize/bean/l;</span>
+<span class="">	invoke-virtual {v0, p0}, Lcom/umeng/socialize/bean/l;->a(Lcom/umeng/socialize/sso/ab;)V</span>
+.end method
+
+.method protected f()Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/Session;->h()Ljava/util/List;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "publish_actions"</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	const-string v2, "user_photos"</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	const-string v2, "read_stream"</span>
+<span class="">	invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public g()I
+<span class="">	.locals 1</span>
+
+<span class="">	const v0, 0xface</span>
+.end method
+
+.method public h()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {}, Lcom/facebook/Session;->k()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Session;->j()V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->b:Landroid/app/Activity;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->m:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/k;->g(Landroid/content/Context;Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->g:Ljava/lang/String;</span>
+<span class="">	const-string v1, "### facebook logout."</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method public i()Lcom/umeng/socialize/facebook/controller/a$b;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->i:Lcom/umeng/socialize/facebook/controller/a$b;</span>
+.end method
+
+.method public j()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/UiLifecycleHelper;->b()V</span>
+.end method
+
+.method public k()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/UiLifecycleHelper;->c()V</span>
+.end method
+
+.method public l()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/facebook/controller/a;->a:Lcom/facebook/UiLifecycleHelper;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/UiLifecycleHelper;->d()V</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

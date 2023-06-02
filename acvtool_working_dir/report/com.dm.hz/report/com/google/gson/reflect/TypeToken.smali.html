@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.google.gson.reflect</a></li>
+        <li><i class="ico ico-class"></i> TypeToken.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/google/gson/reflect/TypeToken;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<T:",
+"Ljava/lang/Object;",
+">",
+"Ljava/lang/Object;"
+}
+.end annotation
+
+.field final hashCode:I
+.field final rawType:Ljava/lang/Class;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/Class",
+"<-TT;>;"
+}
+.end annotation
+.end field
+.field final type:Ljava/lang/reflect/Type;
+
+
+.method protected constructor <init>()V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Lcom/google/gson/reflect/TypeToken;->getSuperclassTypeParameter(Ljava/lang/Class;)Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/google/gson/reflect/TypeToken;->hashCode:I</span>
+.end method
+
+.method constructor <init>(Ljava/lang/reflect/Type;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	invoke-static {p1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/reflect/Type;</span>
+<span class="">	invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/google/gson/reflect/TypeToken;->hashCode:I</span>
+.end method
+
+.method private static varargs buildUnexpectedTypeError(Ljava/lang/reflect/Type;[Ljava/lang/Class;)Ljava/lang/AssertionError;
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	"[",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;)",</span>
+<span class="">	"Ljava/lang/AssertionError;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v0, "Unexpected type. Expected one of: "</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	array-length v2, p1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-ge v0, v2, :cond_0</span>
+<span class="">	aget-object v3, p1, v0</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ", "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "but got: "</span>
+<span class="">	invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v2, ", for type token: "</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/16 v2, 0x2e</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;</span>
+<span class="">	new-instance v0, Ljava/lang/AssertionError;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V</span>
+.end method
+
+.method public static get(Ljava/lang/Class;)Lcom/google/gson/reflect/TypeToken;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;)",</span>
+<span class="">	"Lcom/google/gson/reflect/TypeToken",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/reflect/TypeToken;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/google/gson/reflect/TypeToken;-><init>(Ljava/lang/reflect/Type;)V</span>
+.end method
+
+.method public static get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	")",</span>
+<span class="">	"Lcom/google/gson/reflect/TypeToken",</span>
+<span class="">	"<*>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Lcom/google/gson/reflect/TypeToken;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/google/gson/reflect/TypeToken;-><init>(Ljava/lang/reflect/Type;)V</span>
+.end method
+
+.method static getSuperclassTypeParameter(Ljava/lang/Class;)Ljava/lang/reflect/Type;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;)",</span>
+<span class="">	"Ljava/lang/reflect/Type;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	instance-of v1, v0, Ljava/lang/Class;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/RuntimeException;</span>
+<span class="">	const-string v1, "Missing type parameter."</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	:cond_0</span>
+<span class="">	check-cast v0, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	invoke-interface {v0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	aget-object v0, v0, v1</span>
+<span class="">	invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method private static isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/GenericArrayType;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-interface {p1}, Ljava/lang/reflect/GenericArrayType;->getGenericComponentType()Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	instance-of v1, v0, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	instance-of v1, p0, Ljava/lang/reflect/GenericArrayType;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	check-cast p0, Ljava/lang/reflect/GenericArrayType;</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/reflect/GenericArrayType;->getGenericComponentType()Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object p0</span>
+<span class="">	:cond_0</span>
+<span class="">	check-cast v0, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	new-instance v1, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	invoke-static {p0, v0, v1}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	instance-of v1, p0, Ljava/lang/Class;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	check-cast p0, Ljava/lang/Class;</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Class;->isArray()Z</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;</span>
+<span class="">	move-result-object p0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z
+<span class="">	.locals 9</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	"Ljava/lang/reflect/ParameterizedType;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	">;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v3, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	if-nez p0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	move v2, v3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-static {p0}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v4</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	instance-of v1, p0, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	if-eqz v1, :cond_7</span>
+<span class="">	check-cast p0, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	if-eqz p0, :cond_4</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;</span>
+<span class="">	move-result-object v6</span>
+<span class="">	move v1, v2</span>
+<span class="">	array-length v0, v5</span>
+<span class="">	:goto_2</span>
+<span class="">	if-ge v1, v0, :cond_3</span>
+<span class="">	aget-object v0, v5, v1</span>
+<span class="">	aget-object v7, v6, v1</span>
+<span class="">	instance-of v8, v0, Ljava/lang/reflect/TypeVariable;</span>
+<span class="">	:goto_3</span>
+<span class="">	if-eqz v8, :cond_2</span>
+<span class="">	check-cast v0, Ljava/lang/reflect/TypeVariable;</span>
+<span class="">	invoke-interface {v0}, Ljava/lang/reflect/TypeVariable;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/reflect/Type;</span>
+<span class="">	goto :goto_3</span>
+<span class="">	invoke-interface {v7}, Ljava/lang/reflect/TypeVariable;->getName()Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result-object v7</span>
+<span class="">	invoke-interface {p2, v7, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-static {p0, p1, p2}, Lcom/google/gson/reflect/TypeToken;->typeEquals(Ljava/lang/reflect/ParameterizedType;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	move v2, v3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/Class;->getGenericInterfaces()[Ljava/lang/reflect/Type;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	array-length v1, v0</span>
+<span class="">	if-ge v2, v1, :cond_6</span>
+<span class="">	:goto_4</span>
+<span class="">	aget-object v5, v0, v2</span>
+<span class="">	new-instance v6, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v6, p2}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V</span>
+<span class="">	invoke-static {v5, p1, v6}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z</span>
+<span class="">	move-result v5</span>
+<span class="">	if-eqz v5, :cond_5</span>
+<span class="">	move v2, v3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	add-int/lit8 v2, v2, 0x1</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_4</span>
+<span class="">	invoke-virtual {v4}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v1, p2}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V</span>
+<span class="">	invoke-static {v0, p1, v1}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object p0, v0</span>
+<span class="">	:cond_7</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static matches(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;Ljava/util/Map;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	">;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p1, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	instance-of v0, p0, Ljava/lang/reflect/TypeVariable;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	check-cast p0, Ljava/lang/reflect/TypeVariable;</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/reflect/TypeVariable;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private static typeEquals(Ljava/lang/reflect/ParameterizedType;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/reflect/ParameterizedType;",</span>
+<span class="">	"Ljava/lang/reflect/ParameterizedType;",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/reflect/Type;",</span>
+<span class="">	">;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-interface {p0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	array-length v4, v2</span>
+<span class="">	if-ge v0, v4, :cond_2</span>
+<span class="">	aget-object v4, v2, v0</span>
+<span class="">	aget-object v5, v3, v0</span>
+<span class="">	invoke-static {v4, v5, p2}, Lcom/google/gson/reflect/TypeToken;->matches(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;Ljava/util/Map;)Z</span>
+<span class="">	move-result v4</span>
+<span class="">	if-nez v4, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	:goto_1</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public final equals(Ljava/lang/Object;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	instance-of v0, p1, Lcom/google/gson/reflect/TypeToken;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	check-cast p1, Lcom/google/gson/reflect/TypeToken;</span>
+<span class="">	iget-object v1, p1, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	invoke-static {v0, v1}, Lcom/google/gson/internal/$Gson$Types;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public final getRawType()Ljava/lang/Class;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<-TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;</span>
+.end method
+
+.method public final getType()Ljava/lang/reflect/Type;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+.end method
+
+.method public final hashCode()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/google/gson/reflect/TypeToken;->hashCode:I</span>
+.end method
+
+.method public isAssignableFrom(Lcom/google/gson/reflect/TypeToken;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/google/gson/reflect/TypeToken",</span>
+<span class="">	"<*>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p1}, Lcom/google/gson/reflect/TypeToken;->getType()Ljava/lang/reflect/Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public isAssignableFrom(Ljava/lang/Class;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<*>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;)Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public isAssignableFrom(Ljava/lang/reflect/Type;)Z
+<span class="">	.locals 5</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	move v2, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	:cond_1</span>
+<span class="">	instance-of v0, v0, Ljava/lang/Class;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;</span>
+<span class="">	invoke-static {p1}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	:cond_2</span>
+<span class="">	instance-of v0, v0, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	check-cast v0, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	new-instance v1, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	:cond_3</span>
+<span class="">	instance-of v0, v0, Ljava/lang/reflect/GenericArrayType;</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;</span>
+<span class="">	invoke-static {p1}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	check-cast v0, Ljava/lang/reflect/GenericArrayType;</span>
+<span class="">	invoke-static {p1, v0}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/GenericArrayType;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_4</span>
+<span class="">	move v0, v1</span>
+<span class="">	move v2, v0</span>
+<span class="">	:goto_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_4</span>
+<span class="">	goto :goto_1</span>
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	:cond_5</span>
+<span class="">	const/4 v3, 0x3</span>
+<span class="">	new-array v3, v3, [Ljava/lang/Class;</span>
+<span class="">	const-class v4, Ljava/lang/Class;</span>
+<span class="">	aput-object v4, v3, v2</span>
+<span class="">	const-class v2, Ljava/lang/reflect/ParameterizedType;</span>
+<span class="">	aput-object v2, v3, v1</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	const-class v2, Ljava/lang/reflect/GenericArrayType;</span>
+<span class="">	aput-object v2, v3, v1</span>
+<span class="">	invoke-static {v0, v3}, Lcom/google/gson/reflect/TypeToken;->buildUnexpectedTypeError(Ljava/lang/reflect/Type;[Ljava/lang/Class;)Ljava/lang/AssertionError;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public final toString()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;</span>
+<span class="">	invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

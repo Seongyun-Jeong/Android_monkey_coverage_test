@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.dm.hz.view</a></li>
+        <li><i class="ico ico-class"></i> CustomCheckInputButton.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/dm/hz/view/CustomCheckInputButton;
+.super Landroid/widget/Button;
+.source "SourceFile"
+
+
+.field private a:[Landroid/widget/EditText;
+.field private b:Landroid/text/TextWatcher;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V</span>
+<span class="">	new-instance v0, Lcom/dm/hz/view/a;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/dm/hz/view/a;-><init>(Lcom/dm/hz/view/CustomCheckInputButton;)V</span>
+<span class="">	iput-object v0, p0, Lcom/dm/hz/view/CustomCheckInputButton;->b:Landroid/text/TextWatcher;</span>
+.end method
+
+<span class="cov">.method public constructor &lt;init&gt;(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="">	.locals 1</span>
+
+<span class="cov">	invoke-direct {p0, p1, p2}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V</span>
+<span class="cov">	new-instance v0, Lcom/dm/hz/view/a;</span>
+<span class="cov">	invoke-direct {v0, p0}, Lcom/dm/hz/view/a;-><init>(Lcom/dm/hz/view/CustomCheckInputButton;)V</span>
+<span class="cov">	iput-object v0, p0, Lcom/dm/hz/view/CustomCheckInputButton;->b:Landroid/text/TextWatcher;</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private a()V</span>
+<span class="">	.locals 5</span>
+
+<span class="cov">	iget-object v0, p0, Lcom/dm/hz/view/CustomCheckInputButton;->a:[Landroid/widget/EditText;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="cov">	:cond_0</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	iget-object v1, p0, Lcom/dm/hz/view/CustomCheckInputButton;->a:[Landroid/widget/EditText;</span>
+<span class="cov">	array-length v2, v1</span>
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	if-ge v0, v2, :cond_0</span>
+<span class="cov">	aget-object v3, v1, v0</span>
+<span class="cov">	iget-object v4, p0, Lcom/dm/hz/view/CustomCheckInputButton;->b:Landroid/text/TextWatcher;</span>
+<span class="cov">	invoke-virtual {v3, v4}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V</span>
+<span class="cov">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method static synthetic a(Lcom/dm/hz/view/CustomCheckInputButton;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/view/CustomCheckInputButton;->c()V</span>
+<span class="exec">	return-void</span>
+.end method
+
+<span class="cov">.method private b()Z</span>
+<span class="">	.locals 5</span>
+
+<span class="cov">	const/4 v0, 0x0</span>
+<span class="cov">	iget-object v2, p0, Lcom/dm/hz/view/CustomCheckInputButton;->a:[Landroid/widget/EditText;</span>
+<span class="cov">	array-length v3, v2</span>
+<span class="cov">	move v1, v0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	if-ge v1, v3, :cond_1</span>
+<span class="cov">	aget-object v4, v2, v1</span>
+<span class="exec">	invoke-virtual {v4}, Landroid/widget/EditText;->getText()Landroid/text/Editable;</span>
+<span class="cov">	move-result-object v4</span>
+<span class="exec">	invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;</span>
+<span class="cov">	move-result-object v4</span>
+<span class="exec">	invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="cov">	move-result v4</span>
+<span class="cov">	if-eqz v4, :cond_0</span>
+<span class="cov">	:goto_1</span>
+<span class="exec">	return v0</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	add-int/lit8 v1, v1, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="cov">	:cond_1</span>
+<span class="cov">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+<span class="cov">.method private c()V</span>
+<span class="">	.locals 2</span>
+
+<span class="exec">	invoke-direct {p0}, Lcom/dm/hz/view/CustomCheckInputButton;->b()Z</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	if-eqz v0, :cond_0</span>
+<span class="exec">	invoke-virtual {p0}, Lcom/dm/hz/view/CustomCheckInputButton;->getResources()Landroid/content/res/Resources;</span>
+<span class="cov">	move-result-object v0</span>
+<span class="cov">	const v1, 0x106000b</span>
+<span class="exec">	invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I</span>
+<span class="cov">	move-result v0</span>
+<span class="cov">	:goto_0</span>
+<span class="cov">	invoke-virtual {p0, v0}, Lcom/dm/hz/view/CustomCheckInputButton;->setTextColor(I)V</span>
+<span class="exec">	return-void</span>
+<span class="cov">	:cond_0</span>
+<span class="cov">	const-string v0, "#b41c56"</span>
+<span class="exec">	invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I</span>
+<span class="cov">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+<span class="cov">.method public varargs a([Landroid/widget/EditText;)V</span>
+<span class="">	.locals 0</span>
+
+<span class="cov">	iput-object p1, p0, Lcom/dm/hz/view/CustomCheckInputButton;->a:[Landroid/widget/EditText;</span>
+<span class="cov">	invoke-direct {p0}, Lcom/dm/hz/view/CustomCheckInputButton;->a()V</span>
+<span class="exec">	return-void</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">android.support.v4.widget</a></li>
+        <li><i class="ico ico-class"></i> ResourceCursorAdapter.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Landroid/support/v4/widget/ResourceCursorAdapter;
+.super Landroid/support/v4/widget/CursorAdapter;
+.source "SourceFile"
+
+
+.field private mDropDownLayout:I
+.field private mInflater:Landroid/view/LayoutInflater;
+.field private mLayout:I
+
+
+.method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation runtime Ljava/lang/Deprecated;</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-direct {p0, p1, p3}, Landroid/support/v4/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;)V</span>
+<span class="">	iput p2, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mDropDownLayout:I</span>
+<span class="">	iput p2, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mLayout:I</span>
+<span class="">	const-string v0, "layout_inflater"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/LayoutInflater;</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mInflater:Landroid/view/LayoutInflater;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;I)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p3, p4}, Landroid/support/v4/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;I)V</span>
+<span class="">	iput p2, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mDropDownLayout:I</span>
+<span class="">	iput p2, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mLayout:I</span>
+<span class="">	const-string v0, "layout_inflater"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/LayoutInflater;</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mInflater:Landroid/view/LayoutInflater;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-direct {p0, p1, p3, p4}, Landroid/support/v4/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;Z)V</span>
+<span class="">	iput p2, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mDropDownLayout:I</span>
+<span class="">	iput p2, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mLayout:I</span>
+<span class="">	const-string v0, "layout_inflater"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/LayoutInflater;</span>
+<span class="">	iput-object v0, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mInflater:Landroid/view/LayoutInflater;</span>
+.end method
+
+.method public newDropDownView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mInflater:Landroid/view/LayoutInflater;</span>
+<span class="">	iget v1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mDropDownLayout:I</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mInflater:Landroid/view/LayoutInflater;</span>
+<span class="">	iget v1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mLayout:I</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public setDropDownViewResource(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mDropDownLayout:I</span>
+.end method
+
+.method public setViewResource(I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mLayout:I</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

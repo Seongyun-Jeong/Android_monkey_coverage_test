@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.widget</a></li>
+        <li><i class="ico ico-class"></i> PickerFragment.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/facebook/widget/PickerFragment;
+.super Landroid/support/v4/app/Fragment;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/widget/PickerFragment$GraphObjectFilter;,
+Lcom/facebook/widget/PickerFragment$LoadingStrategy;,
+Lcom/facebook/widget/PickerFragment$MultiSelectionStrategy;,
+Lcom/facebook/widget/PickerFragment$OnDataChangedListener;,
+Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;,
+Lcom/facebook/widget/PickerFragment$OnErrorListener;,
+Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;,
+Lcom/facebook/widget/PickerFragment$PickerFragmentAdapter;,
+Lcom/facebook/widget/PickerFragment$SelectionStrategy;,
+Lcom/facebook/widget/PickerFragment$SingleSelectionStrategy;
+}
+.end annotation
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<T::",
+"Lcom/facebook/model/GraphObject;",
+">",
+"Landroid/support/v4/app/Fragment;"
+}
+.end annotation
+
+.field private static final a:Ljava/lang/String; = "com.facebook.android.PickerFragment.Selection"
+.field private static final b:Ljava/lang/String; = "com.facebook.android.PickerFragment.ActivityCircleShown"
+.field public static final c:Ljava/lang/String; = "com.facebook.widget.PickerFragment.ShowPictures"
+.field public static final d:Ljava/lang/String; = "com.facebook.widget.PickerFragment.ExtraFields"
+.field public static final e:Ljava/lang/String; = "com.facebook.widget.PickerFragment.ShowTitleBar"
+.field public static final f:Ljava/lang/String; = "com.facebook.widget.PickerFragment.TitleText"
+.field public static final g:Ljava/lang/String; = "com.facebook.widget.PickerFragment.DoneButtonText"
+.field private static final j:I = 0x5
+.field private A:Landroid/widget/TextView;
+.field private B:Landroid/widget/Button;
+.field private C:Landroid/graphics/drawable/Drawable;
+.field private D:Landroid/graphics/drawable/Drawable;
+.field private E:Z
+.field private F:Landroid/widget/AbsListView$OnScrollListener;
+.field  h:Ljava/util/HashSet;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/HashSet",
+"<",
+"Ljava/lang/String;",
+">;"
+}
+.end annotation
+.end field
+.field  i:Lcom/facebook/widget/GraphObjectAdapter;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/GraphObjectAdapter",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field private final k:I
+.field private l:Lcom/facebook/widget/PickerFragment$OnErrorListener;
+.field private m:Lcom/facebook/widget/PickerFragment$OnDataChangedListener;
+.field private n:Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;
+.field private o:Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;
+.field private p:Lcom/facebook/widget/PickerFragment$GraphObjectFilter;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/PickerFragment$GraphObjectFilter",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field private q:Z
+.field private r:Z
+.field private s:Landroid/widget/ListView;
+.field private final t:Ljava/lang/Class;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/lang/Class",
+"<TT;>;"
+}
+.end annotation
+.end field
+.field private u:Lcom/facebook/widget/PickerFragment$LoadingStrategy;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/PickerFragment",
+"<TT;>.",
+"LoadingStrategy;"
+}
+.end annotation
+.end field
+.field private v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Lcom/facebook/widget/PickerFragment",
+"<TT;>.SelectionStrategy;"
+}
+.end annotation
+.end field
+.field private w:Landroid/widget/ProgressBar;
+.field private x:Lcom/facebook/internal/SessionTracker;
+.field private y:Ljava/lang/String;
+.field private z:Ljava/lang/String;
+
+
+.method constructor <init>(Ljava/lang/Class;ILandroid/os/Bundle;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/lang/Class",</span>
+<span class="">	"<TT;>;I",</span>
+<span class="">	"Landroid/os/Bundle;",</span>
+<span class="">	")V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	invoke-direct {p0}, Landroid/support/v4/app/Fragment;-><init>()V</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->q:Z</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+<span class="">	new-instance v0, Ljava/util/HashSet;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashSet;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->h:Ljava/util/HashSet;</span>
+<span class="">	new-instance v0, Lcom/facebook/widget/PickerFragment$1;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/facebook/widget/PickerFragment$1;-><init>(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->F:Landroid/widget/AbsListView$OnScrollListener;</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->t:Ljava/lang/Class;</span>
+<span class="">	iput p2, p0, Lcom/facebook/widget/PickerFragment;->k:I</span>
+<span class="">	invoke-direct {p0, p3}, Lcom/facebook/widget/PickerFragment;->c(Landroid/os/Bundle;)V</span>
+.end method
+
+.method private a()V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/PickerFragment;->b()V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->m()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/PickerFragment;->a(Lcom/facebook/Session;)Lcom/facebook/Request;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->t()V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->u:Lcom/facebook/widget/PickerFragment$LoadingStrategy;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->a(Lcom/facebook/Request;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private static a(Landroid/view/View;F)V
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Landroid/view/animation/AlphaAnimation;</span>
+<span class="">	invoke-direct {v0, p1, p1}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V</span>
+<span class="">	const-wide/16 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V</span>
+<span class="">	invoke-virtual {p0, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V</span>
+.end method
+
+.method private a(Landroid/widget/ListView;Landroid/view/View;I)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/model/GraphObject;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/facebook/widget/GraphObjectAdapter;->g(Lcom/facebook/model/GraphObject;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/facebook/widget/PickerFragment$SelectionStrategy;->b(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter;->notifyDataSetChanged()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->n:Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->n:Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;</span>
+<span class="">	invoke-interface {v0, p0}, Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;->a(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/PickerFragment;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/PickerFragment;->c()V</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/PickerFragment;Landroid/widget/ListView;Landroid/view/View;I)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1, p2, p3}, Lcom/facebook/widget/PickerFragment;->a(Landroid/widget/ListView;Landroid/view/View;I)V</span>
+.end method
+
+.method static synthetic a(Lcom/facebook/widget/PickerFragment;Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/PickerFragment;->E:Z</span>
+.end method
+
+.method static synthetic b(Lcom/facebook/widget/PickerFragment;)Lcom/facebook/widget/PickerFragment$OnErrorListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->l:Lcom/facebook/widget/PickerFragment$OnErrorListener;</span>
+.end method
+
+.method private b()V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/PickerFragment$SelectionStrategy;->c()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v3}, Lcom/facebook/widget/GraphObjectAdapter;->isEmpty()Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_3</span>
+<span class="">	:goto_1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->u:Lcom/facebook/widget/PickerFragment$LoadingStrategy;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->b()V</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/widget/PickerFragment$SelectionStrategy;->b()V</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/widget/GraphObjectAdapter;->notifyDataSetChanged()V</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->m:Lcom/facebook/widget/PickerFragment$OnDataChangedListener;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->m:Lcom/facebook/widget/PickerFragment$OnDataChangedListener;</span>
+<span class="">	invoke-interface {v1, p0}, Lcom/facebook/widget/PickerFragment$OnDataChangedListener;->a(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->n:Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->n:Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;</span>
+<span class="">	invoke-interface {v0, p0}, Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;->a(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move v1, v2</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private b(Landroid/view/ViewGroup;)V
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_title_bar_stub:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/ViewStub;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Landroid/widget/RelativeLayout$LayoutParams;</span>
+<span class="">	invoke-direct {v1, v2, v2}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V</span>
+<span class="">	const/4 v2, 0x3</span>
+<span class="">	sget v3, Lcom/facebook/android/R$id;->com_facebook_picker_title_bar:I</span>
+<span class="">	invoke-virtual {v1, v2, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/widget/ListView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->C:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->C:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_done_button:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/Button;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->B:Landroid/widget/Button;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->B:Landroid/widget/Button;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->B:Landroid/widget/Button;</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/PickerFragment$6;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/widget/PickerFragment$6;-><init>(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->r()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->B:Landroid/widget/Button;</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->r()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->D:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->B:Landroid/widget/Button;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->D:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	sget v0, Lcom/facebook/android/R$id;->com_facebook_picker_title:I</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/TextView;</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->A:Landroid/widget/TextView;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->A:Landroid/widget/TextView;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->q()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->A:Landroid/widget/TextView;</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->q()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:cond_3</span>
+.end method
+
+.method static synthetic c(Lcom/facebook/widget/PickerFragment;)Ljava/lang/Class;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->t:Ljava/lang/Class;</span>
+.end method
+
+.method private c()V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ListView;->getLastVisiblePosition()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-ltz v0, :cond_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v1}, Landroid/widget/ListView;->getFirstVisiblePosition()I</span>
+<span class="">	move-result v1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	const/4 v3, 0x5</span>
+<span class="">	invoke-virtual {v2, v1, v0, v3}, Lcom/facebook/widget/GraphObjectAdapter;->a(III)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private c(Landroid/os/Bundle;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p1, :cond_2</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.ShowPictures"</span>
+<span class="">	iget-boolean v1, p0, Lcom/facebook/widget/PickerFragment;->q:Z</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->q:Z</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.ExtraFields"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v1, ","</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/PickerFragment;->a(Ljava/util/Collection;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.ShowTitleBar"</span>
+<span class="">	iget-boolean v1, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.TitleText"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->A:Landroid/widget/TextView;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->A:Landroid/widget/TextView;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.DoneButtonText"</span>
+<span class="">	invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->B:Landroid/widget/Button;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->B:Landroid/widget/Button;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	:cond_2</span>
+.end method
+
+.method static synthetic d(Lcom/facebook/widget/PickerFragment;)Lcom/facebook/widget/PickerFragment$SelectionStrategy;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+.end method
+
+.method static synthetic e(Lcom/facebook/widget/PickerFragment;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/PickerFragment;->b()V</span>
+.end method
+
+.method static synthetic f(Lcom/facebook/widget/PickerFragment;)Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->o:Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;</span>
+.end method
+
+.method abstract a(Lcom/facebook/Session;)Lcom/facebook/Request;
+<span class="">	</span>
+
+.end method
+
+.method public a(Landroid/os/Bundle;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0, p1}, Lcom/facebook/widget/PickerFragment;->c(Landroid/os/Bundle;)V</span>
+.end method
+
+.method  a(Landroid/view/ViewGroup;)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public a(Lcom/facebook/widget/PickerFragment$GraphObjectFilter;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/PickerFragment$GraphObjectFilter",</span>
+<span class="">	"<TT;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->p:Lcom/facebook/widget/PickerFragment$GraphObjectFilter;</span>
+.end method
+
+.method public a(Lcom/facebook/widget/PickerFragment$OnDataChangedListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->m:Lcom/facebook/widget/PickerFragment$OnDataChangedListener;</span>
+.end method
+
+.method public a(Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->o:Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;</span>
+.end method
+
+.method public a(Lcom/facebook/widget/PickerFragment$OnErrorListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->l:Lcom/facebook/widget/PickerFragment$OnErrorListener;</span>
+.end method
+
+.method public a(Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->n:Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;</span>
+.end method
+
+.method  a(Lcom/facebook/widget/PickerFragment$SelectionStrategy;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/PickerFragment",</span>
+<span class="">	"<TT;>.SelectionStrategy;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	if-eq p1, v0, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter;->notifyDataSetChanged()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  a(Lcom/facebook/widget/SimpleGraphObjectCursor;)V
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lcom/facebook/widget/SimpleGraphObjectCursor",</span>
+<span class="">	"<TT;>;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ListView;->getFirstVisiblePosition()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lez v0, :cond_0</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v2, v0}, Lcom/facebook/widget/GraphObjectAdapter;->a(I)Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v1, :cond_3</span>
+<span class="">	invoke-virtual {v2}, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v3, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;->c:Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;</span>
+<span class="">	if-eq v0, v3, :cond_3</span>
+<span class="">	invoke-virtual {v1}, Landroid/view/View;->getTop()I</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v3, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v3, p1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectCursor;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	iget-object v4, v2, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->a:Ljava/lang/String;</span>
+<span class="">	iget-object v2, v2, Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem;->b:Lcom/facebook/model/GraphObject;</span>
+<span class="">	invoke-virtual {v1, v4, v2}, Lcom/facebook/widget/GraphObjectAdapter;->a(Ljava/lang/String;Lcom/facebook/model/GraphObject;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	if-eq v1, v2, :cond_1</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v2, v1, v0}, Landroid/widget/ListView;->setSelectionFromTop(II)V</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v3, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->m:Lcom/facebook/widget/PickerFragment$OnDataChangedListener;</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->m:Lcom/facebook/widget/PickerFragment$OnDataChangedListener;</span>
+<span class="">	invoke-interface {v0, p0}, Lcom/facebook/widget/PickerFragment$OnDataChangedListener;->a(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	:cond_2</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Ljava/util/Collection;)V
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/util/HashSet;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/HashSet;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->h:Ljava/util/HashSet;</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->h:Ljava/util/HashSet;</span>
+<span class="">	invoke-virtual {v0, p1}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  a(Lcom/facebook/model/GraphObject;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TT;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->p:Lcom/facebook/widget/PickerFragment$GraphObjectFilter;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->p:Lcom/facebook/widget/PickerFragment$GraphObjectFilter;</span>
+<span class="">	invoke-interface {v0, p1}, Lcom/facebook/widget/PickerFragment$GraphObjectFilter;->a(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  b(Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.ShowPictures"</span>
+<span class="">	iget-boolean v1, p0, Lcom/facebook/widget/PickerFragment;->q:Z</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->h:Ljava/util/HashSet;</span>
+<span class="">	invoke-virtual {v0}, Ljava/util/HashSet;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.ExtraFields"</span>
+<span class="">	const-string v1, ","</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->h:Ljava/util/HashSet;</span>
+<span class="">	invoke-static {v1, v2}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.ShowTitleBar"</span>
+<span class="">	iget-boolean v1, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.TitleText"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "com.facebook.widget.PickerFragment.DoneButtonText"</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+.end method
+
+.method public b(Lcom/facebook/Session;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->x:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/facebook/internal/SessionTracker;->a(Lcom/facebook/Session;)V</span>
+.end method
+
+.method public b(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+.end method
+
+.method  b(Z)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public c(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+.end method
+
+.method public c(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/PickerFragment;->q:Z</span>
+.end method
+
+.method abstract d()Lcom/facebook/widget/PickerFragment$PickerFragmentAdapter;
+<span class="">	</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/facebook/widget/PickerFragment",</span>
+<span class="">	"<TT;>.PickerFragmentAdapter<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+.method public d(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+.end method
+
+.method abstract e()Lcom/facebook/widget/PickerFragment$LoadingStrategy;
+<span class="">	</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/facebook/widget/PickerFragment",</span>
+<span class="">	"<TT;>.",</span>
+<span class="">	"LoadingStrategy;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+.method public e(Z)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->u:Lcom/facebook/widget/PickerFragment$LoadingStrategy;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->c()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-direct {p0}, Lcom/facebook/widget/PickerFragment;->a()V</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method abstract f()Lcom/facebook/widget/PickerFragment$SelectionStrategy;
+<span class="">	</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/facebook/widget/PickerFragment",</span>
+<span class="">	"<TT;>.SelectionStrategy;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+.method  g()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+.end method
+
+.method public h()Lcom/facebook/widget/PickerFragment$OnDataChangedListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->m:Lcom/facebook/widget/PickerFragment$OnDataChangedListener;</span>
+.end method
+
+.method public i()Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->n:Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;</span>
+.end method
+
+.method public j()Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->o:Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;</span>
+.end method
+
+.method public k()Lcom/facebook/widget/PickerFragment$OnErrorListener;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->l:Lcom/facebook/widget/PickerFragment$OnErrorListener;</span>
+.end method
+
+.method public l()Lcom/facebook/widget/PickerFragment$GraphObjectFilter;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/facebook/widget/PickerFragment$GraphObjectFilter",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->p:Lcom/facebook/widget/PickerFragment$GraphObjectFilter;</span>
+.end method
+
+.method public m()Lcom/facebook/Session;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->x:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->a()Lcom/facebook/Session;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public n()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->q:Z</span>
+.end method
+
+.method public o()Ljava/util/Set;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/Set",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Ljava/util/HashSet;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->h:Ljava/util/HashSet;</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V</span>
+.end method
+
+.method public onActivityCreated(Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V</span>
+<span class="">	new-instance v0, Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Lcom/facebook/widget/PickerFragment$5;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/facebook/widget/PickerFragment$5;-><init>(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	invoke-direct {v0, v1, v2}, Lcom/facebook/internal/SessionTracker;-><init>(Landroid/content/Context;Lcom/facebook/Session$StatusCallback;)V</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->x:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/PickerFragment;->a(Landroid/os/Bundle;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->e()Lcom/facebook/widget/PickerFragment$LoadingStrategy;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->u:Lcom/facebook/widget/PickerFragment$LoadingStrategy;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->u:Lcom/facebook/widget/PickerFragment$LoadingStrategy;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->a(Lcom/facebook/widget/GraphObjectAdapter;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->f()Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	const-string v1, "com.facebook.android.PickerFragment.Selection"</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Lcom/facebook/widget/PickerFragment$SelectionStrategy;->b(Landroid/os/Bundle;Ljava/lang/String;)V</span>
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->getView()Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/ViewGroup;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/facebook/widget/PickerFragment;->b(Landroid/view/ViewGroup;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	const-string v0, "com.facebook.android.PickerFragment.ActivityCircleShown"</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->v()V</span>
+<span class="">	:cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->x()V</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onCreate(Landroid/os/Bundle;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->d()Lcom/facebook/widget/PickerFragment$PickerFragmentAdapter;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	new-instance v1, Lcom/facebook/widget/PickerFragment$2;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/facebook/widget/PickerFragment$2;-><init>(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Lcom/facebook/widget/GraphObjectAdapter$Filter;)V</span>
+.end method
+
+.method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+<span class="">	.locals 3</span>
+
+<span class="">	iget v0, p0, Lcom/facebook/widget/PickerFragment;->k:I</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/view/ViewGroup;</span>
+<span class="">	sget v1, Lcom/facebook/android/R$id;->com_facebook_picker_list_view:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Landroid/widget/ListView;</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	new-instance v2, Lcom/facebook/widget/PickerFragment$3;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/facebook/widget/PickerFragment$3;-><init>(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	new-instance v2, Lcom/facebook/widget/PickerFragment$4;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/facebook/widget/PickerFragment$4;-><init>(Lcom/facebook/widget/PickerFragment;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->F:Landroid/widget/AbsListView$OnScrollListener;</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V</span>
+<span class="">	sget v1, Lcom/facebook/android/R$id;->com_facebook_picker_activity_circle:I</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Landroid/widget/ProgressBar;</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/PickerFragment;->a(Landroid/view/ViewGroup;)V</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	iget-object v2, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V</span>
+.end method
+
+.method public onDetach()V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-super {p0}, Landroid/support/v4/app/Fragment;->onDetach()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->s:Landroid/widget/ListView;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->u:Lcom/facebook/widget/PickerFragment$LoadingStrategy;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/PickerFragment$LoadingStrategy;->a()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->x:Lcom/facebook/internal/SessionTracker;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/internal/SessionTracker;->d()V</span>
+.end method
+
+.method public onInflate(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/Fragment;->onInflate(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V</span>
+<span class="">	sget-object v0, Lcom/facebook/android/R$styleable;->com_facebook_picker_fragment:[I</span>
+<span class="">	invoke-virtual {p1, p2, v0}, Landroid/app/Activity;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	iget-boolean v2, p0, Lcom/facebook/widget/PickerFragment;->q:Z</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/facebook/widget/PickerFragment;->c(Z)V</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const-string v2, ","</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0, v1}, Lcom/facebook/widget/PickerFragment;->a(Ljava/util/Collection;)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v1, 0x2</span>
+<span class="">	iget-boolean v2, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	iput-boolean v1, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+<span class="">	const/4 v1, 0x3</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+<span class="">	const/4 v1, 0x4</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+<span class="">	const/4 v1, 0x5</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment;->C:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	const/4 v1, 0x6</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, p0, Lcom/facebook/widget/PickerFragment;->D:Landroid/graphics/drawable/Drawable;</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V</span>
+.end method
+
+.method public onSaveInstanceState(Landroid/os/Bundle;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/PickerFragment;->b(Landroid/os/Bundle;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	const-string v1, "com.facebook.android.PickerFragment.Selection"</span>
+<span class="">	invoke-virtual {v0, p1, v1}, Lcom/facebook/widget/PickerFragment$SelectionStrategy;->a(Landroid/os/Bundle;Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v1, "com.facebook.android.PickerFragment.ActivityCircleShown"</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ProgressBar;->getVisibility()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public onStop()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->E:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/PickerFragment;->b(Z)V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-super {p0}, Landroid/support/v4/app/Fragment;->onStop()V</span>
+.end method
+
+.method public p()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/facebook/widget/PickerFragment;->r:Z</span>
+.end method
+
+.method public q()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->g()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->y:Ljava/lang/String;</span>
+.end method
+
+.method public r()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->u()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->z:Ljava/lang/String;</span>
+.end method
+
+.method  s()Ljava/util/List;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->v:Lcom/facebook/widget/PickerFragment$SelectionStrategy;</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/widget/PickerFragment$SelectionStrategy;->a()Ljava/util/Collection;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/facebook/widget/GraphObjectAdapter;->a(Ljava/util/Collection;)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method public setArguments(Landroid/os/Bundle;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->setArguments(Landroid/os/Bundle;)V</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/facebook/widget/PickerFragment;->a(Landroid/os/Bundle;)V</span>
+.end method
+
+.method  t()V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method  u()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget v0, Lcom/facebook/android/R$string;->com_facebook_picker_done_button_text:I</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/facebook/widget/PickerFragment;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method  v()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/facebook/widget/PickerFragment;->w()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method  w()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->i:Lcom/facebook/widget/GraphObjectAdapter;</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/widget/GraphObjectAdapter;->isEmpty()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/high16 v0, 0x3e800000    # 0.25f</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	invoke-static {v1, v0}, Lcom/facebook/widget/PickerFragment;->a(Landroid/view/View;F)V</span>
+<span class="">	const/high16 v0, 0x3f800000    # 1.0f</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method  x()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	invoke-virtual {v0}, Landroid/widget/ProgressBar;->clearAnimation()V</span>
+<span class="">	iget-object v0, p0, Lcom/facebook/widget/PickerFragment;->w:Landroid/widget/ProgressBar;</span>
+<span class="">	const/4 v1, 0x4</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V</span>
+<span class="">	:cond_0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

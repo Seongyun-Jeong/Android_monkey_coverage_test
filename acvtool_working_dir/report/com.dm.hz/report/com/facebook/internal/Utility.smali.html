@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.facebook.internal</a></li>
+        <li><i class="ico ico-class"></i> Utility.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/facebook/internal/Utility;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/facebook/internal/Utility$FetchedAppSettings;
+}
+.end annotation
+
+.field static final a:Ljava/lang/String; = "FacebookSDK"
+.field public static final b:I = 0x2000
+.field private static final c:Ljava/lang/String; = "MD5"
+.field private static final d:Ljava/lang/String; = "https"
+.field private static final e:Ljava/lang/String; = "supports_attribution"
+.field private static final f:Ljava/lang/String; = "supports_implicit_sdk_logging"
+.field private static final g:[Ljava/lang/String;
+.field private static final h:Ljava/lang/String; = "fields"
+.field private static i:Ljava/util/Map;
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"Ljava/util/Map",
+"<",
+"Ljava/lang/String;",
+"Lcom/facebook/internal/Utility$FetchedAppSettings;",
+">;"
+}
+.end annotation
+.end field
+.field private static j:Ljava/lang/String;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x2</span>
+<span class="">	new-array v0, v0, [Ljava/lang/String;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const-string v2, "supports_attribution"</span>
+<span class="">	aput-object v2, v0, v1</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	const-string v2, "supports_implicit_sdk_logging"</span>
+<span class="">	aput-object v2, v0, v1</span>
+<span class="">	sput-object v0, Lcom/facebook/internal/Utility;->g:[Ljava/lang/String;</span>
+<span class="">	new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;</span>
+<span class="">	invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V</span>
+<span class="">	sput-object v0, Lcom/facebook/internal/Utility;->i:Ljava/util/Map;</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	sput-object v0, Lcom/facebook/internal/Utility;->j:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/net/Uri;
+<span class="">	.locals 5</span>
+
+<span class="">	new-instance v2, Landroid/net/Uri$Builder;</span>
+<span class="">	invoke-direct {v2}, Landroid/net/Uri$Builder;-><init>()V</span>
+<span class="">	const-string v0, "https"</span>
+<span class="">	invoke-virtual {v2, v0}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;</span>
+<span class="">	invoke-virtual {v2, p0}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;</span>
+<span class="">	invoke-virtual {v2, p1}, Landroid/net/Uri$Builder;->path(Ljava/lang/String;)Landroid/net/Uri$Builder;</span>
+<span class="">	invoke-virtual {p2}, Landroid/os/Bundle;->keySet()Ljava/util/Set;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	invoke-virtual {v2}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p2, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	instance-of v4, v1, Ljava/lang/String;</span>
+<span class="">	if-eqz v4, :cond_0</span>
+<span class="">	check-cast v1, Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v0, v1}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;Z)Lcom/facebook/internal/Utility$FetchedAppSettings;
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/internal/Utility;->i:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, p0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/internal/Utility;->i:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/facebook/internal/Utility$FetchedAppSettings;</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v0, Landroid/os/Bundle;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {v0}, Landroid/os/Bundle;-><init>()V</span>
+<span class="">	const-string v1, "fields"</span>
+<span class="">	const-string v2, ","</span>
+<span class="">	sget-object v3, Lcom/facebook/internal/Utility;->g:[Ljava/lang/String;</span>
+<span class="">	invoke-static {v2, v3}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;[Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-static {v4, p0, v4}, Lcom/facebook/Request;->a(Lcom/facebook/Session;Ljava/lang/String;Lcom/facebook/Request$Callback;)Lcom/facebook/Request;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1, v0}, Lcom/facebook/Request;->a(Landroid/os/Bundle;)V</span>
+<span class="">	invoke-virtual {v1}, Lcom/facebook/Request;->m()Lcom/facebook/Response;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Lcom/facebook/Response;->b()Lcom/facebook/model/GraphObject;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v0, Lcom/facebook/internal/Utility$FetchedAppSettings;</span>
+<span class="">	const-string v2, "supports_attribution"</span>
+<span class="">	invoke-static {v1, v2}, Lcom/facebook/internal/Utility;->a(Lcom/facebook/model/GraphObject;Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	const-string v3, "supports_implicit_sdk_logging"</span>
+<span class="">	invoke-static {v1, v3}, Lcom/facebook/internal/Utility;->a(Lcom/facebook/model/GraphObject;Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-direct {v0, v2, v1, v4}, Lcom/facebook/internal/Utility$FetchedAppSettings;-><init>(ZZLcom/facebook/internal/Utility$FetchedAppSettings;)V</span>
+<span class="">	sget-object v1, Lcom/facebook/internal/Utility;->i:Ljava/util/Map;</span>
+<span class="">	invoke-interface {v1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Lorg/json/JSONException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	instance-of v1, v0, Ljava/lang/String;</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	new-instance v1, Lorg/json/JSONTokener;</span>
+<span class="">	check-cast v0, Ljava/lang/String;</span>
+<span class="">	invoke-direct {v1, v0}, Lorg/json/JSONTokener;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v1}, Lorg/json/JSONTokener;->nextValue()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	instance-of v0, v1, Lorg/json/JSONObject;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	instance-of v0, v1, Lorg/json/JSONArray;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	if-eqz p2, :cond_0</span>
+<span class="">	new-instance v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V</span>
+<span class="">	invoke-virtual {v0, p2, v1}, Lorg/json/JSONObject;->putOpt(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;</span>
+<span class="">	:goto_1</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v1, "Got an unexpected non-JSON object."</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+<span class="">	move-object v0, v1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object v1, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Landroid/content/Context;)Ljava/lang/String;
+<span class="">	.locals 3</span>
+
+<span class="">	const-string v0, "context"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Validate;->a(Ljava/lang/Object;Ljava/lang/String;)V</span>
+<span class="">	sget-object v0, Lcom/facebook/internal/Utility;->j:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/facebook/internal/Utility;->j:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/16 v2, 0x80</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;</span>
+<span class="">	const-string v1, "com.facebook.sdk.ApplicationId"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/facebook/internal/Utility;->j:Ljava/lang/String;</span>
+<span class="">	sget-object v0, Lcom/facebook/internal/Utility;->j:Ljava/lang/String;</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static a(Ljava/io/InputStream;)Ljava/lang/String;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Throws;</span>
+<span class="">	value = {</span>
+<span class="">	Ljava/io/IOException;</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	:try_start_0</span>
+<span class="">	new-instance v3, Ljava/io/BufferedInputStream;</span>
+<span class="">	invoke-direct {v3, p0}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	:try_start_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_1</span>
+<span class="">	new-instance v1, Ljava/io/InputStreamReader;</span>
+<span class="">	invoke-direct {v1, v3}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_2</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	const/16 v2, 0x800</span>
+<span class="">	new-array v2, v2, [C</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/io/InputStreamReader;->read([C)I</span>
+<span class="">	move-result v4</span>
+<span class="">	const/4 v5, -0x1</span>
+<span class="">	if-ne v4, v5, :cond_0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v3}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0, v2, v5, v4}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;</span>
+<span class="">	:try_start_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	move-object v2, v3</span>
+<span class="">	invoke-static {v2}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-static {v1}, Lcom/facebook/internal/Utility;->a(Ljava/io/Closeable;)V</span>
+<span class="">	throw v0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_1</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_2</span>
+<span class="">	move-object v1, v2</span>
+<span class="">	move-object v2, v3</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static varargs a([Ljava/lang/Object;)Ljava/util/Collection;
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">([TT;)",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Ljava/util/Collections;->unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static a(Lorg/json/JSONObject;)Ljava/util/Map;
+<span class="">	.locals 6</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(",</span>
+<span class="">	"Lorg/json/JSONObject;",</span>
+<span class="">	")",</span>
+<span class="">	"Ljava/util/Map",</span>
+<span class="">	"<",</span>
+<span class="">	"Ljava/lang/String;",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v2, Ljava/util/HashMap;</span>
+<span class="">	invoke-direct {v2}, Ljava/util/HashMap;-><init>()V</span>
+<span class="">	invoke-virtual {p0}, Lorg/json/JSONObject;->names()Lorg/json/JSONArray;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {v3}, Lorg/json/JSONArray;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-lt v1, v0, :cond_0</span>
+<span class="">	invoke-virtual {v3, v1}, Lorg/json/JSONArray;->getString(I)Ljava/lang/String;</span>
+<span class="">	:try_start_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {p0, v4}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	instance-of v5, v0, Lorg/json/JSONObject;</span>
+<span class="">	if-eqz v5, :cond_1</span>
+<span class="">	check-cast v0, Lorg/json/JSONObject;</span>
+<span class="">	invoke-static {v0}, Lcom/facebook/internal/Utility;->a(Lorg/json/JSONObject;)Ljava/util/Map;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</span>
+<span class="">	:cond_1</span>
+<span class="">	add-int/lit8 v0, v1, 0x1</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move v1, v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method private static a(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 7</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p0}, Landroid/webkit/CookieSyncManager;->createInstance(Landroid/content/Context;)Landroid/webkit/CookieSyncManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/webkit/CookieSyncManager;->sync()V</span>
+<span class="">	invoke-static {}, Landroid/webkit/CookieManager;->getInstance()Landroid/webkit/CookieManager;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2, p1}, Landroid/webkit/CookieManager;->getCookie(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v3, ";"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	array-length v4, v3</span>
+<span class="">	move v0, v1</span>
+<span class="">	if-lt v0, v4, :cond_1</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {v2}, Landroid/webkit/CookieManager;->removeExpiredCookie()V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	aget-object v5, v3, v0</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v6, "="</span>
+<span class="">	invoke-virtual {v5, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	array-length v6, v5</span>
+<span class="">	if-lez v6, :cond_2</span>
+<span class="">	new-instance v6, Ljava/lang/StringBuilder;</span>
+<span class="">	aget-object v5, v5, v1</span>
+<span class="">	invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-direct {v6, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v5, "=;expires=Sat, 1 Jan 2000 00:00:01 UTC;"</span>
+<span class="">	invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v2, p1, v5}, Landroid/webkit/CookieManager;->setCookie(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;)V
+<span class="">	.locals 2</span>
+
+<span class="">	instance-of v0, p2, Ljava/lang/String;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	check-cast p2, Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	instance-of v0, p2, Landroid/os/Parcelable;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	check-cast p2, Landroid/os/Parcelable;</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	instance-of v0, p2, [B</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	check-cast p2, [B</span>
+<span class="">	invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v0, Lcom/facebook/FacebookException;</span>
+<span class="">	:cond_2</span>
+<span class="">	const-string v1, "attempted to add unsupported type to Bundle"</span>
+<span class="">	invoke-direct {v0, v1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public static a(Ljava/io/Closeable;)V
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	invoke-interface {p0}, Ljava/io/Closeable;->close()V</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/io/File;)V
+<span class="">	.locals 4</span>
+
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->exists()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z</span>
+<span class="">	:cond_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	array-length v2, v1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-lt v0, v2, :cond_2</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {p0}, Ljava/io/File;->delete()Z</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	aget-object v3, v1, v0</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-static {v3}, Lcom/facebook/internal/Utility;->a(Ljava/io/File;)V</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/Exception;)V
+<span class="">	.locals 2</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	new-instance v0, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v1, ": "</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public static a(Ljava/net/URLConnection;)V
+<span class="">	.locals 1</span>
+
+<span class="">	instance-of v0, p0, Ljava/net/HttpURLConnection;</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	check-cast p0, Ljava/net/HttpURLConnection;</span>
+<span class="">	invoke-virtual {p0}, Ljava/net/HttpURLConnection;->disconnect()V</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method private static a(Lcom/facebook/model/GraphObject;Ljava/lang/String;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-interface {p0, p1}, Lcom/facebook/model/GraphObject;->f(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	instance-of v1, v0, Ljava/lang/Boolean;</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_1</span>
+<span class="">	check-cast v0, Ljava/lang/Boolean;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z</span>
+<span class="">	move-result v0</span>
+.end method
+
+.method public static a(Ljava/lang/Object;Ljava/lang/Object;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(TT;TT;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-nez p0, :cond_1</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->length()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/String;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/util/Collection;)Z
+<span class="">	.locals 1</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<TT;>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	invoke-interface {p0}, Ljava/util/Collection;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static a(Ljava/util/Collection;Ljava/util/Collection;)Z
+<span class="">	.locals 5</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">(",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<TT;>;",</span>
+<span class="">	"Ljava/util/Collection",</span>
+<span class="">	"<TT;>;)Z"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-interface {p1}, Ljava/util/Collection;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz p0, :cond_1</span>
+<span class="">	invoke-interface {p0}, Ljava/util/Collection;->size()I</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	move v0, v2</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	new-instance v3, Ljava/util/HashSet;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-direct {v3, p1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V</span>
+<span class="">	invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:cond_3</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	move v0, v2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	:cond_4</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Ljava/lang/Object;</span>
+<span class="">	invoke-virtual {v3, v0}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_3</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static b(Ljava/lang/String;)Ljava/lang/String;
+<span class="">	.locals 6</span>
+
+<span class="">	:try_start_0</span>
+<span class="">	const-string v0, "MD5"</span>
+<span class="">	invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Ljava/security/MessageDigest;->update([B)V</span>
+<span class="">	invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V</span>
+<span class="">	array-length v3, v1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v0, v3, :cond_0</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_1</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	aget-byte v4, v1, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	shr-int/lit8 v5, v4, 0x4</span>
+<span class="">	and-int/lit8 v5, v5, 0xf</span>
+<span class="">	invoke-static {v5}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v5</span>
+<span class="">	invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	shr-int/lit8 v4, v4, 0x0</span>
+<span class="">	and-int/lit8 v4, v4, 0xf</span>
+<span class="">	invoke-static {v4}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v4</span>
+<span class="">	invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static varargs b([Ljava/lang/Object;)Ljava/util/ArrayList;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">([TT;)",</span>
+<span class="">	"Ljava/util/ArrayList",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v1, Ljava/util/ArrayList;</span>
+<span class="">	array-length v0, p0</span>
+<span class="">	invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V</span>
+<span class="">	array-length v2, p0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v0, v2, :cond_0</span>
+<span class="">	aget-object v3, p0, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static b(Landroid/content/Context;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const-string v0, "facebook.com"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Utility;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, ".facebook.com"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Utility;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "https://facebook.com"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Utility;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	const-string v0, "https://.facebook.com"</span>
+<span class="">	invoke-static {p0, v0}, Lcom/facebook/internal/Utility;->a(Landroid/content/Context;Ljava/lang/String;)V</span>
+.end method
+
+.method public static b(Ljava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	if-eqz p0, :cond_0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method public static varargs c([Ljava/lang/Object;)Ljava/util/List;
+<span class="">	.locals 4</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"<T:",</span>
+<span class="">	"Ljava/lang/Object;",</span>
+<span class="">	">([TT;)",</span>
+<span class="">	"Ljava/util/List",</span>
+<span class="">	"<TT;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v1, Ljava/util/ArrayList;</span>
+<span class="">	invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V</span>
+<span class="">	array-length v2, p0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-lt v0, v2, :cond_0</span>
+<span class="">	aget-object v3, p0, v0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public static c(Landroid/content/Context;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-static {p0}, Lcom/facebook/internal/ImageDownloader;->a(Landroid/content/Context;)V</span>
+.end method
+
+.method public static c(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	sput-object p0, Lcom/facebook/internal/Utility;->j:Ljava/lang/String;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../.resources/report.js"></script>
+</body>
+</html>

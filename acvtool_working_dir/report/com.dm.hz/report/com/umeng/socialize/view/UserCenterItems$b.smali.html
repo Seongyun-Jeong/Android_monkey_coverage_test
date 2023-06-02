@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.view</a></li>
+        <li><i class="ico ico-class"></i> UserCenterItems$b.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/umeng/socialize/view/UserCenterItems$b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/umeng/socialize/view/UserCenterItems;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x409
+name = "b"
+.end annotation
+
+.field public static final b:I = 0x1
+.field public static final c:I = 0x2
+.field public static final d:I = 0x3
+.field private a:Landroid/app/Dialog;
+.field private e:Landroid/content/Context;
+.field private f:Lcom/umeng/socialize/bean/k;
+.field private g:I
+.field private h:Landroid/view/View;
+.field private i:Z
+.field private j:Z
+.field private k:Landroid/app/AlertDialog$Builder;
+
+
+.method public constructor <init>(Landroid/content/Context;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->f:Lcom/umeng/socialize/bean/k;</span>
+<span class="">	iput-boolean v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->i:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->j:Z</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/utils/m;->d(Landroid/content/Context;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->j:Z</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->j:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/view/UserCenterItems$b;->b(Landroid/content/Context;)Landroid/app/Dialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->a:Landroid/app/Dialog;</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/view/UserCenterItems$b;->a(Landroid/content/Context;)Landroid/app/Dialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->a:Landroid/app/Dialog;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/view/UserCenterItems$b;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->g:I</span>
+.end method
+
+.method private a(Landroid/content/Context;)Landroid/app/Dialog;
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Landroid/app/AlertDialog$Builder;</span>
+<span class="">	invoke-direct {v0, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "\u662f"</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/view/bp;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/umeng/socialize/view/bp;-><init>(Lcom/umeng/socialize/view/UserCenterItems$b;)V</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "\u5426"</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/view/bq;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/umeng/socialize/view/bq;-><init>(Lcom/umeng/socialize/view/UserCenterItems$b;)V</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/view/br;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/view/br;-><init>(Lcom/umeng/socialize/view/UserCenterItems$b;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->k:Landroid/app/AlertDialog$Builder;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->k:Landroid/app/AlertDialog$Builder;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/view/UserCenterItems$b;Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->i:Z</span>
+.end method
+
+.method private b(Landroid/content/Context;)Landroid/app/Dialog;
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v5, 0x0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/common/b$a;->a:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v1, "umeng_socialize_base_alert_dialog_button"</span>
+<span class="">	invoke-static {p1, v0, v1}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	invoke-static {p1, v0, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->h:Landroid/view/View;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->h:Landroid/view/View;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_alert_button"</span>
+<span class="">	invoke-static {p1, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/Button;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->a:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_base_alert_dialog_button"</span>
+<span class="">	invoke-static {p1, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-static {p1, v1, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_alert_button"</span>
+<span class="">	invoke-static {p1, v1, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	check-cast v1, Landroid/widget/Button;</span>
+<span class="">	const-string v3, "\u53d6\u6d88"</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v4, "umeng_socialize_button_grey_blue"</span>
+<span class="">	invoke-static {p1, v3, v4}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/widget/Button;->setBackgroundResource(I)V</span>
+<span class="">	new-instance v3, Lcom/umeng/socialize/view/bs;</span>
+<span class="">	invoke-direct {v3, p0}, Lcom/umeng/socialize/view/bs;-><init>(Lcom/umeng/socialize/view/UserCenterItems$b;)V</span>
+<span class="">	invoke-virtual {v1, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/view/bt;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/view/bt;-><init>(Lcom/umeng/socialize/view/UserCenterItems$b;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/view/SocializeAlertDialog$a;</span>
+<span class="">	invoke-direct {v0, p1}, Lcom/umeng/socialize/view/SocializeAlertDialog$a;-><init>(Landroid/content/Context;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->h:Landroid/view/View;</span>
+<span class="">	invoke-virtual {v0, v1, v5}, Lcom/umeng/socialize/view/SocializeAlertDialog$a;->b(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Lcom/umeng/socialize/view/SocializeAlertDialog$a;</span>
+<span class="">	invoke-virtual {v0, v2, v5}, Lcom/umeng/socialize/view/SocializeAlertDialog$a;->b(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Lcom/umeng/socialize/view/SocializeAlertDialog$a;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/view/SocializeAlertDialog$a;->a()Landroid/app/Dialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/view/SocializeAlertDialog;</span>
+<span class="">	new-instance v1, Lcom/umeng/socialize/view/bu;</span>
+<span class="">	invoke-direct {v1, p0}, Lcom/umeng/socialize/view/bu;-><init>(Lcom/umeng/socialize/view/UserCenterItems$b;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/view/SocializeAlertDialog;->a(Lcom/umeng/socialize/view/SocializeAlertDialog$SwitchListener;)V</span>
+.end method
+
+.method static synthetic b(Lcom/umeng/socialize/view/UserCenterItems$b;)Lcom/umeng/socialize/bean/k;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->f:Lcom/umeng/socialize/bean/k;</span>
+.end method
+
+.method static synthetic c(Lcom/umeng/socialize/view/UserCenterItems$b;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->i:Z</span>
+.end method
+
+.method static synthetic d(Lcom/umeng/socialize/view/UserCenterItems$b;)Landroid/app/Dialog;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->a:Landroid/app/Dialog;</span>
+.end method
+
+.method public abstract a(Lcom/umeng/socialize/bean/k;)V
+<span class="">	</span>
+
+.end method
+
+.method public a(Lcom/umeng/socialize/bean/k;I)V
+<span class="">	.locals 4</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->f:Lcom/umeng/socialize/bean/k;</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->g:I</span>
+<span class="">	if-eq v0, p2, :cond_0</span>
+<span class="">	iput p2, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->g:I</span>
+<span class="">	packed-switch p2, :pswitch_data_0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->a:Landroid/app/Dialog;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/m;->b(Landroid/app/Dialog;)V</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->j:Z</span>
+<span class="">	:pswitch_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->k:Landroid/app/AlertDialog$Builder;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "\u4f60\u786e\u5b9a\u7ed1\u5b9a"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p1, Lcom/umeng/socialize/bean/k;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->a:Landroid/app/Dialog;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->h:Landroid/view/View;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_alert_button"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/Button;</span>
+<span class="">	const-string v1, "\u7ed1\u5b9a"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_button_white_blue"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->j:Z</span>
+<span class="">	:pswitch_1</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->k:Landroid/app/AlertDialog$Builder;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "\u4f60\u786e\u5b9a\u89e3\u9664"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p1, Lcom/umeng/socialize/bean/k;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "\u7ed1\u5b9a?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->a:Landroid/app/Dialog;</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->h:Landroid/view/View;</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_alert_button"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/Button;</span>
+<span class="">	const-string v1, "\u89e3\u9664\u7ed1\u5b9a"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_button_red_blue"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->j:Z</span>
+<span class="">	:pswitch_2</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->k:Landroid/app/AlertDialog$Builder;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "\u4f60\u786e\u5b9a\u89e3\u9664"</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p1, Lcom/umeng/socialize/bean/k;->b:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "\u6388\u6743?"</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->a:Landroid/app/Dialog;</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->h:Landroid/view/View;</span>
+<span class="">	:cond_3</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->b:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_alert_button"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/widget/Button;</span>
+<span class="">	const-string v1, "\u89e3\u9664\u6388\u6743"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->e:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_button_red_blue"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V</span>
+<span class="">	goto/16 :goto_0</span>
+<span class="">	nop</span>
+<span class="">	:pswitch_data_0</span>
+<span class="">	.packed-switch 0x1</span>
+<span class="">	:pswitch_0</span>
+<span class="">	:pswitch_1</span>
+<span class="">	:pswitch_2</span>
+<span class="">	.end packed-switch</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/bean/k;Z)V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method public abstract b(Lcom/umeng/socialize/bean/k;)V
+<span class="">	</span>
+
+.end method
+
+.method public abstract c(Lcom/umeng/socialize/bean/k;)V
+<span class="">	</span>
+
+.end method
+
+.method protected d(Lcom/umeng/socialize/bean/k;)V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/view/UserCenterItems$b;->i:Z</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

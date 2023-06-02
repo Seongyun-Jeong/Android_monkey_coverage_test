@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.yixin.controller</a></li>
+        <li><i class="ico ico-class"></i> a.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/umeng/socialize/yixin/controller/a;
+.super Lcom/umeng/socialize/sso/a;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/umeng/socialize/yixin/controller/a$a;
+}
+.end annotation
+
+.field private static K:Lim/yixin/sdk/api/c;
+.field private static final M:Ljava/lang/String;
+.field private L:Z
+.field private N:Lim/yixin/sdk/api/d;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const-class v0, Lcom/umeng/socialize/yixin/controller/a;</span>
+<span class="">	invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	invoke-direct {p0, p1, p2}, Lcom/umeng/socialize/sso/a;-><init>(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->L:Z</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/yixin/controller/b;</span>
+<span class="">	invoke-direct {v0, p0}, Lcom/umeng/socialize/yixin/controller/b;-><init>(Lcom/umeng/socialize/yixin/controller/a;)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->N:Lim/yixin/sdk/api/d;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->e:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0, v1}, Lim/yixin/sdk/api/f;->a(Landroid/content/Context;Ljava/lang/String;)Lim/yixin/sdk/api/c;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/yixin/controller/a;->K:Lim/yixin/sdk/api/c;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->K:Lim/yixin/sdk/api/c;</span>
+<span class="">	invoke-interface {v0}, Lim/yixin/sdk/api/c;->a()Z</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/yixin/controller/a;->b(Landroid/content/Context;)V</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/yixin/controller/a;)Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/yixin/controller/a;Lcom/umeng/socialize/media/UMediaObject$a;)Ljava/lang/Object;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/yixin/controller/a;->a(Lcom/umeng/socialize/media/UMediaObject$a;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static synthetic a(Lcom/umeng/socialize/yixin/controller/a;[B)[B
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/yixin/controller/a;->a([B)[B</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method static synthetic b(Lcom/umeng/socialize/yixin/controller/a;)Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->c:Ljava/lang/String;</span>
+.end method
+
+.method private b(Landroid/content/Context;)V
+<span class="">	.locals 5</span>
+
+<span class="">	new-instance v0, Landroid/app/ProgressDialog;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/common/b$a;->d:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v4, "Theme.UMDialog"</span>
+<span class="">	invoke-static {v2, v3, v4}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v2</span>
+<span class="">	invoke-direct {v0, v1, v2}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->a:Landroid/app/ProgressDialog;</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/b$a;->e:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v3, "umeng_socialize_text_loading_message"</span>
+<span class="">	invoke-static {v1, v2, v3}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->a:Landroid/app/ProgressDialog;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V</span>
+.end method
+
+.method static synthetic c(Lcom/umeng/socialize/yixin/controller/a;)Lcom/umeng/socialize/media/UMediaObject;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+.end method
+
+.method private c(Ljava/lang/String;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->k:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/yixin/controller/a;->k:Ljava/lang/String;</span>
+<span class="">	:cond_0</span>
+.end method
+
+.method static synthetic d(Lcom/umeng/socialize/yixin/controller/a;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->j:Z</span>
+.end method
+
+.method static synthetic e(Lcom/umeng/socialize/yixin/controller/a;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->L:Z</span>
+.end method
+
+.method static synthetic f(Lcom/umeng/socialize/yixin/controller/a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/yixin/controller/a;->r()V</span>
+.end method
+
+.method static synthetic g(Lcom/umeng/socialize/yixin/controller/a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/yixin/controller/a;->j()V</span>
+.end method
+
+.method private g(Ljava/lang/String;)V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/b/b/d;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	invoke-static {p1}, Lcom/umeng/socialize/b/b/d;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+<span class="">	new-instance v1, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v2, "### \u5206\u4eab\u5230\u6613\u4fe1\u7684url\u4e3a\u7a7a, \u6216\u8005\u6ca1\u6709\u4ee5http\u3001https\u3001www\u5f00\u5934.\n\u66ff\u6362\u4e3a : "</span>
+<span class="">	invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	const-string v0, "http://www.umeng.com/social"</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic h(Lcom/umeng/socialize/yixin/controller/a;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/yixin/controller/a;->l:I</span>
+.end method
+
+.method static synthetic i(Lcom/umeng/socialize/yixin/controller/a;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/umeng/socialize/yixin/controller/a;->o:I</span>
+.end method
+
+.method static synthetic j(Lcom/umeng/socialize/yixin/controller/a;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/umeng/socialize/yixin/controller/a;->s()V</span>
+.end method
+
+.method public static l()Lim/yixin/sdk/api/c;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->K:Lim/yixin/sdk/api/c;</span>
+.end method
+
+.method static synthetic q()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+.end method
+
+.method private r()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	instance-of v0, v0, Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	check-cast v0, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->a:Landroid/app/ProgressDialog;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->a:Landroid/app/ProgressDialog;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method private s()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	instance-of v0, v0, Landroid/app/Activity;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	check-cast v0, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->a:Landroid/app/ProgressDialog;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->a:Landroid/app/ProgressDialog;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/media/UMediaObject;)Ljava/lang/Object;
+<span class="">	.locals 7</span>
+
+<span class="">	const/high16 v6, 0x435c0000    # 220.0f</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	new-instance v1, Lim/yixin/sdk/api/YXImageMessageData;</span>
+<span class="">	invoke-direct {v1}, Lim/yixin/sdk/api/YXImageMessageData;-><init>()V</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->n()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->o()V</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->b_()Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_5</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/b/b/d;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iput-object v2, v1, Lim/yixin/sdk/api/YXImageMessageData;->imageUrl:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->e()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	iget v4, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	invoke-static {v0, v3, v4}, Lcom/umeng/socialize/utils/a;->b(Ljava/lang/String;II)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_1</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v5, "### \u56fe\u7247url = "</span>
+<span class="">	invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v3, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p0, v0, v6}, Lcom/umeng/socialize/yixin/controller/a;->a(Landroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_2</span>
+<span class="">	:cond_1</span>
+<span class="">	new-instance v2, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	invoke-direct {v2}, Lim/yixin/sdk/api/YXMessage;-><init>()V</span>
+<span class="">	iput-object v1, v2, Lim/yixin/sdk/api/YXMessage;->messageData:Lim/yixin/sdk/api/YXMessage$c;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/utils/a;->a(Landroid/graphics/Bitmap;)[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v2, Lim/yixin/sdk/api/YXMessage;->thumbData:[B</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v4, "###\u6613\u4fe1\u7f29\u7565\u56fewidth = "</span>
+<span class="">	invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	const-string v4, ", height = "</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v4</span>
+<span class="">	invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v1, v3}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object v2, v1, Lim/yixin/sdk/api/YXImageMessageData;->imagePath:Ljava/lang/String;</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	:cond_4</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	invoke-static {v2, v0, v3}, Lcom/umeng/socialize/utils/a;->b(Ljava/lang/String;II)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+<span class="">	:cond_5</span>
+<span class="">	const-string v3, "### \u5206\u4eab\u5230\u6613\u4fe1\u7684\u4e3a\u672c\u5730\u6216\u8005\u8d44\u6e90\u56fe\u7247"</span>
+<span class="">	invoke-static {v2, v3}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-nez v3, :cond_6</span>
+<span class="">	iput-object v2, v1, Lim/yixin/sdk/api/YXImageMessageData;->imagePath:Ljava/lang/String;</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	invoke-static {v2, v0, v3}, Lcom/umeng/socialize/utils/a;->b(Ljava/lang/String;II)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p0, v0, v6}, Lcom/umeng/socialize/yixin/controller/a;->a(Landroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	sget-object v3, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+<span class="">	new-instance v4, Ljava/lang/StringBuilder;</span>
+<span class="">	const-string v5, "#### \u56fe\u7247\u8def\u5f84  : "</span>
+<span class="">	invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v3, v2}, Lcom/umeng/socialize/utils/i;->c(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_2</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMImage;->e_()[B</span>
+<span class="">	:cond_6</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, v1, Lim/yixin/sdk/api/YXImageMessageData;->imageData:[B</span>
+<span class="">	iget-object v2, v1, Lim/yixin/sdk/api/YXImageMessageData;->imageData:[B</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	iget-object v2, v1, Lim/yixin/sdk/api/YXImageMessageData;->imageData:[B</span>
+<span class="">	array-length v2, v2</span>
+<span class="">	if-lez v2, :cond_1</span>
+<span class="">	iget-object v2, v1, Lim/yixin/sdk/api/YXImageMessageData;->imageData:[B</span>
+<span class="">	invoke-static {v2}, Lcom/umeng/socialize/utils/a;->a([B)Landroid/graphics/BitmapFactory$Options;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v3, v1, Lim/yixin/sdk/api/YXImageMessageData;->imageData:[B</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	iget-object v5, v1, Lim/yixin/sdk/api/YXImageMessageData;->imageData:[B</span>
+<span class="">	array-length v5, v5</span>
+<span class="">	invoke-static {v3, v4, v5, v2}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	invoke-virtual {v2}, Landroid/graphics/Bitmap;->isRecycled()Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-nez v3, :cond_1</span>
+<span class="">	iget v0, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	iget v3, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	const/4 v4, 0x1</span>
+<span class="">	invoke-static {v2, v0, v3, v4}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V</span>
+<span class="">	goto/16 :goto_2</span>
+.end method
+
+.method protected a(Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)Ljava/lang/Object;
+<span class="">	.locals 3</span>
+
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/UMusic;</span>
+<span class="">	new-instance v1, Lim/yixin/sdk/api/YXMusicMessageData;</span>
+<span class="">	invoke-direct {v1}, Lim/yixin/sdk/api/YXMusicMessageData;-><init>()V</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMusic;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMusic;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:cond_0</span>
+<span class="">	iput-object v0, v1, Lim/yixin/sdk/api/YXMusicMessageData;->musicUrl:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMusic;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, v1, Lim/yixin/sdk/api/YXMusicMessageData;->musicDataUrl:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	invoke-direct {v0}, Lim/yixin/sdk/api/YXMessage;-><init>()V</span>
+<span class="">	iput-object v1, v0, Lim/yixin/sdk/api/YXMessage;->messageData:Lim/yixin/sdk/api/YXMessage$c;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/media/UMusic;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v0, Lim/yixin/sdk/api/YXMessage;->title:Ljava/lang/String;</span>
+<span class="">	iput-object p2, v0, Lim/yixin/sdk/api/YXMessage;->description:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/yixin/controller/a;->d(Lcom/umeng/socialize/media/UMediaObject;)[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v0, Lim/yixin/sdk/api/YXMessage;->thumbData:[B</span>
+.end method
+
+.method protected a(Ljava/lang/String;)Ljava/lang/Object;
+<span class="">	.locals 2</span>
+
+<span class="">	new-instance v0, Lim/yixin/sdk/api/YXTextMessageData;</span>
+<span class="">	invoke-direct {v0}, Lim/yixin/sdk/api/YXTextMessageData;-><init>()V</span>
+<span class="">	iput-object p1, v0, Lim/yixin/sdk/api/YXTextMessageData;->text:Ljava/lang/String;</span>
+<span class="">	new-instance v1, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	invoke-direct {v1}, Lim/yixin/sdk/api/YXMessage;-><init>()V</span>
+<span class="">	iput-object v0, v1, Lim/yixin/sdk/api/YXMessage;->messageData:Lim/yixin/sdk/api/YXMessage$c;</span>
+<span class="">	iput-object p1, v1, Lim/yixin/sdk/api/YXMessage;->description:Ljava/lang/String;</span>
+.end method
+
+.method protected a(Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;)Ljava/lang/Object;
+<span class="">	.locals 1</span>
+
+<span class="">	invoke-virtual {p0, p2}, Lcom/umeng/socialize/yixin/controller/a;->h(Lcom/umeng/socialize/media/UMediaObject;)Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	move-result-object v0</span>
+.end method
+
+.method protected a(Z)V
+<span class="">	.locals 5</span>
+
+<span class="">	const v0, 0x9c42</span>
+<span class="">	iget-boolean v1, p0, Lcom/umeng/socialize/yixin/controller/a;->j:Z</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->r:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p1, :cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	const/16 v2, 0x15</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/utils/n;->a(Landroid/content/Context;Lcom/umeng/socialize/bean/g;I)V</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	:cond_0</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/umeng/socialize/yixin/controller/a;->a(Landroid/content/Context;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/yixin/controller/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	invoke-virtual {p0, v1, v0, v2}, Lcom/umeng/socialize/yixin/controller/a;->a(Lcom/umeng/socialize/bean/g;ILcom/umeng/socialize/bean/m;)V</span>
+<span class="">	if-eqz p1, :cond_1</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->C:Lcom/umeng/socialize/bean/m;</span>
+<span class="">	iget-object v2, v0, Lcom/umeng/socialize/bean/m;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/yixin/controller/a;->c:Ljava/lang/String;</span>
+<span class="">	iget-object v4, p0, Lcom/umeng/socialize/yixin/controller/a;->d:Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->j:Z</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	const-string v0, "yxtimeline"</span>
+<span class="">	:goto_2</span>
+<span class="">	invoke-static {v1, v2, v3, v4, v0}, Lcom/umeng/socialize/utils/m;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)V</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/bean/g;->q:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v0, "yxsession"</span>
+<span class="">	:cond_3</span>
+<span class="">	goto :goto_2</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected a(Landroid/content/Context;)Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v2, Ljava/lang/StringBuilder;</span>
+<span class="">	iget-object v3, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v3, ".yxapi.YXEntryActivity"</span>
+<span class="">	invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;</span>
+<span class="">	:try_start_0</span>
+<span class="">	move v1, v0</span>
+<span class="">	:goto_1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->M:Ljava/lang/String;</span>
+<span class="">	new-instance v3, Ljava/lang/StringBuilder;</span>
+<span class="">	invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v3, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v2, " \u7c7b\u6ca1\u6709\u627e\u5230. \u8bf7\u628ayixin\u6587\u4ef6\u5939\u4e2d\u7684yxapi\u76ee\u5f55\u62f7\u8d1d\u5230\u60a8\u7684\u5305\u76ee\u5f55\u4e0b."</span>
+<span class="">	invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-static {v0, v2}, Lcom/umeng/socialize/utils/i;->b(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected a(Ljava/lang/Object;Lcom/umeng/socialize/media/UMediaObject$a;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/yixin/controller/a;->K:Lim/yixin/sdk/api/c;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	instance-of v1, p1, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	if-eqz v1, :cond_1</span>
+<span class="">	check-cast p1, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	new-instance v1, Lim/yixin/sdk/api/e$a;</span>
+<span class="">	invoke-direct {v1}, Lim/yixin/sdk/api/e$a;-><init>()V</span>
+<span class="">	invoke-virtual {p2}, Lcom/umeng/socialize/media/UMediaObject$a;->toString()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p0, v2}, Lcom/umeng/socialize/yixin/controller/a;->e(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, v1, Lim/yixin/sdk/api/e$a;->a:Ljava/lang/String;</span>
+<span class="">	iput-object p1, v1, Lim/yixin/sdk/api/e$a;->d:Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	iget-boolean v2, p0, Lcom/umeng/socialize/yixin/controller/a;->j:Z</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	iput v0, v1, Lim/yixin/sdk/api/e$a;->e:I</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->K:Lim/yixin/sdk/api/c;</span>
+<span class="">	invoke-interface {v0, v1}, Lim/yixin/sdk/api/c;->a(Lim/yixin/sdk/api/a;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	:cond_1</span>
+.end method
+
+.method protected b(Lcom/umeng/socialize/media/UMediaObject;)Lcom/umeng/socialize/media/UMediaObject;
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	instance-of v3, p1, Lcom/umeng/socialize/yixin/media/YiXinShareContent;</span>
+<span class="">	if-eqz v3, :cond_3</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/yixin/media/YiXinShareContent;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinShareContent;->d()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinShareContent;->i()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinShareContent;->j()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinShareContent;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iput-object v3, p0, Lcom/umeng/socialize/yixin/controller/a;->c:Ljava/lang/String;</span>
+<span class="">	move-object p1, v2</span>
+<span class="">	invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	:goto_1</span>
+<span class="">	move-result v2</span>
+<span class="">	if-nez v2, :cond_1</span>
+<span class="">	iput-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->k:Ljava/lang/String;</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_2</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/b/b/d;->b(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+<span class="">	instance-of v3, p1, Lcom/umeng/socialize/yixin/media/YiXinCircleShareContent;</span>
+<span class="">	:cond_3</span>
+<span class="">	if-eqz v3, :cond_4</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/yixin/media/YiXinCircleShareContent;</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinCircleShareContent;->d()Lcom/umeng/socialize/media/UMediaObject;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinCircleShareContent;->i()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinCircleShareContent;->j()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {p1}, Lcom/umeng/socialize/yixin/media/YiXinCircleShareContent;->k()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iput-object v3, p0, Lcom/umeng/socialize/yixin/controller/a;->c:Ljava/lang/String;</span>
+<span class="">	move-object p1, v2</span>
+<span class="">	goto :goto_1</span>
+<span class="">	instance-of v3, p1, Lcom/umeng/socialize/media/BaseMediaObject;</span>
+<span class="">	:cond_4</span>
+<span class="">	if-eqz v3, :cond_5</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/BaseMediaObject;</span>
+<span class="">	check-cast p1, Lcom/umeng/socialize/media/BaseMediaObject;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/BaseMediaObject;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/BaseMediaObject;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_1</span>
+<span class="">	move-object p1, v2</span>
+<span class="">	:cond_5</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method protected b(Lcom/umeng/socialize/media/UMediaObject;Ljava/lang/String;)Ljava/lang/Object;
+<span class="">	.locals 3</span>
+
+<span class="">	move-object v0, p1</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/UMVideo;</span>
+<span class="">	new-instance v1, Lim/yixin/sdk/api/YXVideoMessageData;</span>
+<span class="">	invoke-direct {v1}, Lim/yixin/sdk/api/YXVideoMessageData;-><init>()V</span>
+<span class="">	invoke-interface {p1}, Lcom/umeng/socialize/media/UMediaObject;->c_()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iput-object v2, v1, Lim/yixin/sdk/api/YXVideoMessageData;->videoUrl:Ljava/lang/String;</span>
+<span class="">	new-instance v2, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	invoke-direct {v2, v1}, Lim/yixin/sdk/api/YXMessage;-><init>(Lim/yixin/sdk/api/YXMessage$c;)V</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/UMVideo;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v2, Lim/yixin/sdk/api/YXMessage;->title:Ljava/lang/String;</span>
+<span class="">	iput-object p2, v2, Lim/yixin/sdk/api/YXMessage;->description:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/yixin/controller/a;->d(Lcom/umeng/socialize/media/UMediaObject;)[B</span>
+<span class="">	move-result-object v0</span>
+<span class="">	iput-object v0, v2, Lim/yixin/sdk/api/YXMessage;->thumbData:[B</span>
+.end method
+
+.method public b(Ljava/lang/String;)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/umeng/socialize/yixin/controller/a;->k:Ljava/lang/String;</span>
+.end method
+
+.method public b()Z
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/umeng/socialize/yixin/controller/a;->K:Lim/yixin/sdk/api/c;</span>
+<span class="">	invoke-interface {v0}, Lim/yixin/sdk/api/c;->c()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public c()Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	new-instance v0, Lcom/umeng/socialize/yixin/controller/a$a;</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->p:Lcom/umeng/socialize/media/UMediaObject$a;</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/umeng/socialize/yixin/controller/a$a;-><init>(Lcom/umeng/socialize/yixin/controller/a;Lcom/umeng/socialize/media/UMediaObject$a;)V</span>
+<span class="">	new-array v1, v2, [Ljava/lang/Void;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/umeng/socialize/yixin/controller/a$a;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;</span>
+.end method
+
+.method protected d()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->j:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_yixin_circle"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/yixin/controller/a;->f:I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_yixin_circle_gray"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/yixin/controller/a;->g:I</span>
+<span class="">	const-string v0, "\u6613\u4fe1\u670b\u53cb\u5708"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->i:Ljava/lang/String;</span>
+<span class="">	const-string v0, "yixin_circle"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->h:Ljava/lang/String;</span>
+<span class="">	:goto_0</span>
+<span class="">	const/high16 v0, 0x10000</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/yixin/controller/a;->n:I</span>
+<span class="">	const/16 v0, 0xc8</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/yixin/controller/a;->m:I</span>
+<span class="">	const/16 v0, 0x15</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/yixin/controller/a;->r:I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_yixin"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/yixin/controller/a;->f:I</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->E:Landroid/content/Context;</span>
+<span class="">	sget-object v1, Lcom/umeng/socialize/common/b$a;->c:Lcom/umeng/socialize/common/b$a;</span>
+<span class="">	const-string v2, "umeng_socialize_yixin_gray"</span>
+<span class="">	invoke-static {v0, v1, v2}, Lcom/umeng/socialize/common/b;->a(Landroid/content/Context;Lcom/umeng/socialize/common/b$a;Ljava/lang/String;)I</span>
+<span class="">	move-result v0</span>
+<span class="">	iput v0, p0, Lcom/umeng/socialize/yixin/controller/a;->g:I</span>
+<span class="">	const-string v0, "\u6613\u4fe1"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->i:Ljava/lang/String;</span>
+<span class="">	const-string v0, "yixin"</span>
+<span class="">	iput-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->h:Ljava/lang/String;</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public d(Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/umeng/socialize/yixin/controller/a;->L:Z</span>
+.end method
+
+.method protected f()V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->j:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->r:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/bean/l;->e(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/bean/g;->q:Lcom/umeng/socialize/bean/g;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {v0}, Lcom/umeng/socialize/bean/l;->e(Lcom/umeng/socialize/bean/g;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public g()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->j:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const/16 v0, 0x276a</span>
+<span class="">	:goto_0</span>
+<span class="">	const/16 v0, 0x2767</span>
+<span class="">	:cond_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method protected h(Lcom/umeng/socialize/media/UMediaObject;)Lim/yixin/sdk/api/YXMessage;
+<span class="">	.locals 4</span>
+
+<span class="">	const-string v2, ""</span>
+<span class="">	const-string v1, ""</span>
+<span class="">	const-string v0, ""</span>
+<span class="">	instance-of v3, p1, Lcom/umeng/socialize/media/UMWebPage;</span>
+<span class="">	if-eqz v3, :cond_1</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/UMWebPage;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/UMWebPage;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/UMWebPage;->i()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/UMWebPage;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	new-instance v3, Lim/yixin/sdk/api/YXWebPageMessageData;</span>
+<span class="">	invoke-direct {v3}, Lim/yixin/sdk/api/YXWebPageMessageData;-><init>()V</span>
+<span class="">	invoke-direct {p0, v2}, Lcom/umeng/socialize/yixin/controller/a;->c(Ljava/lang/String;)V</span>
+<span class="">	invoke-direct {p0, v0}, Lcom/umeng/socialize/yixin/controller/a;->g(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+<span class="">	iput-object v0, v3, Lim/yixin/sdk/api/YXWebPageMessageData;->webPageUrl:Ljava/lang/String;</span>
+<span class="">	new-instance v0, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	invoke-direct {v0, v3}, Lim/yixin/sdk/api/YXMessage;-><init>(Lim/yixin/sdk/api/YXMessage$c;)V</span>
+<span class="">	iget-object v2, p0, Lcom/umeng/socialize/yixin/controller/a;->k:Ljava/lang/String;</span>
+<span class="">	iput-object v2, v0, Lim/yixin/sdk/api/YXMessage;->title:Ljava/lang/String;</span>
+<span class="">	iput-object v1, v0, Lim/yixin/sdk/api/YXMessage;->description:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, p1}, Lcom/umeng/socialize/yixin/controller/a;->d(Lcom/umeng/socialize/media/UMediaObject;)[B</span>
+<span class="">	move-result-object v1</span>
+<span class="">	iput-object v1, v0, Lim/yixin/sdk/api/YXMessage;->thumbData:[B</span>
+<span class="">	iget-object v1, v0, Lim/yixin/sdk/api/YXMessage;->thumbData:[B</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iget-object v1, v0, Lim/yixin/sdk/api/YXMessage;->thumbData:[B</span>
+<span class="">	array-length v1, v1</span>
+<span class="">	if-lez v1, :cond_2</span>
+<span class="">	:goto_1</span>
+<span class="">	instance-of v3, p1, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	:cond_1</span>
+<span class="">	if-eqz v3, :cond_0</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	check-cast v0, Lcom/umeng/socialize/media/UMImage;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/UMImage;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v1, p0, Lcom/umeng/socialize/yixin/controller/a;->c:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v0}, Lcom/umeng/socialize/media/UMImage;->f()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->c:Ljava/lang/String;</span>
+<span class="">	:cond_2</span>
+<span class="">	invoke-virtual {p0, v0}, Lcom/umeng/socialize/yixin/controller/a;->a(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Lim/yixin/sdk/api/YXMessage;</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public k()Lim/yixin/sdk/api/d;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->N:Lim/yixin/sdk/api/d;</span>
+.end method
+
+.method public m()Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/umeng/socialize/yixin/controller/a;->L:Z</span>
+.end method
+
+.method public p()Ljava/lang/String;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/umeng/socialize/yixin/controller/a;->w:Ljava/lang/String;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

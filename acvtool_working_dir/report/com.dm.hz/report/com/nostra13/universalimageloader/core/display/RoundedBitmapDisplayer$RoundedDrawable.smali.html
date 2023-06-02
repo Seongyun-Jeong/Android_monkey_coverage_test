@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.nostra13.universalimageloader.core.display</a></li>
+        <li><i class="ico ico-class"></i> RoundedBitmapDisplayer$RoundedDrawable.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;
+.super Landroid/graphics/drawable/Drawable;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+value = Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer;
+.end annotation
+.annotation system Ldalvik/annotation/InnerClass;
+accessFlags = 0x9
+name = "RoundedDrawable"
+.end annotation
+
+.field protected final bitmapShader:Landroid/graphics/BitmapShader;
+.field protected final cornerRadius:F
+.field protected final mBitmapRect:Landroid/graphics/RectF;
+.field protected final mRect:Landroid/graphics/RectF;
+.field protected final margin:I
+.field protected final paint:Landroid/graphics/Paint;
+
+
+.method public constructor <init>(Landroid/graphics/Bitmap;II)V
+<span class="">	.locals 5</span>
+
+<span class="">	invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V</span>
+<span class="">	new-instance v0, Landroid/graphics/RectF;</span>
+<span class="">	invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->mRect:Landroid/graphics/RectF;</span>
+<span class="">	int-to-float v0, p2</span>
+<span class="">	iput v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->cornerRadius:F</span>
+<span class="">	iput p3, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->margin:I</span>
+<span class="">	new-instance v0, Landroid/graphics/BitmapShader;</span>
+<span class="">	sget-object v1, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;</span>
+<span class="">	sget-object v2, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;</span>
+<span class="">	invoke-direct {v0, p1, v1, v2}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->bitmapShader:Landroid/graphics/BitmapShader;</span>
+<span class="">	new-instance v0, Landroid/graphics/RectF;</span>
+<span class="">	int-to-float v1, p3</span>
+<span class="">	int-to-float v2, p3</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I</span>
+<span class="">	move-result v3</span>
+<span class="">	sub-int/2addr v3, p3</span>
+<span class="">	int-to-float v3, v3</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I</span>
+<span class="">	move-result v4</span>
+<span class="">	sub-int/2addr v4, p3</span>
+<span class="">	int-to-float v4, v4</span>
+<span class="">	invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/RectF;-><init>(FFFF)V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->mBitmapRect:Landroid/graphics/RectF;</span>
+<span class="">	new-instance v0, Landroid/graphics/Paint;</span>
+<span class="">	invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->paint:Landroid/graphics/Paint;</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->paint:Landroid/graphics/Paint;</span>
+<span class="">	const/4 v1, 0x1</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->paint:Landroid/graphics/Paint;</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->bitmapShader:Landroid/graphics/BitmapShader;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;</span>
+.end method
+
+.method public draw(Landroid/graphics/Canvas;)V
+<span class="">	.locals 4</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->mRect:Landroid/graphics/RectF;</span>
+<span class="">	iget v1, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->cornerRadius:F</span>
+<span class="">	iget v2, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->cornerRadius:F</span>
+<span class="">	iget-object v3, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->paint:Landroid/graphics/Paint;</span>
+<span class="">	invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V</span>
+.end method
+
+.method public getOpacity()I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, -0x3</span>
+.end method
+
+.method protected onBoundsChange(Landroid/graphics/Rect;)V
+<span class="">	.locals 6</span>
+
+<span class="">	invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V</span>
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->mRect:Landroid/graphics/RectF;</span>
+<span class="">	iget v1, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->margin:I</span>
+<span class="">	int-to-float v1, v1</span>
+<span class="">	iget v2, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->margin:I</span>
+<span class="">	int-to-float v2, v2</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Rect;->width()I</span>
+<span class="">	move-result v3</span>
+<span class="">	iget v4, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->margin:I</span>
+<span class="">	sub-int/2addr v3, v4</span>
+<span class="">	int-to-float v3, v3</span>
+<span class="">	invoke-virtual {p1}, Landroid/graphics/Rect;->height()I</span>
+<span class="">	move-result v4</span>
+<span class="">	iget v5, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->margin:I</span>
+<span class="">	sub-int/2addr v4, v5</span>
+<span class="">	int-to-float v4, v4</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/RectF;->set(FFFF)V</span>
+<span class="">	new-instance v0, Landroid/graphics/Matrix;</span>
+<span class="">	invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->mBitmapRect:Landroid/graphics/RectF;</span>
+<span class="">	iget-object v2, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->mRect:Landroid/graphics/RectF;</span>
+<span class="">	sget-object v3, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;</span>
+<span class="">	invoke-virtual {v0, v1, v2, v3}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z</span>
+<span class="">	iget-object v1, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->bitmapShader:Landroid/graphics/BitmapShader;</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/graphics/BitmapShader;->setLocalMatrix(Landroid/graphics/Matrix;)V</span>
+.end method
+
+.method public setAlpha(I)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->paint:Landroid/graphics/Paint;</span>
+<span class="">	invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setAlpha(I)V</span>
+.end method
+
+.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer$RoundedDrawable;->paint:Landroid/graphics/Paint;</span>
+<span class="">	invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../../.resources/report.js"></script>
+</body>
+</html>

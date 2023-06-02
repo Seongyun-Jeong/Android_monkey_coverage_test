@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.tencent.a.b</a></li>
+        <li><i class="ico ico-class"></i> e.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public final Lcom/tencent/a/b/e;
+.super Ljava/lang/Object;
+
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/tencent/a/b/e$c;,
+Lcom/tencent/a/b/e$b;,
+Lcom/tencent/a/b/e$a;
+}
+.end annotation
+
+.field private static b:Landroid/location/LocationManager;
+.field private static d:F
+.field private a:Landroid/content/Context;
+.field private c:Lcom/tencent/a/b/e$a;
+.field private e:Lcom/tencent/a/b/e$c;
+.field private f:Lcom/tencent/a/b/e$b;
+.field private g:Z
+.field private h:[B
+.field private i:I
+.field private j:J
+.field private k:Z
+.field private l:I
+.field private m:I
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput v0, Lcom/tencent/a/b/e;->d:F</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	const/4 v2, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/e;->a:Landroid/content/Context;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/e;->e:Lcom/tencent/a/b/e$c;</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/e;->f:Lcom/tencent/a/b/e$b;</span>
+<span class="">	iput-boolean v2, p0, Lcom/tencent/a/b/e;->g:Z</span>
+<span class="">	new-array v0, v2, [B</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/e;->h:[B</span>
+<span class="">	const/16 v0, 0x400</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->i:I</span>
+<span class="">	const-wide/16 v0, 0x0</span>
+<span class="">	iput-wide v0, p0, Lcom/tencent/a/b/e;->j:J</span>
+<span class="">	iput-boolean v2, p0, Lcom/tencent/a/b/e;->k:Z</span>
+<span class="">	iput v2, p0, Lcom/tencent/a/b/e;->l:I</span>
+<span class="">	iput v2, p0, Lcom/tencent/a/b/e;->m:I</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/a/b/e;I)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/a/b/e;->i:I</span>
+<span class="">	or-int/2addr v0, p1</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->i:I</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/a/b/e;J)J
+<span class="">	.locals 0</span>
+
+<span class="">	iput-wide p1, p0, Lcom/tencent/a/b/e;->j:J</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/a/b/e;Lcom/tencent/a/b/e$b;)Lcom/tencent/a/b/e$b;
+<span class="">	.locals 0</span>
+
+<span class="">	iput-object p1, p0, Lcom/tencent/a/b/e;->f:Lcom/tencent/a/b/e$b;</span>
+.end method
+
+.method static synthetic a(Lcom/tencent/a/b/e;)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Lcom/tencent/a/b/e;->b()V</span>
+.end method
+
+.method static synthetic b(Lcom/tencent/a/b/e;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/a/b/e;->l:I</span>
+.end method
+
+.method static synthetic b(Lcom/tencent/a/b/e;I)I
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/tencent/a/b/e;->l:I</span>
+.end method
+
+.method private b()V
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->m:I</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->l:I</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/location/LocationManager;->getGpsStatus(Landroid/location/GpsStatus;)Landroid/location/GpsStatus;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-virtual {v0}, Landroid/location/GpsStatus;->getMaxSatellites()I</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v1</span>
+<span class="">	invoke-virtual {v0}, Landroid/location/GpsStatus;->getSatellites()Ljava/lang/Iterable;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	if-eqz v2, :cond_0</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z</span>
+<span class="">	:cond_2</span>
+<span class="">	:goto_0</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	iget v0, p0, Lcom/tencent/a/b/e;->l:I</span>
+<span class="">	if-gt v0, v1, :cond_0</span>
+<span class="">	iget v0, p0, Lcom/tencent/a/b/e;->l:I</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->l:I</span>
+<span class="">	invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/location/GpsSatellite;</span>
+<span class="">	invoke-virtual {v0}, Landroid/location/GpsSatellite;->usedInFix()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_2</span>
+<span class="">	iget v0, p0, Lcom/tencent/a/b/e;->m:I</span>
+<span class="">	add-int/lit8 v0, v0, 0x1</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->m:I</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic c(Lcom/tencent/a/b/e;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/a/b/e;->m:I</span>
+.end method
+
+.method static synthetic c(Lcom/tencent/a/b/e;I)I
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->m:I</span>
+.end method
+
+.method static synthetic d(Lcom/tencent/a/b/e;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/tencent/a/b/e;->i:I</span>
+.end method
+
+.method static synthetic d(Lcom/tencent/a/b/e;I)I
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/tencent/a/b/e;->i:I</span>
+.end method
+
+.method static synthetic e(Lcom/tencent/a/b/e;)J
+<span class="">	.locals 2</span>
+
+<span class="">	iget-wide v0, p0, Lcom/tencent/a/b/e;->j:J</span>
+.end method
+
+.method static synthetic f(Lcom/tencent/a/b/e;)Lcom/tencent/a/b/e$c;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/e;->e:Lcom/tencent/a/b/e$c;</span>
+.end method
+
+.method static synthetic g(Lcom/tencent/a/b/e;)Lcom/tencent/a/b/e$b;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/e;->f:Lcom/tencent/a/b/e$b;</span>
+.end method
+
+.method public final a()V
+<span class="">	.locals 3</span>
+
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/e;->h:[B</span>
+<span class="">	monitor-enter v1</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/tencent/a/b/e;->g:Z</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/location/LocationManager;->removeGpsStatusListener(Landroid/location/GpsStatus$Listener;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	iget-object v2, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	invoke-virtual {v0, v2}, Landroid/location/LocationManager;->removeUpdates(Landroid/location/LocationListener;)V</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/a/b/e;->g:Z</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v1</span>
+<span class="">	throw v0</span>
+.end method
+
+.method public final a(Lcom/tencent/a/b/e$c;Landroid/content/Context;)Z
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	const/4 v6, 0x0</span>
+<span class="">	iget-object v7, p0, Lcom/tencent/a/b/e;->h:[B</span>
+<span class="">	monitor-enter v7</span>
+<span class="">	:try_start_0</span>
+<span class="">	iget-boolean v1, p0, Lcom/tencent/a/b/e;->g:Z</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	monitor-exit v7</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catchall {:try_start_0 .. :try_end_0} :catchall_0</span>
+<span class="">	:goto_0</span>
+<span class="">	if-eqz p2, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p1, :cond_2</span>
+<span class="">	monitor-exit v7</span>
+<span class="">	:cond_1</span>
+<span class="">	move v0, v6</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iput-object p2, p0, Lcom/tencent/a/b/e;->a:Landroid/content/Context;</span>
+<span class="">	:try_start_1</span>
+<span class="">	:cond_2</span>
+<span class="">	iput-object p1, p0, Lcom/tencent/a/b/e;->e:Lcom/tencent/a/b/e$c;</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/e;->a:Landroid/content/Context;</span>
+<span class="">	:try_start_2</span>
+<span class="">	:try_end_1</span>
+<span class="">	.catchall {:try_start_1 .. :try_end_1} :catchall_0</span>
+<span class="">	const-string v1, "location"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/location/LocationManager;</span>
+<span class="">	sput-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	new-instance v0, Lcom/tencent/a/b/e$a;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {v0, p0, v1}, Lcom/tencent/a/b/e$a;-><init>(Lcom/tencent/a/b/e;B)V</span>
+<span class="">	iput-object v0, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	if-eqz v0, :cond_3</span>
+<span class="">	iget-object v0, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	if-nez v0, :cond_4</span>
+<span class="">	:try_end_2</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0</span>
+<span class="">	.catchall {:try_start_2 .. :try_end_2} :catchall_0</span>
+<span class="">	monitor-exit v7</span>
+<span class="">	:try_start_3</span>
+<span class="">	:cond_3</span>
+<span class="">	move v0, v6</span>
+<span class="">	:try_end_3</span>
+<span class="">	.catchall {:try_start_3 .. :try_end_3} :catchall_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_0</span>
+<span class="">	monitor-exit v7</span>
+<span class="">	move v0, v6</span>
+<span class="">	goto :goto_0</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	:try_start_4</span>
+<span class="">	:cond_4</span>
+<span class="">	const-string v1, "gps"</span>
+<span class="">	const-wide/16 v2, 0x3e8</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	iget-object v5, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Landroid/location/LocationManager;->requestLocationUpdates(Ljava/lang/String;JFLandroid/location/LocationListener;)V</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	iget-object v1, p0, Lcom/tencent/a/b/e;->c:Lcom/tencent/a/b/e$a;</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/location/LocationManager;->addGpsStatusListener(Landroid/location/GpsStatus$Listener;)Z</span>
+<span class="">	sget-object v0, Lcom/tencent/a/b/e;->b:Landroid/location/LocationManager;</span>
+<span class="">	const-string v1, "gps"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/location/LocationManager;->isProviderEnabled(Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_5</span>
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->i:I</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:try_end_4</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1</span>
+<span class="">	.catchall {:try_start_4 .. :try_end_4} :catchall_0</span>
+<span class="">	:goto_1</span>
+<span class="">	iput-boolean v0, p0, Lcom/tencent/a/b/e;->g:Z</span>
+<span class="">	:try_start_5</span>
+<span class="">	monitor-exit v7</span>
+<span class="">	iget-boolean v0, p0, Lcom/tencent/a/b/e;->g:Z</span>
+<span class="">	:try_end_5</span>
+<span class="">	.catchall {:try_start_5 .. :try_end_5} :catchall_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_5</span>
+<span class="">	iput v0, p0, Lcom/tencent/a/b/e;->i:I</span>
+<span class="">	:try_start_6</span>
+<span class="">	goto :goto_1</span>
+<span class="">	:try_end_6</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1</span>
+<span class="">	.catchall {:try_start_6 .. :try_end_6} :catchall_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catch_1</span>
+<span class="">	monitor-exit v7</span>
+<span class="">	:try_start_7</span>
+<span class="">	move v0, v6</span>
+<span class="">	:try_end_7</span>
+<span class="">	.catchall {:try_start_7 .. :try_end_7} :catchall_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v0</span>
+<span class="">	:catchall_0</span>
+<span class="">	monitor-exit v7</span>
+<span class="">	throw v0</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

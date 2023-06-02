@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.umeng.socialize.common</a></li>
+        <li><i class="ico ico-class"></i> o.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public abstract Lcom/umeng/socialize/common/o;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+.annotation system Ldalvik/annotation/Signature;
+value = {
+"<Result:",
+"Ljava/lang/Object;",
+">",
+"Ljava/lang/Object;"
+}
+.end annotation
+
+.field private static final a:Landroid/os/HandlerThread;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Landroid/os/HandlerThread;</span>
+<span class="">	const-class v1, Lcom/umeng/socialize/controller/a/an;</span>
+<span class="">	invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const/16 v2, 0xa</span>
+<span class="">	invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V</span>
+<span class="">	sput-object v0, Lcom/umeng/socialize/common/o;->a:Landroid/os/HandlerThread;</span>
+<span class="">	sget-object v0, Lcom/umeng/socialize/common/o;->a:Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V</span>
+.end method
+
+.method public constructor <init>()V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+.end method
+
+.method protected a()V
+<span class="">	.locals 0</span>
+
+.end method
+
+.method protected a(Ljava/lang/Object;)V
+<span class="">	.locals 0</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"(TResult;)V"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+.method protected abstract b()Ljava/lang/Object;
+<span class="">	</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()TResult;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+.end method
+
+.method public final c()Lcom/umeng/socialize/common/o;
+<span class="">	.locals 3</span>
+<span class="">	.annotation system Ldalvik/annotation/Signature;</span>
+<span class="">	value = {</span>
+<span class="">	"()",</span>
+<span class="">	"Lcom/umeng/socialize/common/o",</span>
+<span class="">	"<TResult;>;"</span>
+<span class="">	}</span>
+<span class="">	.end annotation</span>
+
+<span class="">	new-instance v0, Landroid/os/Handler;</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V</span>
+<span class="">	new-instance v1, Landroid/os/Handler;</span>
+<span class="">	sget-object v2, Lcom/umeng/socialize/common/o;->a:Landroid/os/HandlerThread;</span>
+<span class="">	invoke-virtual {v2}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V</span>
+<span class="">	invoke-virtual {p0}, Lcom/umeng/socialize/common/o;->a()V</span>
+<span class="">	new-instance v2, Lcom/umeng/socialize/common/p;</span>
+<span class="">	invoke-direct {v2, p0, v0}, Lcom/umeng/socialize/common/p;-><init>(Lcom/umeng/socialize/common/o;Landroid/os/Handler;)V</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>

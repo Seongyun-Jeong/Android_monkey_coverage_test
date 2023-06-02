@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../.resources/highlight/styles/default.css" />
+	<link rel="stylesheet" href="../../../../.resources/report.css" />
+</head>
+<body>
+    <ul class="breadcrumb">
+		<li><i class="ico ico-android"></i><a href="../../../../index.html">com.dm.hz</a></li>
+		<li><i class="ico ico-package"></i><a href="index.html">com.laiwang.sdk.openapi</a></li>
+        <li><i class="ico ico-class"></i> f.smali</li>
+    </ul>
+    <p class="left-margin">granularity level: instruction</p>
+	<pre class="source lang-smali" id='source'>
+		<code>.class public Lcom/laiwang/sdk/openapi/f;
+.super Ljava/lang/Object;
+.source "SourceFile"
+.implements Lcom/laiwang/sdk/openapi/e;
+
+
+.field public static a:Z = false
+.field public static final b:Ljava/lang/String; = "LWAPI"
+.field private static c:Landroid/app/Application;
+.field private static d:Lcom/laiwang/sdk/openapi/f;
+.field private e:Lcom/laiwang/sdk/openapi/LWAPIAccount;
+.field private f:Z
+.field private g:Z
+.field private h:Z
+.field private i:Z
+.field private j:Z
+.field private k:Ljava/lang/String;
+.field private l:Ljava/lang/String;
+.field private m:I
+.field private n:I
+.field private o:Lcom/laiwang/sdk/a/b;
+.field private p:Lcom/laiwang/sdk/openapi/b;
+.field private q:Landroid/os/Handler;
+
+
+.method static constructor <clinit>()V
+<span class="">	.locals 1</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	sput-boolean v0, Lcom/laiwang/sdk/openapi/f;->a:Z</span>
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-direct {p0}, Ljava/lang/Object;-><init>()V</span>
+<span class="">	new-instance v0, Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-direct {v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	iput-boolean v1, p0, Lcom/laiwang/sdk/openapi/f;->f:Z</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	iput-boolean v0, p0, Lcom/laiwang/sdk/openapi/f;->g:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/laiwang/sdk/openapi/f;->h:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/laiwang/sdk/openapi/f;->i:Z</span>
+<span class="">	iput-boolean v1, p0, Lcom/laiwang/sdk/openapi/f;->j:Z</span>
+<span class="">	new-instance v0, Lcom/laiwang/sdk/a/b;</span>
+<span class="">	invoke-direct {v0}, Lcom/laiwang/sdk/a/b;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/laiwang/sdk/openapi/f;->o:Lcom/laiwang/sdk/a/b;</span>
+<span class="">	new-instance v0, Lcom/laiwang/sdk/openapi/b;</span>
+<span class="">	invoke-direct {v0}, Lcom/laiwang/sdk/openapi/b;-><init>()V</span>
+<span class="">	iput-object v0, p0, Lcom/laiwang/sdk/openapi/f;->p:Lcom/laiwang/sdk/openapi/b;</span>
+<span class="">	new-instance v0, Landroid/os/Handler;</span>
+<span class="">	invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V</span>
+<span class="">	iput-object v0, p0, Lcom/laiwang/sdk/openapi/f;->q:Landroid/os/Handler;</span>
+<span class="">	invoke-direct/range {p0 .. p6}, Lcom/laiwang/sdk/openapi/f;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Z</span>
+.end method
+
+.method static synthetic a(Lcom/laiwang/sdk/openapi/f;)Lcom/laiwang/sdk/a/b;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->o:Lcom/laiwang/sdk/a/b;</span>
+.end method
+
+.method public static a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Lcom/laiwang/sdk/openapi/f;
+<span class="">	.locals 7</span>
+
+<span class="">	sget-object v0, Lcom/laiwang/sdk/openapi/f;->d:Lcom/laiwang/sdk/openapi/f;</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	new-instance v0, Lcom/laiwang/sdk/openapi/f;</span>
+<span class="">	move-object v1, p0</span>
+<span class="">	move-object v2, p1</span>
+<span class="">	move-object v3, p2</span>
+<span class="">	move v4, p3</span>
+<span class="">	move-object v5, p4</span>
+<span class="">	move-object v6, p5</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/laiwang/sdk/openapi/f;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	sput-object v0, Lcom/laiwang/sdk/openapi/f;->d:Lcom/laiwang/sdk/openapi/f;</span>
+<span class="">	:cond_0</span>
+<span class="">	sget-object v0, Lcom/laiwang/sdk/openapi/f;->d:Lcom/laiwang/sdk/openapi/f;</span>
+.end method
+
+.method public static a(Landroid/content/Context;I)V
+<span class="">	.locals 3</span>
+
+<span class="">	const v0, 0x20131120</span>
+<span class="">	if-ne p1, v0, :cond_0</span>
+<span class="">	new-instance v0, Landroid/app/AlertDialog$Builder;</span>
+<span class="">	invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const-string v1, "\u4eb2,\u4f60\u8fd8\u6ca1\u5b89\u88c5\u6765\u5f80\u5ba2\u6237\u7aef\u54e6"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	const-string v1, "\u901f\u901f\u4e0b\u8f7d\u5373\u90012\u5143,\u53c2\u52a0\u5206\u4eab\u8fd8\u53ef\u8d62\u514d\u5355!"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	const-string v1, "\u53d6\u6d88"</span>
+<span class="">	new-instance v2, Lcom/laiwang/sdk/openapi/h;</span>
+<span class="">	invoke-direct {v2}, Lcom/laiwang/sdk/openapi/h;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	const-string v1, "\u4e0b\u8f7d"</span>
+<span class="">	new-instance v2, Lcom/laiwang/sdk/openapi/i;</span>
+<span class="">	invoke-direct {v2}, Lcom/laiwang/sdk/openapi/i;-><init>()V</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v0, "\u8bf7\u4e0b\u8f7d\u6700\u65b0\u7248\u672c\u7684\u6765\u5f80"</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-static {}, Lcom/laiwang/sdk/openapi/f;->e()Landroid/app/Application;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-static {v0, v1}, Lcom/laiwang/sdk/c/a;->a(Ljava/lang/String;Landroid/content/Context;)V</span>
+<span class="">	invoke-static {}, Lcom/laiwang/sdk/openapi/f;->e()Landroid/app/Application;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "http://m.laiwang.com"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/laiwang/sdk/c/d;->b(Landroid/content/Context;Ljava/lang/String;)V</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic a(Lcom/laiwang/sdk/openapi/f;I)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput p1, p0, Lcom/laiwang/sdk/openapi/f;->n:I</span>
+.end method
+
+.method static synthetic a(Lcom/laiwang/sdk/openapi/f;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/laiwang/sdk/message/a;Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	invoke-direct/range {p0 .. p5}, Lcom/laiwang/sdk/openapi/f;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/laiwang/sdk/message/a;Z)V</span>
+.end method
+
+.method static synthetic a(Lcom/laiwang/sdk/openapi/f;Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/laiwang/sdk/openapi/f;->i:Z</span>
+.end method
+
+.method public static a(Landroid/app/Application;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	sput-object p0, Lcom/laiwang/sdk/openapi/f;->c:Landroid/app/Application;</span>
+<span class="">	const/4 v0, 0x1</span>
+.end method
+
+.method private b(Landroid/content/Context;)I
+<span class="">	.locals 8</span>
+
+<span class="">	const/4 v7, -0x1</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	iget v4, p0, Lcom/laiwang/sdk/openapi/f;->m:I</span>
+<span class="">	iget-object v5, p0, Lcom/laiwang/sdk/openapi/f;->l:Ljava/lang/String;</span>
+<span class="">	iget-object v6, p0, Lcom/laiwang/sdk/openapi/f;->k:Ljava/lang/String;</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	invoke-direct/range {v0 .. v6}, Lcom/laiwang/sdk/openapi/f;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Z</span>
+<span class="">	invoke-virtual {p0}, Lcom/laiwang/sdk/openapi/f;->c()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	iget v0, p0, Lcom/laiwang/sdk/openapi/f;->m:I</span>
+<span class="">	invoke-static {p1, v0}, Lcom/laiwang/sdk/openapi/f;->a(Landroid/content/Context;I)V</span>
+<span class="">	move v0, v7</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-boolean v1, p0, Lcom/laiwang/sdk/openapi/f;->f:Z</span>
+<span class="">	if-eqz v1, :cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/laiwang/sdk/openapi/f;->o:Lcom/laiwang/sdk/a/b;</span>
+<span class="">	invoke-virtual {v1}, Lcom/laiwang/sdk/a/b;->a()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_3</span>
+<span class="">	iget v0, p0, Lcom/laiwang/sdk/openapi/f;->m:I</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v1, p0, Lcom/laiwang/sdk/openapi/f;->k:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p0, v0, v1}, Lcom/laiwang/sdk/openapi/f;->a(ILjava/lang/String;)Z</span>
+<span class="">	const/16 v0, 0x7d0</span>
+<span class="">	iget-boolean v1, p0, Lcom/laiwang/sdk/openapi/f;->f:Z</span>
+<span class="">	:cond_3</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	iget v0, p0, Lcom/laiwang/sdk/openapi/f;->m:I</span>
+<span class="">	invoke-static {p1, v0}, Lcom/laiwang/sdk/openapi/f;->a(Landroid/content/Context;I)V</span>
+<span class="">	move v0, v7</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic b(Lcom/laiwang/sdk/openapi/f;)Lcom/laiwang/sdk/openapi/LWAPIAccount;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+.end method
+
+.method private b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/laiwang/sdk/message/a;Z)V
+<span class="">	.locals 6</span>
+
+<span class="">	const-string v0, "DYNAMIC2"</span>
+<span class="">	invoke-virtual {v0, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	const-string v2, "com.alibaba.android.babylon"</span>
+<span class="">	const-string v3, "com.alibaba.android.babylon.biz.im.activity.LaiwangShareActivity"</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v4, p4</span>
+<span class="">	move v5, p5</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/laiwang/sdk/openapi/f;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/laiwang/sdk/message/a;Z)Z</span>
+<span class="">	:goto_0</span>
+<span class="">	const-string v2, "com.alibaba.android.babylon"</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v3, "com.alibaba.android.babylon.biz.im.activity.RecentIMListActivity"</span>
+<span class="">	move-object v0, p0</span>
+<span class="">	move-object v1, p1</span>
+<span class="">	move-object v4, p4</span>
+<span class="">	move v5, p5</span>
+<span class="">	invoke-virtual/range {v0 .. v5}, Lcom/laiwang/sdk/openapi/f;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/laiwang/sdk/message/a;Z)Z</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic b(Lcom/laiwang/sdk/openapi/f;Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/laiwang/sdk/openapi/f;->j:Z</span>
+.end method
+
+.method private b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Z
+<span class="">	.locals 3</span>
+
+<span class="">	const/4 v2, 0x1</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v0, p2}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->c(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v0, p3}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->a(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->p:Lcom/laiwang/sdk/openapi/b;</span>
+<span class="">	iget-object v1, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/laiwang/sdk/openapi/b;->a(Lcom/laiwang/sdk/openapi/LWAPIAccount;)V</span>
+<span class="">	iput-object p6, p0, Lcom/laiwang/sdk/openapi/f;->k:Ljava/lang/String;</span>
+<span class="">	iput p4, p0, Lcom/laiwang/sdk/openapi/f;->m:I</span>
+<span class="">	iput-object p5, p0, Lcom/laiwang/sdk/openapi/f;->l:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/app/Application;</span>
+<span class="">	invoke-static {v0}, Lcom/laiwang/sdk/openapi/f;->a(Landroid/app/Application;)Z</span>
+<span class="">	iget-boolean v0, p0, Lcom/laiwang/sdk/openapi/f;->h:Z</span>
+<span class="">	if-eqz v0, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	iget-boolean v0, p0, Lcom/laiwang/sdk/openapi/f;->f:Z</span>
+<span class="">	:cond_0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->o:Lcom/laiwang/sdk/a/b;</span>
+<span class="">	invoke-virtual {v0}, Lcom/laiwang/sdk/a/b;->a()Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->k:Ljava/lang/String;</span>
+<span class="">	:cond_1</span>
+<span class="">	invoke-virtual {p0, p4, v0}, Lcom/laiwang/sdk/openapi/f;->a(ILjava/lang/String;)Z</span>
+<span class="">	iput-boolean v2, p0, Lcom/laiwang/sdk/openapi/f;->h:Z</span>
+<span class="">	:cond_2</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method static synthetic c(Lcom/laiwang/sdk/openapi/f;)Lcom/laiwang/sdk/openapi/b;
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->p:Lcom/laiwang/sdk/openapi/b;</span>
+.end method
+
+.method static synthetic c(Lcom/laiwang/sdk/openapi/f;Z)V
+<span class="">	.locals 0</span>
+
+<span class="">	iput-boolean p1, p0, Lcom/laiwang/sdk/openapi/f;->g:Z</span>
+.end method
+
+.method static synthetic d(Lcom/laiwang/sdk/openapi/f;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/laiwang/sdk/openapi/f;->n:I</span>
+.end method
+
+.method public static e()Landroid/app/Application;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/laiwang/sdk/openapi/f;->c:Landroid/app/Application;</span>
+.end method
+
+.method static synthetic e(Lcom/laiwang/sdk/openapi/f;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/laiwang/sdk/openapi/f;->g:Z</span>
+.end method
+
+.method static synthetic f(Lcom/laiwang/sdk/openapi/f;)Z
+<span class="">	.locals 1</span>
+
+<span class="">	iget-boolean v0, p0, Lcom/laiwang/sdk/openapi/f;->i:Z</span>
+.end method
+
+.method static synthetic g(Lcom/laiwang/sdk/openapi/f;)I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/laiwang/sdk/openapi/f;->m:I</span>
+.end method
+
+.method protected a(Landroid/content/Context;)V
+<span class="">	.locals 3</span>
+
+<span class="">	new-instance v0, Landroid/app/AlertDialog$Builder;</span>
+<span class="">	invoke-direct {v0, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V</span>
+<span class="">	const-string v1, "\u63d0\u793a"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	const-string v1, "\u786e\u8ba4\u9000\u51fa\u5417\uff1f"</span>
+<span class="">	invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	const-string v1, "\u786e\u8ba4"</span>
+<span class="">	new-instance v2, Lcom/laiwang/sdk/openapi/k;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/laiwang/sdk/openapi/k;-><init>(Lcom/laiwang/sdk/openapi/f;)V</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	const-string v1, "\u53d6\u6d88"</span>
+<span class="">	new-instance v2, Lcom/laiwang/sdk/openapi/l;</span>
+<span class="">	invoke-direct {v2, p0}, Lcom/laiwang/sdk/openapi/l;-><init>(Lcom/laiwang/sdk/openapi/f;)V</span>
+<span class="">	invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V</span>
+.end method
+
+.method public a(Lcom/laiwang/sdk/openapi/e$a;)V
+<span class="">	.locals 1</span>
+
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->p:Lcom/laiwang/sdk/openapi/b;</span>
+<span class="">	invoke-virtual {v0, p1}, Lcom/laiwang/sdk/openapi/b;->a(Lcom/laiwang/sdk/openapi/e$a;)V</span>
+.end method
+
+.method public a()Z
+<span class="">	.locals 4</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-virtual {p0}, Lcom/laiwang/sdk/openapi/f;->c()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_0</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-virtual {p0}, Lcom/laiwang/sdk/openapi/f;->f()Landroid/content/Context;</span>
+<span class="">	:cond_0</span>
+<span class="">	:try_start_0</span>
+<span class="">	move-result-object v1</span>
+<span class="">	invoke-virtual {p0}, Lcom/laiwang/sdk/openapi/f;->f()Landroid/content/Context;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	const-string v3, "com.alibaba.android.babylon"</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/content/pm/PackageManager;->getLaunchIntentForPackage(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	move-result-object v2</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:try_end_0</span>
+<span class="">	.catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-exception v1</span>
+<span class="">	:catch_0</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(I)Z
+<span class="">	.locals 2</span>
+
+<span class="">	const/4 v0, 0x3</span>
+<span class="">	if-eq v0, p1, :cond_0</span>
+<span class="">	const/4 v0, 0x4</span>
+<span class="">	if-ne v0, p1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	iget v0, p0, Lcom/laiwang/sdk/openapi/f;->n:I</span>
+<span class="">	const v1, 0x20140101</span>
+<span class="">	if-ge v0, v1, :cond_1</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:goto_0</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(ILjava/lang/String;)Z
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->o:Lcom/laiwang/sdk/a/b;</span>
+<span class="">	new-instance v1, Lcom/laiwang/sdk/openapi/g;</span>
+<span class="">	invoke-direct {v1, p0, p1, p2}, Lcom/laiwang/sdk/openapi/g;-><init>(Lcom/laiwang/sdk/openapi/f;ILjava/lang/String;)V</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/laiwang/sdk/a/b;->a(Lcom/laiwang/sdk/a/b$a;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	iput-boolean v0, p0, Lcom/laiwang/sdk/openapi/f;->f:Z</span>
+<span class="">	iget-boolean v0, p0, Lcom/laiwang/sdk/openapi/f;->f:Z</span>
+.end method
+
+.method public a(Landroid/content/Context;Lcom/laiwang/sdk/message/a;I)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	if-nez p1, :cond_0</span>
+<span class="">	sget-object p1, Lcom/laiwang/sdk/openapi/f;->c:Landroid/app/Application;</span>
+<span class="">	:cond_0</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/laiwang/sdk/openapi/f;->b(Landroid/content/Context;)I</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	if-ne v1, v2, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	invoke-interface {p2}, Lcom/laiwang/sdk/message/a;->i()Z</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	const-string v2, "com.alibaba.android.babylon"</span>
+<span class="">	invoke-static {p1, v2}, Lcom/laiwang/sdk/openapi/LwSecurity;->b(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v2</span>
+<span class="">	if-eqz v2, :cond_1</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->q:Landroid/os/Handler;</span>
+<span class="">	new-instance v2, Lcom/laiwang/sdk/openapi/j;</span>
+<span class="">	invoke-direct {v2, p0, p1, p3, p2}, Lcom/laiwang/sdk/openapi/j;-><init>(Lcom/laiwang/sdk/openapi/f;Landroid/content/Context;ILcom/laiwang/sdk/message/a;)V</span>
+<span class="">	int-to-long v3, v1</span>
+<span class="">	invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Landroid/content/Context;Ljava/lang/String;Lcom/laiwang/sdk/openapi/e$a;)Z
+<span class="">	.locals 6</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	const-string v0, "com.alibaba.android.babylon"</span>
+<span class="">	invoke-static {p1, v0}, Lcom/laiwang/sdk/openapi/LwSecurity;->b(Landroid/content/Context;Ljava/lang/String;)Z</span>
+<span class="">	move-result v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	if-nez p1, :cond_1</span>
+<span class="">	:cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/laiwang/sdk/openapi/f;->b(Landroid/content/Context;)I</span>
+<span class="">	:cond_1</span>
+<span class="">	move-result v2</span>
+<span class="">	const/4 v0, -0x1</span>
+<span class="">	if-ne v2, v0, :cond_2</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	move-object v0, p1</span>
+<span class="">	:cond_2</span>
+<span class="">	check-cast v0, Landroid/app/Activity;</span>
+<span class="">	invoke-virtual {v0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v3, "link"</span>
+<span class="">	invoke-virtual {v0, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z</span>
+<span class="">	move-result v3</span>
+<span class="">	if-eqz v3, :cond_3</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v1, p0, Lcom/laiwang/sdk/openapi/f;->q:Landroid/os/Handler;</span>
+<span class="">	:cond_3</span>
+<span class="">	new-instance v3, Lcom/laiwang/sdk/openapi/n;</span>
+<span class="">	invoke-direct {v3, p0, p1, v0, p3}, Lcom/laiwang/sdk/openapi/n;-><init>(Lcom/laiwang/sdk/openapi/f;Landroid/content/Context;Ljava/lang/String;Lcom/laiwang/sdk/openapi/e$a;)V</span>
+<span class="">	int-to-long v4, v2</span>
+<span class="">	invoke-virtual {v1, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/laiwang/sdk/message/a;Z)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-static {p1, p2}, Lcom/laiwang/sdk/c/d;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/pm/PackageInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-nez v0, :cond_0</span>
+<span class="">	move v0, v1</span>
+<span class="">	:goto_0</span>
+<span class="">	new-instance v2, Landroid/content/Intent;</span>
+<span class="">	:cond_0</span>
+<span class="">	const-string v3, "android.intent.action.MAIN"</span>
+<span class="">	const/4 v4, 0x0</span>
+<span class="">	invoke-direct {v2, v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V</span>
+<span class="">	const-string v3, "android.intent.category.LAUNCHER"</span>
+<span class="">	invoke-virtual {v2, v3}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;</span>
+<span class="">	invoke-virtual {v2, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v0, v2, v1}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	check-cast v0, Landroid/content/pm/ResolveInfo;</span>
+<span class="">	if-nez v0, :cond_1</span>
+<span class="">	move v0, v1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;</span>
+<span class="">	:cond_1</span>
+<span class="">	iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;</span>
+<span class="">	new-instance v1, Landroid/content/Intent;</span>
+<span class="">	const-string v2, "android.intent.action.MAIN"</span>
+<span class="">	invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V</span>
+<span class="">	const-string v2, "com.laiwang.recent.im.share.sdk"</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	const-string v2, "android.intent.category.LAUNCHER"</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	new-instance v2, Landroid/content/ComponentName;</span>
+<span class="">	invoke-direct {v2, v0, p3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V</span>
+<span class="">	if-eqz p5, :cond_2</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p4, v0}, Lcom/laiwang/sdk/message/a;->b(Ljava/lang/String;)V</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v0}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->a()Ljava/lang/String;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-interface {p4, v0}, Lcom/laiwang/sdk/message/a;->c(Ljava/lang/String;)V</span>
+<span class="">	invoke-interface {p4}, Lcom/laiwang/sdk/message/a;->h()Landroid/os/Bundle;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	invoke-virtual {v1, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;</span>
+<span class="">	invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;</span>
+<span class="">	:goto_1</span>
+<span class="">	invoke-virtual {p1, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+<span class="">	const-string v0, "appToken"</span>
+<span class="">	:cond_2</span>
+<span class="">	iget-object v3, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v3}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->d()Ljava/lang/String;</span>
+<span class="">	move-result-object v3</span>
+<span class="">	invoke-virtual {v1, v0, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;</span>
+<span class="">	const-string v0, "randomKey"</span>
+<span class="">	iget-object v3, p0, Lcom/laiwang/sdk/openapi/f;->e:Lcom/laiwang/sdk/openapi/LWAPIAccount;</span>
+<span class="">	invoke-virtual {v3}, Lcom/laiwang/sdk/openapi/LWAPIAccount;->c()I</span>
+<span class="">	move-result v3</span>
+<span class="">	invoke-virtual {v1, v0, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;</span>
+<span class="">	goto :goto_1</span>
+.end method
+
+.method public b()V
+<span class="">	.locals 2</span>
+
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->p:Lcom/laiwang/sdk/openapi/b;</span>
+<span class="">	const/4 v1, 0x0</span>
+<span class="">	invoke-virtual {v0, v1}, Lcom/laiwang/sdk/openapi/b;->a(Lcom/laiwang/sdk/openapi/e$a;)V</span>
+.end method
+
+.method public b(Landroid/content/Context;Lcom/laiwang/sdk/message/a;I)Z
+<span class="">	.locals 5</span>
+
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	invoke-interface {p2}, Lcom/laiwang/sdk/message/a;->i()Z</span>
+<span class="">	move-result v1</span>
+<span class="">	if-nez v1, :cond_1</span>
+<span class="">	:goto_0</span>
+<span class="">	:cond_0</span>
+<span class="">	if-nez p1, :cond_2</span>
+<span class="">	:cond_1</span>
+<span class="">	sget-object p1, Lcom/laiwang/sdk/openapi/f;->c:Landroid/app/Application;</span>
+<span class="">	invoke-direct {p0, p1}, Lcom/laiwang/sdk/openapi/f;->b(Landroid/content/Context;)I</span>
+<span class="">	:cond_2</span>
+<span class="">	move-result v1</span>
+<span class="">	const/4 v2, -0x1</span>
+<span class="">	if-eq v1, v2, :cond_0</span>
+<span class="">	iget-object v0, p0, Lcom/laiwang/sdk/openapi/f;->q:Landroid/os/Handler;</span>
+<span class="">	new-instance v2, Lcom/laiwang/sdk/openapi/m;</span>
+<span class="">	invoke-direct {v2, p0, p1, p3, p2}, Lcom/laiwang/sdk/openapi/m;-><init>(Lcom/laiwang/sdk/openapi/f;Landroid/content/Context;ILcom/laiwang/sdk/message/a;)V</span>
+<span class="">	int-to-long v3, v1</span>
+<span class="">	invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public c()Z
+<span class="">	.locals 3</span>
+
+<span class="">	invoke-static {}, Lcom/laiwang/sdk/openapi/f;->e()Landroid/app/Application;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	const-string v1, "com.alibaba.android.babylon"</span>
+<span class="">	invoke-static {v0, v1}, Lcom/laiwang/sdk/c/d;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/pm/PackageInfo;</span>
+<span class="">	move-result-object v0</span>
+<span class="">	if-eqz v0, :cond_1</span>
+<span class="">	const/4 v0, 0x1</span>
+<span class="">	:goto_0</span>
+<span class="">	sget-boolean v1, Lcom/laiwang/sdk/openapi/LwSecurity;->a:Z</span>
+<span class="">	if-eqz v1, :cond_0</span>
+<span class="">	invoke-static {}, Lcom/laiwang/sdk/openapi/LwSecurity;->b()Lcom/laiwang/sdk/openapi/LwSecurity;</span>
+<span class="">	move-result-object v1</span>
+<span class="">	const-string v2, "com.alibaba.android.babylon"</span>
+<span class="">	invoke-virtual {v1, v2}, Lcom/laiwang/sdk/openapi/LwSecurity;->checkCertificate(Ljava/lang/String;)Z</span>
+<span class="">	move-result v1</span>
+<span class="">	or-int/2addr v0, v1</span>
+<span class="">	:cond_0</span>
+<span class="">	const/4 v0, 0x0</span>
+<span class="">	:cond_1</span>
+<span class="">	goto :goto_0</span>
+.end method
+
+.method public d()I
+<span class="">	.locals 1</span>
+
+<span class="">	iget v0, p0, Lcom/laiwang/sdk/openapi/f;->n:I</span>
+.end method
+
+.method public f()Landroid/content/Context;
+<span class="">	.locals 1</span>
+
+<span class="">	sget-object v0, Lcom/laiwang/sdk/openapi/f;->c:Landroid/app/Application;</span>
+.end method</code>
+	</pre>
+    <div class="footer"><span class="right">Created with <a href="https://github.com/pilgun/acvtool">ACVTool</a> 0.1</span></div>
+
+	<script type="text/javascript" src="../../../../.resources/highlight/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../../../.resources/report.js"></script>
+</body>
+</html>
